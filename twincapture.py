@@ -285,6 +285,8 @@ def _capture_dirs(root, have, state, dirs, max_files):
 
 def tick(root, cfg=None):
     """Read every named source once. Returns {panel, command, edit}."""
+    import twin
+    twin.need_scope(root, "predict")
     tc = twin_cfg(cfg)
     have = {e["hash"] for e in events(root) if "hash" in e}
     state = _read_json(os.path.join(root, STATE), {})

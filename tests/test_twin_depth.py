@@ -101,6 +101,28 @@ def _pending(root, key, server):
 
 
 # --------------------------------------------------------------- 1 capture
+def check_capture_consent(home):
+    root = os.path.join(home, "no-capture-consent")
+    os.makedirs(root, exist_ok=True)
+    history = os.path.join(root, "fixture-history.txt")
+    with open(history, "w", encoding="utf-8") as stream:
+        stream.write("git status\n")
+    cfg = {"agent": {"twin": {"capture_history": history}}}
+    for revoked in (False, True):
+        if revoked:
+            twin.consent_grant(root, "predict")
+            twin.consent_revoke(root)
+        try:
+            C.tick(root, cfg)
+        except twin.Refused:
+            pass
+        else:
+            raise AssertionError("capture ran without active Twin consent")
+        assert not os.path.exists(os.path.join(root, C.STATE))
+        assert C.events(root) == []
+    print("[capture-consent] direct capture refuses absent and revoked consent before creating state or reading named history")
+
+
 def check_capture(home):
     hist = os.path.join(home, "history.txt")
     watched = os.path.join(home, "watched")
@@ -429,6 +451,7 @@ def check_registration():
 def main():
     home = make_sandbox("twin-depth", providers={"m": {"script": "s.json"}},
                         roles={"r_m": "m"}, scripts={"s.json": []})
+    check_capture_consent(home)
     check_capture(home)
     check_routines(home)
     check_cold_start(home)

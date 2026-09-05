@@ -21,6 +21,10 @@ PY = sys.executable
 
 # (label, file, find, replace, test, what the test must notice)
 MUTATIONS = [
+    ("capture: direct tick ignores consent", "twincapture.py",
+     '    twin.need_scope(root, "predict")',
+     '    pass  # deliberately bypass capture consent',
+     "test_twin_depth.py", "capture continues without active consent"),
     # ---- the owner's twin (docs/DESIGN-P10): four laws, each broken once
     ("twin: sealed prediction revealed before the decision", "twin.py",
      '''    if p.get("status") == "sealed":
