@@ -123,13 +123,48 @@ def check_capture_consent(home):
     print("[capture-consent] direct capture refuses absent and revoked consent before creating state or reading named history")
 
 
+def check_capture_owner(home):
+    from unittest.mock import patch
+    root = os.path.join(home, "capture-owner")
+    os.makedirs(root, exist_ok=True)
+    twin.consent_grant(root, "predict", by="owner-a")
+    rows = [{"actor": actor, "at": "2026-09-05T10:00:00",
+             "action": "steer", "object_kind": "goal", "object": "same-goal"}
+            for actor in ("owner-a", "owner-b", "agent:worker", "")]
+    # Existing pre-reconciliation events remain byte-for-byte intact.
+    legacy = "panel:2026-09-05T10:00:00:steer:same-goal"
+    C._record(root, set(), "panel", "legacy owner action", legacy,
+              meta={"actor": "owner-a"})
+    path = os.path.join(root, C.EVENTS)
+    with open(path, "rb") as stream:
+        original = stream.read()
+    with patch.object(org, "trail", return_value=rows):
+        assert C.tick(root, {})["panel"] == 0, "captured another human or duplicated legacy owner"
+        twin.consent_grant(root, "predict", by="owner-b")
+        assert C.tick(root, {})["panel"] == 1, "same-time actor collision lost the new owner's event"
+        assert C.tick(root, {})["panel"] == 0, "repeat tick duplicated a panel event"
+    with open(path, "rb") as stream:
+        assert stream.read().startswith(original), "legacy event history was rewritten"
+    assert [e["meta"]["actor"] for e in C.events(root)] == ["owner-a", "owner-b"]
+    fresh = os.path.join(home, "capture-owner-fresh")
+    os.makedirs(fresh, exist_ok=True)
+    twin.consent_grant(fresh, "predict", by="owner-a")
+    with patch.object(org, "trail", return_value=rows):
+        assert C.tick(fresh, {})["panel"] == 1
+    assert [e["meta"]["actor"] for e in C.events(fresh)] == ["owner-a"]
+    print("[capture-owner] only the consented actor is added; same-time actors do not collide; legacy bytes and repeat-tick deduplication are preserved")
+
+
 def check_capture(home):
     hist = os.path.join(home, "history.txt")
     watched = os.path.join(home, "watched")
     os.makedirs(watched, exist_ok=True)
     io.open(os.path.join(watched, "a.py"), "w", encoding="utf-8").write("x = 1\ny = 2\n")
+    # Construct the redaction decoy at runtime, as test_package does. The
+    # shipped test source should not need a whole-file credential exemption.
+    decoy = "sk-" + "abcdefghijklmnopqrstuvwxyz0123456789ABCD"
     io.open(hist, "w", encoding="utf-8").write(
-        "git status\ncurl -H 'Authorization: Bearer sk-abcdefghijklmnopqrstuvwxyz0123456789ABCD' https://x\n")
+        f"git status\ncurl -H 'Authorization: Bearer {decoy}' https://x\n")
     root = _expert(home, "captured", extra=[
         f'capture_history = {json.dumps(hist)}',
         f'capture_dirs = [{json.dumps(watched)}]'])
@@ -144,7 +179,7 @@ def check_capture(home):
     assert any(e["text"] == "git status" for e in cmds)
     assert any(e["text"] == "[redacted command]" and e["meta"]["redacted"] for e in cmds)
     raw = io.open(os.path.join(root, C.EVENTS), encoding="utf-8").read()
-    assert "sk-abcdefghijklmnopqrstuvwxyz" not in raw and "Bearer" not in raw
+    assert decoy not in raw and "Bearer" not in raw
     # an edit: counts, never content
     io.open(os.path.join(watched, "a.py"), "w", encoding="utf-8").write(
         "x = 1\ny = 2\nSECRET_LINE = 3\nz = 4\n")
@@ -224,7 +259,11 @@ def check_cold_start(home):
     st = A.vignette_status(vs, twin.episodes(root))
     assert all(v["answered"] == 1 for v in st)
     res = twin.learn(root)
-    assert res["status"] == "fit" and res["n_fit"] + res["n_holdout"] == 24
+    fitted = twin.current_version(twin.load_kernel(root))
+    assert res["status"] == "fit"
+    assert res["n_fit"] + len(fitted["validation_ids"]) + res["n_holdout"] == 24
+    partitions = [set(fitted[key]) for key in ("fit_ids", "validation_ids", "test_ids")]
+    assert not any(a & b for i, a in enumerate(partitions) for b in partitions[i + 1:])
     for v in vs[:3]:
         f = v["features"]
         out = twin.vignette_answer(root, v, "deny" if (f["risk"] > 0.5 and f["margin"] < 0.3)
@@ -266,7 +305,9 @@ def check_objectives(home):
     assert early["as_of"] == "2001-01-01T00:00:00"
     print("[objectives] a mission and a goal were read into objectives() and the "
           "OWNER block; a prediction as of 2001 cited no episode and reported "
-          "nothing knowable, one as of 2099 cited all 150")
+          "zero earlier recorded episodes; a 2099 cutoff counted 150 records "
+          "and allowed frozen training neighbors, not all 150 as citations; "
+          "historical trained-state reconstruction is not tested")
     return root
 
 
@@ -452,6 +493,7 @@ def main():
     home = make_sandbox("twin-depth", providers={"m": {"script": "s.json"}},
                         roles={"r_m": "m"}, scripts={"s.json": []})
     check_capture_consent(home)
+    check_capture_owner(home)
     check_capture(home)
     check_routines(home)
     check_cold_start(home)

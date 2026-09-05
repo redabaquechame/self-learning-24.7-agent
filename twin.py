@@ -7,12 +7,12 @@ for actually decides — learned from that person's own decisions, scored in
 shadow against the decisions they make later, honest about where it does
 not know, and versioned when the person changes. Two layers, never mixed:
 
-  THE CLONE       predict(): what would the owner do here — a calibrated
+  THE CLONE       predict(): what would the owner do here — an estimated
                   distribution over the options, the features that drove
                   it, a novelty score, and an "ask for more information"
                   mass. Three arms: a conditional-logit fit over declared
                   features, behavioral programs mined from the episodes
-                  (candidate → proven on held-out rows), and the nearest
+                  (candidate → supported on validation rows), and the nearest
                   past episodes. Everything mechanical; no model call.
   THE SUPER-SELF  superself(): the same identity, standards and objectives,
                   handed a model and the platform's augmentation, asked what
@@ -55,11 +55,13 @@ import os
 import re
 import sys
 import time
+import uuid
 
 HOME = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HOME)
 
 import twinmath as M            # noqa: E402
+import twinmeasurement as TM    # noqa: E402
 import twinaugment as A         # noqa: E402
 import twincapture as C         # noqa: E402
 
@@ -86,7 +88,7 @@ SUPER_LABEL = ("SUPER-SELF — identity-preserving recommendation; the "
 SCOPES = ["predict", "advise", "draft", "act"]
 CONSENT_NS = "twin-consent"
 
-RULE_BONUS = {"proven": 2.0, "candidate": 1.0}
+RULE_BONUS = {"proven": 2.0, "supported": 2.0, "candidate": 1.0}
 NEIGHBOR_BONUS = 0.3
 NEIGHBORS = 5
 MIN_NEIGHBOR_SIM = 0.5           # a vague resemblance is not a precedent
@@ -132,7 +134,10 @@ def _read_json(path, default):
 
 def _write_json(path, obj):
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    tmp = f"{path}.{os.getpid()}.tmp"
+    # a UUID, not the PID alone: two threads of one process aiming at the
+    # same twin file must never share a scratch name (fileauth.write_text
+    # and checkpoint._atomic_write learned this; DESIGN-P11, memory G9)
+    tmp = f"{path}.{os.getpid()}.{uuid.uuid4().hex}.tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=1, ensure_ascii=False)
     os.replace(tmp, path)
@@ -156,9 +161,13 @@ def _read_jsonl(path):
 
 
 def _append_jsonl(path, rec):
+    """Under the ledger lock: the episode, prediction and question ledgers
+    are appended by the loop, the panel and the CLI (DESIGN-P11, G4)."""
+    import locks
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "a", encoding="utf-8") as f:
-        f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    with locks.holding(path):
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
 
 def _parse_at(s):
@@ -598,17 +607,32 @@ def _reasons(rows, top=6):
 
 def _fit_version(eps_all, since, texts):
     rows = decisions(eps_all[since:])
-    fitset = [e for e in rows if not M.is_holdout(e["id"])]
-    holdout = [e for e in rows if M.is_holdout(e["id"])]
+    parts = TM.split(rows)
+    fitset = parts["train"]
+    validation = parts["validation"]
+    holdout = parts["test"]
     model = M.fit(fitset)
-    rules = M.validate_rules(M.mine_rules(fitset), holdout)
+    rules = M.validate_rules(M.mine_rules(fitset), validation)
+    for rule in rules:
+        if rule["status"] == "proven":
+            rule["status"] = "supported"
+    # Decision explanations from validation/test never enter the fitted body.
+    # Standalone writing observations remain a separate style corpus, not
+    # evidence of clean temporal or behavioral generalization.
+    style_texts = [e["situation"]["text"] for e in eps_all if not e.get("options")
+                  and e.get("situation", {}).get("text")]
+    style_texts += [e["why"] for e in fitset if e.get("why")]
     body = {"model": model, "rules": rules,
             "attention": M.attention(model), "signed": M.signed_weights(model),
-            "social": _social(rows), "style": M.style_profile(texts),
-            "reasons": _reasons(rows),
+            "social": _social(fitset), "style": M.style_profile(style_texts),
+            "reasons": _reasons(fitset),
             "n_fit": len(fitset), "n_holdout": len(holdout),
-            "since": since, "fit_ids": sorted(e["id"] for e in fitset)}
-    body["hash"] = _sha({"model": model, "rules": rules})
+            "since": since, "fit_ids": sorted(e["id"] for e in fitset),
+            "validation_ids": sorted(e["id"] for e in validation),
+            "test_ids": sorted(e["id"] for e in holdout),
+            "neighbors": fitset, "measurement_schema": TM.SCHEMA,
+            "partition_provenance": "retrospective inferred exact-scenario groups"}
+    body["hash"] = TM.fitted_digest(body)
     return body
 
 
@@ -654,7 +678,8 @@ def learn(root, new_version=False, note=""):
     return {"status": "fit", "version": v["v"], "hash": v["hash"],
             "n_fit": v["n_fit"], "n_holdout": v["n_holdout"],
             "rules": len(v["rules"]),
-            "proven_rules": sum(1 for r in v["rules"] if r["status"] == "proven")}
+            "proven_rules": 0,
+            "supported_rules": sum(1 for r in v["rules"] if r["status"] == "supported")}
 
 
 # ================================================================ predict
@@ -712,17 +737,18 @@ def predict(root, situation, options, counterpart=None, kernel=None,
             version=None, neighbors_from=None, at=None):
     """The Clone. -> the labeled distribution described in the design.
 
-    neighbors_from: the episodes the memory arm may cite (default: every
-    decision on the ledger). The benchmark passes the FIT set, so a held-out
-    row can never be its own precedent.
-    at: reconstruct the moment — only episodes stamped before `at` may be
-    cited, and the output says what was knowable then."""
+    neighbors_from: explicit internal evaluation override. New fits default
+    to frozen training neighbors. Legacy fits retain their old behavior
+    until relearned and cannot produce a new fidelity diagnostic.
+    at filters citations only; it does not reconstruct a historical model."""
     need_scope(root, "predict")
     k = kernel or load_kernel(root)
     v = version or current_version(k)
     if not v:
         raise Refused("no kernel yet: record decisions (observe/harvest) and "
                       "run python twin.py learn")
+    if v.get("measurement_schema") == TM.SCHEMA and v.get("hash") != TM.fitted_digest(v):
+        raise Refused("changed fitted snapshot: hash mismatch")
     situation = _norm_situation(situation)
     options = _norm_options(options)
     if len(options) < 2:
@@ -740,8 +766,8 @@ def predict(root, situation, options, counterpart=None, kernel=None,
             bonus[r["then"]] = max(bonus.get(r["then"], 0.0), _rule_bonus(r))
     for oid, b in bonus.items():
         logodds[oid] += b
-    past = (neighbors_from if neighbors_from is not None
-            else decisions(episodes(root)))
+    past = (neighbors_from if neighbors_from is not None else
+            v["neighbors"] if "neighbors" in v else decisions(episodes(root)))
     known = None
     if at:
         t = _parse_at(at)
@@ -1071,6 +1097,12 @@ def _drift_update(root, loss, row):
     if d.get("notice") and d["notice"].get("status") == "open":
         _write_json(_p(root, DRIFT), d)
         return d["notice"]
+    # An unfamiliar decision tests coverage, not a change to an established
+    # owner policy. Retain its loss as evidence without freezing a cold fit.
+    if row.get("novelty", 1.0) >= NOVEL:
+        d["resolved"][-1]["drift_excluded"] = "novel decision"
+        _write_json(_p(root, DRIFT), d)
+        return d.get("notice")
     ph = M.PageHinkley(state=d["ph"])
     tripped = ph.update(float(loss))
     d["ph"] = ph.state()
@@ -1168,19 +1200,30 @@ def fidelity(root):
     if not v:
         raise Refused("no kernel yet")
     eps = episodes(root)
-    rows = decisions(eps[int(v.get("since") or 0):])
+    rows = sorted(decisions(eps[int(v.get("since") or 0):]), key=lambda e: e["id"])
+    auxiliary = TM.auxiliary_snapshot(root, episodes_from=eps)
+    evaluation_runtime = TM.runtime()
+    if v.get("measurement_schema") != TM.SCHEMA:
+        raise Refused("legacy fit: run learn before a new retrospective diagnostic")
+    if v.get("hash") != TM.fitted_digest(v):
+        raise Refused("contaminated or changed fit: snapshot hash mismatch")
     fit_ids = set(v.get("fit_ids") or [])
-    held = [e for e in rows if M.is_holdout(e["id"])]
+    try:
+        held = TM.split(rows)["test"]
+    except (ValueError, KeyError, TypeError) as error:
+        raise Refused("invalid evaluation dataset: " + str(error)) from error
     for e in held:
         if e["id"] in fit_ids:
             raise Refused(f"held-out row {e['id']} is in the fit set — "
                           f"contaminated split")
-    fitset = [e for e in rows if e["id"] in fit_ids]
+    fitset = v["neighbors"]
     scored = []
+    replay_scores = []
     for e in held:
         b = predict(root, e["situation"], e["options"], e.get("counterpart"),
                     kernel=k, version=v, neighbors_from=fitset)
         s = _score(b, str(e["choice"]))
+        replay_scores.append({"id": e["id"], "probs": b["probs"], "score": dict(s)})
         s["id"], s["counterpart"], s["kind"] = e["id"], e.get("counterpart"), e.get("kind")
         s["ranking"] = (M.kendall_tau(
             sorted(b["probs"], key=lambda i: -b["probs"][i]),
@@ -1189,6 +1232,9 @@ def fidelity(root):
     n = len(scored)
     rep = {"label": LABEL, "at": _now(), "kernel_version": v["v"],
            "kernel_hash": v["hash"], "n_holdout": n, "n_fit": v["n_fit"]}
+    rep["measurement_scope"] = "retrospective diagnostic; not prospective human validation"
+    rep["partition_provenance"] = v["partition_provenance"]
+    rep["n_test_groups"] = len({TM.group(e) for e in held})
     if n:
         hits = sum(1 for s in scored if s["hit"])
         rep["choice_fidelity"] = round(hits / n, 4)
@@ -1219,15 +1265,21 @@ def fidelity(root):
             min(rep["choice_fidelity"] / ceiling["agreement"], 1.5), 4)
     rep["correction_speed"] = _correction_speed(root)
     rep["writing"] = _writing_fidelity(root, eps)
-    rep["attention_fidelity"] = _attention_fidelity(root, v)
+    rep["attention_fidelity"] = _attention_fidelity(root, v, auxiliary["questions"])
     rep["preference_fidelity"] = _preference_fidelity(v, held)
     rep["temporal_fidelity"] = _temporal_fidelity(root, k, v, held, fitset)
     rep["outcome_fidelity"] = _outcome_fidelity(root, k, v, eps, fitset)
-    rep["workflow_fidelity"] = C.workflow_fidelity(C.events(root))
-    if n < MIN_HOLDOUT:
+    rep["workflow_fidelity"] = C.workflow_fidelity(auxiliary["events"], holdout_share=C.HOLDOUT_SHARE)
+    rep["depth_diagnostic_limits"] = {
+        "attention": "exploratory agreement with answered questions, not prospective attention validation",
+        "preference": "exploratory refit on final rows; not independent confirmation",
+        "temporal": "retrospective comparison; historical reconstruction not established",
+        "outcome": "observational association including fitted rows, not a causal benefit",
+        "workflow": "single retrospective event tail, not prospective workflow reliability"}
+    if rep["n_test_groups"] < MIN_HOLDOUT:
         rep["verdict"] = "INSUFFICIENT EVIDENCE"
-        rep["why"] = (f"{n} held-out decision(s); {MIN_HOLDOUT} are needed "
-                      f"before any fidelity claim is made")
+        rep["why"] = (f"{rep['n_test_groups']} distinct exact-scenario test groups; "
+                      f"{MIN_HOLDOUT} required for even an internal diagnostic tier")
     else:
         f, hce = rep["choice_fidelity"], rep["high_confidence_error_rate"] or 0.0
         rep["verdict"] = ("high" if f >= 0.9 and hce <= 0.05 else
@@ -1243,16 +1295,19 @@ def fidelity(root):
         ("outcome_fidelity", (rep["outcome_fidelity"] or {}).get("good_rate_agreed")),
         ("workflow_fidelity", (rep["workflow_fidelity"] or {}).get("accuracy")))
         if val is None]
+    rep.update(TM.archive(root, k, rows, replay_scores, rep,
+                          auxiliary, evaluation_runtime))
     _write_json(_p(root, FIDELITY), rep)
     return rep
 
 
-def _attention_fidelity(root, v):
+def _attention_fidelity(root, v, questions_from=None):
     """Of the answered why-questions that named a candidate feature, how
     many named one of the kernel's top-3 attention features."""
     top = {a["feature"].split(":", 1)[-1] for a in (v.get("attention") or [])[:3]}
     named = hits = 0
-    for q in questions(root, "answered"):
+    for q in (questions(root, "answered") if questions_from is None else
+              [q for q in questions_from if q.get("status") == "answered"]):
         if q.get("kind") != "why":
             continue
         ans = str(q.get("answer") or "").strip().lower()
@@ -1411,7 +1466,7 @@ def render(root, cap=MAX_RENDER_LINES):
     v = current_version(k)
     if not v or not v.get("n_fit"):
         return ""
-    fid = _read_json(_p(root, FIDELITY), {})
+    fid = TM.current_report(root) or {}
     L = [f"OWNER — how the person you work for actually decides, measured "
          f"from {v['n_fit'] + v['n_holdout']} of their decisions (kernel "
          f"v{v['v']}). You predict and advise; the owner decides."]
@@ -1445,9 +1500,9 @@ def render(root, cap=MAX_RENDER_LINES):
                         f"{'high' if w > 0 else 'low'} ({w:+.1f})")
     if bits:
         L.append("- the trade-offs they actually make: " + "; ".join(bits[:4]))
-    proven = [r for r in v.get("rules") or [] if r["status"] == "proven"]
+    proven = [r for r in v.get("rules") or [] if r["status"] in ("proven", "supported")]
     for r in proven[:4]:
-        L.append(f"- PROVEN habit: IF {r['text']} THEN {r['then']} "
+        L.append(f"- Empirically supported habit: IF {r['text']} THEN {r['then']} "
                  f"({r['support']} cases, {r['confidence']:.0%}, held "
                  f"on {r['holdout_support']} unseen)")
     for c, ts in list((v.get("reasons") or {}).items())[:2]:
@@ -1471,11 +1526,13 @@ def render(root, cap=MAX_RENDER_LINES):
     except Exception:
         pass
     if fid.get("verdict"):
-        if fid["verdict"] == "INSUFFICIENT EVIDENCE":
+        if fid["verdict"] == "STALE":
+            L.append("- fidelity: STALE — reevaluation required")
+        elif fid["verdict"] == "INSUFFICIENT EVIDENCE":
             L.append("- fidelity: INSUFFICIENT EVIDENCE — treat every line "
                      "above as a hypothesis about the owner")
         else:
-            L.append(f"- fidelity on held-out decisions: "
+            L.append(f"- retrospective choice diagnostic (not validated human fidelity): "
                      f"{fid.get('choice_fidelity'):.0%} ({fid['verdict']}), "
                      f"Brier {fid.get('brier')}, high-confidence error "
                      f"{(fid.get('high_confidence_error_rate') or 0):.1%}")
@@ -1690,6 +1747,8 @@ def status(root):
                         "rules": len(v["rules"]),
                         "proven_rules": sum(1 for r in v["rules"]
                                             if r["status"] == "proven"),
+                        "supported_rules": sum(1 for r in v["rules"]
+                                               if r["status"] in ("supported", "proven")),
                         "attention": v["attention"][:5],
                         "versions": len(k["versions"])} if v else None),
             "principles": bool(k.get("identity", {}).get("principles")),
@@ -1701,7 +1760,7 @@ def status(root):
                             "tamper": sum(1 for p in preds if p.get("status") == "tamper")},
             "questions_open": len(questions(root, "open")),
             "drift": drift_status(root).get("notice"),
-            "fidelity": _read_json(_p(root, FIDELITY), None),
+            "fidelity": TM.current_report(root),
             "events": len(C.events(root)),
             "interview": {"answered": len((k.get("identity") or {}).get("interview") or {}),
                           "of": len(A.INTERVIEW)},
@@ -1768,6 +1827,7 @@ def main():
     p = sub.add_parser("answer"); p.add_argument("id"); p.add_argument("--text", required=True)
     p = sub.add_parser("drift"); p.add_argument("op", choices=["status", "confirm", "dismiss"])
     sub.add_parser("fidelity")
+    p = sub.add_parser("replay-evaluation"); p.add_argument("receipt")
     sub.add_parser("render")
     p = sub.add_parser("quiz"); p.add_argument("--n", type=int, default=5)
     p.add_argument("--answer", nargs=2, metavar=("EPISODE", "CHOICE"))
@@ -1851,6 +1911,8 @@ def main():
                 drift_dismiss(root, a.by))
         elif a.cmd == "fidelity":
             out(fidelity(root))
+        elif a.cmd == "replay-evaluation":
+            out(TM.replay(root, a.receipt))
         elif a.cmd == "render":
             print(render(root) or "(no kernel — nothing to render)")
         elif a.cmd == "quiz":

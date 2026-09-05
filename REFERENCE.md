@@ -7,8 +7,8 @@ logic it runs, how you interact with it, and what it does **not** do.
 written by reading the code, not from memory; where a claim could rot, the
 test that keeps it honest is named.
 
-**Scale, so you know what you are reading about:** 119 Python modules,
-one HTML file for the whole UI, 155 acceptance tests, zero third-party
+**Scale, so you know what you are reading about:** 120 Python modules,
+one HTML file for the whole UI, 156 registered acceptance tests, zero third-party
 dependencies. Python 3.11+ and your own API keys.
 
 ---
@@ -633,13 +633,13 @@ python selfmodel.py --root experts/<slug>
 from the owner's own decisions, beneath every agent. Two layers, never
 mixed:
 
-- **The Clone** — `predict()`: a calibrated distribution over the options
+- **The Clone** — `predict()`: an estimated distribution over the options
   ("grant 0.72 · deny 0.19 · ask 0.09"), the features that drove it, a
   novelty score, the kernel version, and the label. Three mechanical arms:
   a conditional-logit fit over declared features (with pairwise
   interactions), behavioral programs mined from the episodes (candidate →
-  proven on held-out rows, bonus capped by lift over the base rate), and
-  the nearest past decisions (a held-out row is never its own precedent).
+  supported on separate validation rows, bonus capped by lift over the base rate), and
+  the frozen training neighbors (test rows are not their own precedents).
 - **The Super-Self** — `superself()`: the same identity and objectives,
   handed a model role (`[agent.twin] role`), asked what the owner would do
   knowing more; where it diverges from the Clone a *policy-update
@@ -648,17 +648,17 @@ mixed:
 What it keeps, all CONTROL, under `twin/`: `episodes.jsonl` (the
 experience stream — harvested from decided approvals, steering notes and
 answers, or recorded with `observe`/`import`), `kernel.json` (versions,
-each a hashed fit: preferences, attention, proven habits, per-counterpart
+each a hashed fit: preferences, attention, supported habits, per-counterpart
 social record, style profile), `predictions.jsonl` + `shadow/` (shadow
 predictions **sealed before the owner decides and hidden until they do**;
 a body edited under its seal scores as TAMPER), `questions.jsonl` (one
 open "why" at a time, asked only on a confident miss or a novel decision),
 `drift.json` (Page-Hinkley over prediction loss; a trip is a notice with
-both estimates and a question — `confirm` freezes a new version,
+both estimates and a question — `confirm` starts a new version,
 `dismiss` keeps the old), `fidelity.json` (choice fidelity, Brier, ECE,
 high-confidence error rate, novel-situation fidelity, self-consistency
 ceiling and normalized fidelity, correction speed, Burrows' Delta writing
-fidelity — **INSUFFICIENT EVIDENCE** below 20 held-out rows), and
+diagnostics — **INSUFFICIENT EVIDENCE** below 20 distinct test groups), and
 `authority.json`, the projection of the consent chain sealed under
 `org/learning` (owner-only, first-seal-wins; scopes nest `predict <
 advise < draft < act`; `act` only queues a gated task; every output on
@@ -667,8 +667,8 @@ owner`).
 
 Every window then carries an **OWNER** block after `self` — principles in
 the owner's words, what they look at first, the trade-offs they make, the
-proven habits, the counterpart rules, how they write, and the measured
-fidelity — for every role except the closed-book student.
+supported habits, the counterpart rules, how they write, and the retrospective
+diagnostic or stale warning — for every role except the closed-book student.
 
 ```bash
 python twin.py consent grant --scope predict --root experts/<slug>
@@ -682,7 +682,7 @@ python twin.py drift status|confirm|dismiss · superself · draft · act --done-
 
 (`test_twin.py`, 13 preregistered checks.)
 
-**Depth (docs/DESIGN-P10.1-twin-depth.md; `twincapture.py`,
+**Depth candidate, not accepted (docs/DESIGN-P10.1-twin-depth.md; `twincapture.py`,
 `twinaugment.py`; `test_twin_depth.py`, 9 checks).** The work stream —
 Layer 1 as far as consent and a stdlib reach: the owner's panel actions
 (from `org/audit.jsonl`), a shell history file the owner names
@@ -696,7 +696,7 @@ vs. the majority baseline. The cold start: a fourteen-question
 from a feature schema (`features`, `vignette_options`), each answer an
 episode, a re-answer a retest. **Objectives** (missions, goals, armed
 intentions) and a **belief state** (`predict --at`: only earlier
-episodes are cited; what was knowable is reported) join the kernel. The
+episodes are cited; this does not reconstruct historical trained state) join the kernel. The
 Super-Self became an engine: **lenses** (`lenses`, one metered call per
 analyst lens, aggregated by vote with evidence and disputed assumptions)
 plus a mechanical **sensitivity simulation** (the Clone over 400
@@ -708,6 +708,21 @@ when `TWIN_SIGNING_KEY` is set (`twin.py verify FILE`); `consider()` lists
 the options the owner weighed in similar situations; `history()` is the
 autobiography; the kernel keeps the owner's own stated reasons per choice
 and the Clone cites them.
+
+**Measurement repair** (`twinmeasurement.py`,
+`docs/DESIGN-twin-measurement-integrity.md`, `test_twin_measurement.py`).
+New fits split exact scenario groups into train, validation and test. Only
+training rows fit the model, social state and frozen neighbors; rule validation
+uses validation rows. Final choice diagnostics use test rows. The partition is
+retrospectively inferred, not a prospective experiment or semantic grouping.
+Rule status `supported` is empirical and does not prove a human behavioral law.
+The full fitted body is hashed; fidelity receipts also bind the complete kernel,
+input dataset, auxiliary observations, runtime constants and source digests.
+`python twin.py --root <expert> replay-evaluation <receipt>` reproduces recorded
+choice scores under the same runtime. Altered receipts refuse, changed live
+state makes displayed fidelity STALE, and reused test cohorts are labeled.
+Calibration numbers remain diagnostics. Historical version immutability and
+prospective human validation remain separate work.
 
 ### Learning smart, not just learning (`curriculum.py`)
 

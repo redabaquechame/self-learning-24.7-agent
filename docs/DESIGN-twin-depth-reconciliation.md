@@ -1,5 +1,26 @@
 # Claude Phase 10.1 continuation gates
 
+## Local reconciliation checkpoint, 2026-09-05
+
+Measurement PR 22 is merged as fc08b7f. This candidate combines that main
+revision with the preserved Claude snapshot; it is not accepted or released.
+The ten merge conflicts were resolved by retaining both registrations and
+implementations, with training-only reasons and frozen measurement neighbors.
+Counts are 120 root Python modules, 156 registered tests, 57 mutations.
+
+New failing-before-fix regressions cover another human entering panel capture,
+same-time actor collisions, receipt freshness after question/event changes and
+an event write during evaluation. Capture now binds new panel entries to the
+consented actor, preserves legacy bytes and avoids duplicating matching legacy
+events. Receipts bind questions, events and both depth-module source hashes;
+depth metrics explicitly state their exploratory/noncausal limits.
+
+This is partial closure of gates 1, 3, 8 and 9, not closure of the phase.
+Capture task authority, credential/link containment, bounded reads and compound
+concurrency remain unresolved. Historical snapshots, prospective enrollment,
+lens provenance/signing authority, full-suite evidence and independent CI/review
+remain required. Existing EVIDENCE.md describes main's run, not this candidate.
+
 Inspected 2026-09-05. The original 17 modified and three untracked source files
 remain untouched in remediation-worktree. A local 20-file snapshot with hashes
 is claude-phase10.1-source-20260905.zip. This document does not certify the phase.

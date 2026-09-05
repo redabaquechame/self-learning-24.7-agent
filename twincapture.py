@@ -145,7 +145,7 @@ def redact_command(line):
     return line
 
 
-def _capture_panel(root, have):
+def _capture_panel(root, have, owner, recorded):
     """The platform's own audit of the owner at the panel."""
     try:
         import org
@@ -153,11 +153,17 @@ def _capture_panel(root, have):
     except Exception:
         rows = []
     n = 0
+    legacy_seen = {(e.get("origin"), (e.get("meta") or {}).get("actor"))
+                   for e in recorded if e.get("kind") == "panel"}
     for r in rows:
         actor = str(r.get("actor") or "")
-        if not actor or actor.startswith("agent:"):
+        if not owner or actor != owner or actor.startswith("agent:"):
             continue
-        origin = f"panel:{r.get('at')}:{r.get('action')}:{r.get('object')}"
+        legacy = f"panel:{r.get('at')}:{r.get('action')}:{r.get('object')}"
+        if (legacy, actor) in legacy_seen:
+            continue
+        origin = "panel:v2:" + _sha([actor, r.get("at"), r.get("action"),
+                                      r.get("object_kind"), r.get("object")])
         n += int(_record(root, have, "panel",
                          f"{r.get('action')} {r.get('object_kind')} {r.get('object')}",
                          origin, at=r.get("at"),
@@ -286,11 +292,12 @@ def _capture_dirs(root, have, state, dirs, max_files):
 def tick(root, cfg=None):
     """Read every named source once. Returns {panel, command, edit}."""
     import twin
-    twin.need_scope(root, "predict")
+    consented = twin.need_scope(root, "predict")
     tc = twin_cfg(cfg)
-    have = {e["hash"] for e in events(root) if "hash" in e}
+    recorded = events(root)
+    have = {e["hash"] for e in recorded if "hash" in e}
     state = _read_json(os.path.join(root, STATE), {})
-    out = {"panel": _capture_panel(root, have),
+    out = {"panel": _capture_panel(root, have, str(consented.get("by") or ""), recorded),
            "command": _capture_history(root, have, state, tc.get("capture_history")),
            "edit": _capture_dirs(root, have, state, tc.get("capture_dirs"),
                                  int(tc.get("capture_max_files", MAX_FILES_DEFAULT)))}

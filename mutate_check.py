@@ -22,9 +22,106 @@ PY = sys.executable
 # (label, file, find, replace, test, what the test must notice)
 MUTATIONS = [
     ("capture: direct tick ignores consent", "twincapture.py",
-     '    twin.need_scope(root, "predict")',
-     '    pass  # deliberately bypass capture consent',
+     '    consented = twin.need_scope(root, "predict")',
+     '    consented = {}  # deliberately bypass capture consent',
      "test_twin_depth.py", "capture continues without active consent"),
+    ("capture: another human enters owner stream", "twincapture.py",
+     '        if not owner or actor != owner or actor.startswith("agent:"):',
+     '        if not actor or actor.startswith("agent:"):',
+     "test_twin_depth.py", "panel capture must exclude other human actors"),
+    ("measurement: depth inputs absent from receipt", "twinmeasurement.py",
+     '            "questions": twin.questions(root), "events": twin.C.events(root)}',
+     '            "questions": [], "events": []}',
+     "test_twin_measurement.py", "changed depth inputs must stale or refuse the report"),
+
+    ("review: ambiguous option IDs accepted", "twinmeasurement.py",
+     '            raise ValueError("duplicate option ID after normalization")',
+     '            pass',
+     "test_twin_measurement.py", "normalized duplicate IDs must refuse in either order"),
+
+    ("review: skipped observations inflate headline", "evidence.py",
+     '"observations": sum(s["observations"] for s in systems)',
+     '"observations": sum(len(v["sections"]) for v in per.values())',
+     "test_package.py", "headline must equal the passing classified ledger"),
+
+    ("review: suite registry silently omits a file", "tests/run_all.py",
+     'TESTS = ["test_resume.py", "test_lock.py",',
+     'TESTS = ["test_lock.py",',
+     "test_ledger_defects.py", "badge check must reject missing registered tests"),
+
+    ("measurement: evaluation skips record validation", "twin.py",
+     '        held = TM.split(rows)["test"]',
+     '        held = [e for e in rows if TM.partition(e) == "test"]',
+     "test_twin_measurement.py", "post-fit malformed records are accepted"),
+
+    ("measurement: intervening input changes ignored", "twinmeasurement.py",
+     '        raise twin.Refused("inputs changed during evaluation; rerun fidelity")',
+     '        pass',
+     "test_twin_measurement.py", "concurrent updates do not refuse archival"),
+
+    ("measurement: final labels select rules", "twin.py",
+     '    rules = M.validate_rules(M.mine_rules(fitset), validation)',
+     '    rules = M.validate_rules(M.mine_rules(fitset), holdout)',
+     "test_twin_measurement.py", "final rows enter actual rule validation"),
+
+    ("measurement: split depends on the answer", "twinmeasurement.py",
+     '    bucket = int(group(row), 16) % 5',
+     '    bucket = int(digest([group(row), row.get("choice")]), 16) % 5',
+     "test_twin_measurement.py", "choice changes partition membership"),
+
+    ("measurement: live neighbors leak into the frozen predictor", "twin.py",
+     '            v["neighbors"] if "neighbors" in v else decisions(episodes(root)))',
+     '            decisions(episodes(root)))',
+     "test_twin_measurement.py", "poisoned live rows change predictions"),
+
+    ("measurement: stale report treated as current", "twinmeasurement.py",
+     '        if report != authoritative or report["binding"] != expected:',
+     '        if False:',
+     "test_twin_measurement.py", "old evidence survives policy changes"),
+
+    ("measurement: cold-start novelty is treated as policy drift", "twin.py",
+     '    if row.get("novelty", 1.0) >= NOVEL:',
+     '    if False:',
+     "test_twin_measurement.py", "cold errors freeze the owner model"),
+
+    # ---- the clean window (docs/DESIGN-P11): marked data, grounded compaction
+    ("window: read_file returns its bytes unmarked", "loop.py",
+     '''                    result = context.fence_tool("read_file", rel, truncate(f.read()))''',
+     '''                    result = truncate(f.read())''',
+     "test_guardrails.py",
+     "a directive inside a file indistinguishable from harness text"),
+
+    ("window: a marker inside data closes the fence", "context.py",
+     '''    return _FENCE_RE.sub(FENCE_ESCAPE, str(text))''',
+     '''    return str(text)''',
+     "test_guardrails.py",
+     "a poisoned file closing its own fence early"),
+
+    ("compaction: the summarizer reads the transcript as instructions", "loop.py",
+     '''                    {"role": "system", "content": COMPACTION_SYSTEM},''',
+     '''                    {"role": "system", "content": "You compress agent transcripts."},''',
+     "test_compaction.py",
+     "a summarizer with no grounding contract"),
+
+    ("compaction: the byte bound ignored until the gate refuses", "loop.py",
+     '''        return used > COMPACT_AT_FRACTION * maximum''',
+     '''        return False''',
+     "test_compaction.py",
+     "a transcript refused by the provider before the compactor ran"),
+
+    ("fileauth: conflict rulings back in the worker's workspace", "fileauth.py",
+     '''    "courses": {"source-overrides.json", "conflicts.json",''',
+     '''    "courses": {"source-overrides.json",''',
+     "test_promotion_leakage.py",
+     "a worker forging BINDING rulings"),
+
+    ("memory: the fleet ledger appended without its lock", "memory.py",
+     '''    with locks.holding(path):
+        existing = _read_jsonl(path)''',
+     '''    if True:
+        existing = _read_jsonl(path)''',
+     "test_memory.py",
+     "two writers filing the same recurrence count"),
     # ---- the owner's twin (docs/DESIGN-P10): four laws, each broken once
     ("twin: sealed prediction revealed before the decision", "twin.py",
      '''    if p.get("status") == "sealed":

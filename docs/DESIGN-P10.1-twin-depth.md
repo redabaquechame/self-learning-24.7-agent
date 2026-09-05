@@ -1,6 +1,12 @@
 # Phase 10.1 — Twin depth: capture, cold start, augmentation, the rest of the benchmark (design, committed before code)
 
-**Status: DESIGN → BUILT** (committed first; the build commit cites this
+**Reconciliation status (2026-09-05): UNACCEPTED CANDIDATE.** The historical
+design and implementation claims below are preserved, not certified. Required
+corrections and evidence are in DESIGN-twin-depth-reconciliation.md. In particular,
+predict(at) does not reconstruct historical trained state; capture safety,
+prospective human fidelity and release readiness have not been established.
+
+**Historical status: DESIGN → BUILT** (committed first; the build commit cites this
 file; the preregistered benchmark below must be green before the phase is
 permanent). **Branch:** `phase10.1/twin-depth`, on main after PR #19.
 **Parent:** docs/DESIGN-P10-twin.md.
