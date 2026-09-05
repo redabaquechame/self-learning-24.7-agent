@@ -80,7 +80,7 @@ vignettes give the kernel a first fit on day one.
    deviation per numeric feature, from the kernel's own stats) → **decision
    stability** (share agreeing with the unperturbed argmax) and **flip
    points** (per feature, the nearest value at which the Clone's choice
-   changes, swept ±1σ in 8 steps).
+   changes, swept ±2σ in 8 steps each way).
 3. **Divergence**, unchanged: if the vote ≠ the Clone's argmax, a
    policy-update question; the kernel never moves.
 

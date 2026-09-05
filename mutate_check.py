@@ -38,10 +38,26 @@ MUTATIONS = [
      "a prediction about the owner with no consent on record"),
 
     ("twin: the label dropped from the clone's output", "twin.py",
-     '''    return {"label": LABEL, "kernel_version": v["v"], "kernel_hash": v["hash"],''',
-     '''    return {"label": "", "kernel_version": v["v"], "kernel_hash": v["hash"],''',
+     '''    out = {"label": LABEL, "kernel_version": v["v"], "kernel_hash": v["hash"],''',
+     '''    out = {"label": "", "kernel_version": v["v"], "kernel_hash": v["hash"],''',
      "test_twin.py",
      "a clone output that does not say it is a model of the owner"),
+
+    # ---- Phase 10.1 (docs/DESIGN-P10.1): two more laws
+    ("twin: a command carrying a key is stored in the clear", "twincapture.py",
+     '''    if any(shaped(t.strip("\\"'")) or shaped(t.split("=", 1)[-1].strip("\\"'"))
+           for t in toks):
+        return "[redacted command]"''',
+     '''    if False:
+        return "[redacted command]"''',
+     "test_twin_depth.py",
+     "a shell command with a credential written into the work stream"),
+
+    ("twin: a tampered signature verifies", "twin.py",
+     '''    ok = hmac.compare_digest(want, str(obj["signature"]))''',
+     '''    ok = True''',
+     "test_twin_depth.py",
+     "an edited twin output that still verifies as signed"),
 
     ("twin: act runs without a definition of done", "twin.py",
      '''    if not done_check:
