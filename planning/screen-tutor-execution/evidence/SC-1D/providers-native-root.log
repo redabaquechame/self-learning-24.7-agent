@@ -1,0 +1,17 @@
+[transaction] concurrent public add + set_role preserve both edits and all original settings
+[interruption] concurrent failed replacements preserve original and foreign temp; unique temps fsynced and cleaned
+[live-owner] old mtime cannot steal a paused provider transaction; resumed edits both survive
+[dead-owner] terminating a provider process releases exclusion without stale-time takeover
+[add] known rail + custom endpoint added; settings round-tripped losslessly; only key NAMES are written
+[roles] any role re-pointed at any provider/model incl. fallback + escalation; unknown providers refused
+[catalog] models listed from a live /models endpoint; free-only and text filters work
+[custom] your own tools appear as capabilities, honour ready_check, and reach agents with the exact command to run
+created expert 'any-expert' at C:\Users\redab\AppData\Local\Temp\st-sc1d-full-20261013-r1\providers_fleet\experts\any-expert
+  teach it:  drop files in C:\Users\redab\AppData\Local\Temp\st-sc1d-full-20261013-r1\providers_fleet\experts\any-expert\inbox
+             python ingest.py add-url <url> --root C:\Users\redab\AppData\Local\Temp\st-sc1d-full-20261013-r1\providers_fleet\experts\any-expert
+  run it:    python loop.py run --root C:\Users\redab\AppData\Local\Temp\st-sc1d-full-20261013-r1\providers_fleet\experts\any-expert
+[fleet-tools] a tools.json at the fleet home reaches every expert in it
+2026-10-12 23:53:05,947 {"event": "provider_autowired", "provider": "xai", "key_env": "XAI_API_KEY", "note": "from the KNOWN catalog; make it durable with `python providers.py add`"}
+2026-10-12 23:53:05,947 {"event": "provider_autowired", "provider": "cloudflare", "key_env": "CLOUDFLARE_API_TOKEN", "note": "from the KNOWN catalog; make it durable with `python providers.py add`"}
+[plug] a key in the environment IS a provider: a role named a rail with no settings entry and it wired from the verified catalog at runtime; keyless rails refuse naming the exact env var; cloudflare's missing account id is a named error at wire time; an explicit settings entry always outranks the catalog
+PASS test_providers

@@ -1,0 +1,12 @@
+[host-answer] actual validated instruction returned defensively; wrong identity/missing observation/unready/feature-off dispatch nothing
+[host-release] grant/consent/identity/revision/epoch/deadline/Stop changes and forged instructions release no answer
+[sealed-host] real learning.v1 binding, exact native epoch/session and finite source authorization; forged/cross-surface/cross-tenant/stopped requests refuse
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 202, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 197, in main
+    check_stop_pending_selection()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 186, in check_stop_pending_selection
+    assert stopped.wait(0.5), "host Stop waited for a stalled selection policy reader"
+           ^^^^^^^^^^^^^^^^^
+AssertionError: host Stop waited for a stalled selection policy reader

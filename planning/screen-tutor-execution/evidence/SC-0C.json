@@ -1,0 +1,110 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-0C",
+  "recorded_at_utc": "2026-09-15T04:10:51Z",
+  "verdict": "LOCAL_VERIFIED",
+  "accepted": true,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974"
+  },
+  "artifacts": [
+    "planning/screen-tutor/ENVIRONMENT_LOCK.json",
+    "planning/screen-tutor/adr/ADR-001-native-shell.md",
+    "planning/screen-tutor/adr/ADR-002-local-transport.md",
+    "planning/screen-tutor/adr/ADR-003-persistence.md",
+    "planning/screen-tutor/adr/ADR-004-packaging.md",
+    "companion/windows/global.json",
+    "companion/windows/environment-probe/EnvironmentProbe.csproj",
+    "companion/windows/environment-probe/Program.cs",
+    "companion/windows/environment-probe/packages.lock.json",
+    "tests/fixtures/screen_tutor/MANIFEST.json",
+    "tests/test_tutor_environment_lock.py"
+  ],
+  "native_probe": {
+    "sdk_install_root": "C:/Users/redab/AppData/Local/Temp/screen-tutor-dotnet-10.0.401",
+    "sdk": "10.0.401",
+    "runtime": "10.0.12",
+    "msbuild": "18.9.11",
+    "os": "Windows 11 Pro 10.0.26200 x64",
+    "package_cache": "fresh isolated screen-tutor-nuget-sc0c-clean-v2 cache",
+    "package_lock_sha256": "5c9cd9cfbda1e72ed08b5590af25a738edf77d7ac410dbbeb7261983b282e1be",
+    "restore": "dotnet restore environment-probe/EnvironmentProbe.csproj --locked-mode --force --no-cache",
+    "build": "dotnet build environment-probe/EnvironmentProbe.csproj --no-restore --configuration Release",
+    "run": "dotnet run --project environment-probe/EnvironmentProbe.csproj --no-restore --no-build --configuration Release",
+    "result": "exit 0; restore succeeded; build succeeded with 0 warnings and 0 errors; probe reported runtime 10.0.12 and OS 10.0.26200.0"
+  },
+  "focused_checks": [
+    {
+      "command": "python -X utf8 tests/test_tutor_environment_lock.py under the isolated .NET 10.0.401 PATH",
+      "exit_code": 0,
+      "result": "environment lock, package graph, four hashes, synthetic fixture root and four accepted implementation ADRs matched; actual native lane READY"
+    },
+    {
+      "command": "python -X utf8 tests/test_tutor_environment_lock.py under the ordinary host PATH",
+      "exit_code": 0,
+      "result": "ordinary host preview-only SDK classified native BLOCKED while core remained READY"
+    },
+    {
+      "command": "python -X utf8 tests/test_package.py",
+      "exit_code": 0,
+      "result": "448 archive members scanned; pinned Windows source and lock shipped; native bin/obj products excluded; no unexpected credential-shaped content"
+    },
+    {
+      "command": "python -X utf8 tests/test_tutor_feature_off.py",
+      "exit_code": 0,
+      "result": "baseline stayed byte-locked and feature-off path made zero process, network, model or native calls"
+    },
+    {
+      "command": "python -X utf8 tests/test_invariants.py; python -X utf8 harness.py --check; python -X utf8 execution.py --audit",
+      "exit_code": 0,
+      "result": "124 modules, 162 registered tests, 0 contract problems, 0 health problems and 0 execution-authority violations"
+    }
+  ],
+  "negative_witnesses": [
+    "an empty SDK inventory blocks only the native lane",
+    "a mismatched dependency license digest blocks only the native lane",
+    "the machine-wide .NET 11 preview is rejected because previews and roll-forward are disabled"
+  ],
+  "full_suite": {
+    "command": "$env:AGENT_TEST_TMP=Join-Path $env:TEMP 'screen-tutor-sc0c-final-v2'; python -X utf8 tests/run_all.py",
+    "executed": 162,
+    "passed": 159,
+    "skipped": [
+      {
+        "test": "test_acquire.py",
+        "reason": "no isolated dependency-install arena selected for the core acquisition test"
+      },
+      {
+        "test": "test_shutdown.py",
+        "reason": "Windows TerminateProcess has no SIGTERM handler contract; container CI owns this proof"
+      },
+      {
+        "test": "test_computeruse_live.py",
+        "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"
+      }
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal": "ALL EXECUTED TESTS PASSED"
+  },
+  "prior_attempts": [
+    {
+      "outcome": "INTERRUPTED",
+      "evidence": "the first probe restored and built but its bootstrap assembly load did not return within the bounded observation window",
+      "resolution": "removed runtime activation from the environment-only probe and disabled automatic bootstrap/deployment initialization"
+    },
+    {
+      "outcome": "FAILED",
+      "evidence": "first 162-test suite: 158 passed, 3 skipped, 1 failed; test_package.py found generated native DLLs inside the source archive",
+      "resolution": "excluded bin/obj products in package.py and added a package assertion that source and dependency locks ship while build outputs do not"
+    }
+  ],
+  "post_suite_byte_lock": {
+    "ui.html": "0cbe8171c0b5ea06b67e5a98459bf10b64a0c745df74dfbbe5331f7d5abf8d3e",
+    "tests/mock_effect_server.py": "d51ebcce25c3a81312aac12674ea0c73cd347e1090cbf34ec6b66475f11814dd",
+    "line_endings": "LF"
+  },
+  "scope": "SOURCE and LOCAL only. The isolated toolchain proves exact restore/build/run of the optional environment probe. It does not prove a native UI, capture, overlay, accessibility, signed MSIX, remote CI matrix, provider, device, deployment or release."
+}

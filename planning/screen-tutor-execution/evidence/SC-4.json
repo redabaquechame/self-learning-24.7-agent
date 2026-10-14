@@ -1,0 +1,144 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-4",
+  "recorded_at_utc": "2026-09-15T13:41:22Z",
+  "verdict": "LOCAL_AND_NATIVE_SYNTHETIC_TEMPORAL_TRANSFER_PARTIAL_REVIEWED_DEPENDENCY_PROVIDER_CONTENT_AND_REAL_JOURNEY_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_media_sha256": "797ef4af25a6e7913bf7054beb2910cf72e5d8afb4904576a5c8007e1bef8b1e",
+    "tutor_media_index_sha256": "35eb438eb6517cf958c24c0419cd70f8a7e6b7faf10051a05d284d7233783692",
+    "media_test_sha256": "4b1142705ceacc0f3f321e68733c59cab2f7722a1e90110e3771a3df4c4c3370",
+    "media_index_test_sha256": "71f1f5cd0f34d1c28c75a704bce534cb4e662bc6ce6f01b9767bc37a8099d99e",
+    "native_media_sha256": "3507959b7621ab4849d29ddc37a2c0d9d4d655c2556e564b6bcb2c878ce9b0f5",
+    "native_test_sha256": "bcc4b9fe8d178d9618002df2447ee7e4b2f820c7f6ac765ddfd61fef40ec1b74",
+    "candidate_pack_digest": "0c4a50bbf3778033c0c54175c89d8bf9573a30774507263e37ff9b9b46ee7a67",
+    "runner_sha256": "4bec8e68910fd887e4366d9137c8f656f99183eb3ddd705f35f939ce49150a62",
+    "evidence_registry_sha256": "00069ab087bc4c1ab38ec42d5c1933f1d3bb52280b2e01ba08d0ad54f7ec309f",
+    "doctor_sha256": "ba95c41c19941e28ab0a7b68240f042e39e52bf4b1e024372af237b3c3b5e06c",
+    "mutation_registry_sha256": "b7db8e6f208de256c5029330d2d0d0ce0559b62f35393979f7c7855c27f10f65",
+    "adr_sha256": "dca824b9bbd6ff0370f9725dbd17d17d03eaed9c9b21ab0ef47764cd9c8acbc1",
+    "review_sha256": "40a4ba4243e0e6d15650d1833baed57a0eee44f673871a07f816b9e9686d2fe9",
+    "full_suite_log_sha256": "e8446b87f598eac6f4f87f47e86e40c2fe95cc66a6bd4a8e428b22b2a32efc07"
+  },
+  "environment": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "rid": "win-x64",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_runtime": "10.0.12",
+    "windows_app_sdk": "2.4.0",
+    "interactive_session": true
+  },
+  "artifacts": [
+    "tutor_media.py",
+    "tests/test_tutor_media.py",
+    "companion/windows/ScreenTutor/MediaTutoring.cs",
+    "tests/native/ScreenTutor.ContractTests/Program.cs",
+    "teaching_packs/video-transfer-v1/",
+    "planning/screen-tutor/SC-4_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-016-timestamped-media-explanations-and-semantic-transfer.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_media.py",
+      "exit_code": 0,
+      "result": "offline T052-T057/X010A/X010B passed for exact modality claims, processed coverage/gaps, seek suppression, contested captions, decisive sampling plans, semantic current-app transfer, candidate-pack refusal and explicit unexecuted playback intent"
+    },
+    {
+      "command": "dotnet build tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --configuration Release; dotnet run --project tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --no-build --configuration Release",
+      "exit_code": 0,
+      "result": "zero warnings and zero errors; compiled native timeline suppression, before/after evidence, current semantic transfer, ambiguity, candidate-pack refusal and explicit playback intent passed while earlier native capture/canvas/audio/locale/journey witnesses remained green"
+    },
+    {
+      "command": "python mutate_check.py 'tutor media'",
+      "exit_code": 0,
+      "result": "both media mutations were caught: caption-as-visual and missing-timeline-current; 2 caught, 0 missed, 0 skipped"
+    },
+    {
+      "command": "python tests/test_tutor_media_index.py; python tests/test_tutor_packs.py; python tests/test_tutor_geometry.py; python tests/test_tutor_practice.py; python tests/test_tutor_native_session.py; python tests/test_tutor_feature_off.py; python tests/test_tutor_environment_lock.py; python tests/test_frontend.py; python tests/test_package.py; python tests/test_invariants.py; git diff --check",
+      "exit_code": 0,
+      "result": "affected index, pack, grounding, practice, session, feature-off, environment, frontend, package, invariant and whitespace checks pass; 140 modules, 177 tests and 228 mutations reconcile; archive contained 559 members"
+    },
+    {
+      "command": "python doctor.py",
+      "exit_code": 1,
+      "result": "code/module/panel/anatomy/toolbox/fleet checks passed; readiness remains blocked because no provider key is configured. This is an existing live-provider prerequisite, not local test failure."
+    }
+  ],
+  "acceptance_tests": {
+    "T052": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: source modes and exact processed coverage are represented; no real media adapter ran",
+    "T053": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: content/timeline/transition identity and seek invalidation pass",
+    "T054": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: decisive visual transitions require distinct frame bytes and bounded retrieval plans remain non-evidence",
+    "T055": "PARTIAL_LOCAL_SYNTHETIC: narrator, visual and audio claims remain separate; contested subtitles cannot become uncontested facts",
+    "T056": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: current-app semantic re-grounding, ambiguity and app-version refusal pass without tutorial coordinates",
+    "T057": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: practice lineage never claims learning and playback needs a current explicit user grant",
+    "X010A": "PARTIAL_LOCAL_SYNTHETIC: a screenshot-only complete-video request remains partial and names insufficient evidence",
+    "X010B": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: removed or stale timeline identity suppresses old guidance"
+  },
+  "candidate_content": {
+    "pack_id": "video-transfer-v1",
+    "pack_digest": "0c4a50bbf3778033c0c54175c89d8bf9573a30774507263e37ff9b9b46ee7a67",
+    "status": "CANDIDATE",
+    "assignable": false,
+    "scope": "synthetic spreadsheet grouping transfer fixture",
+    "subject_matter_review": "NOT_RUN"
+  },
+  "native_witnesses": {
+    "timeline": "exact current binding passes and a seek epoch suppresses old guidance",
+    "visual_transition": "one frame refuses while distinct before/after frame identities pass",
+    "application_transfer": "a unique current semantic control grounds, equal candidates abstain, candidate content refuses and tutorial coordinates remain absent",
+    "playback": "media context cannot grant control; explicit current user authority produces an unexecuted intent",
+    "regression": "the same executable retained prior real test-owned Windows capture plus canvas, audio, locale and session witnesses"
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-4_REVIEW.md",
+    "verdict": "APPROVED_FOR_LOCAL_AND_NATIVE_SYNTHETIC_TEMPORAL_TRANSFER_SCOPE_DEPENDENCY_PROVIDER_CONTENT_AND_REAL_JOURNEY_BLOCKED",
+    "unresolved_critical_findings_in_local_native_synthetic_scope": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 177,
+    "passed": 174,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no selected isolated acquisition sandbox for this run"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal_records": 1,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "The complete campaign ran after all SC-4 Python/native product code, candidate pack, tests, ADR, review, registries and documentation were final. Evidence/state metadata was added after the source-exact run."
+  },
+  "blockers": [
+    {
+      "gate": "UPSTREAM_PACKET_ACCEPTANCE",
+      "reason": "SC-2A, SC-2B, SC-3 and SC-4A remain unaccepted because real grounding, human/content, speech/provider and media qualification tiers are open",
+      "unblocks_when": "all dependencies pass every required tier"
+    },
+    {
+      "gate": "PROVIDER_MEDIA_QUALIFICATION",
+      "reason": "no provider key, authorized audiovisual provider/model, pricing or spend budget is configured or approved",
+      "unblocks_when": "a frozen held-out media set passes timestamp/modality accuracy, gap honesty, latency, cost and cancellation thresholds with correlated provider records"
+    },
+    {
+      "gate": "CONTENT_REVIEW",
+      "reason": "video-transfer-v1 is a mechanically valid synthetic candidate and no independent subject-matter reviewer approved its digest or any real explanation",
+      "unblocks_when": "authorized independent review and qualification records bind the exact immutable pack and held-out explanation set"
+    },
+    {
+      "gate": "REAL_NATIVE_APP_TRANSFER_JOURNEY",
+      "reason": "the compiled native contract used synthetic records; no private source, visible real application, playback API, app-version matrix or installed journey ran",
+      "unblocks_when": "a consented source-to-current-app-to-safe-practice journey passes with correlated native evidence on supported versions and displays"
+    },
+    {
+      "gate": "HUMAN_LEARNING_EVALUATION",
+      "reason": "no participant learned or retained a skill in this packet",
+      "unblocks_when": "the separate frozen educational protocol shows the declared learning and retention outcomes"
+    }
+  ],
+  "scope": "LOCAL Python plus NATIVE compiled deterministic synthetic contracts. No external audiovisual retrieval, real codec/provider, private screen, playback execution, reviewed teaching content, real-app transfer journey, human learning, deployment, release or market-superiority claim is made."
+}

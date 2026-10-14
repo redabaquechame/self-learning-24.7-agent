@@ -1,0 +1,44 @@
+{
+  "schema": "native-host-startup-failure-progress/1",
+  "recorded_at_utc": "2026-10-13T09:45:32.623643+00:00",
+  "accepted": false,
+  "status": "TASK3_PARTIAL_ACTUAL_FAILURE_BOUNDARIES_VERIFIED",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "tutor_connection.py": "75cb4bfeb0e1e376f33728dc24a4d96282c78ee249be0c5eb4d0ad5ebe3aa49d",
+    "tutor_transport.py": "1215bb63d0b4ae6239ded815de4a567836ffefcabec84564f33ed96eeebf5ae9",
+    "tests/test_tutor_connection.py": "51569b15a45008869ff9e9440e83eeb7a3d21d7f571169880a9f817d85004855",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "3b69f5329e3db86811e05bbbc033bf65a94ede9f3e8dea574da0719178b3df11"
+  },
+  "raw_logs": {
+    "connection-timeout-red.log": "22e5c68e4dbddddcbe06a5617b43d138281789c12e96f1e5bb8531b142d91d89",
+    "connection-timeout-green.log": "d096180b5e4bc2b1e4ba61b5aa5a663044813afe27051e1bd20231c0abc2ac98",
+    "bootstrap-negatives-build.log": "76304d1cce4c2762a4ab0ca904a9067b7aa147e4863c0d9accf58d2ebe049418",
+    "bootstrap-negatives-native.log": "445f880fa8f22b9c133e0793168367746a5804ac52ee2c93125ab5acfcbe00a0",
+    "actual-bootstrap-negatives.log": "71a05923e13941d9583078fb92561c56c8bc16630d1bfc604f01e44760b96e8a",
+    "connection-fault-fixtures-build.log": "463576464956fe86f72578facf8f5140ecc62c55a2670edd12aa8f07dfce31fa",
+    "connection-fault-fixtures.log": "2b16fe891635f88d2f92141bc6ab8ae9883e00ac86b027a4d9aad0e78dfd2609",
+    "startup36-test_tutor_transport.py.log": "d46f7ef8f306200f3f6cccf97342db5bd347b26f2d14b7f3fcc6b90abea97188",
+    "startup36-test_tutor_host.py.log": "ef7fb70a96ba2e8153d79f2b98a3401edca9c66e651e0f476eb12f62196af013",
+    "startup36-test_tutor_native_session.py.log": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e",
+    "startup36-test_tutor_feature_off.py.log": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d"
+  },
+  "actual_scope": [
+    "Python timed-out connection readiness RED/GREEN",
+    "Stop interrupts real owned hung Python pipe reader within0.5s",
+    "native bootstrap bounds/shape/key/PID/lifetime negatives",
+    "actual connected foreign native client PID refused",
+    "actual child corrupt version/foreign hostPID/wrong valid32-byte key/foreign session refusals",
+    "actual partial header/peer exit/unexpected HELLO after proof close connection"
+  ],
+  "remaining": [
+    "cancel pending startup before publishing a connection",
+    "benign idle/poll lifecycle",
+    "runtime/verified candidate changes and exact ACL inspection",
+    "final Task3 local completion helper",
+    "Task4 actual memory/frame,Task5 visible Ask/answer,Task6 review/full suite",
+    "all original overlay/installed/provider/content/human/buyer-release gates"
+  ],
+  "full_current_candidate_retested": false,
+  "private_capture_provider_release": false
+}

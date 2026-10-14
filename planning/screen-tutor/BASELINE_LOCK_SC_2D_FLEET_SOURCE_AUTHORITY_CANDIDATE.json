@@ -1,0 +1,92 @@
+{
+  "schema": "screen-tutor-baseline-lock/1",
+  "captured_at_utc": "2026-09-15T07:51:00Z",
+  "repository": "https://github.com/reda-baqechame/self-learning-24.7-agent.git",
+  "branch": "codex/screen-tutor-build",
+  "base": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+  "head": "WORKTREE_FLEET_SOURCE_AUTHORITY_UNACCEPTED_CANDIDATE",
+  "supersedes": "planning/screen-tutor/BASELINE_LOCK_SC_2D_REVIEW_REPAIRS_CANDIDATE.json",
+  "protected_files": [
+    {
+      "path": "loop.py",
+      "bytes": 247905,
+      "sha256": "e995d8dab05254031f3f3219127f67f7492eaed1789a96b353eef4b511cc8f90"
+    },
+    {
+      "path": "context.py",
+      "bytes": 44699,
+      "sha256": "39784326722241eec6d4d2e048535481b04bbbc5df97caa7848667e99c51c984"
+    },
+    {
+      "path": "modelgateway.py",
+      "bytes": 16745,
+      "sha256": "620b5bab5af3925e06fcfadd0769f3d5232d429d87f01918097466ea4a273424"
+    },
+    {
+      "path": "grants.py",
+      "bytes": 17902,
+      "sha256": "06c69c54e96a93dd26826ffddd721fd70a0ecb7e849a27731aae2903edec3177"
+    },
+    {
+      "path": "execution.py",
+      "bytes": 20006,
+      "sha256": "ef1a3c669b7ad8a4badd8898b10cca59da377f954b6fbd2898b8aa969e71ca9e"
+    },
+    {
+      "path": "mission.py",
+      "bytes": 24611,
+      "sha256": "b2bab7dee4191ebc775d3e6869c5e7b353fcc912859d81f2b7e7dc00b55ad07d"
+    },
+    {
+      "path": "computersession.py",
+      "bytes": 48800,
+      "sha256": "d1dc20b49d3f5281564bc379fc83d3bdafdc813b2846232878bf646aa7de052e"
+    },
+    {
+      "path": "computeruse.py",
+      "bytes": 26430,
+      "sha256": "b1a1feee618fb71508c546e01f0f67e04c366a9bebcc1e7b7497ea322125bc7e"
+    },
+    {
+      "path": "mastery.py",
+      "bytes": 20845,
+      "sha256": "220b790d958a9f3bf167442cfa9debf908e0be4f7fadf11fa2c5819d55786893"
+    },
+    {
+      "path": "goal.py",
+      "bytes": 33990,
+      "sha256": "2cebe678b6d329859ff2a9bb742c6aa9c7c1fac9201f720076604b5bb9763e21"
+    },
+    {
+      "path": "ui.py",
+      "bytes": 139784,
+      "sha256": "a7d0b55c7265e884a26bf5eb70a7ecfc4d9467c97a4a428c1019d1c119f4ff9b"
+    },
+    {
+      "path": "ui.html",
+      "bytes": 362051,
+      "sha256": "0210b9a2ddf1542ecdf4873d7eb076a6c3f5aa7698a3837ac302f312e383b37b"
+    }
+  ],
+  "limits": [
+    "Unreviewed candidate source pin, never independent approval or release evidence",
+    "Original SC-1B and first SC-2D candidate remain immutable; ten original protected files remain byte-identical",
+    "execution.py remains exactly the earlier declared native launcher entry; UI source is the exact actual browser/five-script candidate",
+    "User expressly authorized both-product missing-feature/gap repairs; presentation byte preservation cannot simultaneously repair the reproduced interface defects. Final independent review remains required.",
+    "The independent review was of revision50 source. Subsequent root repairs are verified once with RED/GREEN and full-suite checks; this candidate is not a second review, production qualification, or acceptance."
+  ],
+  "change_packet": "Original both-product mandate: bounded native declaration plus confirmed Fleet presentation repairs",
+  "accepted": false,
+  "review_status": "ONE_REVIEW_COMPLETED_WITH_FIXES_ROOT_VERIFICATION_PENDING",
+  "changes": [
+    "execution.py: add only the existing sealed, fixed-argv native launcher to the declared platform allowlist; all execution controls and operations remain unchanged",
+    "ui.html: preserve selected expert in four palette actions; named/inert keyboard modal and semantic creation choices; bounded read-error/retry/current-element guard; truthful course-lane/evidence labels. No backend permissions, operations, policy, provider or account capability changes.",
+    "ui.html: independently reviewed palette-to-dialog hidden-invoker focus defect reproduced in actual owned Chrome and repaired; restore visible original action focus on palette/dialog close. Existing execution entry unchanged."
+  ],
+  "scope": "Inherited execution.py/ui.html exceptions plus explicit ui.py authenticated local runtime/source approval integration. No acceptance.",
+  "exceptions_unaccepted": [
+    "execution.py",
+    "ui.html",
+    "ui.py"
+  ]
+}

@@ -1,0 +1,47 @@
+[acquisition] scoped real local/HTTP reads bind raw bytes, rights and version; private paths, secret files, changed bytes, revoked grants and unapproved redirects refuse
+[reversible example] real generated copy, independent artifact checker and reset preserve source; no qualified-pack, learner-success or app-action claim; forged/revoked/altered handles refuse
+Traceback (most recent call last):
+[X021A LOCAL] unknown app produced an exact version-bound documentation explanation without a pack or fabricated target
+[X021B LOCAL] absent documentation yields useful access limits; fabricated citations and screen locations cannot pass verification
+[citation/ACL] wrong bytes, unsupported quote, foreign tenant and hidden answer material refuse through real registry boundaries
+[inert evidence] hostile text remains quoted documentation; reports and hypotheses stay unverified, with no process or network call
+[current evidence] observation generation/identity and current host permission remain load-bearing at explanation and verification
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_sources.py", line 187, in _load_path
+    record = json.loads(raw.decode("utf-8"), object_pairs_hook=_pairs,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\json\__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\json\decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\Lib\json\decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 433, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 154, in main
+    check_service_integration(api)
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 226, in check_service_integration
+    unavailable = method(request, live_owner, [observation], selected, engine)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_service.py", line 126, in investigate
+    answer = investigator.explain(request["question"], references=references, observation=admitted[0],
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_investigation.py", line 124, in explain
+    found = tutor_sources.retrieve(self.home, tenant_id=scope['tenant_id'],
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_sources.py", line 246, in retrieve
+    for record in _scoped_records(home, tenant_id, project_id):
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_sources.py", line 222, in _scoped_records
+    record = _load_path(path)
+             ^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_sources.py", line 193, in _load_path
+    raise SourceRefused("SOURCE_UNAVAILABLE", str(exc)) from exc
+tutor_sources.SourceRefused: SOURCE_UNAVAILABLE: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)

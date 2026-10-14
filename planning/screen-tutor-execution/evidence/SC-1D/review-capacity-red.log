@@ -1,0 +1,14 @@
+[acquisition] scoped real local/HTTP reads bind raw bytes, rights and version; private paths, secret files, changed bytes, revoked grants and unapproved redirects refuse
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 433, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 62, in main
+    check_samples(api)
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 427, in check_samples
+    reusable = samples.create(answer, 'grouping-example')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_investigation.py", line 531, in create
+    _refuse('SAMPLE_DENIED', 'sample handle capacity reached')
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_investigation.py", line 39, in _refuse
+    raise InvestigationRefused(code, detail)
+tutor_investigation.InvestigationRefused: SAMPLE_DENIED: sample handle capacity reached

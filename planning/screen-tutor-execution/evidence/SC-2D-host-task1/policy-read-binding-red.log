@@ -1,0 +1,14 @@
+[host-answer] actual validated instruction returned defensively; wrong identity/missing observation/unready/feature-off dispatch nothing
+[host-release] grant/consent/identity/revision/epoch/deadline/Stop changes and forged instructions release no answer
+[sealed-host] real learning.v1 binding, exact native epoch/session and finite source authorization; forged/cross-surface/cross-tenant/stopped requests refuse
+[host-stop] stalled selection does not delay Stop and its late authorization is refused
+[host-selection] forged/malformed/expired/retired sources refuse, lifetime caps15min and native epochs stay exact
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 273, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 268, in main
+    check_binding_changed_inside_policy_read()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 255, in check_binding_changed_inside_policy_read
+    assert calls == [], "binding change during policy read reached model dispatch"
+           ^^^^^^^^^^^
+AssertionError: binding change during policy read reached model dispatch

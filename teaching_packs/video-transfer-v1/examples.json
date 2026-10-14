@@ -1,0 +1,20 @@
+{
+  "schema": "tutor.examples/1",
+  "examples": [
+    {
+      "example_id": "worked-video-transfer-grouping",
+      "skill_ids": ["grouping-concept", "grouping-transfer"],
+      "source_refs": ["video-transfer-official:rev-1:grouping-concept", "video-transfer-asset:rev-1:safe-rows"],
+      "problem": "Transfer a demonstrated grouping concept to a current spreadsheet using synthetic rows.",
+      "methods": [
+        {"method_id": "current-app-group-control", "steps": ["Find the current app's grouping control from semantic application evidence.", "Choose the label field and aggregate amount.", "Verify each row was counted once."]},
+        {"method_id": "map-and-verify", "steps": ["Build a mapping from labels to integer totals.", "Compare the mapping with the current-app result.", "Resolve any mismatch from the original rows."]}
+      ],
+      "misconceptions": [
+        "Tutorial coordinates remain valid in another window or version.",
+        "Narrated steps prove that the same pixels were visible.",
+        "A plausible grouped result is independent success before source-row verification."
+      ]
+    }
+  ]
+}

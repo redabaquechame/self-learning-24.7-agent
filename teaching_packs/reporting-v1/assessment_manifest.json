@@ -1,0 +1,6 @@
+{
+  "schema": "tutor.assessment-manifest/1",
+  "items": [
+    {"source_id": "reporting-final", "revision": "rev-1", "excerpt_id": "final-solution", "tenant_id": "tenant-alpha", "project_id": "project-reporting", "content_sha256": "5b3dde38617e33de67af65c5199260b5a389fb07eb61a990b3086c81815a236f"}
+  ]
+}

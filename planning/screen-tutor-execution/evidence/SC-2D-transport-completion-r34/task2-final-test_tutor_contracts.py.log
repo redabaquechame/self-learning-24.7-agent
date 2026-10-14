@@ -1,0 +1,8 @@
+[T010 X002A] bounded strict JSON rejects duplicate, non-finite and oversized messages; versions and generated fixture agree
+[T008 T009] expired, foreign and stale observations refuse; missing optional modalities explicitly limit scope
+[T006 X002A] tenant/project, consent and capabilities are load-bearing; only explicit owner upgrades and validation creates no grant
+[T005 T007 X002B] Guide cannot execute; previous-generation work stops before capture, retrieval, charge/dispatch, render, handoff and action
+[state-deadline] session transitions are closed-table; requests cannot outlive now or their grant
+[evidence] geometry and identity bind evidence; assistance classification never invents correctness or mastery
+[schema] unknown fields, invalid enums, null-required values and boolean epochs fail closed
+PASS test_tutor_contracts

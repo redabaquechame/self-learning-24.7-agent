@@ -1,0 +1,1613 @@
+{
+  "valid": [
+    {
+      "body": {
+        "request": {
+          "schema": "fleet.tutor.request.v1",
+          "request_id": "request-1",
+          "session_id": "session-1",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "mode": "GUIDE",
+          "learning_intent": "LEARN",
+          "question": "Show me the next safe step.",
+          "observation_ids": [
+            "obs-1"
+          ],
+          "source_ids": [
+            "source-1"
+          ],
+          "skill_ids": [
+            "skill-1"
+          ],
+          "consent_revision": "consent-r3",
+          "cancellation_generation": 4,
+          "budget_reservation_id": "budget-1",
+          "retention_policy_id": "retention-1",
+          "deadline_monotonic_ms": 8000,
+          "research_scope": "SOURCE_ONLY",
+          "output_preferences": {
+            "response_format": "TEXT_AND_SCENE",
+            "speech": false,
+            "locale": "en-CA"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "ASK",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "instruction": {
+          "schema": "fleet.tutor.instruction.v1",
+          "request_id": "request-1",
+          "move": "POINT_AND_ASK",
+          "answer": "Select the highlighted cell.",
+          "claims": [
+            {
+              "kind": "GROUNDING",
+              "text": "The total cell is visible.",
+              "evidence_refs": [
+                "obs-1"
+              ],
+              "uncertainty": 0.05
+            }
+          ],
+          "annotations": [
+            {
+              "primitive": "RECT",
+              "observation_id": "obs-1",
+              "target_id": "cell-a1",
+              "label": "Total",
+              "geometry_revision": "geometry-r2"
+            }
+          ],
+          "requested_response": "Tell me the displayed value.",
+          "reveal_level": "HINT",
+          "expected_progress": {
+            "kind": "OBSERVE",
+            "scope": "cell-a1"
+          },
+          "execution_request": null
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "ANSWER",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": 0,
+            "desktop_origin_y": 0,
+            "native_dpi_scale": 1.0
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "reason_code": "HOST_OFFLINE",
+        "detail": "😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀😀"
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "UNAVAILABLE",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": 0,
+            "desktop_origin_y": 0,
+            "native_dpi_scale": 1.0
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8_PREMULTIPLIED",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": null,
+            "desktop_origin_y": null,
+            "native_dpi_scale": null
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "FRAME",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": null,
+            "desktop_origin_y": null,
+            "native_dpi_scale": null
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "FRAME_ACCEPTED",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "request_id": "request-1",
+        "observation_id": "obs-1",
+        "question": "Explain this selected source",
+        "learning_intent": "UNDERSTAND",
+        "locale": "en-CA"
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "QUESTION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    }
+  ],
+  "invalid": [
+    {
+      "body": {
+        "request": {
+          "schema": "fleet.tutor.request.v1",
+          "request_id": "request-1",
+          "session_id": "session-1",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "mode": "UNKNOWN",
+          "learning_intent": "LEARN",
+          "question": "Show me the next safe step.",
+          "observation_ids": [
+            "obs-1"
+          ],
+          "source_ids": [
+            "source-1"
+          ],
+          "skill_ids": [
+            "skill-1"
+          ],
+          "consent_revision": "consent-r3",
+          "cancellation_generation": 4,
+          "budget_reservation_id": "budget-1",
+          "retention_policy_id": "retention-1",
+          "deadline_monotonic_ms": 8000,
+          "research_scope": "SOURCE_ONLY",
+          "output_preferences": {
+            "response_format": "TEXT_AND_SCENE",
+            "speech": false,
+            "locale": "en-CA"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "ASK",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "request": {
+          "schema": "fleet.tutor.request.v1",
+          "request_id": "request-1",
+          "session_id": "session-1",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "mode": "GUIDE",
+          "learning_intent": "LEARN",
+          "question": "Show me the next safe step.",
+          "observation_ids": [
+            "obs-1"
+          ],
+          "source_ids": [
+            "source-1"
+          ],
+          "skill_ids": [
+            "skill-1"
+          ],
+          "consent_revision": "consent-r3",
+          "cancellation_generation": 4,
+          "budget_reservation_id": "budget-1",
+          "retention_policy_id": "retention-1",
+          "deadline_monotonic_ms": 8000,
+          "research_scope": "SOURCE_ONLY",
+          "output_preferences": {
+            "response_format": "TEXT_AND_SCENE",
+            "speech": "yes",
+            "locale": "en-CA"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "ASK",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "request": {
+          "schema": "fleet.tutor.request.v1",
+          "request_id": "request-1",
+          "session_id": "session-1",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "mode": "GUIDE",
+          "learning_intent": "LEARN",
+          "question": "Show me the next safe step.",
+          "observation_ids": [
+            "obs-1"
+          ],
+          "source_ids": [
+            "source-1"
+          ],
+          "skill_ids": [
+            "skill-1"
+          ],
+          "consent_revision": "consent-r3",
+          "cancellation_generation": 4,
+          "budget_reservation_id": "budget-1",
+          "retention_policy_id": "retention-1",
+          "deadline_monotonic_ms": 8000,
+          "research_scope": "SOURCE_ONLY",
+          "output_preferences": {
+            "response_format": "TEXT_AND_SCENE",
+            "speech": false,
+            "locale": "en-CA",
+            "grant": true
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "ASK",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "request": {
+          "schema": "fleet.tutor.request.v1",
+          "request_id": "request-1",
+          "session_id": "session-1",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "mode": "GUIDE",
+          "learning_intent": "LEARN",
+          "question": "Show me the next safe step.",
+          "observation_ids": [
+            "obs-1",
+            "obs-1"
+          ],
+          "source_ids": [
+            "source-1"
+          ],
+          "skill_ids": [
+            "skill-1"
+          ],
+          "consent_revision": "consent-r3",
+          "cancellation_generation": 4,
+          "budget_reservation_id": "budget-1",
+          "retention_policy_id": "retention-1",
+          "deadline_monotonic_ms": 8000,
+          "research_scope": "SOURCE_ONLY",
+          "output_preferences": {
+            "response_format": "TEXT_AND_SCENE",
+            "speech": false,
+            "locale": "en-CA"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "ASK",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "instruction": {
+          "schema": "fleet.tutor.instruction.v1",
+          "request_id": "request-1",
+          "move": "POINT_AND_ASK",
+          "answer": "Select the highlighted cell.",
+          "claims": [
+            {
+              "kind": "GROUNDING",
+              "text": "The total cell is visible.",
+              "evidence_refs": [
+                "obs-1"
+              ],
+              "uncertainty": true
+            }
+          ],
+          "annotations": [
+            {
+              "primitive": "RECT",
+              "observation_id": "obs-1",
+              "target_id": "cell-a1",
+              "label": "Total",
+              "geometry_revision": "geometry-r2"
+            }
+          ],
+          "requested_response": "Tell me the displayed value.",
+          "reveal_level": "HINT",
+          "expected_progress": {
+            "kind": "OBSERVE",
+            "scope": "cell-a1"
+          },
+          "execution_request": null
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "ANSWER",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "instruction": {
+          "schema": "fleet.tutor.instruction.v1",
+          "request_id": "request-1",
+          "move": "POINT_AND_ASK",
+          "answer": "Select the highlighted cell.",
+          "claims": [
+            {
+              "kind": "GROUNDING",
+              "text": "The total cell is visible.",
+              "evidence_refs": [
+                "obs-1"
+              ],
+              "uncertainty": 0.05,
+              "grant": true
+            }
+          ],
+          "annotations": [
+            {
+              "primitive": "RECT",
+              "observation_id": "obs-1",
+              "target_id": "cell-a1",
+              "label": "Total",
+              "geometry_revision": "geometry-r2"
+            }
+          ],
+          "requested_response": "Tell me the displayed value.",
+          "reveal_level": "HINT",
+          "expected_progress": {
+            "kind": "OBSERVE",
+            "scope": "cell-a1"
+          },
+          "execution_request": null
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "ANSWER",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "instruction": {
+          "schema": "fleet.tutor.instruction.v1",
+          "request_id": "request-1",
+          "move": "POINT_AND_ASK",
+          "answer": "Select the highlighted cell.",
+          "claims": [
+            {
+              "kind": "GROUNDING",
+              "text": "The total cell is visible.",
+              "evidence_refs": [
+                "obs-1"
+              ],
+              "uncertainty": 0.05
+            }
+          ],
+          "annotations": [
+            {
+              "primitive": "RECT",
+              "observation_id": "obs-1",
+              "target_id": "cell-a1",
+              "label": "Total",
+              "geometry_revision": "geometry-r2"
+            }
+          ],
+          "requested_response": "Tell me the displayed value.",
+          "reveal_level": "HINT",
+          "expected_progress": {
+            "kind": "OBSERVE",
+            "scope": []
+          },
+          "execution_request": null
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "ANSWER",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 999999,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": 0,
+            "desktop_origin_y": 0,
+            "native_dpi_scale": 1.0
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": 0,
+            "desktop_origin_y": 0,
+            "native_dpi_scale": 1.0
+          },
+          "modalities": [
+            "foreign"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": 0,
+            "desktop_origin_y": 0,
+            "native_dpi_scale": 1.0
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1",
+          "grant": true
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": 0,
+            "desktop_origin_y": 0,
+            "native_dpi_scale": 1.0
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "../mapping",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": 0,
+            "desktop_origin_y": 0,
+            "native_dpi_scale": 1.0
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "JPEG",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": 0,
+            "desktop_origin_y": 0,
+            "native_dpi_scale": 1.0
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 1,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": 0,
+            "desktop_origin_y": 0,
+            "native_dpi_scale": 1.0
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "foreign",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": 1,
+            "desktop_origin_y": null,
+            "native_dpi_scale": null
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": null,
+            "desktop_origin_y": 1,
+            "native_dpi_scale": null
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "observation": {
+          "schema": "fleet.tutor.observation.v1",
+          "observation_id": "obs-1",
+          "session_id": "session-1",
+          "capture_epoch": 7,
+          "source_id": "source-1",
+          "source_kind": "WINDOW",
+          "source_revision": "source-r4",
+          "user_id": "user-1",
+          "tenant_id": "tenant-1",
+          "project_id": "project-1",
+          "consent_revision": "consent-r3",
+          "captured_at_utc": "2026-09-15T12:00:00Z",
+          "captured_at_monotonic_ms": 1000,
+          "expires_at_monotonic_ms": 5000,
+          "geometry_revision": "geometry-r2",
+          "geometry": {
+            "coordinate_space": "source_pixels",
+            "source_width": 1920,
+            "source_height": 1080,
+            "crop": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "model_width": 1280,
+            "model_height": 720,
+            "desktop_origin_x": null,
+            "desktop_origin_y": null,
+            "native_dpi_scale": 1
+          },
+          "modalities": [
+            "pixels",
+            "accessibility"
+          ],
+          "media": null,
+          "artifact_ref": "artifact-1",
+          "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d",
+          "retention_policy_id": "retention-1"
+        },
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "OBSERVATION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "transfer-1",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 1,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "FRAME",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "frame_reference": {
+          "schema": "fleet.tutor.frame-reference.v1",
+          "transfer_id": "../unowned",
+          "frame_receipt": {
+            "frame_id": "frame-1",
+            "source_id": "source-1",
+            "source_revision": "source-r4",
+            "capture_epoch": 7,
+            "captured_at_monotonic_ms": 1000,
+            "width": 1920,
+            "height": 1080,
+            "pixel_format": "BGRA8",
+            "size_bytes": 8294400,
+            "content_sha256": "f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d"
+          }
+        }
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "FRAME",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "request_id": "request-1",
+        "observation_id": "obs-1",
+        "question": "",
+        "learning_intent": "UNDERSTAND",
+        "locale": "en-CA"
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "QUESTION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "request_id": "request-1",
+        "observation_id": "obs-1",
+        "question": "Explain this selected source",
+        "learning_intent": "AUTO_EXECUTE",
+        "locale": "en-CA"
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "QUESTION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    },
+    {
+      "body": {
+        "request_id": "request-1",
+        "observation_id": "obs-1",
+        "question": "Explain this selected source",
+        "learning_intent": "UNDERSTAND",
+        "locale": "en-CA",
+        "provider": "native-selected-provider"
+      },
+      "bridge_epoch": 2,
+      "cancellation_generation": 0,
+      "deadline_monotonic_ms": 5000,
+      "message_id": "message-1",
+      "message_type": "QUESTION",
+      "protocol_version": "1.1",
+      "reply_to": null,
+      "schema": "fleet.tutor.bridge.v1",
+      "sequence": 1,
+      "session_id": "session-1"
+    }
+  ],
+  "signed_invalid": [
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"UNKNOWN\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"5b9b4b2f03955a548f10554c2ef3f700290bc5db1ebe91404012a4af3a4ed918\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":\"yes\"},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"99a00c5420ecaa48ce6fccc65d071e6cf92aecdb9153aa6f99056aa7c7863a79\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"grant\":true,\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"a4ddef0df8608e53dd73917c042f92c6f6829b1a0860bd01b123ebf0095d8f98\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\",\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"5684879eeba724744faf32d53d8f83e30caf3c8eddc35ba6d9d00714f24ea78b\"}",
+    "{\"body\":{\"instruction\":{\"annotations\":[{\"geometry_revision\":\"geometry-r2\",\"label\":\"Total\",\"observation_id\":\"obs-1\",\"primitive\":\"RECT\",\"target_id\":\"cell-a1\"}],\"answer\":\"Select the highlighted cell.\",\"claims\":[{\"evidence_refs\":[\"obs-1\"],\"kind\":\"GROUNDING\",\"text\":\"The total cell is visible.\",\"uncertainty\":true}],\"execution_request\":null,\"expected_progress\":{\"kind\":\"OBSERVE\",\"scope\":\"cell-a1\"},\"move\":\"POINT_AND_ASK\",\"request_id\":\"request-1\",\"requested_response\":\"Tell me the displayed value.\",\"reveal_level\":\"HINT\",\"schema\":\"fleet.tutor.instruction.v1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ANSWER\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"f2be3ede9ad47d6ce9f3727ab44faf89f6b1b5fc17114fa67ac4ffb7f5dbe770\"}",
+    "{\"body\":{\"instruction\":{\"annotations\":[{\"geometry_revision\":\"geometry-r2\",\"label\":\"Total\",\"observation_id\":\"obs-1\",\"primitive\":\"RECT\",\"target_id\":\"cell-a1\"}],\"answer\":\"Select the highlighted cell.\",\"claims\":[{\"evidence_refs\":[\"obs-1\"],\"grant\":true,\"kind\":\"GROUNDING\",\"text\":\"The total cell is visible.\",\"uncertainty\":0.05}],\"execution_request\":null,\"expected_progress\":{\"kind\":\"OBSERVE\",\"scope\":\"cell-a1\"},\"move\":\"POINT_AND_ASK\",\"request_id\":\"request-1\",\"requested_response\":\"Tell me the displayed value.\",\"reveal_level\":\"HINT\",\"schema\":\"fleet.tutor.instruction.v1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ANSWER\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"694666794ba51d3cb7dd94c471d304413308a0ebbf2c028f45ee23750828d047\"}",
+    "{\"body\":{\"instruction\":{\"annotations\":[{\"geometry_revision\":\"geometry-r2\",\"label\":\"Total\",\"observation_id\":\"obs-1\",\"primitive\":\"RECT\",\"target_id\":\"cell-a1\"}],\"answer\":\"Select the highlighted cell.\",\"claims\":[{\"evidence_refs\":[\"obs-1\"],\"kind\":\"GROUNDING\",\"text\":\"The total cell is visible.\",\"uncertainty\":0.05}],\"execution_request\":null,\"expected_progress\":{\"kind\":\"OBSERVE\",\"scope\":[]},\"move\":\"POINT_AND_ASK\",\"request_id\":\"request-1\",\"requested_response\":\"Tell me the displayed value.\",\"reveal_level\":\"HINT\",\"schema\":\"fleet.tutor.instruction.v1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ANSWER\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"8b8c3a46a34c5c1a1b816f7f27e32f86fc6d4200d07fdf59ca1c12836ef5e228\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":8294400,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":999999,\"x\":0,\"y\":0},\"desktop_origin_x\":0,\"desktop_origin_y\":0,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":1.0,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"media\":null,\"modalities\":[\"pixels\",\"accessibility\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"d645bc8a96bd2836981be7125b6c939129ece5c5b8bfc6a31f0400b499d7bf97\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":8294400,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":1920,\"x\":0,\"y\":0},\"desktop_origin_x\":0,\"desktop_origin_y\":0,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":1.0,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"media\":null,\"modalities\":[\"foreign\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"fd6e2b043e17984562e747579f221c869d75e2cecaa6e45eb991b7705aa5f39b\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":8294400,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":1920,\"x\":0,\"y\":0},\"desktop_origin_x\":0,\"desktop_origin_y\":0,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":1.0,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"grant\":true,\"media\":null,\"modalities\":[\"pixels\",\"accessibility\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"a69e406d7b26b83c0361e0b99f829af5b988c236b372da76101314b831fcc49a\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":8294400,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"../mapping\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":1920,\"x\":0,\"y\":0},\"desktop_origin_x\":0,\"desktop_origin_y\":0,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":1.0,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"media\":null,\"modalities\":[\"pixels\",\"accessibility\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"b4e56bdaf6692a9a035ac6d78b16976bdba3e642ac7fb15753265dd2e73801ce\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"JPEG\",\"size_bytes\":8294400,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":1920,\"x\":0,\"y\":0},\"desktop_origin_x\":0,\"desktop_origin_y\":0,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":1.0,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"media\":null,\"modalities\":[\"pixels\",\"accessibility\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"0e014dffee451494110e0974873747ebccc0bc5f16a3961a4a5a4ee349ae4d57\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":1,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":1920,\"x\":0,\"y\":0},\"desktop_origin_x\":0,\"desktop_origin_y\":0,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":1.0,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"media\":null,\"modalities\":[\"pixels\",\"accessibility\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"689e18bfe909fbe1911034faaf316c781d43a11fa616cfd9b33af31dc229608c\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":8294400,\"source_id\":\"foreign\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":1920,\"x\":0,\"y\":0},\"desktop_origin_x\":0,\"desktop_origin_y\":0,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":1.0,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"media\":null,\"modalities\":[\"pixels\",\"accessibility\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"5939042ed81bd894db6aaa5f227b901c0a2808f8220fc9f04baa16f49ab8bbdc\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":8294400,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":1920,\"x\":0,\"y\":0},\"desktop_origin_x\":1,\"desktop_origin_y\":null,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":null,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"media\":null,\"modalities\":[\"pixels\",\"accessibility\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"9503a1b4d22b21258a2b0fbe1c65fa77fe8544b7b8e37d2c962338adb1c2ef40\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":8294400,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":1920,\"x\":0,\"y\":0},\"desktop_origin_x\":null,\"desktop_origin_y\":1,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":null,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"media\":null,\"modalities\":[\"pixels\",\"accessibility\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"4e1ac6eb620272cfb6e08beff94ec131bff513e8fd8f4fda656feffca3471dfd\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":8294400,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":1920,\"x\":0,\"y\":0},\"desktop_origin_x\":null,\"desktop_origin_y\":null,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":1,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"media\":null,\"modalities\":[\"pixels\",\"accessibility\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"17bd0a01e82603e5abca6e32290d6b9fe8ca970308da4c8311234c4d2fb0a0f1\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":1,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"FRAME\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"cba3e14ee84836c96dad38e07398fa2369a94559577cc3ee3ab1afe5c205b24a\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":8294400,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"../unowned\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"FRAME\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"0477e5bf93f32de42ae6af96602d0a3e29db9eb76bb28ccae071e064efefbdce\"}",
+    "{\"body\":{\"learning_intent\":\"UNDERSTAND\",\"locale\":\"en-CA\",\"observation_id\":\"obs-1\",\"question\":\"\",\"request_id\":\"request-1\"},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"QUESTION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"3198234e3d2bc9491362822f26b4839cd82c328070d32774ac1c23109aadb79e\"}",
+    "{\"body\":{\"learning_intent\":\"AUTO_EXECUTE\",\"locale\":\"en-CA\",\"observation_id\":\"obs-1\",\"question\":\"Explain this selected source\",\"request_id\":\"request-1\"},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"QUESTION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"90994c6e25a5adf7a0776e079bfc8fcb12616096b07859d7e69f2df7c00b70ff\"}",
+    "{\"body\":{\"learning_intent\":\"UNDERSTAND\",\"locale\":\"en-CA\",\"observation_id\":\"obs-1\",\"provider\":\"native-selected-provider\",\"question\":\"Explain this selected source\",\"request_id\":\"request-1\"},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"QUESTION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"7bb7b67e12c9657d6d326a7a96110961f4876a02ceafe7105a2b67dd080ac4ff\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"foreign.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"c88e72b62d37c7130fd63bb2b64054550e45fff3f4288a87c9335af6f245bc65\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.3\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"06b1452b4d87460acc1a10f73028c1277b7517a2f1721c12b2a733d7e3a0258c\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"2.0\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"83282f669eceb61793789185f4ff8c1326999aeb51eebc73327da3fb9ea74251\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"foreign\",\"mac\":\"66dbe8d090f52f9899dda3ea66a3a9cb55c6fa2c4b7db1599710d0edea31be7c\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":3,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"c084f45cdf8ba1e70ccdb7f7cec7c21c33ab72aea5e0013b67f014a4c5705321\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":2,\"session_id\":\"session-1\",\"mac\":\"29f024d804c671aa232c69e6228abae70d3dcb012a4127c823029221e39bc8f5\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":1,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"c04b8b99260354b2e720663b405454534834182d2e8e36f2ed1d20ed3f0a63ba\"}",
+    "{\"body\":{\"request\":{\"budget_reservation_id\":\"budget-1\",\"cancellation_generation\":4,\"consent_revision\":\"consent-r3\",\"deadline_monotonic_ms\":8000,\"learning_intent\":\"LEARN\",\"mode\":\"GUIDE\",\"observation_ids\":[\"obs-1\"],\"output_preferences\":{\"locale\":\"en-CA\",\"response_format\":\"TEXT_AND_SCENE\",\"speech\":false},\"project_id\":\"project-1\",\"question\":\"Show me the next safe step.\",\"request_id\":\"request-1\",\"research_scope\":\"SOURCE_ONLY\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.request.v1\",\"session_id\":\"session-1\",\"skill_ids\":[\"skill-1\"],\"source_ids\":[\"source-1\"],\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":1000,\"message_id\":\"message-1\",\"message_type\":\"ASK\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"641fd5ff2ae43b08eb81b76a7d016ce249f7ed469eb14f0ee01c6468edf27de3\"}",
+    "{\"body\":{\"frame_reference\":{\"frame_receipt\":{\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"frame_id\":\"frame-1\",\"height\":1080,\"pixel_format\":\"BGRA8\",\"size_bytes\":8294400,\"source_id\":\"source-1\",\"source_revision\":\"source-r4\",\"width\":1920},\"schema\":\"fleet.tutor.frame-reference.v1\",\"transfer_id\":\"transfer-1\"},\"observation\":{\"artifact_ref\":\"artifact-1\",\"capture_epoch\":7,\"captured_at_monotonic_ms\":1000,\"captured_at_utc\":\"2026-09-15T12:00:00Z\",\"consent_revision\":\"consent-r3\",\"content_sha256\":\"f16d05ec6b29248d2c61adb1e9263f78e4f7bace1b955014a2d17872cfe4064d\",\"expires_at_monotonic_ms\":5000,\"geometry\":{\"coordinate_space\":\"source_pixels\",\"crop\":{\"height\":1080,\"width\":1920,\"x\":0,\"y\":0},\"desktop_origin_x\":0,\"desktop_origin_y\":0,\"model_height\":720,\"model_width\":1280,\"native_dpi_scale\":1.0,\"source_height\":1080,\"source_width\":1920},\"geometry_revision\":\"geometry-r2\",\"media\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{\"x\":{}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}},\"modalities\":[\"pixels\",\"accessibility\"],\"observation_id\":\"obs-1\",\"project_id\":\"project-1\",\"retention_policy_id\":\"retention-1\",\"schema\":\"fleet.tutor.observation.v1\",\"session_id\":\"session-1\",\"source_id\":\"source-1\",\"source_kind\":\"WINDOW\",\"source_revision\":\"source-r4\",\"tenant_id\":\"tenant-1\",\"user_id\":\"user-1\"}},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"OBSERVATION\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"67ff6c9665c47be5401e81b842ed2990a1da781b6757a2af2150fb9618de8ce2\"}",
+    "{\"body\":{\"detail\":\"\\ud800\",\"reason_code\":\"HOST_OFFLINE\"},\"bridge_epoch\":2,\"cancellation_generation\":0,\"deadline_monotonic_ms\":5000,\"message_id\":\"message-1\",\"message_type\":\"UNAVAILABLE\",\"protocol_version\":\"1.1\",\"reply_to\":null,\"schema\":\"fleet.tutor.bridge.v1\",\"sequence\":1,\"session_id\":\"session-1\",\"mac\":\"6ab136b72beccda9312a4f84a96c4e9f2931f5386876fcb05077e793554cfeef\"}"
+  ]
+}

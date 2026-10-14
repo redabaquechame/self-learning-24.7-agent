@@ -1,0 +1,131 @@
+{
+  "schema": "native-host-authorized-window-capture-progress/1",
+  "recorded_at_utc": "2026-10-13T12:04:33.955790+00:00",
+  "accepted": false,
+  "status": "TASK4_PARTIAL_ACTUAL_COMPANION_AUTHORIZED_CAPTURE_AND_STOP_VERIFIED",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "tutor_host.py": "465fc7a4f49e86eb8ccb3f27350d27e886de6e2526cd7103849cf9323ecfb9a4",
+    "tutor_connection.py": "85be7cd6f491474b4be40fa6a3b93b08c5157685979e280707177bb7afa7bfbf",
+    "tutor_frames.py": "1ffbc3850542c8ce0ffaf0688e3cf98ecd4d1676d346ff62d44ea5f3a174b65f",
+    "tutor_gateway.py": "9814cfab0e2769a36948791c10a91ca5a7e8474407d81a6e65f98ef3fd3fb35e",
+    "tests/test_tutor_host.py": "523ed3b0d100de1a8ed1a544f25545ea4a3150fc67d7f6bd69a62290f6fc6d59",
+    "tests/test_tutor_connection.py": "0cc8406d1b99b7b38604c30736948cacb8694ef0b3661cf96103aedc89c8d113",
+    "tests/test_tutor_frames.py": "331ab2e32af48087b4374853de8cff38b50af140377981fcf778dad6ed0f1e89",
+    "companion/windows/ScreenTutor/NativeHostClient.cs": "8012a19322519b25e8236fa6f9ba935630b8844dd2925c7c607fc25bfacd11bf",
+    "companion/windows/ScreenTutor/CaptureSession.cs": "79e0fa0225a992aad32f74892b59e5c0915e2988ae540cf36dbb02ec6017259d",
+    "companion/windows/ScreenTutor/SessionWindow.xaml.cs": "cf14908fa720ec928f9f7aa96bc6baa181dbc0baa181ba6d3a82566a741e4f8a",
+    "companion/windows/ScreenTutor/App.xaml.cs": "f9130831b538678cce410a043e7b2749379fb3342e20cc8dc91642b853718e8e",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "79e0201389080696f2316b4faf285dc2095e88df4fcaf64641743f378c274f6f"
+  },
+  "raw_logs": {
+    "authorized-capture-red.log": "7f2dc2deb1b592cf4d7b887768763cd1d590f4af1de0b23a74a8ed05eccc509e",
+    "authorized-capture-green-build.log": "360df49c56ad47323215faa3fd3d21143928a5766efdc67cc9f0360a2d9a6ab5",
+    "joined-source-build.log": "af14d3448f4ef2da28c660e3edf546d6618ecf3013340b5a20556dbfcd48a977",
+    "joined-source-green.log": "a1fe058d7c8b55a01b0a90b47810fca3a5fb7e43b9141428f5ba73be4ee3e55d",
+    "window-host-red.log": "3eab40672278f599eee0f24800f5e8705670588ae9e8c56280b6028497b356cb",
+    "window-joined-build.log": "4b77d0317fd035765e63be85af01b3b4f54f43486032761126d7572c6fdee4c6",
+    "window-joined-green.log": "6fa0d871dcd82653817538e0b7523416f11d08d9cd2d961186c6e17545b2a081",
+    "window-pending-stop-build.log": "b471012d8edd5c884e5400f61be21db1fcbf64b3c7d826c5f732b1416eb0abb9",
+    "window-pending-stop-build-r2.log": "d035f79255da18624efa98f6d742dff6738dab96c06a5282a34e0cd17b86e580",
+    "window-pending-stop-build-r3.log": "cf345c6e9ef1a537f75bfadc3fd04e24b5bf589c72c408cba4ba5e9ed5355a03",
+    "window-pending-stop-green.log": "607efb32d2e4a405e2af6588ea3fb91ab80c9ec033b30fc7e619a49bc3366056",
+    "window-pending-stop-r3.log": "6fa0d871dcd82653817538e0b7523416f11d08d9cd2d961186c6e17545b2a081",
+    "window-loss-red.log": "8cad8e368dade1f42c803f3f69bde661feb11247d5db7f3075a76ddc6d4734e5",
+    "window-loss-green.log": "f9405dd43e67a797cc4d24c01f3592794f6ece30404d99425f99e8f279e9eff2",
+    "window-loss-green-r2.log": "378d72d4219162b942df973eff7247c5faa51155d7d55f26154c1dc76e211d54",
+    "source-loss-mutation.json": "3b2c9fb08f92c109dfa0ffdc1493d28a9636e18f1946d3a17811694c80020a26",
+    "source-loss-mutation-red.log": "3fc3c217f90f7068173b6e9f5a613d91cb6a8a4aebcf8c8d5d3c02db94a05041",
+    "source-loss-restored-green.log": "378d72d4219162b942df973eff7247c5faa51155d7d55f26154c1dc76e211d54",
+    "source-loss-restored-build.log": "90e536a9b5de99fe0d2e88a08feda9e84bc0b6464f6231fc7be7ce0944c3c4ae",
+    "task4-window-final-native.log": "b755524a3f1da6365c5cf6881029cc3eb32b1500590c25985ccc62f8de3ae43f",
+    "task4-window-final-python.json": "6729c5f24efa70a6a91ef04938505a226d0d736c250c86b6d87cdeae97789821",
+    "task4-window-final-python-r2.json": "6729c5f24efa70a6a91ef04938505a226d0d736c250c86b6d87cdeae97789821",
+    "task4-window-final-r3-connection.log": "9f81b6ddabe456cef1050817134caca35ed93cc5740e67e9a6526468d878f178",
+    "task4-window-final-processes-r3.json": "5615fdfdcd1f55ca6480a8be18fba3d48f587305ea88c3d062e89e843ace42a1",
+    "source-reply-deadline-red.log": "e40891b2c8277253f33368d4d995bbb609a57608d2db6ec458c9a90703b59068",
+    "source-reply-deadline-green.log": "3260d16ede0483353921929a9520f682ecbe74b0b82e6ea196a3726d425a8839",
+    "task4-window-final-r2-test_tutor_frames.py.log": "720be737f3c8f7cdf964080501ff2cd4ca287db717b98f7b185e2de2f848ff45",
+    "task4-window-final-r2-test_tutor_host.py.log": "3260d16ede0483353921929a9520f682ecbe74b0b82e6ea196a3726d425a8839",
+    "task4-window-final-r2-test_tutor_transport.py.log": "d46f7ef8f306200f3f6cccf97342db5bd347b26f2d14b7f3fcc6b90abea97188",
+    "task4-window-final-r2-test_tutor_gateway.py.log": "d1fa3de517cba83c2defa906b3addfc1edf6375da4d8056365d99a230759194a",
+    "task4-window-final-r2-test_tutor_native_session.py.log": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e",
+    "task4-window-final-r2-test_tutor_feature_off.py.log": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d"
+  },
+  "completed_local_checks": [
+    {
+      "script": "test_tutor_frames.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_host.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_transport.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_gateway.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_native_session.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_feature_off.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_connection.py",
+      "exit_code": 0,
+      "log": "task4-window-final-r3-connection.log"
+    }
+  ],
+  "actual_processes": {
+    "fixture_pid": 25224,
+    "fixture_exit_code": 1,
+    "fixture_process_closed": true,
+    "provider_called": false,
+    "private_source_selected": false,
+    "app_pid": 49700,
+    "app_exit_code": 1,
+    "app_process_closed": true
+  },
+  "source_loss_notification_sensitivity": {
+    "source_sha256": "cf14908fa720ec928f9f7aa96bc6baa181dbc0baa181ba6d3a82566a741e4f8a",
+    "mutation_exit": 1,
+    "restored": true
+  },
+  "scope": [
+    "actual native selected test-owned window -> explicit fixture-owned policy grant -> authenticated correlated authorization -> real capture -> launch-secret-bound protected memory -> Python current digest -> PNG store",
+    "same actual WPF SessionWindow selection boundary, sharing control and Stop button; controlled picker supplies only a test-owned GraphicsCaptureItem, not a private user source",
+    "pending host authorization delayed750ms: actual WPF Stop returns under500ms, late authorization produces zero frames and source Stop reaches host without disconnecting channel",
+    "actual owned source closure reaches host source retirement; held reference proves pending cached PNG bytes are zeroed on actual Stop/loss",
+    "native full controlled executable passed; six focused Python scripts passed at r2 and final source-exact actual connection/app test passed at r3",
+    "metadata-only fixture file bridges opaque frame reference in this witness; production frame wire and full observation are not yet delivered"
+  ],
+  "red_green": [
+    "AuthorizeCaptureAsync absent, observed native assertion failure then real selected source grant/capture path passes",
+    "actual companion AttachHost/source authorization path absent, observed native assertion failure then joined WPF selection/sharing/Stop path passes",
+    "original reply lifetime was extended by elapsed send scheduling, observed real transport failure and deterministic host regression; absolute request deadline now preserved through NativeConnection.send"
+  ],
+  "failed_or_excluded": [
+    "pending Stop test build had a local-name compiler error and an initial command incorrectly ran old binary; excluded; subsequent builds abort dependents on failure",
+    "follow-up nullable test compile failure excluded and corrected without changing runtime behavior",
+    "source-loss first2s listener bound was too short for native3s watchdog/closure, so it is not used as proof of a missing-notification failure",
+    "missing source-loss notification was found in source and added; corrected6s witness plus deliberate one-line removal fails and exact restoration passes; mutation is sensitivity evidence, not original TDD chronology",
+    "focused r1 campaign failed on reply lifetime extension; r2 connection test failed on incorrect Python test class name; both retained as failed, not green"
+  ],
+  "remaining": [
+    "production opaque frame-reference wire and current host observation without invented source geometry/origin/HWND",
+    "full joined foreign/reused/oversized/expiry/current consent/source replacement/pause negative matrix and Task4 completion helper",
+    "main application host scheduling/current grant lifecycle and visible Ask/current answer",
+    "one fresh package review and frozen complete normal suite",
+    "all original both-products architecture/UI/provider/content/learning/human/overlay/installed/accessibility/device/support/buyer-release requirements"
+  ],
+  "full_current_candidate_retested": false,
+  "private_capture_provider_human_release": false,
+  "source_commit_deferred": "existing authored dependency ownership ruling; canonical candidate reconciliation and package review remain"
+}

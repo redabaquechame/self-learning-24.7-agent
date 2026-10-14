@@ -1,0 +1,25 @@
+{
+  "recorded_at_utc": "2026-10-13T05:37:27.986459+00:00",
+  "reviewer": "native_continuity_review",
+  "critical": 0,
+  "important": 1,
+  "important_finding": {
+    "title": "Cancelled Exit strands pending source selection",
+    "status": "OPEN",
+    "scope": "compiled isolated WPF reproduction against current assembly",
+    "steps": [
+      "Begin pending SelectSourceAsync",
+      "Cancel Closing during ExitCompanion",
+      "Complete pending picker with null"
+    ],
+    "observed": "choose=False; stop=False",
+    "source": "screen-tutor-build/companion/windows/ScreenTutor/SessionWindow.xaml.cs",
+    "line": 273
+  },
+  "minor_finding": {
+    "title": "Unavailable publication can discard accompanying failure explanation",
+    "basis": "source inspection only"
+  },
+  "coverage_concern": "Old native picker may mutate a reused CaptureSession after a retry; not yet a confirmed additional defect",
+  "whole_candidate_regression_performed_by_review": false
+}

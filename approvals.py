@@ -80,7 +80,7 @@ def request(root, key, server, tool, arguments, reason, task_id="-",
     return rec
 
 
-def decide(root, aid, grant, note=""):
+def decide(root, aid, grant, note="", *, commit_guard=None):
     """Grant or deny, once.
 
     The read, the finality check and the write are ONE held section. They used
@@ -93,13 +93,17 @@ def decide(root, aid, grant, note=""):
         rec = load(root, aid)
         if not rec:
             raise KeyError(aid)
-        if rec["status"] != "pending":
-            return rec                 # decisions are final; no flip-flop
-        rec["status"] = "granted" if grant else "denied"
-        rec["decided_at"] = time.strftime("%Y-%m-%dT%H:%M:%S")
-        rec["note"] = (note or "")[:300]
-        with open(_path(root, aid), "w", encoding="utf-8") as f:
-            json.dump(rec, f, indent=1, ensure_ascii=False)
+        # Trusted source callers guard the commit after file-lock wait/read.
+        # Ordinary approval decisions retain their existing one-time behavior.
+        import contextlib
+        with (commit_guard(rec) if commit_guard is not None else contextlib.nullcontext()):
+            if rec["status"] != "pending":
+                return rec                 # decisions are final; no flip-flop
+            rec["status"] = "granted" if grant else "denied"
+            rec["decided_at"] = time.strftime("%Y-%m-%dT%H:%M:%S")
+            rec["note"] = (note or "")[:300]
+            with open(_path(root, aid), "w", encoding="utf-8") as f:
+                json.dump(rec, f, indent=1, ensure_ascii=False)
     return rec
 
 

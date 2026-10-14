@@ -1,0 +1,11 @@
+{
+  "commit": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "paths": [
+    "fileauth.py",
+    "tests/test_correctness_patch.py",
+    "docs/superpowers/plans/2026-10-13-windows-atomic-write-repair.md"
+  ],
+  "post_commit_owned_hashes_unchanged": true,
+  "tested_source_base": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+  "whole_platform_complete": false
+}

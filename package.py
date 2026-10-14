@@ -16,7 +16,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SKIP_DIRS = {"experts", "demo-run", "logs", "contexts", "__pycache__",
              "tmp", ".git", "node_modules", "federation", "backups",
              "retired", "teamwork", "goals", "consults", "approvals",
-             "events", "checkpoints", "effects", ".superpowers"}
+             "events", "checkpoints", "effects", ".superpowers",
+             "bin", "obj"}
 # Credential exclusion is NOT a list here any more. It used to be, and it
 # disagreed with backup.py's list: this one lacked identity.json, and
 # `federation/` was not skipped, so the distributable shipped the fleet's

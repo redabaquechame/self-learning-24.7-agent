@@ -1,0 +1,3 @@
+[native candidate] feature-off starts nothing; changed/added/missing dependency and runtime-unavailable cases refuse
+SKIP test_tutor_connection: no owned compiled native child selected; feature-off and availability checks passed
+PASS test_tutor_connection

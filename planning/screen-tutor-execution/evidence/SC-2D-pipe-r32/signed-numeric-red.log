@@ -1,0 +1,12 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+[transport handshake] mutual challenge, reflected peer, replay, sequence gaps and bounded history checked
+[transport] closed nested request/instruction schemas checked without treating wire identity as authority
+[transport operations] sender role, exact pending reply, one reply and stale cancellation generation checked
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 203, in <module>
+    check_signed_numeric_and_depth()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 188, in check_signed_numeric_and_depth
+    refuse(sign(contracts.canonical_json(base).replace('"OVERFLOW"', '1e999')))
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 186, in refuse
+    raise AssertionError('signed numeric overflow/deep payload admitted')
+AssertionError: signed numeric overflow/deep payload admitted

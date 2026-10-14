@@ -1,0 +1,27 @@
+[verdict] a false guard is INAPPLICABLE with its code, a broken effect is FAILED, a missing token is inapplicable before any db access, the route classifies from the code (prose containing 'precondition' stays a failure; no status fails closed), and inapplicable replays record no loss
+[missing-db] a guarded transaction against a database that does not exist refuses and leaves nothing behind; observation creates nothing; creation is explicit and the transaction then commits
+[invariants] an ordered comparison is claimed only by ORDER BY; a re-inserted row flips the natural order (witnessed by sqlite3) yet a bare invariant commits on equal data, the ORDER BY and pinned forms commit, and a genuinely broken invariant rolls back
+[hash] a 3 MiB file hashes identically to hashlib over its bytes, and still does when the whole-file reader is replaced with one that raises — evidence is streamed, never loaded
+Traceback (most recent call last):
+[registration] the benchmark is declared in run_all, evidence and proof, and every reason code in the design is the code's closed set
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\fileauth.py", line 398, in _atomic_write
+    stream = os.fdopen(descriptor, mode, encoding=encoding)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen os>", line 1066, in fdopen
+LookupError: unknown encoding: not-a-real-codec
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_correctness_patch.py", line 349, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_correctness_patch.py", line 344, in main
+    check_windows_atomic_paths()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_correctness_patch.py", line 315, in check_windows_atomic_paths
+    fileauth.write_text(root, text, "must not replace valid text", encoding="not-a-real-codec")
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\fileauth.py", line 387, in write_text
+    return _atomic_write(p, text, mode="w", encoding=encoding, durable=durable)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\fileauth.py", line 418, in _atomic_write
+    os.close(descriptor)
+OSError: [Errno 9] Bad file descriptor

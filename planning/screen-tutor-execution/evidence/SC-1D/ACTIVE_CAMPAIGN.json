@@ -1,0 +1,8 @@
+{
+  "status": "TERMINAL_PASSED",
+  "record": "ACTIVE_CAMPAIGN_R2.json",
+  "campaign": "full-r2",
+  "session_id": 97656,
+  "prior_terminal_failure": "ACTIVE_CAMPAIGN_R1.json",
+  "exit_code": 0
+}

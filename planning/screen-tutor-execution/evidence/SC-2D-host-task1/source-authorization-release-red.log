@@ -1,0 +1,13 @@
+[host-answer] actual validated instruction returned defensively; wrong identity/missing observation/unready/feature-off dispatch nothing
+[host-release] grant/consent/identity/revision/epoch/deadline/Stop changes and forged instructions release no answer
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 166, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 161, in main
+    check_sealed_host_adapter()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 145, in check_sealed_host_adapter
+    refused(lambda: late_host.select_source(receipt))
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 41, in refused
+    assert result["allowed"] is False and "instruction" not in result, result
+           ~~~~~~^^^^^^^^^^^
+KeyError: 'allowed'

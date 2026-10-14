@@ -1,0 +1,5 @@
+[T011 T016] foreground/private source substitution refuses and the three-frame buffer exposes no diagnostic content
+[T012 T014] pause, source loss, crash-style reconnect and idempotent Stop invalidate epochs and wipe transient frames
+[T013] peer identity is checked before payload decoding; sequence conflicts and prior bridge epochs refuse
+[request-path] disabled and stopped sessions dispatch nothing; a valid selected-source request reaches one injected gateway and validates before render
+PASS test_tutor_native_session

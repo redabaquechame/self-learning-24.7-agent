@@ -1,0 +1,46 @@
+{
+  "schema": "native-host-frame-prerequisites-progress/1",
+  "recorded_at_utc": "2026-10-13T10:34:32.773634+00:00",
+  "accepted": false,
+  "status": "TASK4_PARTIAL_SOURCE_LIFECYCLE_AND_PNG_CONVERSION_VERIFIED",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "tutor_frames.py": "6b98097608adfac75e1782c7aac35ff0b8cc54208002ddba75bcb5c08c8e42bb",
+    "tutor_host.py": "6e38df9c04dedf05ea9099dfc4b11e97b8b3034d378aff02709280349481a9be",
+    "tutor_transport.py": "f6ceb822d65308229e3a5227cae3b2b7a21fb6654f0a197f9a66270ed8c8d320",
+    "tests/test_tutor_frames.py": "33fac94df9310213e81ed997671a00ad2002e52c529b0c8597475cef82f6290d",
+    "tests/test_tutor_host.py": "bdc8ca5cbaee6b084dbd59e2c63fb49d47439a6fdf1cd040b65b5f66e21404a4",
+    "tests/test_tutor_transport.py": "038f5f8351b72c4605fadaa31468f88205ac3e87819e4b648c74bb805607fa18",
+    "tests/fixtures/tutor_bridge_nested_v1.json": "83fbad77ab1ba3d472bf56ff1673fc5852fe8b506f4f47295ff7ae98cfb277e7",
+    "companion/windows/ScreenTutor/BridgePayloads.cs": "212b48a431df6557593892a26ff29ed2c1f554a91e7c1343a9d6a18110e1bb63",
+    "tests/run_all.py": "c2bb499e6369fbcd3cc9c44b17bbc53e954c62dc37218ec68b6ea441c65586d2",
+    "evidence.py": "28f3e641c39c64caada851440d25e55fefa3f2b53006a1df8f8b269cd6822e59"
+  },
+  "raw_logs": {
+    "source-keeps-bridge-red.log": "6fadd2e8e709fd3afbb2fe5ed834bc5838953d6c300c79412d42ac50d82eed53",
+    "source-keeps-bridge-green.log": "bb5403ea75a38f25529e0c73e6f9e85536088049d4fb87a33442de593939b532",
+    "native-pixel-format-red.log": "6fc7d35d4c5bab8d6b291018987deba21f0d7813d217dd644c50df725ed52930",
+    "native-pixel-format-csharp-red.log": "a39234ca64c1e4cb81609d2847f49ff1b00d7819485e1b6549d8155bbf5b54d7",
+    "native-pixel-format-green.log": "d46f7ef8f306200f3f6cccf97342db5bd347b26f2d14b7f3fcc6b90abea97188",
+    "native-pixel-format-green-build.log": "854735ad9f79c9245b64ac167749b50a00661f412f5194ddf992d0cc7d3a8658",
+    "native-pixel-format-csharp-green.log": "f0a0c1b97aeba6ee0ac0c232fce77fb0dcccbec23b125aea6764623ad670620f",
+    "frame-conversion-red.log": "bd401ee14c35f7f9356b01d9b4f93ce30f36d28ea52fe0733480953d19830389",
+    "frame-conversion-green.log": "7f3589b5ddd8887862f1a0339b51a3d84e533c47389553875a0052f6232fe23b",
+    "frame38-final-test_tutor_frames.py.log": "7f3589b5ddd8887862f1a0339b51a3d84e533c47389553875a0052f6232fe23b",
+    "frame38-final-test_tutor_host.py.log": "bb5403ea75a38f25529e0c73e6f9e85536088049d4fb87a33442de593939b532",
+    "frame38-final-test_tutor_transport.py.log": "d46f7ef8f306200f3f6cccf97342db5bd347b26f2d14b7f3fcc6b90abea97188",
+    "frame38-final-test_tutor_gateway.py.log": "d4d31da2757c1e181a3bc9e433f2cd93498903a9d0fdc0c6a4f90524e74bcf18",
+    "frame38-final-test_tutor_feature_off.py.log": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d"
+  },
+  "scope": "source selection retains authenticated bridge; actual native premultiplied format admitted; independently decoded synthetic exact PNG/alpha/CRC checks. No cross-process memory pixels or visible Ask.",
+  "remaining": [
+    "native one-shot shared-memory publisher and host current-authority consumer",
+    "exact actual captured-frame source/epoch/digest and PNG EphemeralImageStore witness",
+    "capture authorization/native selection/Stop/revoke/loss wiring",
+    "Task5 visible Ask/current answer",
+    "Task6 one fresh final package review/frozen full suite",
+    "all original actual overlays/installed/provider/content/human/buyer-release gates"
+  ],
+  "full_current_candidate_retested": false,
+  "private_capture_provider_release": false
+}

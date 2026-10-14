@@ -116,6 +116,8 @@ def shutdown_children():
     team runs. On Windows a terminated panel cannot run cleanup, so tests
     and operators call POST /api/shutdown instead of killing the panel:
     otherwise its drivers live on as orphans, burning CPU on dead work."""
+    if Handler.tutor_runtime is not None:
+        Handler.tutor_runtime.close()
     for table in (PROCS, TEAM_PROCS):
         for key, p in list(table.items()):
             try:
@@ -931,9 +933,90 @@ def queue_mission_task(home, slug, root, data, launch=True):
             "running": bool(launch)}
 
 
+class SourceApprovalNotCurrent(ValueError):
+    """An inactive source decision must not mutate its existing history."""
+
+
 class Handler(BaseHTTPRequestHandler):
     home = HOME
     token = None  # when set, every /api request must carry it
+    tutor_runtime = None  # installed by the local host, never by route content
+
+    @staticmethod
+    def _source_approval(record):
+        return (record.get('server') == 'screen_tutor' and
+                record.get('tool') == 'share_source_for_explanation')
+
+    def _source_approval_state(self, slug, record):
+        runtime = self.tutor_runtime
+        return runtime.approval_state(slug, record['id']) if runtime is not None else 'RETIRED_OR_UNAVAILABLE'
+
+    def _visible_approvals(self, slug, records):
+        import org
+        actor = getattr(self, 'actor', OWNER_ACTOR)
+        can_decide = org.may(self.home, actor, 'approve')
+        visible = []
+        for record in records:
+            if self._source_approval(record):
+                source_actor = record.get('args', {}).get('scope', {}).get('context', {}).get('actor_id')
+                if not can_decide and source_actor != actor:
+                    continue
+                record['source_approval_state'] = self._source_approval_state(slug, record)
+                record['source_can_decide'] = can_decide
+            visible.append(record)
+        return visible
+
+    def _tutor_proof(self):
+        """Retain the original bearer proof and revalidate it during native work."""
+        import org
+        home = self.home
+        token = self.headers.get('Authorization', '')
+        presented = token[7:] if token.startswith('Bearer ') else ''
+        handler_type = type(self)
+        solo = org.load(home) is None
+        actor = self.actor
+        def current():
+            member = org.user_for_token(home, presented) if presented else None
+            if member:
+                return member['email']
+            master = handler_type.token
+            if master and presented == master:
+                rec = org.load(home)
+                return next((u['email'] for u in rec['users'] if u['role'] == 'owner' and u['active']), None) if rec else OWNER_ACTOR
+            if not master and solo and org.load(home) is None and not presented:
+                return OWNER_ACTOR
+            return None
+        return current
+
+    def _tutor_request(self, slug, action=None):
+        if not self._may('run', slug):
+            return
+        if (self.client_address[0] not in ('127.0.0.1', '::1') or
+                self.server.server_address[0] not in ('127.0.0.1', '::1')):
+            self._fail({'error': 'Screen Tutor needs the configured local device.'}, 403)
+            return
+        from tutor_runtime import RuntimeUnavailable
+        runtime = self.tutor_runtime
+        if action and self._data != {}:
+            self._fail({'error': 'Screen Tutor controls accept no identity or host configuration.'}, 400)
+            return
+        if runtime is None:
+            if action == 'launch':
+                self._fail({'error': 'Configure the local Screen Tutor host profile first.'}, 409)
+            else:
+                self._json({'state': 'UNAVAILABLE', 'reason_code': 'HOST_CONFIGURATION_UNAVAILABLE', 'running': False})
+            return
+        try:
+            proof = self._tutor_proof()
+            if action == 'launch':
+                value = runtime.launch(slug, self.actor, proof)
+            elif action == 'stop':
+                value = runtime.stop(slug, self.actor, proof)
+            else:
+                value = runtime.status(slug, self.actor, proof)
+            self._json(value)
+        except (RuntimeUnavailable, ValueError) as error:
+            self._fail({'error': str(error)}, 409)
 
     def end_headers(self):
         self.send_header("Cache-Control", "no-store")
@@ -1035,6 +1118,8 @@ class Handler(BaseHTTPRequestHandler):
         An unlisted route is treated as a BUILD, not as public: a route added
         without an entry should be refused for a viewer, not waved through.
         """
+        if re.fullmatch(r'/api/experts/[a-z0-9-]+/tutor/(launch|stop)', path):
+            return self._may('run', path)
         perm = POST_PERMISSION.get(path)
         if perm is None:
             m = re.fullmatch(r"/api/experts/([a-z0-9-]+)/(\w+)", path)
@@ -1276,8 +1361,42 @@ class Handler(BaseHTTPRequestHandler):
         if action == "approval":
             import approvals as ap_mod
             d = self._data
-            rec = ap_mod.decide(root, d["id"], d.get("op") == "grant",
-                                d.get("note", ""))
+            prior = ap_mod.load(root, d['id'])
+            source = prior is not None and self._source_approval(prior)
+            if source:
+                import org
+                if d.get('op') not in ('grant', 'deny'):
+                    raise ValueError('Choose grant or deny for this source approval.')
+                if self._tutor_proof()() != self.actor:
+                    raise SourceApprovalNotCurrent('Your access changed. Refresh before deciding.')
+                org.check(self.home, self.actor, 'approve', slug)
+                if self._source_approval_state(slug, prior) == 'RETIRED_OR_UNAVAILABLE':
+                    raise SourceApprovalNotCurrent('This source was stopped, changed or expired. Choose it again in the companion; the earlier decision remains unchanged.')
+                if prior['status'] == 'granted' and d['op'] == 'deny':
+                    if not self.tutor_runtime.withdraw_approval(slug, prior['id']):
+                        raise SourceApprovalNotCurrent('This sharing permission is no longer current. Refresh the source status.')
+                    org.audit(self.home, self.actor, 'withdraw_source_sharing', 'source_approval', prior['id'],
+                              detail='Current sharing view retired; original approval decision preserved')
+                    return {'id': prior['id'], 'status': prior['status'], 'resumed': None,
+                            'sharing_permission': 'withdrawn', 'next': 'source_sharing_withdrawn'}
+            if source:
+                from tutor_authority import SourceApprovalRequired
+                proof = self._tutor_proof()
+                def approver_current():
+                    if proof() != self.actor:
+                        raise SourceApprovalNotCurrent('Your access changed. Refresh before deciding.')
+                    org.check(self.home, self.actor, 'approve', slug)
+                try:
+                    rec = self.tutor_runtime.decide_approval(slug, d['id'], d['op']=='grant', d.get('note',''), approver_current)
+                except SourceApprovalRequired:
+                    raise SourceApprovalNotCurrent('This source was stopped, changed or expired. Refresh before deciding.') from None
+            else:
+                rec = ap_mod.decide(root, d["id"], d.get("op") == "grant", d.get("note", ""))
+            if source:
+                next_step = ('source_sharing_withdrawn' if prior['status'] == 'granted' else 'source_sharing_denied') if rec['status'] == 'denied' else (
+                    'source_retired' if self._source_approval_state(slug, rec) == 'RETIRED_OR_UNAVAILABLE' else 'retry_source_authorization')
+                return {'id': rec['id'], 'status': rec['status'], 'resumed': None,
+                        'next': next_step}
             # The blocked task is unblocked with the decision as its answer.
             # The DECISION IS ALREADY FINAL at this point, so a task that is
             # no longer waiting (already done, retried, archived) must not be
@@ -1530,6 +1649,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_header("Content-Length", str(len(body)))
                 self.end_headers()
                 self.wfile.write(body)
+            elif (m := re.fullmatch(r'/api/experts/([a-z0-9-]+)/tutor', path)):
+                self._tutor_request(m.group(1))
             elif path == "/api/system":
                 self._json(system_overview(self.home))
             elif path == "/api/systems":
@@ -2031,7 +2152,15 @@ class Handler(BaseHTTPRequestHandler):
                 import approvals as ap_mod
                 import trace as TR
                 root = expert_root(self.home, m.group(1))
-                pend = ap_mod.pending(root)
+                slug=m.group(1)
+                current = self.tutor_runtime.current_approval_record(slug) if self.tutor_runtime is not None else None
+                pending_records=ap_mod.pending(root)
+                history_records=ap_mod.history(root)[-20:]
+                if current is not None:
+                    target=pending_records if current['status']=='pending' else history_records
+                    if not any(row['id']==current['id'] for row in target):
+                        target.append(current)
+                pend = self._visible_approvals(slug, pending_records)
                 for rec in pend:
                     # never ask a human to sign a dialog: show them what was
                     # done, what this step does, and what happens next
@@ -2048,7 +2177,7 @@ class Handler(BaseHTTPRequestHandler):
                             "same browser profile without ever seeing your "
                             "password.")
                 self._json({"pending": pend,
-                            "history": ap_mod.history(root)[-20:]})
+                            "history": self._visible_approvals(slug, history_records)})
             elif (m := re.fullmatch(r"/api/experts/([a-z0-9-]+)/identity", path)):
                 root = expert_root(self.home, m.group(1))
                 p = os.path.join(root, "identity.md")
@@ -2171,7 +2300,9 @@ class Handler(BaseHTTPRequestHandler):
             return
         try:
             self._data = json.loads(self._body() or b"{}")
-            if path == "/api/experts":
+            if (m := re.fullmatch(r'/api/experts/([a-z0-9-]+)/tutor/(launch|stop)', path)):
+                self._tutor_request(m.group(1), m.group(2))
+            elif path == "/api/experts":
                 dest = fleet.create(self.home, self._data["name"],
                                     self._data.get("identity", ""))
                 self._json({"created": os.path.basename(dest)})
@@ -2607,6 +2738,8 @@ class Handler(BaseHTTPRequestHandler):
             self._fail({"error": f"no expert called {e.args[0]!r}"}, 404)
         except KeyError as e:
             self._fail({"error": f"the request is missing {e.args[0]!r}"}, 400)
+        except SourceApprovalNotCurrent as e:
+            self._fail({'error': str(e), 'reason_code': 'SOURCE_APPROVAL_NOT_CURRENT'}, 409)
         except ValueError as e:
             # a refused gate spec is the caller's mistake, not a server fault
             self._fail({"error": str(e)}, 400)
@@ -2715,6 +2848,7 @@ def main():
     ap.add_argument("--token", default=os.environ.get("UI_TOKEN") or None,
                     help="access token for the API (default: $UI_TOKEN; "
                          "auto-generated when exposing beyond localhost)")
+    ap.add_argument('--tutor-config', help='explicit local Screen Tutor host configuration JSON; does not launch')
     args = ap.parse_args()
     Handler.home = os.path.abspath(args.home)
     token = args.token
@@ -2748,6 +2882,11 @@ def main():
                   "to the owner and grants everything.")
             print()
     Handler.token = token
+    if args.tutor_config:
+        if exposed:
+            ap.error('Screen Tutor host configuration requires a loopback-only panel')
+        from tutor_runtime import configure_from_host_file
+        Handler.tutor_runtime = configure_from_host_file(Handler.home, args.tutor_config)
     srv = ThreadingHTTPServer((args.host, args.port), Handler)
     print(f"Expert Fleet mission control: http://{args.host}:{args.port}")
     if token:
@@ -2761,6 +2900,10 @@ def main():
     except KeyboardInterrupt:
         for slug in list(PROCS):
             stop_expert(slug)
+    finally:
+        if Handler.tutor_runtime is not None:
+            Handler.tutor_runtime.close()
+        srv.server_close()
 
 
 if __name__ == "__main__":

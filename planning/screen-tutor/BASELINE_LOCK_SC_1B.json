@@ -1,0 +1,34 @@
+{
+  "schema": "screen-tutor-baseline-lock/1",
+  "captured_at_utc": "2026-09-15T07:51:00Z",
+  "repository": "https://github.com/reda-baqechame/self-learning-24.7-agent.git",
+  "branch": "codex/screen-tutor-build",
+  "base": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+  "head": "WORKTREE_SC_1B_REVIEWED",
+  "supersedes": "planning/screen-tutor/BASELINE_LOCK.json",
+  "approved_change_packet": "SC-1B",
+  "approved_changes": [
+    "loop.py accepts a private one-shot qualified image authority and retains the ordinary multimodal refusal",
+    "context.py accounts one qualified provider image separately from bounded text",
+    "modelgateway.py reserves and reconciles qualified provider cost exactly once"
+  ],
+  "protected_files": [
+    {"path": "loop.py", "bytes": 247905, "sha256": "e995d8dab05254031f3f3219127f67f7492eaed1789a96b353eef4b511cc8f90"},
+    {"path": "context.py", "bytes": 44699, "sha256": "39784326722241eec6d4d2e048535481b04bbbc5df97caa7848667e99c51c984"},
+    {"path": "modelgateway.py", "bytes": 16745, "sha256": "620b5bab5af3925e06fcfadd0769f3d5232d429d87f01918097466ea4a273424"},
+    {"path": "grants.py", "bytes": 17902, "sha256": "06c69c54e96a93dd26826ffddd721fd70a0ecb7e849a27731aae2903edec3177"},
+    {"path": "execution.py", "bytes": 19531, "sha256": "64e642053c51f76e32507fafaf113d90113606a9dba7eed51c2e54f2c39c5482"},
+    {"path": "mission.py", "bytes": 24611, "sha256": "b2bab7dee4191ebc775d3e6869c5e7b353fcc912859d81f2b7e7dc00b55ad07d"},
+    {"path": "computersession.py", "bytes": 48800, "sha256": "d1dc20b49d3f5281564bc379fc83d3bdafdc813b2846232878bf646aa7de052e"},
+    {"path": "computeruse.py", "bytes": 26430, "sha256": "b1a1feee618fb71508c546e01f0f67e04c366a9bebcc1e7b7497ea322125bc7e"},
+    {"path": "mastery.py", "bytes": 20845, "sha256": "220b790d958a9f3bf167442cfa9debf908e0be4f7fadf11fa2c5819d55786893"},
+    {"path": "goal.py", "bytes": 33990, "sha256": "2cebe678b6d329859ff2a9bb742c6aa9c7c1fac9201f720076604b5bb9763e21"},
+    {"path": "ui.py", "bytes": 136054, "sha256": "a635f860966c2e86bcc0f23e2ee4057866aeebac784756b8b45ee067e97553ce"},
+    {"path": "ui.html", "bytes": 348168, "sha256": "0cbe8171c0b5ea06b67e5a98459bf10b64a0c745df74dfbbe5331f7d5abf8d3e"}
+  ],
+  "limits": [
+    "Source and local compatibility witness only",
+    "The original pre-edit baseline remains immutable in BASELINE_LOCK.json",
+    "No real provider, private screen, human, deployment, or production qualification"
+  ]
+}

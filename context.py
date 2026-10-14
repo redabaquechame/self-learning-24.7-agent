@@ -238,6 +238,52 @@ def assert_request_budget(cfg, provider, model, messages, max_tokens, tools=None
     return rep
 
 
+def assert_qualified_image_request_budget(cfg, provider, model, messages,
+                                          max_tokens, media_accounting):
+    """Provider-specific context gate used only by the sealed tutor route."""
+    if not isinstance(media_accounting, dict) \
+            or media_accounting.get("schema") != "tutor.image.accounting.v1":
+        raise ContextBudgetError("qualified image accounting is missing")
+    if media_accounting.get("provider") != provider \
+            or media_accounting.get("model") != model:
+        raise ContextBudgetError("image accounting belongs to another provider capability")
+    image_units = media_accounting.get("image_input_units")
+    if isinstance(image_units, bool) or not isinstance(image_units, int) \
+            or image_units <= 0:
+        raise ContextBudgetError("qualified image input units are invalid")
+    rep = request_budget(cfg, provider, model, max_tokens, [])
+    text_messages, image_parts = [], 0
+    for message in messages:
+        copy = dict(message)
+        content = message.get("content")
+        if isinstance(content, list):
+            kept = []
+            for part in content:
+                if not isinstance(part, dict):
+                    raise ContextBudgetError("multimodal part must be an object")
+                if part.get("type") == "text" and isinstance(part.get("text"), str):
+                    kept.append(part)
+                elif part.get("type") == "image_url" \
+                        and isinstance(part.get("image_url"), dict):
+                    image_parts += 1
+                    kept.append({"type": "image_url", "image_url": {"url": "[bounded-image]"}})
+                else:
+                    raise ContextBudgetError("qualified tutor route accepts text and one image only")
+            copy["content"] = kept
+        text_messages.append(copy)
+    if image_parts != 1:
+        raise ContextBudgetError("qualified tutor route requires exactly one image")
+    used = token_upper_bound(json.dumps(text_messages, ensure_ascii=False)) \
+        + 32 * len(messages) + image_units
+    rep.update(used_upper_bound=used, image_input_units=image_units,
+               accounting="qualified_provider_image_units_plus_utf8_text_upper_bound")
+    if used > rep["maximum_compiled_context"]:
+        raise ContextBudgetError(
+            f"qualified request requires <= {used} input units; only "
+            f"{rep['maximum_compiled_context']} remain for {provider}:{model}")
+    return rep
+
+
 def window_pressure(cfg, provider, model, messages):
     """(used_upper_bound, maximum_compiled_context) for a LIVE transcript, in
     the same units the request gate refuses in, or None when the pair has

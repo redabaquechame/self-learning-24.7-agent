@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 288, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 61, in main
+    check_acquisition(api)
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 209, in check_acquisition
+    assert cls is not None, 'SC-1D authorized document acquisition is missing'
+           ^^^^^^^^^^^^^^^
+AssertionError: SC-1D authorized document acquisition is missing

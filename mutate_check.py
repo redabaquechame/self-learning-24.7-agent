@@ -1191,6 +1191,138 @@ MUTATIONS = [
      "test_frontier.py",
      "a capability made READY by writing one word into a file the worker can "
      "reach"),
+
+    ("learning submission: frontend payload creates passing evidence",
+     "learning_contracts.py",
+     '''                "state": "SUBMITTED",
+                "passing": None,
+            })
+            return {"record": record}
+        if operation == "records.list":''',
+     '''                "state": "SUBMITTED",
+                "passing": True,
+            })
+            return {"record": record}
+        if operation == "records.list":''',
+     "test_learning_surface_parity.py",
+     "a submitted learner artifact cannot become passing without the "
+     "independent assessment authority"),
+
+    ("tutor request: stale consent revision accepted",
+     "tutor_contracts.py",
+     '''    if record.get("consent_revision") != current.get("consent_revision"):
+        raise ContractViolation("STALE_CONSENT")''',
+     '''    if False:
+        raise ContractViolation("STALE_CONSENT")''',
+     "test_tutor_contracts.py",
+     "a validly shaped request from the previous consent revision must fail"),
+
+    ("tutor capture: selected source binding removed",
+     "tutor_session.py",
+     '''            if (source_id != self.source.source_id
+                    or source_revision != self.source.source_revision
+                    or capture_epoch != self.capture_epoch):''',
+     '''            if False:''',
+     "test_tutor_native_session.py",
+     "a private foreground/source substitution must not enter the frame buffer"),
+
+    ("tutor gateway: settled reservation authorizes duplicate dispatch",
+     "tutor_gateway.py",
+     '''        if not reservation_record.get("created"):
+            raise GatewayRefused("DUPLICATE_DISPATCH", "request identity was already reserved")''',
+     '''        if False:
+            raise GatewayRefused("DUPLICATE_DISPATCH", "request identity was already reserved")''',
+     "test_tutor_gateway.py",
+     "one request identity can fund at most one provider dispatch"),
+
+    ("tutor sources: final assessment enters ordinary retrieval",
+     "tutor_sources.py",
+     '''            if record["purpose"] == "final_assessment":
+                hidden_matches += 1
+                continue''',
+     '''            if False:
+                hidden_matches += 1
+                continue''',
+     "test_tutor_sources.py",
+     "a hidden final answer returned through ordinary tutor search"),
+
+    ("tutor learner: assistance and exposure treated as independent",
+     "tutor_learner.py",
+     '''        elif (exposed or payload["actor"] == "SHARED"
+              or payload["assistance"] in ("HINT", "ANSWER", "EXECUTION")):
+            classification = "ASSISTED"''',
+     '''        elif False:
+            classification = "ASSISTED"''',
+     "test_tutor_learner.py",
+     "guided and answer-exposed correct attempts must add no independent evidence"),
+
+    ("tutor grounding: stale geometry revision allowed to render",
+     "tutor_grounding.py",
+     '''    for field in ("observation_id", "source_id", "source_revision",
+                  "capture_epoch", "geometry_revision", "mode"):''',
+     '''    for field in ("observation_id", "source_id", "source_revision",
+                  "capture_epoch", "mode"):''',
+     "test_tutor_geometry.py",
+     "a moved or resized source must suppress every stale overlay primitive"),
+
+    ("tutor practice: unsafe production source accepted as a practice asset",
+     "tutor_practice.py",
+     '''    if (value["source_kind"] not in SAFE_SOURCE_KINDS
+            or value["rights"] != SAFE_SOURCE_KINDS.get(value["source_kind"])
+            or value["practice_eligible"] is not True):''',
+     '''    if False:''',
+     "test_tutor_practice.py",
+     "a production document must be declined before a practice artifact is created"),
+
+    ("tutor audio: assistant playback accepted as a user transcript",
+     "tutor_audio.py",
+     '''    if event["origin"] == "ASSISTANT":
+        disposition = "IGNORED_SELF_AUDIO"''',
+     '''    if False:
+        disposition = "IGNORED_SELF_AUDIO"''',
+     "test_tutor_audio.py",
+     "assistant playback must remain source-tagged and cannot self-trigger"),
+
+    ("tutor locale: changed device silently continues capture",
+     "tutor_locale.py",
+     '''        self.capture_authorized = False
+        self.capture_paused = True
+
+    def may_capture(self):''',
+     '''        self.capture_authorized = True
+        self.capture_paused = False
+
+    def may_capture(self):''',
+     "test_tutor_locale.py",
+     "a changed audio-device identity must pause capture until explicit current reauthorization"),
+
+    ("tutor media index: captions relabeled as visual observation",
+     "tutor_media_index.py",
+     '''        elif modality == "VISUAL":
+            found = any(row["timeline_epoch"] == timeline_epoch
+                        and start_ms <= row["timestamp_ms"] < end_ms
+                        for row in self.frames)''',
+     '''        elif modality == "VISUAL":
+            found = bool(self.captions)''',
+     "test_tutor_media_index.py",
+     "transcript-only evidence must never support an independently observed visual-action claim"),
+
+    ("tutor media: missing timeline binding accepted as current",
+     "tutor_media.py",
+     '''    for field in ("media_id", "source_revision", "content_sha256",
+                  "content_epoch", "timeline_epoch"):''',
+     '''    for field in ("media_id", "source_revision", "content_sha256",
+                  "content_epoch"):''',
+     "test_tutor_media.py",
+     "an explanation without exact current timeline identity must be suppressed"),
+
+    ("tutor context: project boundary removed while retrieval remains functional",
+     "tutor_context.py",
+     '''        if any(row[field] != value for field, value in expected.items()):''',
+     '''        if any(row[field] != value for field, value in expected.items()
+               if field != "project_id"):''',
+     "test_tutor_context.py",
+     "a selected item from another project must never enter current context"),
 ]
 
 
@@ -1241,6 +1373,27 @@ def _plant_decoy(path, text):
     with io.open(path, "w", encoding="utf-8") as f:
         f.write(text)
     return path
+
+
+def _clear_module_bytecode(path):
+    """Remove only cached bytecode for the source file just restored.
+
+    A same-length mutation and restoration can occur within one filesystem
+    timestamp tick. CPython's timestamp cache would then execute the mutated
+    bytecode after the source bytes were restored, making the next test lie.
+    """
+    cache = os.path.join(os.path.dirname(path), "__pycache__")
+    prefix = os.path.splitext(os.path.basename(path))[0] + "."
+    try:
+        names = os.listdir(cache)
+    except OSError:
+        return
+    for name in names:
+        if name.startswith(prefix) and name.endswith(".pyc"):
+            try:
+                os.remove(os.path.join(cache, name))
+            except OSError:
+                pass
 
 
 def main():
@@ -1309,6 +1462,7 @@ def main():
         finally:
             shutil.copy(backup, path)
             os.remove(backup)
+            _clear_module_bytecode(path)
             if planted and os.path.exists(planted):
                 os.remove(planted)
     print()

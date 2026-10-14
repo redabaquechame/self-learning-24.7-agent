@@ -1,0 +1,38 @@
+{
+  "schema": "sc1d-independent-review/1",
+  "reviewer": "sc1d_final_review",
+  "verdict": "With fixes",
+  "critical": 0,
+  "important": 3,
+  "minor": 0,
+  "findings": [
+    {
+      "id": "R1",
+      "finding": "late sample-permission revocation escapes final release",
+      "red": "review-release-red.log",
+      "fix": "final sample validate and stop on refusal"
+    },
+    {
+      "id": "R2",
+      "finding": "corrupt scoped registry escapes as SourceRefused",
+      "red": "review-registry-red.log",
+      "fix": "translate registry failures to bounded investigation refusal"
+    },
+    {
+      "id": "R3",
+      "finding": "stopped handles exhaust capacity",
+      "red": "review-capacity-red.log",
+      "fix": "reclaim active handles and bound tombstones"
+    }
+  ],
+  "fix_witness": "review-fixes-green.log",
+  "second_review_performed": false,
+  "packet_accepted": false,
+  "remaining": [
+    "full integrated candidate regression",
+    "live provider",
+    "independent content review",
+    "visible native journey",
+    "real-app qualification"
+  ]
+}

@@ -1,0 +1,6 @@
+[syntax] the page's JavaScript parses under node --check
+[page] the six job-shaped sections each state their purpose and route to a renderer; guide/memory/models/system were MOVED, not deleted, and each is still reachable from a clickable control; every endpoint the page names exists; both themes defined
+[serve] page served from ui.html (346386 bytes)
+[fresh] a newly created expert answers on all six read endpoints, no 500s
+[live] frontend edits appear on reload with no server restart
+PASS test_frontend

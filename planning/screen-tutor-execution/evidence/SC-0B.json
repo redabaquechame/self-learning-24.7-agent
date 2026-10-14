@@ -1,0 +1,92 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-0B",
+  "recorded_at_utc": "2026-09-15T06:13:28Z",
+  "verdict": "LOCAL_VERIFIED_REVIEWED",
+  "accepted": true,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_contracts_sha256": "cd7dcfc4142e0ab284ad2fb7058511a3782a7e30d134a374a2ba3d89f63b0a06",
+    "generated_fixture_sha256": "4dd462f02a508d3866a52314be9f8ea02a93fced994b1187a42afe9c9dec586b"
+  },
+  "artifacts": [
+    "tutor_contracts.py",
+    "tests/test_tutor_contracts.py",
+    "planning/screen-tutor/PROTOCOL.md",
+    "planning/screen-tutor/SC-0B_REVIEW.md",
+    "companion/windows/contract-probe/ContractProbe.csproj",
+    "companion/windows/contract-probe/Program.cs",
+    "companion/windows/contract-probe/tutor-contracts.v1.json"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_contracts.py",
+      "exit_code": 0,
+      "result": "T005-T010 and X002A/X002B passed: strict wire parsing, identity/project/source/consent/geometry/cancellation/deadline binding, owner-only mode upgrade, no grant creation, limited modality scope, closed session transitions, evidence truth and previous-generation suppression"
+    },
+    {
+      "command": "python mutate_check.py 'tutor request: stale consent revision accepted'",
+      "exit_code": 0,
+      "result": "one selective mutation caught; removing consent-revision enforcement makes the focused contract test fail; source restoration passed in a fresh process"
+    },
+    {
+      "command": "field-by-field malformed-type sweep over all five fixture records",
+      "exit_code": 0,
+      "result": "zero uncaught exceptions across null, boolean, integer, float, list, object and nested-object substitutions"
+    },
+    {
+      "command": "%TEMP%/screen-tutor-dotnet-10.0.401/dotnet build and run companion/windows/contract-probe",
+      "exit_code": 0,
+      "result": ".NET SDK 10.0.401 built the Windows-targeted probe with zero warnings and zero errors; the probe consumed the Python-generated fixture and printed its matching SHA-256"
+    },
+    {
+      "command": "python tests/test_package.py; python tests/test_ledger_defects.py; python tests/test_invariants.py --audit",
+      "exit_code": 0,
+      "result": "461 archive members, 130 non-test Python files, 164 tests, 126 scanned modules, zero execution-authority violations, and current prose/test/mutation counts"
+    }
+  ],
+  "review": {
+    "artifact": "planning/screen-tutor/SC-0B_REVIEW.md",
+    "verdict": "APPROVED_FOR_SC-0B_SCOPE",
+    "resolved_findings": 8,
+    "unresolved_critical_findings": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "negative_witnesses": [
+    "a valid previous consent or cancellation generation refuses before capture, retrieval, provider dispatch or charge, render, handoff and action",
+    "a correct user bound to the wrong tenant or project cannot combine context",
+    "Guide and Explain cannot carry an execution request",
+    "unknown capabilities, modes, modalities, fields and future protocol versions refuse",
+    "a request ID replay with different canonical bytes refuses",
+    "validation calls no grant issuer and reports grant_created false"
+  ],
+  "full_suite": {
+    "command": "$env:AGENT_TEST_ROOT=Join-Path $env:TEMP 'screen-tutor-sc0b-final-0915c'; python tests/run_all.py",
+    "executed": 164,
+    "passed": 161,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no isolated dependency-install arena selected for the core acquisition test"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess has no SIGTERM handler contract; container CI owns this proof"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal": "ALL EXECUTED TESTS PASSED"
+  },
+  "prior_attempts": [
+    {
+      "outcome": "FAILED",
+      "evidence": "first 164-test run: 160 passed, 3 skipped, 1 failed because the README registered-test badge remained at 163",
+      "resolution": "updated the badge to 164; test_ledger_defects.py and the two following full campaigns passed"
+    },
+    {
+      "outcome": "SUPERSEDED_SUCCESS",
+      "evidence": "a clean 164-test run passed before the review added the session transition and grant-view contracts",
+      "resolution": "treated as pre-review evidence only and ran the full suite again on final source bytes"
+    }
+  ],
+  "doctor_observation": "all 103 declared core modules imported, but overall doctor readiness remained blocked by the pre-existing absence of a live provider key; this does not satisfy provider qualification",
+  "scope": "SOURCE, LOCAL, generated cross-language fixture consumption and structured REVIEW for versioned contracts only. The .NET probe is compile/runtime fixture evidence, not native capture qualification. No production transport, provider, device, usability, deployment, learning-efficacy or release claim is made."
+}

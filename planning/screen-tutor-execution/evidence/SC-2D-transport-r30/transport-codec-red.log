@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 69, in <module>
+    check_codec()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 14, in check_codec
+    assert spec is not None, 'typed authenticated native-host codec is absent'
+           ^^^^^^^^^^^^^^^^
+AssertionError: typed authenticated native-host codec is absent

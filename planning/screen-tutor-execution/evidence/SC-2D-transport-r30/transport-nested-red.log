@@ -1,0 +1,8 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+[transport handshake] mutual challenge, reflected peer, replay, sequence gaps and bounded history checked
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 137, in <module>
+    check_nested_shapes()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 130, in check_nested_shapes
+    raise AssertionError('nested typed lesson shape is open')
+AssertionError: nested typed lesson shape is open

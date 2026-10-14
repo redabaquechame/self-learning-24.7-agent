@@ -1,0 +1,31 @@
+{
+  "schema": "native-host-task1-local-completion/1",
+  "recorded_at_utc": "2026-10-13T08:01:49.440489+00:00",
+  "accepted": false,
+  "status": "TASK1_LOCAL_VERIFIED_TYPED_TRANSPORT_PENDING",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_commit_deferred": "pre-existing untracked dependency ownership; preserve exact local hashes until package review",
+  "task_done_helper": "Task1 complete, tests host/native-session/learning-parity/investigation/feature-off passed; Git range160fa4b..160fa4b contains no new task commit",
+  "new_boundary_checks": [
+    "malformed/foreign/expired/retired source refusal",
+    "capture authorization cap900000ms",
+    "host/native epoch7/loss8/fresh9 and stale refusal",
+    "binding change inside policy read refuses before dispatch"
+  ],
+  "source_hashes": {
+    "tutor_host.py": "2daed6622c98d3d3d20b2583af0d38aa79b333972ad5e2cdc6646ca2169869e1",
+    "tutor_service.py": "c808da5076a28c594287d29ccf4a541329b6d7a3fd87aab8af828b13f4091815",
+    "tutor_session.py": "92111ff3eb1c1efa313263b00fd35df7e2352fb57c0f359f91060b3048b1f802",
+    "tests/test_tutor_host.py": "8beed809f3aafd7ead24f2fba87b8122763bd7d5766a01d29a275c1d111bc7e9"
+  },
+  "red_green": [
+    "policy-read-binding-red.log",
+    "policy-read-binding-green.log"
+  ],
+  "next": "Task2 typed authenticated bidirectional codec, cross-language fixtures and native OwnerBridge write/read; then actual bootstrap/frame/Ask/presentation",
+  "remaining_required": [
+    "package independent review and final full candidate",
+    "native host/transport/UI integration",
+    "original visible overlays/installed novice/accessibility/provider/content/human-learning/buyer release"
+  ]
+}

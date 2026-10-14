@@ -99,6 +99,19 @@ SYSTEMS = {
                   "test_retention.py", "test_context.py",
                   "test_loop_learning_controls.py",
                   "test_use_cases.py", "test_vision_preservation.py",
+                  "test_tutor_feature_off.py",
+                  "test_tutor_environment_lock.py",
+                  "test_tutor_contracts.py",
+                  "test_tutor_native_session.py",
+                  "test_tutor_gateway.py",
+                  "test_tutor_sources.py", "test_tutor_investigation.py", "test_tutor_host.py", "test_tutor_transport.py", "test_tutor_connection.py", "test_tutor_frames.py",
+                  "test_tutor_packs.py",
+                  "test_tutor_policy.py",
+                  "test_tutor_learner.py", "test_tutor_human_assessment.py", "test_tutor_human_practice.py", "test_tutor_presentation.py", "test_tutor_authority.py", "test_tutor_runtime.py",
+                  "test_tutor_geometry.py", "test_tutor_canvas.py",
+                  "test_tutor_practice.py", "test_tutor_audio.py",
+                  "test_tutor_locale.py", "test_tutor_media_index.py",
+                  "test_tutor_media.py", "test_tutor_context.py",
                   "test_watchdog.py"],
         "blind": "every model call in these tests is the scripted mock "
                  "provider. They prove the harness holds around a model; they "
@@ -126,6 +139,7 @@ SYSTEMS = {
                   "test_inbox.py", "test_material.py", "test_url.py",
                   "test_curriculum.py",
                   "test_e2e.py",
+                  "test_learning_surface_parity.py",
                   "test_research_discovery.py", "test_reconciler.py",
                   "test_sentinels.py"],
         "blind": "schedules are tested with tiny intervals inside one run. "

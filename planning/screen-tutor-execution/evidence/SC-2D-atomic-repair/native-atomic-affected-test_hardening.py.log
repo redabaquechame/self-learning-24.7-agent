@@ -1,0 +1,9 @@
+[locks] release verifies ownership: a stalled holder cannot free the lock that replaced it, and tokens are per-acquisition
+[gates] the catalogue builds the command; traversal, shell syntax, unknown gates and raw strings are all refused
+[secrets] api_key_file and inline api_key are secrets to every subsystem; ordinary files and settings.toml are unaffected
+[writes] settings, charters, approvals and ledgers are unwritable by the agent; its own work and skills still are
+[scheme] file://, ftp:// and bare paths refused by ingestion
+[course] a traversing course name is slugified; the gotcha lands inside the expert, not above it
+[skills] a third-party SKILL.md cannot self-declare 'own'; only the owner's recorded decision grants trust
+[effects] the ledger is write-ahead: an unresolved effect is visible, and one effect reads as one entry
+PASS test_hardening

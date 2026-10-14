@@ -1,0 +1,8 @@
+[native connection] real owned native child and Python authenticated pipe traffic/Stop checked
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 86, in <module>
+    check_native_connection()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 54, in check_native_connection
+    assert not stalled.ready, 'timed-out pipe is still reported ready'
+           ^^^^^^^^^^^^^^^^^
+AssertionError: timed-out pipe is still reported ready

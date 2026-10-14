@@ -330,6 +330,11 @@ ALLOWED_RAW = {
               "policy/approvals inside mcp.py itself)",
     "computerprocess.py": "host-owned computer supervisor: launches only the reviewed MCP argv; "
                           "cleans its unique OS job/group and exact owned Docker container, no model callback",
+    "tutor_connection.py": "host-owned native companion: only a sealed VerifiedNativeExecutable "
+                           "with rechecked executable/dependency hashes and fixed native-host flags; "
+                           "no shell or request-selected argv, bounded inherited bootstrap, "
+                           "mutual PID/key/pipe proof and exact owned-child teardown; "
+                           "capture/model effects require separate current host authority",
     "benchmark.py": "ARM A deliberately runs a bare model with no harness; "
                     "its CHECK commands go through the authority as op='gate'",
     "learn_bench.py": "LEARN-001 owner-side instrument: drives loop.py by "

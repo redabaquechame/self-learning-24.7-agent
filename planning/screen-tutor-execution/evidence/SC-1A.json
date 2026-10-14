@@ -1,0 +1,116 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-1A",
+  "recorded_at_utc": "2026-09-15T07:17:17Z",
+  "verdict": "LOCAL_AND_NATIVE_SYNTHETIC_VERIFIED_REVIEWED",
+  "accepted": true,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "capture_session_sha256": "7394c9184a79be9dc937da7a09dcb59c067870d25403f09a23b7635725322274",
+    "structural_worker_sha256": "f2ccaca418971f6507a663f53409aa6139fd3e45c7c5c825ad50129f2e48b47a",
+    "owner_bridge_sha256": "9ef180ec6c93334ed32a146d538eb427d61e50ea63c49fd40b7670a9c5beb81c",
+    "native_test_sha256": "66e93a2f84997fb2a03fd88543b399990dc14f516fb85e03fa1d23f3334ab11f",
+    "tutor_session_sha256": "110fb120c7dbb3fecd5e03be8e522f98081a1906051c46bea117601213824164",
+    "tutor_service_sha256": "c0a49550344e14a6f8a7683e2caa9d8b35914ef8de9b5c847fe8eab568d9f960"
+  },
+  "environment": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "rid": "win-x64",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_runtime": "10.0.12",
+    "windows_app_sdk": "2.4.0",
+    "interactive_session": true
+  },
+  "artifacts": [
+    "companion/windows/ScreenTutor/",
+    "tests/native/ScreenTutor.ContractTests/",
+    "tutor_session.py",
+    "tutor_service.py",
+    "tests/test_tutor_native_session.py",
+    "planning/screen-tutor/PROTOCOL.md",
+    "planning/screen-tutor/SC-1A_REVIEW.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "dotnet build ScreenTutor.ContractTests.csproj -p:RestoreLockedMode=true --configuration Release; dotnet run --no-build",
+      "exit_code": 0,
+      "result": "zero warnings and zero errors; real test-owned Windows form captured at 322x272 and 350336 bytes; 38618 dark and 47244 light pixels; exact pixel SHA-256 matched; source close cleared capture; private-source picker journey explicitly remained unqualified"
+    },
+    {
+      "command": "native hung structural provider and hung named-pipe witnesses",
+      "exit_code": 0,
+      "result": "observation executed on an MTA background thread; deadline poisoned the worker; local Stop returned under one second without waiting for the provider or pipe peer"
+    },
+    {
+      "command": "python tests/test_tutor_native_session.py",
+      "exit_code": 0,
+      "result": "T011-T014/T016 host boundaries passed: exact source binding, three-frame bounds, pause/source-loss/reconnect/Stop invalidation, authenticated current-peer bridge and request path"
+    },
+    {
+      "command": "python tests/test_tutor_feature_off.py",
+      "exit_code": 0,
+      "result": "protected baseline matched and feature-off started no process, network, model or native import"
+    },
+    {
+      "command": "python tests/test_package.py; git diff --check",
+      "exit_code": 0,
+      "result": "480 archive members; 132 non-test Python files; 165 tests; native source and dependency lock included; bin/obj excluded; no diff whitespace errors"
+    },
+    {
+      "command": "python mutate_check.py 'tutor capture: selected source binding removed'",
+      "exit_code": 0,
+      "result": "selective mutation was caught and tutor_session.py restored to SHA-256 110fb120c7dbb3fecd5e03be8e522f98081a1906051c46bea117601213824164"
+    }
+  ],
+  "native_witnesses": {
+    "T011": "capture remains bound to the selected opaque source; foreign-source authorization refuses and no foreground-following fallback exists",
+    "T012": "closing the actual selected test window stops frames, clears buffers and produces SourceUnavailable",
+    "T013": "current-user peer identity, HMAC, session, epoch, sequence, deadline and strict JSON are checked before the body is returned",
+    "T014": "crash-style host reconnect invalidates prior epochs; native Stop interrupts a hung pipe; separate-process crash qualification remains outstanding",
+    "T015": "real global shortcut conflict refuses takeover and a user-selected alternate registers",
+    "T016": "selection alone sends no pixels; foreign/excluded authorization sends no pixels; source loss has no fallback",
+    "X003A": "one authorized real test-owned Windows source was captured correctly, no hidden global capture route exists, and feature-off passed",
+    "X003B": "wrong/stale source access refuses; a deliberately hung MTA structural provider cannot freeze local Stop"
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-1A_REVIEW.md",
+    "verdict": "APPROVED_FOR_SC-1A_LOCAL_AND_TEST_OWNED_WINDOWS_SOURCE_SCOPE",
+    "resolved_findings": 8,
+    "unresolved_critical_findings": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 165,
+    "passed": 162,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no isolated sandbox selected for its acquisition rung"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "This final complete campaign ran after the native review repairs and evidence/state files were written; it exited zero on the exact accepted source tree."
+  },
+  "prior_attempts": [
+    {
+      "outcome": "INVALID_ORCHESTRATION_RUN",
+      "evidence": "an earlier focused test overlapped the mutation harness and briefly observed intentionally mutated source",
+      "resolution": "the overlap was discarded; source hash restoration and every authoritative rerun were sequential"
+    },
+    {
+      "outcome": "COMMAND_ERROR",
+      "evidence": "dotnet build was invoked once with unsupported --locked-mode and MSBuild refused before compilation",
+      "resolution": "reran with -p:RestoreLockedMode=true"
+    },
+    {
+      "outcome": "COMPILE_ERROR",
+      "evidence": "first structural-worker build lacked using System.IO for InvalidDataException",
+      "resolution": "added the import; subsequent pinned builds and native runs passed"
+    }
+  ],
+  "scope": "LOCAL plus NATIVE evidence for a real test-owned Windows source and synthetic fault fixtures. No private-source picker qualification, OS permission UI, complete minimize/device-loss matrix, separate-process crash, installer/uninstaller, signed package, driver/device matrix, provider, deployment, usability, accessibility, efficacy or release claim is made."
+}

@@ -1,0 +1,3 @@
+[posix-atomic-permissions] text/binary outputs retain ordinary creation permissions under public/private umasks
+
+exit 0

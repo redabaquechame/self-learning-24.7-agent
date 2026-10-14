@@ -1,0 +1,6 @@
+{
+  "checked_at_utc": "2026-10-13T06:33:46.753785+00:00",
+  "image_id": "sha256:2c941e860699f878900b0edc2403613c234d4b32eda3cc9fa7036991a2a63c4a",
+  "python": "Python 3.12.14",
+  "scope": "isolated POSIX permission compatibility witness, network-none, no host mounts; not whole Linux product qualification"
+}

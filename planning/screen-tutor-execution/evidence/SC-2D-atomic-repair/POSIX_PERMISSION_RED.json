@@ -1,0 +1,1 @@
+{"baseline": {"result.bin": "0o644", "result.txt": "0o644"}, "candidate": {"result.bin": "0o600", "result.txt": "0o600"}}

@@ -1,0 +1,11 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+[transport handshake] mutual challenge, reflected peer, replay, sequence gaps and bounded history checked
+[transport] closed nested request/instruction schemas checked without treating wire identity as authority
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 172, in <module>
+    check_operation_binding()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 149, in check_operation_binding
+    refuses(lambda: host.send('ASK', ask, 5000))
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 148, in refuses
+    raise AssertionError('foreign direction/correlation/generation admitted')
+AssertionError: foreign direction/correlation/generation admitted

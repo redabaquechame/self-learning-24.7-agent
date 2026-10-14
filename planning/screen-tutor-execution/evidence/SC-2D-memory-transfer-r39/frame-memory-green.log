@@ -1,0 +1,25 @@
+[frame memory] bounded sealed native pixels published without JSON pixels; disposal wipes live mapping
+[typed bridge] Python signed Unicode consumed; altered deadline refused; native outbound roundtrip passed
+[typed handshake] mutual challenges, reflected roles, early operation, replay and bounded native history passed
+[pending expiry] native capacity recovers at deadline; replies cannot extend request lifetime
+[capture authorization] finite lifetime, strict record and no minted grant passed
+[nested wire] shared typed request/instruction/observation/exact-frame value cases passed
+[native-T027] negative monitor origin, crop/resize and 150% DPI round-tripped through CoordinateMap
+[native-T028-T031] a moved geometry revision suppressed render and strict primitive JSON rejected active content
+[native-T041-T045] declarative scene rendered 11819 non-white pixels; isolated ink reset without changing source digest
+[native-T046-T050] sources separated; self-audio ignored; PTT, barge-in, device loss and Stop passed without opening an audio device
+[native-X022-offline] five-step synthetic journey, source-safe continuity, distinct stop/cancel operations and accessibility metadata passed
+[native actual-window] Stop invalidates old source while permitting explicit new selection and preserving draft/goal
+[native actual-panel] close/summon retains draft/goal and unrelated work; explicit Exit disposes capture
+[native actual-picker] pending/unavailable/cancel/failure and same-instance/after-Stop late completions preserve explicit scope and retry
+[native picker-attempt] stale native item/cancel and after-Stop completion cannot mutate a newer attempt; selected source captures no pixels before authorization
+[native-X024A-X024B-offline] locale uncertainty, immutable raw captions, correction history, rate/input alternatives, fallback and device-change capture pause passed
+[native-T052-T057-offline] timeline suppression, before/after evidence, current semantic transfer, ambiguity, candidate-pack refusal and explicit playback intent passed
+[native-T058-T061-X011-offline] scoped native attachment, inert imported instructions, transmit filtering, removal, account switch and connector absence passed
+[native-capture] 322x272, 350336 bytes, dark_pixels=38454, light_pixels=47248, center=FFFFFFFF
+[actual pipe handshake] mutual proof, typed traffic both directions and replay refusal passed
+[actual pipe lifecycle] fresh post-IO deadline and connected hung-read Stop passed
+[bootstrap refusals] bounds, truncation, duplicate/foreign fields, key/version/PID and lifetime cases refused
+[native peer identity] actual connected foreign client PID refused
+[native idle] established quiet pipe survives10s and accepts next authenticated message
+PASS ScreenTutor.ContractTests (real test-owned synthetic window captured; private-source picker journey remains unqualified)

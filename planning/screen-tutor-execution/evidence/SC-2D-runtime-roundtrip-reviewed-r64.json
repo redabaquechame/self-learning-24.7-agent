@@ -1,0 +1,36 @@
+{
+  "schema": "native-runtime-reviewed-roundtrip/1",
+  "revision": 64,
+  "accepted": false,
+  "updated_at_utc": "2026-10-14T13:16:45.487407+00:00",
+  "source_hashes": {
+    "tutor_authority.py": "a17d399ab121153512cd09c0804b039dcf48d0dd1b90cca8dcd5207c574d25f5",
+    "tests/test_tutor_authority.py": "ce9f870cba25e5deec1727ed49bc68c3d616d19b9d6adb168fb5a1cdfa92569d"
+  },
+  "review": "SC-2D-runtime-roundtrip-review-r64.md",
+  "log_hashes": {
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/authority-after-dedup-r1.log": "0310dcae20bfa55dabadf43d4cbb17845cf2d24b2a4ef02625530659a41a5104",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/ordinary-drive-r1.log": "f4e964f8477414b9460813c21baa7ddcdf16736e7d4b239dde768796a8af3411",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/ordinary-drive-r2.log": "c4c95f0d927c230e8fc936805554555cd4577d33a3c6ad1ed803aa759d4c93e9",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/ordinary-drive-r3.log": "cfc1ed9fd063f814d9be64c38a753fb4d21f3b1ac7fca16de92f2a0e75f7afcb",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/ordinary-drive-r4.log": "8c93d2c2641a2e70ae2cf52cf80bdf1ed0e78caf07cb9821ab25fee7f3693109",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/owned-native-stderr-r1.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/owned-runtime-r1.err.log": "2cea91a500c475ec518e385e5c6aa0520e57c74320ebdf897f87310d08489c7e",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/owned-runtime-r1.out.log": "3d5d5af5de36aaefc1db126f6c69e50e9de979311eb612abfdf71d6facf6a0e3",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/owned-runtime-r2.err.log": "2cea91a500c475ec518e385e5c6aa0520e57c74320ebdf897f87310d08489c7e",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/owned-runtime-r2.out.log": "eb52f165c091c5de9645f2d2f7ef26ae5a920a295b0d7bd12ecd74da58446d45",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/owned-runtime-r3.err.log": "88e94ea83e51f91a20ac1bd19da87e5ee081ca4b7030b352a8dc6ad903d20dbd",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/owned-runtime-r3.out.log": "12f968196046a54045a51abe68afbf9ecf9975b86647488cad8a1ccc564aa110",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/owned-runtime-r4.err.log": "3bcfd6de67b9b1d1f1053f367a762b62292248c1cdcb76ca8828b96c101afd1a",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/owned-runtime-r4.out.log": "0f9d0c267cb92363fe9344d228dd1fda182367ceccd9e6905f60b944080597ae",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/owner-context-negative-green-r1.log": "0310dcae20bfa55dabadf43d4cbb17845cf2d24b2a4ef02625530659a41a5104",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/resume-after-dedup-r1.log": "48a1fc8b57132fda976f4e5f9183e7944f70ebfaa56f5c624bd9283dc5b0bb0a",
+    ".superpowers/sdd/2026-10-14-native-runtime-roundtrip/runtime-after-dedup-r1.log": "b71744c5ec13c30427f28ca0cf642ec9f5bca078700521bd3939a051ee3a0bcf"
+  },
+  "result": "Owned actual FleetTutorRuntime exact source approval/retry/PNG/one metered loopback request/visible answer; withdrawal cleared native capture and guidance. Test-only ACK wait observed fixture exit0. Urgent production Stop unchanged.",
+  "limits": [
+    "Owned fixture only; no general performance/provider/human/installed qualification.",
+    "Base recovered from verified r62 archive after edit; distinct receipts recovered from retained stdout.",
+    "Human directory/native practice package unreviewed; r62 whole normal historical."
+  ]
+}

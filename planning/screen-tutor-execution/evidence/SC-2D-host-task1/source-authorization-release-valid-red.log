@@ -1,0 +1,13 @@
+[host-answer] actual validated instruction returned defensively; wrong identity/missing observation/unready/feature-off dispatch nothing
+Traceback (most recent call last):
+[host-release] grant/consent/identity/revision/epoch/deadline/Stop changes and forged instructions release no answer
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 166, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 161, in main
+    check_sealed_host_adapter()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 145, in check_sealed_host_adapter
+    refused(lambda: late_host.select_source(receipt))
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 41, in refused
+    assert isinstance(result, dict) and result.get("allowed") is False and "instruction" not in result, result
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'schema': 'fleet.tutor.capture-authorization.v1', 'session_id': 'ses-ee80d47f3419ead14c7fb3b1', 'source_id': 'source-1', 'source_revision': 'source-r4', 'capture_epoch': 3, 'consent_revision': 'consent-r3', 'cancellation_generation': 1, 'now_monotonic_ms': 2000, 'expires_at_monotonic_ms': 9000, 'grant_created': False}

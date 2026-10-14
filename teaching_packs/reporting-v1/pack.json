@@ -1,0 +1,26 @@
+{
+  "schema": "tutor.teaching-pack/1",
+  "pack_id": "reporting-v1",
+  "version": "1.0.0",
+  "author": "pack-author-fixture",
+  "tenant_id": "tenant-alpha",
+  "project_id": "project-reporting",
+  "title": "Synthetic grouped reporting workflow",
+  "app": {
+    "app_id": "sheet-app",
+    "qualified_versions": {"min": "1.0.0", "max": "1.9.9"}
+  },
+  "objectives": [
+    {"objective_id": "obj-concept-total", "type": "conceptual", "text": "Explain why grouped totals preserve every row exactly once."},
+    {"objective_id": "obj-procedure-report", "type": "procedural", "text": "Build and verify a grouped total report from safe synthetic rows."}
+  ],
+  "skills": [
+    {"skill_id": "reporting-concept-total", "type": "conceptual", "objective_ids": ["obj-concept-total"], "prerequisites": []},
+    {"skill_id": "reporting-procedure-group", "type": "procedural", "objective_ids": ["obj-procedure-report"], "prerequisites": ["reporting-concept-total"]}
+  ],
+  "route_claims": [
+    "Group rows by the selected label field.",
+    "Sum integer minor-unit amounts within each group.",
+    "Sort group labels before comparing the artifact with the expected result."
+  ]
+}

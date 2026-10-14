@@ -1,0 +1,88 @@
+{
+  "schema": "native-host-review-repair-progress/1",
+  "recorded_at_utc": "2026-10-13T13:38:30.026674+00:00",
+  "accepted": false,
+  "status": "TASK4_PARTIAL_HOST_REVIEW_REPAIRS_AND_SUPERVISION_LOCALLY_VERIFIED",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "tutor_host.py": "97594d16aed670fe4647862244411f1724c757beb322008e39a76969577b5f79",
+    "tutor_connection.py": "85be7cd6f491474b4be40fa6a3b93b08c5157685979e280707177bb7afa7bfbf",
+    "tutor_frames.py": "1ffbc3850542c8ce0ffaf0688e3cf98ecd4d1676d346ff62d44ea5f3a174b65f",
+    "tutor_gateway.py": "9814cfab0e2769a36948791c10a91ca5a7e8474407d81a6e65f98ef3fd3fb35e",
+    "tests/test_tutor_host.py": "1126575cc9528747b140ff6dcfe47ed8f840ed059b5856ac15eac89e56dab2e3",
+    "tests/test_tutor_connection.py": "1918260a9a669ff45d0beb547d641eab71071997a4509e503aaafdae4eba6a45",
+    "tests/test_tutor_frames.py": "331ab2e32af48087b4374853de8cff38b50af140377981fcf778dad6ed0f1e89",
+    "companion/windows/ScreenTutor/NativeHostClient.cs": "8012a19322519b25e8236fa6f9ba935630b8844dd2925c7c607fc25bfacd11bf",
+    "companion/windows/ScreenTutor/CaptureSession.cs": "79e0fa0225a992aad32f74892b59e5c0915e2988ae540cf36dbb02ec6017259d",
+    "companion/windows/ScreenTutor/SessionWindow.xaml.cs": "cf14908fa720ec928f9f7aa96bc6baa181dbc0baa181ba6d3a82566a741e4f8a",
+    "companion/windows/ScreenTutor/App.xaml.cs": "f9130831b538678cce410a043e7b2749379fb3342e20cc8dc91642b853718e8e",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "79e0201389080696f2316b4faf285dc2095e88df4fcaf64641743f378c274f6f"
+  },
+  "raw_logs": {
+    "host-supervision-red.log": "a8e9c5425bdc847a5c4de1d951e487162aaf28e9ae4f5cc5ff94d1323e4740eb",
+    "host-supervision-replacement-red.log": "866de5b780d6e92292f0ea590971c08535ec52e6e89bb53923c71c92b8b9f858",
+    "review-actual-connection-green-r2.log": "41e6505193015bd35b014d9b6d1475915e46413e8edffaeaf3e111aa2bf9be45",
+    "review-actual-connection-green.log": "9f81b6ddabe456cef1050817134caca35ed93cc5740e67e9a6526468d878f178",
+    "review-expired-event-red.log": "840097275f2f6c2c29036def4b8a997dc832e68102521e4c6b67dd99d9950eb6",
+    "review-final-actual-host-loop.log": "3a54a0e90c76d80b5973809b6465ead55ca73f97711a731d191b56df9988890a",
+    "review-final-test_tutor_feature_off.py.log": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d",
+    "review-final-test_tutor_frames.py.log": "720be737f3c8f7cdf964080501ff2cd4ca287db717b98f7b185e2de2f848ff45",
+    "review-final-test_tutor_gateway.py.log": "27a94205277f2b9d08ffdd49813442e408c94f22860eb6a21983a0ff9f2b80ba",
+    "review-final-test_tutor_host.py.log": "9f21cd24110d52666c8b92ba453d4081241ceb43fe78e1e70f6fb8791c4034a8",
+    "review-final-test_tutor_native_session.py.log": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e",
+    "review-final-test_tutor_transport.py.log": "d46f7ef8f306200f3f6cccf97342db5bd347b26f2d14b7f3fcc6b90abea97188",
+    "review-regressions-green.log": "3830a75dfdd97a3ca8c1071c4454ea97ebbcbdaf0f5f4bccb90fe1869d3e8452",
+    "review-regressions-red.log": "1ba7b83d5ab1327c714e035890be8679ccc1debd4ac198b5e6c01fd506b0b2ce",
+    "review-stop-red-corrected.log": "add59898759dfbdc8b5e1030fedbfe6a02fff65ad31bfc9794bc1a496895806a"
+  },
+  "completed_local_checks": [
+    {
+      "script": "test_tutor_host.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_transport.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_native_session.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_gateway.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_feature_off.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_frames.py",
+      "exit_code": 0
+    }
+  ],
+  "repairs": [
+    "NEW-G01: one-way Pause retires source work without an invalid correlated reply; unconnected one-way events use uncorrelated refusals",
+    "NEW-G02: connection/source generation is admitted after receive and atomically again at selection entry; Stop cannot recreate source state",
+    "NEW-G03: direct selection rereads current permissions, identity, consent, cancellation, source epoch and finite expiry before publication; refused temporary session is stopped",
+    "Expired events cannot create a learning session before deadline refusal",
+    "One-way REFUSAL is consumed without an echo"
+  ],
+  "new_local_mechanisms": [
+    "Caller-owned synchronous host pump with <=100ms idle polls and final owned Stop; no implicit launch or background task",
+    "Idle source-policy supervision retires revoked capture; a superseded old-source result leaves the replacement intact"
+  ],
+  "native_scope": "Actual connection campaign covers source exchange, owned source/WPF capture, pending Stop, source closure, bootstrap/IO failures and actual app startup. Final current-source host-loop check covers quiet authenticated pipe, caller cancellation and owned child teardown without a source or provider.",
+  "qualification_limits": [
+    "Final actual connection campaign preceded the last replacement-supervision branch repair; final focused host and actual host-loop checks include that repair. Native product source and binaries unchanged.",
+    "Native Pause/Resume remains local UI only; host Pause handling is a fail-closed source retirement, not a joined resume qualification",
+    "Host pump is an adapter primitive; production Fleet launcher/policy owner and native continuous event receiver are not yet wired",
+    "Production frame-reference wire/current observation/honest unknown geometry and visible Ask/current answer remain unfinished",
+    "No final frozen complete normal suite, Task6 independent review, canonical commit, provider/content/human/install/deployment or buyer release acceptance"
+  ],
+  "excluded": [
+    "Initial Stop RED used real clock with synthetic deadline; corrected controlled-clock RED proves state recreation",
+    "Initial combined RED harness exit0 merely collected expected exceptions; tracebacks are the RED evidence, not a successful product test"
+  ],
+  "remaining_scope": "Both products and all original requirements remain active; no packet count or acceptance changed."
+}

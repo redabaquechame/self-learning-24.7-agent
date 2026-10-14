@@ -1,0 +1,338 @@
+{
+  "schema": "screen-tutor-work-package-evidence/1",
+  "packet": "SC-1D",
+  "recorded_at_utc": "2026-10-13T04:48:47.055642+00:00",
+  "accepted": false,
+  "status": "LOCAL_VERIFIED_REVIEWED_PROVIDER_AND_CONTENT_BLOCKED",
+  "source_head": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+  "source_candidate": "uncommitted codex/screen-tutor-build candidate",
+  "source_identity": {
+    "frozen_files": 557,
+    "all_unchanged": true,
+    "manifest": "planning/screen-tutor-execution/evidence/SC-1D/ACTIVE_CAMPAIGN_R2.json"
+  },
+  "full_suite": {
+    "executed": 179,
+    "passed": 176,
+    "failed": [],
+    "skipped": [
+      {
+        "name": "test_acquire.py",
+        "reason": "no isolated sandbox for this run (the settings do not select docker, or docker is unavailable), so the install rungs cannot be exercised without breaking the rule they protect. The refusals above were all checked."
+      },
+      {
+        "name": "test_shutdown.py",
+        "reason": "Popen.terminate() on Windows is TerminateProcess, which no handler can intercept \u2014 there is no SIGTERM here to catch, so this asserts nothing rather than asserting something false. The container CI runs it."
+      },
+      {
+        "name": "test_computeruse_live.py",
+        "reason": "set AGENT_COMPUTER_LIVE=1 for pinned network-none Chromium fixture"
+      }
+    ],
+    "exit_code": 0,
+    "terminal_records": 1,
+    "log_sha256": "c0dc1936aebfdc00a9a84a19722ceabd538e08993321e2868b40ce7135e0a770"
+  },
+  "review": {
+    "reviewer": "sc1d_final_review",
+    "critical": 0,
+    "important": 3,
+    "minor": 0,
+    "one_fix_pass_completed": true,
+    "all_named_red_witnesses_green": true,
+    "second_review_performed": false
+  },
+  "local_coverage": {
+    "case_families": 6,
+    "repetitions_per_case": 12,
+    "expected_matches": 72,
+    "unexpected_failures": 0,
+    "scope": "one synthetic fixture, source-bound explain+verify only",
+    "file": "planning/screen-tutor-execution/evidence/SC-1D/LOCAL_CASE_COVERAGE.json"
+  },
+  "required_tiers": {
+    "LOCAL": "verified on exact frozen candidate",
+    "PROVIDER": "unqualified: no approved route/account/spend campaign",
+    "CONTENT_REVIEW": "unqualified: no independent subject reviewer of actual unfamiliar-app content"
+  },
+  "open_requirements": [
+    "provider-supported semantic answers and actual accounting/correctness/latency",
+    "independent rights/content/correctness review",
+    "authenticated visible native source/Ask/explanation/overlay/sample/Stop/reopen journey",
+    "qualified real-app examples and formats beyond current text/HTML + assisted JSON adapters",
+    "broad actual application/version coverage"
+  ],
+  "blocker_owners": {
+    "provider": "owner supplies approved route/account/budget; implementer runs frozen campaign",
+    "content_review": "owner/designated independent reviewer evaluates immutable source/content candidate"
+  },
+  "rollback": "Disable the optional investigate/acquisition/sample routes; restore preserved scoped source bytes; preserve registry history, learner evidence and unrelated work. No irreversible app action or release was executed.",
+  "artifacts": [
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/acquisition-green.log",
+      "bytes": 981,
+      "sha256": "4fde0f19530300b3f0c5cb8521ba979b8c2a900d175931dd4fa1f813fb12e40f"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/acquisition-red.log",
+      "bytes": 680,
+      "sha256": "aaa9eda1898cdafa805f3f5a9ab208e85f13ad6e95f100f544937974fca0ca8e"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/acquisition-sample-service-green.log",
+      "bytes": 1174,
+      "sha256": "9f35ba01563af385f72a47a760948ef10f380a22f3e03fceafc22ee7e0b2064c"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/acquisition-service-diagnosis.log",
+      "bytes": 1763,
+      "sha256": "1eb668004652de64339f478cf8e7e77009a875c7b74e36365f87ce18e8d75cbe"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/acquisition-service-red.log",
+      "bytes": 2219,
+      "sha256": "bfd881c3658b8215dd7726f1fc714ecafc47ea1028bee72f8c653674f47ede49"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/ACTIVE_CAMPAIGN.json",
+      "bytes": 202,
+      "sha256": "2e760068966057c16224b29858fa46b28675a1a2d4f768b58a2a96d7dfb8357f"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/ACTIVE_CAMPAIGN_R1.json",
+      "bytes": 7879,
+      "sha256": "21df4889ed9082b59c0a5ddb907f66be1ed87dbb72e265df1cb3c5efae8e0fe5"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/ACTIVE_CAMPAIGN_R2.json",
+      "bytes": 64255,
+      "sha256": "139348654015857593ad576206e32e1e76ab42d97dca8dfdb6029ead42180b3a"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/affected-test_tutor_feature_off.py.log",
+      "bytes": 418,
+      "sha256": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/affected-test_tutor_native_session.py.log",
+      "bytes": 529,
+      "sha256": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/affected-test_tutor_practice.py.log",
+      "bytes": 328,
+      "sha256": "9d6654dfc75a9efe17e1efc6cde57d48aebd82f13a7568948d860bde1378803a"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/affected-test_tutor_sources.py.log",
+      "bytes": 503,
+      "sha256": "964e8ea8d8c3bf9ed4c9563618cdcef5f15f86a9f63cccbe9c87966f8bc945f1"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/feature-off-after-service.log",
+      "bytes": 418,
+      "sha256": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/feature-off.log",
+      "bytes": 418,
+      "sha256": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/full-r1.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/full-r1.log",
+      "bytes": 999064,
+      "sha256": "5333dbbfc1ecf109277986e02a281930baca0da9781b14118627bc128ac1db70"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/full-r2.exit",
+      "bytes": 3,
+      "sha256": "13bf7b3039c63bf5a50491fa3cfd8eb4e699d1ba1436315aef9cbe5711530354"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/full-r2.log",
+      "bytes": 1000987,
+      "sha256": "c0dc1936aebfdc00a9a84a19722ceabd538e08993321e2868b40ce7135e0a770"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/INDEPENDENT_REVIEW.json",
+      "bytes": 1102,
+      "sha256": "cc709fecb788a2a5b5ddc288b5a892f66df044a0150a83f3e758d1fb2283abb8"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/LOCAL_CASE_COVERAGE.json",
+      "bytes": 2908,
+      "sha256": "1f2c24d87b82e1b41486d30d0f521d92695e46da67cc5c49d6a845f2aea74629"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/native-session-after-integration.log",
+      "bytes": 529,
+      "sha256": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/NATIVE_JOURNEY_NEXT_BOUNDARIES.md",
+      "bytes": 2393,
+      "sha256": "b2c86f30bfa96f059252b5d201ff3f280cfe433e03969f34a7488164cf5ae9d6"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/package-after-service.log",
+      "bytes": 3631,
+      "sha256": "015c08eda6b19d6e43e8fb29a90b405d17beafa6ea005155725c97a80ab5c3cf"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/package.log",
+      "bytes": 3631,
+      "sha256": "78dd79eef0bc5b20ff55d46d94e275b2272afa010f01804d8ba35099edfe0931"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/progress.md",
+      "bytes": 8813,
+      "sha256": "2f0589baf03eb0719a178f90f4b95ff18d7706d813537ed39bde0e2481604bda"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/providers-native-root.log",
+      "bytes": 2130,
+      "sha256": "caf3e1fad628fdf508278eab6f0d89c31a888e1f3fc5c69d7eb6fcfca42adf01"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/providers-repro-r1.exit",
+      "bytes": 3,
+      "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/providers-repro-r1.log",
+      "bytes": 776,
+      "sha256": "3a66572577bc58336b6a6167dabab6561dc204a26a1e60b2732580ec2fc967ef"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/PROVIDERS_DIAGNOSIS.json",
+      "bytes": 636,
+      "sha256": "2447cb059f9edb102357dea891ebb6f0093c65d91ae0b2f25eddd500f16dc4c4"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/review-capacity-red.log",
+      "bytes": 1244,
+      "sha256": "7ee2d95889ead29f77d6b215e5059a76b9373610debb2d002c841aa05a311fb6"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/review-fixes-green.log",
+      "bytes": 1174,
+      "sha256": "9f35ba01563af385f72a47a760948ef10f380a22f3e03fceafc22ee7e0b2064c"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/review-registry-red.log",
+      "bytes": 4210,
+      "sha256": "3976c5c30a10552068e31ea32c3b3f492f83965bee662998267ece6712f265c3"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/review-release-red.log",
+      "bytes": 1771,
+      "sha256": "1c17270a75be47ea7928f18dd8c528dd953c26219459470301fec7d4ba6beed8"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/sample-green.log",
+      "bytes": 1174,
+      "sha256": "9f35ba01563af385f72a47a760948ef10f380a22f3e03fceafc22ee7e0b2064c"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/sample-malformed-green.log",
+      "bytes": 1174,
+      "sha256": "9f35ba01563af385f72a47a760948ef10f380a22f3e03fceafc22ee7e0b2064c"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/sample-malformed-red.log",
+      "bytes": 1996,
+      "sha256": "d65b041cce9831bb2e55a95cdfe5d8223d3f6079c3ad9c814760cc3c1a1819f1"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/sample-red.log",
+      "bytes": 845,
+      "sha256": "472613f90d35850a57c545bf37c7e9cb3e9976bf55769ff9ff9a37181b0b7947"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/sample-service-red.log",
+      "bytes": 1774,
+      "sha256": "f2dec0611f77bd1d263b0b0282e4fcc9b1398fb4a99f70169fc84478cc197c98"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/SC1D_PROGRESS_R19.json",
+      "bytes": 1552,
+      "sha256": "77d59e5a5e7da84d147580064ce02829ee170271a2a9d1e435c856c3dd8268b1"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/service-green.log",
+      "bytes": 810,
+      "sha256": "ea2dc5459099e4bb6142b7d3fa97dcf0974539542bef9d462f2e14594ee61e16"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/service-red.log",
+      "bytes": 1371,
+      "sha256": "d51ebf2b11391d4b47a5a30f319231b4f1640cfdeae7b32bc0560b7a157bd23a"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/service-restored.log",
+      "bytes": 810,
+      "sha256": "ea2dc5459099e4bb6142b7d3fa97dcf0974539542bef9d462f2e14594ee61e16"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/service-revocation-green.log",
+      "bytes": 810,
+      "sha256": "ea2dc5459099e4bb6142b7d3fa97dcf0974539542bef9d462f2e14594ee61e16"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/service-revocation-red.log",
+      "bytes": 1445,
+      "sha256": "e30c06e72cb85643b33300df9e5d6f415199d20036a5c487631f36ef0758e421"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/service-session-negative.log",
+      "bytes": 1339,
+      "sha256": "e99ffebde8db3a59f7c1e876fda4d0e94183cb53136998fdc6f3fd882201f405"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/SERVICE_RESTORATION.json",
+      "bytes": 206,
+      "sha256": "6b7f429540bf655b56083382c73ff024b233ee68231e2ec13be89efd42afe4e5"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/task-1-brief.md",
+      "bytes": 1411,
+      "sha256": "c8c3af54894dc428e2388b5e5c135ce5fe1b7c82fa23988806ab4634e60e4145"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/task-1-focused.log",
+      "bytes": 679,
+      "sha256": "b261a9902081bb275f9441b1d1acd1c080bb12ccd0a6e2554c26fe84e43e1796"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/task-1-green.log",
+      "bytes": 679,
+      "sha256": "b261a9902081bb275f9441b1d1acd1c080bb12ccd0a6e2554c26fe84e43e1796"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/task-1-red.log",
+      "bytes": 682,
+      "sha256": "2aa18534ab788c693186779a4bfb5117c3a4d4b9dbb62008c108b0e8d469e780"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/task-1-schema-green.log",
+      "bytes": 679,
+      "sha256": "b261a9902081bb275f9441b1d1acd1c080bb12ccd0a6e2554c26fe84e43e1796"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/task-1-schema-red.log",
+      "bytes": 914,
+      "sha256": "cb3f42362c96f07237a06c5bc44af0b94b2c5d925e93de6c0581e10eda139343"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-1D/task-2-interface-notes.md",
+      "bytes": 1700,
+      "sha256": "34a92eb439981d3af6c7f687d9869eca302673150e982c1f211d2fc324e8a8c1"
+    }
+  ],
+  "claim_limit": "LOCAL source/permission/artifact evidence does not establish PROVIDER, CONTENT_REVIEW, human learning, native-visible, deployment or release acceptance."
+}

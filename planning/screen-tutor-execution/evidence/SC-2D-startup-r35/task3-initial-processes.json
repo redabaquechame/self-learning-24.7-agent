@@ -1,0 +1,10 @@
+{
+  "fixture_pid": 4020,
+  "fixture_exit_code": 1,
+  "fixture_process_closed": true,
+  "provider_called": false,
+  "private_source_selected": false,
+  "app_pid": 54152,
+  "app_exit_code": 1,
+  "app_process_closed": true
+}

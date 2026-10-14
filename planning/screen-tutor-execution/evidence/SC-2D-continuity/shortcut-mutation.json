@@ -1,0 +1,6 @@
+{
+  "baseline_sha256": "8b3735b85f678ae83cc584f289f77d8d51e2a2c44351cf1dbc6d3dbfc260f8cf",
+  "mutation": "remove taskbar fallback when shortcut unavailable",
+  "restored": true,
+  "negative_caught": true
+}

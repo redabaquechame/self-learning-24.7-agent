@@ -1,0 +1,118 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-2A",
+  "recorded_at_utc": "2026-09-15T10:19:00Z",
+  "verdict": "LOCAL_AND_NATIVE_SYNTHETIC_PARTIAL_REVIEWED_GROUNDING_QUALIFICATION_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_grounding_sha256": "cf0472d15d6e40e0d147c915134245f97fce0ef520d424222be51d201339f212",
+    "geometry_test_sha256": "f881cf1e24996acdbbe40f61dbce447c4f4a21d0375b06978a119453a4509c1b",
+    "native_coordinate_map_sha256": "32821657b43e42fd81d1bc3aea552d112fd591fe5bc0ab40b96a537e037fbc7f",
+    "native_overlay_renderer_sha256": "58aa1646ac75cb8f978282083a541833b5a2b3595ff450c600fb29c67ae0aeb1",
+    "native_test_sha256": "544c8dbad97b9c011c023cc275eedc2b4491f27655a59b3f1f1d7ce01d7f1401",
+    "runner_sha256": "4c075833b904a8fd159e71042544ff1c0e4066de9b9a7fe869988601767456bb",
+    "evidence_registry_sha256": "575d69a0b0c6fc2e03f62ecc80e234eb10949e2ddbd882936bb049ead990ac4b",
+    "doctor_sha256": "8fd2505ab764b14c9714e9f3d23966a69fd9dc4db2be837c6ceaac3b57968dc5",
+    "mutation_registry_sha256": "0f9586c150e468a18223070d17ff098cfd4d1a36016526acd956fdbee9c9c6b4"
+  },
+  "environment": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "rid": "win-x64",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_runtime": "10.0.12",
+    "windows_app_sdk": "2.4.0",
+    "interactive_session": true
+  },
+  "artifacts": [
+    "tutor_grounding.py",
+    "tests/test_tutor_geometry.py",
+    "companion/windows/ScreenTutor/CoordinateMap.cs",
+    "companion/windows/ScreenTutor/OverlayRenderer.cs",
+    "tests/native/ScreenTutor.ContractTests/Program.cs",
+    "planning/screen-tutor/SC-2A_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-010-revision-bound-inert-overlays.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_geometry.py",
+      "exit_code": 0,
+      "result": "T027-T032 offline transform, grounding, stale suppression, inert primitive and overlay-exclusion contracts passed"
+    },
+    {
+      "command": "dotnet build tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --configuration Release; dotnet run --project tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --no-build --configuration Release",
+      "exit_code": 0,
+      "result": "zero warnings and zero errors; native T027 negative-origin crop/resize/150-percent-DPI round trip passed; stale geometry was suppressed; active JSON, mismatched targets and malformed coordinate types were rejected; the real test-owned capture remained valid"
+    },
+    {
+      "command": "python tests/test_invariants.py; python tests/test_harness_registration.py; python tests/test_evidence_audit.py; python tests/test_package.py",
+      "exit_code": 0,
+      "result": "134 top-level modules, 171 registered tests, 223 registered mutations and 513 package members reconciled; native source and lock were included and native bin/obj products were excluded"
+    },
+    {
+      "command": "python mutate_check.py 'tutor grounding: geometry revision comparison removed'",
+      "exit_code": 0,
+      "result": "the stale-geometry mutation was caught: 1 caught, 0 missed, 0 skipped"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no diff whitespace errors before evidence/state metadata"
+    }
+  ],
+  "acceptance_tests": {
+    "T027": "PASSED_LOCAL_AND_NATIVE_SYNTHETIC: crop/resize/model coordinates map through a negative desktop origin and 150-percent DPI with exact round trip",
+    "T028": "PASSED_LOCAL_AND_NATIVE_SYNTHETIC: a geometry-revision mismatch suppresses every scheduled primitive",
+    "T029": "PASSED_OFFLINE_MECHANISM_ONLY: equally matching semantic targets abstain; native application-family accuracy remains blocked",
+    "T030": "PASSED_OFFLINE_MECHANISM_ONLY: tiny visual targets request a bounded crop; real high-density native measurement remains blocked",
+    "T031": "PASSED_LOCAL_AND_NATIVE_SYNTHETIC: active primitives and mismatched target identifiers reject; tickets remain input-inert",
+    "T032": "PASSED_OFFLINE_MECHANISM_ONLY: overlay-origin candidates and registered overlay layers are excluded; real capture-exclusion witness remains blocked"
+  },
+  "native_witnesses": {
+    "coordinate_transform": "the native contract used the same negative-origin, crop, resize and 150-percent-DPI fixture as Python and matched the expected midpoint and round trip",
+    "stale_overlay": "a moved geometry revision released no primitive",
+    "primitive_boundary": "the native parser accepted only closed inert records and refused target mismatch, active JSON and malformed coordinate types",
+    "capture_regression": "the existing test-owned 322x272 Windows fixture still produced 350336 exact bytes; the private-source picker remained explicitly unqualified"
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-2A_REVIEW.md",
+    "verdict": "APPROVED_FOR_LOCAL_AND_PARTIAL_NATIVE_SYNTHETIC_MECHANISM_SCOPE_GROUNDING_QUALIFICATION_BLOCKED",
+    "resolved_findings": 10,
+    "unresolved_critical_findings_in_local_scope": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 171,
+    "passed": 168,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no isolated sandbox selected for its acquisition rung"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "The complete campaign ran after SC-2A code, tests, review, ADR, registry and documentation updates were final. This evidence/state metadata was added after the source-exact run."
+  },
+  "blockers": [
+    {
+      "gate": "PRODUCTION_OVERLAY",
+      "reason": "OverlayRenderer validates and releases render-ready inert primitives but does not yet draw a visible production overlay",
+      "unblocks_when": "the owned native presentation packet implements and qualifies the visible click-through overlay lifecycle"
+    },
+    {
+      "gate": "NATIVE_GROUNDING_ACCURACY",
+      "reason": "T029, T030 and T032 have no real application-family, mixed-DPI, monitor-transition or small-target witness",
+      "unblocks_when": "the frozen native qualification matrix meets declared pointer-error and abstention thresholds"
+    },
+    {
+      "gate": "VISUAL_GROUNDING",
+      "reason": "no separately qualified visual-grounding adapter or frozen benchmark is present",
+      "unblocks_when": "a versioned adapter passes the frozen dataset with calibration, ambiguity and small-target evidence"
+    }
+  ],
+  "scope": "LOCAL contracts plus a partial NATIVE synthetic transform, parser and stale-suppression witness. No visible production overlay, real-app pointer accuracy, mixed-DPI transition, visual-model quality, capture-exclusion, accessibility, usability, deployment, release, learning-efficacy or market-superiority claim is made."
+}

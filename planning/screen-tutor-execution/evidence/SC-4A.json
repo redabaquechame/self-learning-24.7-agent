@@ -1,0 +1,103 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-4A",
+  "recorded_at_utc": "2026-09-15T13:02:10Z",
+  "verdict": "LOCAL_SYNTHETIC_MEDIA_INDEX_PARTIAL_REVIEWED_DEPENDENCY_PROVIDER_AND_LIVE_MEDIA_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_media_index_sha256": "04ebc78718d737a60f947a57262ea4787ab86af7e23b1ec985398fdf44caf197",
+    "media_index_test_sha256": "03bc963667f8e8fec850fa0f33982a12baf8ecd82b54731d09e5d7cd354f8957",
+    "synthetic_fixture_sha256": "ed511d1830ef734ca4417e9026553abe81841c0bcee68507bbae67a5fd7883f0",
+    "runner_sha256": "e013e75f8b281c4b20dcb222ebdbfdd866d246f2bb7893034d3be7d191b1a4fc",
+    "evidence_registry_sha256": "bfe4bf4ea291a5553ee415e32049771004ebc567b480eb00233716dfb73f4ff8",
+    "doctor_sha256": "8937a0dd9ae4128679338efd688009750b6d16c0b84003a4ff0d9fcc9ecc649e",
+    "mutation_registry_sha256": "0d727c54d607a50ec06d9c2b913cbefb140b666280aaf5a7175d1cf7b30ee9c2",
+    "adr_sha256": "146d5c94a438f2aed384ca1aa5d1aaeee2233c577a63cdd86dfee226c0c1e646",
+    "review_sha256": "c6ce58950f80261ae5ad478eb28bf6516447e3c7a8f28edcc307a36a7834f1e4",
+    "full_suite_log_sha256": "208f7d13d8043e28d05525b60fe8a5c4bbdf43bc6bcecda36a8b3548da3f5974"
+  },
+  "artifacts": [
+    "tutor_media_index.py",
+    "tests/test_tutor_media_index.py",
+    "evaluation/tutor/media_fixtures/caption-frame-seek-v1.json",
+    "planning/screen-tutor/SC-4A_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-015-authorized-temporal-media-index.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_media_index.py",
+      "exit_code": 0,
+      "result": "offline X025A/X025B mechanics passed for authorized intervals, exact caption/frame provenance, explicit gaps, transition-dense bounded retrieval, seek/content epochs, expiry/revocation and modality-honest support"
+    },
+    {
+      "command": "python mutate_check.py 'tutor media index'",
+      "exit_code": 0,
+      "result": "the captions-relabeled-as-independent-visual-observation mutation was caught: 1 caught, 0 missed, 0 skipped"
+    },
+    {
+      "command": "python tests/test_tutor_environment_lock.py; python tests/test_tutor_feature_off.py; python tests/test_frontend.py; python tests/test_tutor_sources.py; python tests/test_tutor_locale.py; python tests/test_tutor_audio.py; python tests/test_package.py; git diff --check",
+      "exit_code": 0,
+      "result": "environment, feature-off, frontend, source, locale, audio, package and whitespace checks pass; 139 top-level Python modules, 176 registered tests and 227 mutations reconcile; the archive contained 548 members before this evidence/state metadata was added"
+    }
+  ],
+  "acceptance_tests": {
+    "X025A": "PARTIAL_LOCAL_SYNTHETIC_MECHANISM_ONLY: exact authorized captions, frames, intervals, gaps, transitions and bounded sampling passed; no real media source, decoder or provider route ran",
+    "X025B": "PARTIAL_LOCAL_SYNTHETIC_MECHANISM_ONLY: transcript-only evidence could not support an independently observed visual action; no provider or content-review tier ran"
+  },
+  "coverage": {
+    "source_methods_declared": ["UPLOAD", "AUTHORIZED_URL", "CURRENT_SCREEN"],
+    "source_methods_exercised": ["UPLOAD_SYNTHETIC_RECORD_ONLY"],
+    "actual_external_bytes_retrieved": 0,
+    "provider_calls": 0,
+    "private_screen_captures": 0,
+    "timeline_behaviors": ["seek invalidation", "content replacement", "scene transition", "ad start", "expiry", "revocation"],
+    "evidence_modalities": ["caption", "synthetic frame bytes", "explicit gap"]
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-4A_REVIEW.md",
+    "verdict": "APPROVED_FOR_LOCAL_SYNTHETIC_MEDIA_INDEX_SCOPE_DEPENDENCY_PROVIDER_AND_LIVE_MEDIA_BLOCKED",
+    "unresolved_critical_findings_in_local_scope": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 176,
+    "passed": 173,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no selected isolated acquisition sandbox for this run"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal_records": 1,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "The complete campaign ran after all SC-4A product code, synthetic fixture, test, ADR, review, registries and documentation were final. Evidence/state metadata was added after the source-exact run."
+  },
+  "blockers": [
+    {
+      "gate": "UPSTREAM_PACKET_ACCEPTANCE",
+      "reason": "SC-1B provider qualification and SC-1C independent content review remain open",
+      "unblocks_when": "both dependencies pass every required tier"
+    },
+    {
+      "gate": "PROVIDER_AUDIOVISUAL_QUALIFICATION",
+      "reason": "no authorized audiovisual provider/model, pricing or spend budget was used",
+      "unblocks_when": "the frozen real-media matrix passes accuracy, evidence coverage, latency, cost and failure-mode thresholds with correlated provider records"
+    },
+    {
+      "gate": "LIVE_MEDIA_SOURCE_QUALIFICATION",
+      "reason": "no external URL, real upload, current-screen media, downloader, decoder, expired signed URL, playlist or ad stream was exercised",
+      "unblocks_when": "each supported acquisition method passes exact rights, retrieved-byte, interval, revocation and timeline-change checks"
+    },
+    {
+      "gate": "CONTENT_REVIEW",
+      "reason": "synthetic captions and frames establish contract behavior but no independent reviewer validated real explanations or modality labels",
+      "unblocks_when": "a reviewer approves a frozen held-out media set and the exact generated explanation records"
+    }
+  ],
+  "scope": "LOCAL deterministic synthetic media-index contracts only. No real audiovisual retrieval, browser or private screen access, codec/decoder, provider quality, content review, human learning, deployment, release or market-superiority claim is made."
+}

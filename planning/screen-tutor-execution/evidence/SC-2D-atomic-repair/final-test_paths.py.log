@@ -1,0 +1,13 @@
+2026-10-13 02:29:46,838 {"event": "agent_start", "root": "C:\\Users\\redab\\AppData\\Local\\Temp\\st-native-continuity-yncmc2y6\\paths", "drain": true}
+2026-10-13 02:29:46,889 {"event": "health_ritual", "ok": true, "problems": 0, "ms": 13.1}
+2026-10-13 02:29:47,043 {"event": "task_start", "task": "d28e11b71088", "role": "tester", "course": null}
+2026-10-13 02:29:47,069 {"event": "price_unknown", "provider": "m", "why": "no input_per_mtok/output_per_mtok and not marked free \u2014 spend cannot be measured, so the daily budget breaker cannot protect this fleet", "fix": "add input_per_mtok/output_per_mtok under [providers.m] in settings.toml, or free = true if it genuinely costs nothing"}
+2026-10-13 02:29:47,098 {"task": "d28e11b71088", "role": "tester", "step": 1, "provider": "m", "tool": "write_file", "args": "{\"path\": \"../escape.txt\", \"content\": \"leaked\"}", "result": "ERROR: path escapes or contains ambiguous dot segments: ../escape.txt", "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0, "status": "running"}
+2026-10-13 02:29:47,122 {"task": "d28e11b71088", "role": "tester", "step": 2, "provider": "m", "tool": "read_file", "args": "{\"path\": \"../../../../etc/passwd\"}", "result": "ERROR: path escapes or contains ambiguous dot segments: ../../../../etc/passwd", "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0, "status": "running"}
+2026-10-13 02:29:47,152 {"task": "d28e11b71088", "role": "tester", "step": 3, "provider": "m", "tool": "write_file", "args": "{\"path\": \"out/inside.txt\", \"content\": \"fine\"}", "result": "ok, wrote 4 chars to out/inside.txt", "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0, "status": "running"}
+2026-10-13 02:29:47,200 {"task": "d28e11b71088", "role": "tester", "step": 4, "provider": "m", "tool": "finish_task", "args": "{\"summary\": \"done\"}", "result": "task finished", "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0, "status": "done"}
+2026-10-13 02:29:47,200 {"event": "task_end", "task": "d28e11b71088", "status": "done", "steps": 4, "cost_usd": 0.0}
+2026-10-13 02:29:47,219 {"event": "low_confidence", "task": "d28e11b71088", "confidence": 0.45, "band": "medium", "action": "more_compute", "why": "experience 0.45"}
+2026-10-13 02:29:47,250 {"event": "drain_complete"}
+[paths] every escape spelling was refused with a clear ERROR the agent could recover from, and in-root writes were unaffected
+PASS test_paths: escapes refused with ERROR, in-root writes unaffected, task completed

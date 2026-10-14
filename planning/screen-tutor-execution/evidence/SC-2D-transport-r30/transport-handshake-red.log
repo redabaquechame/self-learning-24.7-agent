@@ -1,0 +1,8 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 117, in <module>
+    check_handshake()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 70, in check_handshake
+    assert hasattr(wire, 'BridgeSession'), 'mutual authenticated bridge handshake is absent'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: mutual authenticated bridge handshake is absent

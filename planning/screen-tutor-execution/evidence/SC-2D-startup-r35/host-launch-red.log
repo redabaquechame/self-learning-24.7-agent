@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 301, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 290, in main
+    check_host_launch_lifecycle()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 25, in check_host_launch_lifecycle
+    assert callable(getattr(host, 'launch', None)), 'sealed tutor host has no native startup route'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: sealed tutor host has no native startup route

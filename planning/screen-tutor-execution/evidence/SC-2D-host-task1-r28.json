@@ -1,0 +1,149 @@
+{
+  "schema": "native-host-task1-progress/1",
+  "recorded_at_utc": "2026-10-13T07:48:17.323165+00:00",
+  "accepted": false,
+  "status": "LOCAL_HOST_SERVICE_AND_SEALED_ADAPTER_FOCUSED_VERIFIED_INTEGRATION_PENDING",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "owned_source_hashes": {
+    "tutor_service.py": "c808da5076a28c594287d29ccf4a541329b6d7a3fd87aab8af828b13f4091815",
+    "tutor_session.py": "92111ff3eb1c1efa313263b00fd35df7e2352fb57c0f359f91060b3048b1f802",
+    "tutor_host.py": "f915f8ed3d398a681bafa25200984237c126fbe02a1d8aaf474388035eedbfe7",
+    "tests/test_tutor_host.py": "f3c8ec34f205d0bdbca24758366046f6c08e0951c17432cbf90254bb637f47f3",
+    "docs/superpowers/plans/2026-10-13-native-host-ask.md": "7dcdf5b5fcb410bd22607e6a1f57914cccaed40d356dbfa6dfb8ef75ef1c3c90"
+  },
+  "implemented": [
+    "current host-policy reader before dispatch and instruction release",
+    "actual validated defensive instruction payload",
+    "exact observation session binding",
+    "sealed learning.v1 native adapter and pinned issuer/binding/surface",
+    "explicit native capture epoch alignment",
+    "finite source-exact authorization rechecked after registration",
+    "Stop does not wait for stalled selection; late authorization refused"
+  ],
+  "tests": {
+    "test_tutor_host.py": "PASS",
+    "test_tutor_native_session.py": "PASS",
+    "test_learning_surface_parity.py": "PASS",
+    "test_tutor_investigation.py": "PASS",
+    "test_tutor_feature_off.py": "PASS",
+    "test_ledger_defects.py": "PASS"
+  },
+  "registry": {
+    "registered_scripts": 180,
+    "top_level_modules": 143,
+    "not_a_pass_count": true
+  },
+  "open": [
+    "remaining host boundary negatives/completion record",
+    "typed authenticated bidirectional transport",
+    "real native bootstrap/source/frame/Ask/visible presentation",
+    "package final independent review and full candidate regression",
+    "original visible-overlay/installed novice/accessibility/provider/content/human-learning/release gates"
+  ],
+  "artifacts": [
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/final-task1-test_learning_surface_parity.py.log",
+      "sha256": "b22b9fd543849421f50b5610a02e51a4aed4aa3ecf32094ec374b77998b39f1e"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/final-task1-test_ledger_defects.py.log",
+      "sha256": "7171e3434dbe10dd0910be9426579db3a65749d5d8f4b548d6064a9731332124"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/final-task1-test_tutor_feature_off.py.log",
+      "sha256": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/final-task1-test_tutor_host.py.log",
+      "sha256": "34ce3ea3204f734f52cd63b98404ead6c4521274954a97f5e8ba3c28c27c028f"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/final-task1-test_tutor_investigation.py.log",
+      "sha256": "9f35ba01563af385f72a47a760948ef10f380a22f3e03fceafc22ee7e0b2064c"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/final-task1-test_tutor_native_session.py.log",
+      "sha256": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/host-release-binding-green.log",
+      "sha256": "8624f4a9cade7dd5c30bb25e875e16cce0796a577aec339c51adfd8138128ada"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/host-stop-green.log",
+      "sha256": "34ce3ea3204f734f52cd63b98404ead6c4521274954a97f5e8ba3c28c27c028f"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/host-stop-red.log",
+      "sha256": "08b5f976e31b4258e9952d987f035b5b921d9217318938e5cd5546d2eb8c130f"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/learning-binding-switch-red.log",
+      "sha256": "9f0fa2eb789ce8c11d84ebb9f12774b361294f384e1d51f1d14c2f60da479dcc"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/observation-session-green.log",
+      "sha256": "5c0513bdf0eb2568f16ef546868098667a3aa582ebf7ba0ed506481f2fb101a1"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/observation-session-red.log",
+      "sha256": "d8fc3111fc6f9dee0a0319fd6f649b4da7b5d99d6a62ba18aba608e2309fc02f"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/progress.md",
+      "sha256": "553e672b141463916a73e08485300cb40f18f07dbb8fc48158881f5963db7071"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/sealed-host-green.log",
+      "sha256": "8624f4a9cade7dd5c30bb25e875e16cce0796a577aec339c51adfd8138128ada"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/sealed-host-red.log",
+      "sha256": "3419f9ac4c5a52f1e3bb4b2466def744494360e4a522e655a723e972ef0ff704"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/service-current-green.log",
+      "sha256": "5c0513bdf0eb2568f16ef546868098667a3aa582ebf7ba0ed506481f2fb101a1"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/service-current-red.log",
+      "sha256": "155ac6cb24d07d83d6605e0fc2fbf2c936a66bd5cf18cf1e91c751b12b3c2a9b"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/source-authorization-release-red.log",
+      "sha256": "244cf3ae7911c564b8846a2225b07dc355ef3abf0f4a442ac34cd0dbe4057ad0"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/source-authorization-release-valid-red.log",
+      "sha256": "651611d1444d3bd9f7056b831e7f3bb8d5c2be7e7d00fc1109e7593ae0bcc250"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/task1-test_learning_surface_parity.py.log",
+      "sha256": "b22b9fd543849421f50b5610a02e51a4aed4aa3ecf32094ec374b77998b39f1e"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/task1-test_ledger_defects.py.log",
+      "sha256": "7171e3434dbe10dd0910be9426579db3a65749d5d8f4b548d6064a9731332124"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/task1-test_package.py.log",
+      "sha256": "a87c304edc06a75595510454ab129187f755e3f8e744b0e719b2665aac9b6f26"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/task1-test_tutor_feature_off.py.log",
+      "sha256": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/task1-test_tutor_host.py.log",
+      "sha256": "8624f4a9cade7dd5c30bb25e875e16cce0796a577aec339c51adfd8138128ada"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/task1-test_tutor_investigation.py.log",
+      "sha256": "9f35ba01563af385f72a47a760948ef10f380a22f3e03fceafc22ee7e0b2064c"
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-host-task1/task1-test_tutor_native_session.py.log",
+      "sha256": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e"
+    }
+  ]
+}

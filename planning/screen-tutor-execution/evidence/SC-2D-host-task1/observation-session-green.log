@@ -1,0 +1,3 @@
+[host-answer] actual validated instruction returned defensively; wrong identity/missing observation/unready/feature-off dispatch nothing
+[host-release] grant/consent/identity/revision/epoch/deadline/Stop changes and forged instructions release no answer
+PASS test_tutor_host (service release only; native host/transport/provider journey remains unqualified)

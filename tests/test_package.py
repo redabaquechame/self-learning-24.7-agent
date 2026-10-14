@@ -207,6 +207,22 @@ def check_no_private_data_ships(zpath):
           f"evidence that falls the moment they change the code")
 
 
+def check_no_native_build_products_ship(zpath):
+    """Optional native source ships; local MSBuild products do not."""
+    names = zipfile.ZipFile(zpath).namelist()
+    products = [name for name in names if any(
+        part.lower() in ("bin", "obj")
+        for part in name.replace("\\", "/").split("/"))]
+    assert not products, (
+        "the source archive carries local native build products: "
+        + ", ".join(products[:5]))
+    assert "companion/windows/global.json" in names
+    assert ("companion/windows/environment-probe/packages.lock.json"
+            in names)
+    print("[native-package] pinned Windows companion source and dependency "
+          "lock ship, while bin/ and obj/ build products are excluded")
+
+
 def check_it_is_actually_runnable(zpath, work):
     """An archive that ships nothing private and also nothing useful is not
     a win."""
@@ -863,6 +879,7 @@ def main():
         z = build(work)
         check_no_credential_ships(z)
         check_no_private_data_ships(z)
+        check_no_native_build_products_ship(z)
         check_it_is_actually_runnable(z, work)
         check_the_installers_are_shippable(z)
         check_a_git_clone_lands_every_working_directory(work)

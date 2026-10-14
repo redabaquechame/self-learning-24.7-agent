@@ -1,0 +1,10 @@
+[acquisition] scoped real local/HTTP reads bind raw bytes, rights and version; private paths, secret files, changed bytes, revoked grants and unapproved redirects refuse
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 346, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 62, in main
+    check_samples(api)
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 294, in check_samples
+    assert cls is not None, 'SC-1D source-bound reversible samples are missing'
+           ^^^^^^^^^^^^^^^
+AssertionError: SC-1D source-bound reversible samples are missing

@@ -1,0 +1,40 @@
+{
+  "schema": "native-host-pipe-progress/1",
+  "recorded_at_utc": "2026-10-13T08:47:03.562571+00:00",
+  "accepted": false,
+  "status": "TASK2_PARTIAL_ACTUAL_NATIVE_PIPE_MUTUAL_PROOF_VERIFIED",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "tutor_transport.py": "7f4e48e7827843a1583de916b2a651b87e256640570efe1a2258adc405d9c0a3",
+    "tests/test_tutor_transport.py": "36add81cfa4fbaf4e2dfd03b64f89f385cad07cd5997d9fc143f02bfed3def28",
+    "companion/windows/ScreenTutor/OwnerBridge.cs": "2275e6ffdfdd73ae93cc22eedb61cf35909841edfc1f4c9cc8fae723a0d41caa",
+    "companion/windows/ScreenTutor/BridgeCodec.cs": "afdb93929d0788e6fde9eb7a90ef4d13cb86795be2e7d554364a85cc3abe8eaf",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "beeef3644ad4954067dc5048a1e4a5cb8640372bdd6d04aac35c05bd35eb0694",
+    "tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj": "0e2dc3ae6806d054412f603db245ba449c870dc311ab6d34eda7b666378c55d8",
+    "tests/fixtures/tutor_bridge_nonfinite_v1.json": "cb4cba4d615f4b0cc76f00d2b8fa30f4910ac2f5f97a18f101b1d6c0b0dcb490"
+  },
+  "raw_logs": {
+    "pipe-handshake-red.log": "53b1e806260b2ac11dbe0c39abd9e93eb9a0ac177d67af63d2f362ffcd763276",
+    "pipe-handshake-green-build.log": "7ecf1e2de6fd1157c14e5f68a3b2707ee94f113443c98fb2de59304810070752",
+    "pipe-handshake-green.log": "e205dbbd7deb330b3e8518bf7aa927ad612d854c63358392d2bfa23aa9df1fa5",
+    "pipe-partial-red.log": "433a909631d59ba276f179eac0e08bf90c773df2f9d705ef31dc2d77483d324f",
+    "pipe-partial-green-build.log": "f9a24290c1814a2c254c8679cb5b0882d8ec94e3ea619d9f850a7080b8e6df82",
+    "pipe-partial-green.log": "e205dbbd7deb330b3e8518bf7aa927ad612d854c63358392d2bfa23aa9df1fa5",
+    "pipe-lifecycle-build.log": "c620ee121d592a8c429c8aa695171b5c078b74c3c36150f0860a397ee24b2309",
+    "pipe-lifecycle.log": "204e231681fd43327fe0b3520a5615c81a08fa46d91a68c2d792dd65db258763",
+    "signed-numeric-red.log": "e4de9e9e6c527a5a916aa92007bc4ab6ec099546d460314b816f4371cf04eaa9",
+    "signed-numeric-green.log": "0d6ae029601000fbd72fd43677a0f05f40c36735e88867114209ee66b75dd998",
+    "native-numeric-red.log": "7238bc44527bd63697315be0f717eea5858d49675d265a02af567b1da0df7c34",
+    "native-numeric-green-build.log": "306b549db2a5b63c1ffa8e184eda5104ed9703c5846fc3c35ed7915671980e68",
+    "native-numeric-green.log": "204e231681fd43327fe0b3520a5615c81a08fa46d91a68c2d792dd65db258763"
+  },
+  "native_scope": "real named pipe between two controlled .NET peers, not Python/native launch, private-source, model or installed user journey",
+  "remaining": [
+    "pending request expiry/capacity and complete nested payload/value validation",
+    "broader numeric/depth/oversized cross-runtime fixtures",
+    "actual Python/native bootstrap/frame/Ask/presentation",
+    "one final package review/frozen full campaign",
+    "all original installed/overlay/content/provider/human/buyer-release requirements"
+  ],
+  "full_candidate_retested": false
+}

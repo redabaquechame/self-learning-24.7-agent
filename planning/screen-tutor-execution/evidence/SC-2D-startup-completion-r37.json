@@ -1,0 +1,69 @@
+{
+  "schema": "native-host-task3-local-completion/1",
+  "recorded_at_utc": "2026-10-13T10:14:15.776376+00:00",
+  "accepted": false,
+  "status": "TASK3_LOCAL_STARTUP_VERIFIED_FRAME_DELIVERY_PENDING",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_commit_deferred": "prior authored-dependency ownership; helper range160fa4b..160fa4b has no new commit",
+  "source_hashes": {
+    "tutor_connection.py": "e45a9120bccea1a330d09fd6eabc3183becc02e23c874cadfc531e530cb58f3a",
+    "tutor_host.py": "1e6dbd4a3cf7a5d9d935f5aedf98d8acb60d5293b951efa2957320e2bb56a9de",
+    "tutor_transport.py": "1215bb63d0b4ae6239ded815de4a567836ffefcabec84564f33ed96eeebf5ae9",
+    "tests/test_tutor_connection.py": "b46a92953075a8791d597b7bea63f77bedb2c40ee6c92fbbb0e117253c834563",
+    "tests/test_tutor_host.py": "b1a232e2a0b86c56c41f5d983a68b34df952256d5785ca76c0661db318d92aef",
+    "tests/test_tutor_transport.py": "6c4ca0ce6784c9c5f09aa3a1330fc0c84057c45000df763308b977e2f0dc3b21",
+    "companion/windows/ScreenTutor/NativeHostClient.cs": "911b8c817171acbebb8874f163fba980e6ad5269de1fde76389b25021242daf6",
+    "companion/windows/ScreenTutor/OwnerBridge.cs": "209e709864798b2cc26dd3f879101f25deb839c4bb0a68cc68567d0fde12e0db",
+    "companion/windows/ScreenTutor/App.xaml": "cb9d91415734c0704c8c34bbd3af4b2c71cb54ce5d3e52d5657786d5d10ecc5d",
+    "companion/windows/ScreenTutor/App.xaml.cs": "eca36a9687f3b2f2137fd87c1ef461a8abd19e24b2556b85d3734b287bd12652",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "8f8ca71426e04ce959b3a08098532d4e9e0256c5fda466d6c01986963e57d9ca"
+  },
+  "raw_logs": {
+    "pending-launch-red.log": "ff666bf1057cee306e123f7de31332ad57a417e3fb1b6f293fbb65f08deb5a8d",
+    "pending-launch-green.log": "43f69299f57f18acceea5ac35fa61b139b1684d1b5906ad20b96e81abe31ebc2",
+    "idle-poll-red.log": "c15ccacf157ce6f590fa962bb4213e03f6200a6501b04b1959810f09507615bb",
+    "idle-poll-green.log": "2d70ff7e83b8f18e221552ac3dbe45dc8ee9c5a98039dffb43f95e5217fa9311",
+    "native-idle-red.log": "ef48a5916d258a84e04c900458f1a28ab00d835ef94d17699a9101e7e8f495bf",
+    "native-idle-green-build.log": "0f6f6cda2e821ba3d088b2bfa46b189cdf9455b05262d493f27a107284c30a06",
+    "native-idle-green.log": "04ee9df4e80b018ebc24452b8630a75914ef6f65de751ff4a1b43a10c0bda2fa",
+    "verified-command-binding-red.log": "a0649b96e65b799210b9c9d1dbe8ed25689d064b4e1255fdd6949f541ef64422",
+    "verified-command-binding-green.log": "b0d9cabdc68bfc7637a9c03e4ca1f59f9cfb309ca0cdcb08e85bdcbb19261602",
+    "native-acl-build.log": "0822c04dcadbd4d6779714710717e8ef36a7288b95bf8fca20f737d0e6654769",
+    "native-acl-idle.log": "f0a0c1b97aeba6ee0ac0c232fce77fb0dcccbec23b125aea6764623ad670620f",
+    "task3-final-native-build.log": "0352475f2c4b93b283409ef126288fee0ee98d10896faa3e6c5a634d99368689",
+    "task3-final-native.log": "04ee9df4e80b018ebc24452b8630a75914ef6f65de751ff4a1b43a10c0bda2fa",
+    "task3-final-test_tutor_connection.py.log": "2c5e83d19678d686349c6b02783de0bb99d2926a55be77c29cdc8b38bf803346",
+    "task3-final-test_tutor_host.py.log": "43f69299f57f18acceea5ac35fa61b139b1684d1b5906ad20b96e81abe31ebc2",
+    "task3-final-test_tutor_transport.py.log": "d46f7ef8f306200f3f6cccf97342db5bd347b26f2d14b7f3fcc6b90abea97188",
+    "task3-final-test_tutor_native_session.py.log": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e",
+    "task3-final-test_tutor_feature_off.py.log": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d",
+    "task3-final-processes.json": "c02194b9bcab387ef0803b3b4d85352dd249e0a5eb09132c76647b0da62031f0"
+  },
+  "actual_processes": {
+    "fixture_pid": 48752,
+    "fixture_exit_code": 1,
+    "fixture_process_closed": true,
+    "provider_called": false,
+    "private_source_selected": false,
+    "app_pid": 37396,
+    "app_exit_code": 1,
+    "app_process_closed": true
+  },
+  "completion_checks": [
+    "exact SDK native build zero warnings/errors and full controlled native executable",
+    "actual Python/native child typed handshake, corrupt/failure/cancel/idle/Stop cases",
+    "actual companion host bootstrap with no source selection",
+    "sealed host pending-launch cancellation and late-start refusal",
+    "exact actual current-user+LocalSystem protected ACL inspected",
+    "command/dependency proof binding and feature-off/runtime negatives",
+    "transport/host/native-session/feature-off compatibility"
+  ],
+  "scope_limit": "Local controlled process plumbing and forceful owned teardown; no actual frame memory, visible Ask, installed novice, provider/content/human learning or released deployment acceptance",
+  "remaining": [
+    "Task4 actual source authorization/shared-memory BGRA\u2192PNG observation",
+    "Task5 actual visible Ask/current qualified answer",
+    "Task6 one fresh final package review/frozen full regression",
+    "all original visible overlay/installed/accessibility/provider/content/human/buyer-release gates"
+  ],
+  "full_current_candidate_retested": false
+}

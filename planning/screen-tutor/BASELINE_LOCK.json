@@ -1,0 +1,39 @@
+{
+  "schema": "screen-tutor-baseline-lock/1",
+  "captured_at_utc": "2026-09-15T00:30:27.1863015Z",
+  "repository": "https://github.com/reda-baqechame/self-learning-24.7-agent.git",
+  "branch": "codex/screen-tutor-build",
+  "base": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+  "head": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+  "origin_main": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+  "initial_worktree_clean": true,
+  "open_pull_requests": [],
+  "latest_main_ci": {
+    "run": 34697236092,
+    "head": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "conclusion": "success"
+  },
+  "active_source_test_campaigns": {
+    "status": "IDLE",
+    "observation": "No run_all, harness, execution audit, or mutate_check process was active at preflight"
+  },
+  "protected_files": [
+    {"path": "loop.py", "bytes": 246908, "sha256": "f4165bf4f497775332274d73a542ba228dbc3d3c01f6af374bc37b62baa59170"},
+    {"path": "context.py", "bytes": 42196, "sha256": "0521289a811ee41e68d56f2a2e2512b41104b4c7c44e2751d0f06c61b319c5b6"},
+    {"path": "modelgateway.py", "bytes": 13838, "sha256": "47daa60314c304667c149c248e94eeef256310ab29348af23e1f7f0d98d7ab22"},
+    {"path": "grants.py", "bytes": 17902, "sha256": "06c69c54e96a93dd26826ffddd721fd70a0ecb7e849a27731aae2903edec3177"},
+    {"path": "execution.py", "bytes": 19531, "sha256": "64e642053c51f76e32507fafaf113d90113606a9dba7eed51c2e54f2c39c5482"},
+    {"path": "mission.py", "bytes": 24611, "sha256": "b2bab7dee4191ebc775d3e6869c5e7b353fcc912859d81f2b7e7dc00b55ad07d"},
+    {"path": "computersession.py", "bytes": 48800, "sha256": "d1dc20b49d3f5281564bc379fc83d3bdafdc813b2846232878bf646aa7de052e"},
+    {"path": "computeruse.py", "bytes": 26430, "sha256": "b1a1feee618fb71508c546e01f0f67e04c366a9bebcc1e7b7497ea322125bc7e"},
+    {"path": "mastery.py", "bytes": 20845, "sha256": "220b790d958a9f3bf167442cfa9debf908e0be4f7fadf11fa2c5819d55786893"},
+    {"path": "goal.py", "bytes": 33990, "sha256": "2cebe678b6d329859ff2a9bb742c6aa9c7c1fac9201f720076604b5bb9763e21"},
+    {"path": "ui.py", "bytes": 136054, "sha256": "a635f860966c2e86bcc0f23e2ee4057866aeebac784756b8b45ee067e97553ce"},
+    {"path": "ui.html", "bytes": 348168, "sha256": "0cbe8171c0b5ea06b67e5a98459bf10b64a0c745df74dfbbe5331f7d5abf8d3e"}
+  ],
+  "limits": [
+    "Source identity and local preflight only",
+    "Existing dirty worktrees were observed and left unchanged",
+    "No native, provider, human, deployment, or production qualification"
+  ]
+}

@@ -1,0 +1,62 @@
+2026-10-13 02:32:09,481 {"event": "agent_start", "root": "C:\\Users\\redab\\AppData\\Local\\Temp\\agent-suite\\transactional-contracts\\experts\\ledger-desk", "drain": true}
+2026-10-13 02:32:09,521 {"event": "health_ritual", "ok": true, "problems": 0, "ms": 10.8}
+2026-10-13 02:32:09,804 {"event": "task_start", "task": "053445e925a6", "role": "r_wa", "course": null}
+2026-10-13 02:32:09,812 {"event": "signature_shadow", "task": "053445e925a6", "lexical": [], "structural": [], "agreement": "both_empty"}
+2026-10-13 02:32:09,826 {"event": "trajectory_opened", "task": "053445e925a6", "judge": null, "basis": "harness_gate"}
+2026-10-13 02:32:09,861 {"event": "price_unknown", "provider": "wa", "why": "no input_per_mtok/output_per_mtok and not marked free \u2014 spend cannot be measured, so the daily budget breaker cannot protect this fleet", "fix": "add input_per_mtok/output_per_mtok under [providers.wa] in settings.toml, or free = true if it genuinely costs nothing"}
+2026-10-13 02:32:09,992 {"task": "053445e925a6", "role": "r_wa", "step": 1, "provider": "wa", "tool": "db_transaction", "args": "{\"database\": \"data/ledger.db\", \"statements\": \"[{\\\"params\\\":[100],\\\"sql\\\":\\\"update balances set cents = cents - ? where acct = 'A'\\\"},{\\\"params\\\":[100],\\\"sql\\\":\\\"update balances set cents = cents + ? where acct = 'B'\\\"},{\\\"params\\\":[\\\"transfer 100\\\"],\\\"sql\\\":\\\"insert into aud.log (note) values (?)\\\"}\n...[truncated, 441 chars omitted]", "result": "ok, transaction committed on data/ledger.db with aud attached; every declared assertion observed true; preconditions and invariants held", "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0, "status": "running"}
+2026-10-13 02:32:10,176 {"task": "053445e925a6", "role": "r_wa", "step": 2, "provider": "wa", "tool": "finish_task", "args": "{\"summary\": \"transferred\"}", "result": "task finished (done_check passed: exit=0\n[UNSAFE developer host: descendants and authority files are NOT isolated.])", "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0, "status": "done"}
+2026-10-13 02:32:10,176 {"event": "task_end", "task": "053445e925a6", "status": "done", "steps": 2, "cost_usd": 0.0}
+2026-10-13 02:32:10,198 {"event": "low_confidence", "task": "053445e925a6", "confidence": 0.45, "band": "medium", "action": "more_compute", "why": "experience 0.45"}
+2026-10-13 02:32:10,219 {"event": "trajectory_closed", "task": "053445e925a6", "accepted": true, "family": "guardedtransfer"}
+2026-10-13 02:32:10,262 {"event": "task_start", "task": "d5f9ef8828ad", "role": "r_wb", "course": null}
+2026-10-13 02:32:10,262 {"event": "signature_shadow", "task": "d5f9ef8828ad", "lexical": [], "structural": [], "agreement": "both_empty"}
+2026-10-13 02:32:10,275 {"event": "trajectory_opened", "task": "d5f9ef8828ad", "judge": null, "basis": "harness_gate"}
+2026-10-13 02:32:10,317 {"event": "price_unknown", "provider": "wb", "why": "no input_per_mtok/output_per_mtok and not marked free \u2014 spend cannot be measured, so the daily budget breaker cannot protect this fleet", "fix": "add input_per_mtok/output_per_mtok under [providers.wb] in settings.toml, or free = true if it genuinely costs nothing"}
+2026-10-13 02:32:10,457 {"task": "d5f9ef8828ad", "role": "r_wb", "step": 1, "provider": "wb", "tool": "db_transaction", "args": "{\"database\": \"data/ledger.db\", \"statements\": \"[{\\\"params\\\":[50],\\\"sql\\\":\\\"update balances set cents = cents - ? where acct = 'A'\\\"},{\\\"params\\\":[50],\\\"sql\\\":\\\"update balances set cents = cents + ? where acct = 'B'\\\"},{\\\"params\\\":[\\\"transfer 50\\\"],\\\"sql\\\":\\\"insert into aud.log (note) values (?)\\\"}]\",\n...[truncated, 437 chars omitted]", "result": "ok, transaction committed on data/ledger.db with aud attached; every declared assertion observed true; preconditions and invariants held", "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0, "status": "running"}
+2026-10-13 02:32:10,654 {"task": "d5f9ef8828ad", "role": "r_wb", "step": 2, "provider": "wb", "tool": "finish_task", "args": "{\"summary\": \"transferred\"}", "result": "task finished (done_check passed: exit=0\n[UNSAFE developer host: descendants and authority files are NOT isolated.])", "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0, "status": "done"}
+2026-10-13 02:32:10,654 {"event": "task_end", "task": "d5f9ef8828ad", "status": "done", "steps": 2, "cost_usd": 0.0}
+2026-10-13 02:32:10,676 {"event": "low_confidence", "task": "d5f9ef8828ad", "confidence": 0.45, "band": "medium", "action": "more_compute", "why": "experience 0.45"}
+2026-10-13 02:32:10,700 {"event": "trajectory_closed", "task": "d5f9ef8828ad", "accepted": true, "family": "guardedtransfer"}
+2026-10-13 02:32:10,712 {"event": "procedure_compiled", "task": "d5f9ef8828ad", "runbook": "proc-guardedtransfer", "family": "guardedtransfer", "trajectories": 2}
+2026-10-13 02:32:10,760 {"event": "drain_complete"}
+2026-10-13 02:32:11,494 {"event": "agent_start", "root": "C:\\Users\\redab\\AppData\\Local\\Temp\\agent-suite\\transactional-contracts\\experts\\ledger-desk", "drain": true}
+2026-10-13 02:32:11,531 {"event": "health_ritual", "ok": true, "problems": 0, "ms": 14.0}
+2026-10-13 02:32:11,598 {"event": "task_start", "task": "f4e760d3db33", "role": "r_silent", "course": null}
+2026-10-13 02:32:11,611 {"event": "signature_shadow", "task": "f4e760d3db33", "lexical": ["proc-guardedtransfer"], "structural": ["proc-guardedtransfer"], "agreement": "same"}
+2026-10-13 02:32:11,791 {"event": "procedure_route", "task": "f4e760d3db33", "runbook": "proc-guardedtransfer", "family": "guardedtransfer", "model_calls": 0, "seconds": 0.179}
+2026-10-13 02:32:11,791 {"event": "task_end", "task": "f4e760d3db33", "status": "done", "steps": 0, "cost_usd": 0.0}
+2026-10-13 02:32:11,820 {"event": "low_confidence", "task": "f4e760d3db33", "confidence": 0.45, "band": "medium", "action": "more_compute", "why": "experience 0.45"}
+2026-10-13 02:32:11,863 {"event": "drain_complete"}
+2026-10-13 02:32:12,136 {"event": "agent_start", "root": "C:\\Users\\redab\\AppData\\Local\\Temp\\agent-suite\\transactional-contracts\\experts\\ledger-desk", "drain": true}
+2026-10-13 02:32:12,170 {"event": "health_ritual", "ok": true, "problems": 0, "ms": 12.2}
+2026-10-13 02:32:12,227 {"event": "task_start", "task": "6579a86b8f4d", "role": "r_silent", "course": null}
+2026-10-13 02:32:12,248 {"event": "signature_shadow", "task": "6579a86b8f4d", "lexical": ["proc-guardedtransfer"], "structural": ["proc-guardedtransfer"], "agreement": "same"}
+2026-10-13 02:32:12,261 {"event": "procedure_route_refused", "task": "6579a86b8f4d", "runbook": "proc-guardedtransfer", "why": "step precondition changed", "reason_code": "PRECONDITION_MISMATCH", "applicable": false}
+2026-10-13 02:32:12,272 {"event": "trajectory_opened", "task": "6579a86b8f4d", "judge": null, "basis": "harness_gate"}
+2026-10-13 02:32:12,306 {"event": "price_unknown", "provider": "silent", "why": "no input_per_mtok/output_per_mtok and not marked free \u2014 spend cannot be measured, so the daily budget breaker cannot protect this fleet", "fix": "add input_per_mtok/output_per_mtok under [providers.silent] in settings.toml, or free = true if it genuinely costs nothing"}
+2026-10-13 02:32:12,458 {"event": "done_refused", "task": "6579a86b8f4d", "attempt": 1}
+2026-10-13 02:32:12,471 {"task": "6579a86b8f4d", "role": "r_silent", "step": 1, "provider": "silent", "tool": "finish_task", "args": "{\"summary\": \"script exhausted\"}", "result": "finish_task REFUSED — your definition of done is not met.\n$ \"C:\\Users\\redab\\AppData\\Roaming\\uv\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe\" check.py -725 1325 4\nexit=1\n[UNSAFE developer host: descendants and authority files are NOT isolated.]\nFix the underlying problem and call finish_task\n...[truncated, 24 chars omitted]", "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0, "status": "running"}
+2026-10-13 02:32:12,600 {"task": "6579a86b8f4d", "role": "r_silent", "step": 2, "provider": "silent", "tool": "finish_task", "args": "{\"summary\": \"script exhausted\"}", "result": "TASK FAILED: done_check never passed after 2 attempts (positive marginal expected value): exit=1\n[UNSAFE developer host: descendants and authority files are NOT isolated.]", "tokens_in": 0, "tokens_out": 0, "cost_usd": 0.0, "status": "failed"}
+2026-10-13 02:32:12,600 {"event": "task_end", "task": "6579a86b8f4d", "status": "failed", "steps": 2, "cost_usd": 0.0}
+2026-10-13 02:32:12,622 {"event": "low_confidence", "task": "6579a86b8f4d", "confidence": 0.3, "band": "low", "action": "escalate", "why": "experience 0.45; competence 0.50"}
+2026-10-13 02:32:12,641 {"event": "trajectory_closed", "task": "6579a86b8f4d", "accepted": false, "family": "guardedtransfer"}
+2026-10-13 02:32:12,676 {"event": "gotcha_filed", "task": "6579a86b8f4d", "category": "false_success", "files": ["gotchas/general.md"]}
+2026-10-13 02:32:12,676 {"event": "retries_exhausted", "task": "6579a86b8f4d", "attempts": 1}
+2026-10-13 02:32:12,707 {"event": "drain_complete"}
+[registration] db_satisfies_all carries an optional canonical attach; preconditions, invariants and attach have canonical screened forms
+[precondition] a transfer whose guard was false refused with nothing mutated in either file; the guarded transfer committed
+[invariant] a debit without a credit broke 'sum unchanged' and rolled back whole; a conserving transfer committed; an equals invariant pinned the total before and after
+[two-files] ledger and audit were written in one commit; a failing assertion on the audit side left both files untouched
+[read-attach] a write to a read-attached file failed and rolled back; WAL refused; worker ATTACH is still screened out; bad aliases and modes refuse
+created expert 'txn-desk' at C:\Users\redab\AppData\Local\Temp\agent-suite\transactional-contracts\experts\txn-desk
+  teach it:  drop files in C:\Users\redab\AppData\Local\Temp\agent-suite\transactional-contracts\experts\txn-desk\inbox
+             python ingest.py add-url <url> --root C:\Users\redab\AppData\Local\Temp\agent-suite\transactional-contracts\experts\txn-desk
+  run it:    python loop.py run --root C:\Users\redab\AppData\Local\Temp\agent-suite\transactional-contracts\experts\txn-desk
+[authority] a write attach demanded the owner's token for exactly its file (v1 walk and v2 leaf); the worker tool refused an attach outside db_write; a read attach demanded nothing more
+created expert 'ledger-desk' at C:\Users\redab\AppData\Local\Temp\agent-suite\transactional-contracts\experts\ledger-desk
+  teach it:  drop files in C:\Users\redab\AppData\Local\Temp\agent-suite\transactional-contracts\experts\ledger-desk\inbox
+             python ingest.py add-url <url> --root C:\Users\redab\AppData\Local\Temp\agent-suite\transactional-contracts\experts\ledger-desk
+  run it:    python loop.py run --root C:\Users\redab\AppData\Local\Temp\agent-suite\transactional-contracts\experts\ledger-desk
+[end-to-end] guarded transfers compiled a candidate whose step carries a db_satisfies_all PRECONDITION, went PROVEN on a sealed fresh suite (edge: the exact balance), replayed 75 cents with zero model calls under an independent sqlite3 gate — and a transfer the ledger could not cover was refused before any mutation
+PASS test_transactional_contracts

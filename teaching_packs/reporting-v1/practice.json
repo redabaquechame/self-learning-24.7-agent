@@ -1,0 +1,20 @@
+{
+  "schema": "tutor.practice/1",
+  "samples": [
+    {
+      "sample_id": "safe-group-sum-1",
+      "skill_ids": ["reporting-procedure-group"],
+      "safe": true,
+      "operation": "group_sum",
+      "input": [
+        {"group": "east", "amount": 1200},
+        {"group": "west", "amount": 500},
+        {"group": "east", "amount": -200}
+      ],
+      "expected": [
+        {"group": "east", "total": 1000},
+        {"group": "west", "total": 500}
+      ]
+    }
+  ]
+}

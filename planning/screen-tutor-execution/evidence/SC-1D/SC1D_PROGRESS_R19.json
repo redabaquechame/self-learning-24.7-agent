@@ -1,0 +1,39 @@
+{
+  "schema": "sc1d-local-progress/1",
+  "state_revision": 19,
+  "accepted": false,
+  "scope": "source-relative quotation/citation mechanics and selected-session service integration; not complete SC-1D acceptance",
+  "files": {
+    "tutor_investigation.py": "5c7da0ad22dc5c297f514628d7461597cfec143f9793754273a41530c25c4143",
+    "tutor_service.py": "ebb8489227ae5f6c53b759a8631123bda6e4943938d2931317e5801293bbec10",
+    "tests/test_tutor_investigation.py": "5e032144d55e715c57e9604157cf3c2aba3fcf10e8aa1e1025a989dd9571db59",
+    "evaluation/tutor/unknown_apps/cedar-ledger-1.2.json": "b2867da359af2ee70bc31c37a702de75b7356e5d4b2434df14d67c13571f48e6"
+  },
+  "full_r1": {
+    "executed": 179,
+    "passed": 175,
+    "skipped": 3,
+    "failed": [
+      "test_providers.py"
+    ]
+  },
+  "native_root_provider_focused": "PASS, no source change",
+  "focused_investigation": "PASS",
+  "focused_native_session": "PASS",
+  "source_restoration": {
+    "selective_session_gate_removal_caught": true,
+    "source_restored_byte_exact": true,
+    "sha256": "ebb8489227ae5f6c53b759a8631123bda6e4943938d2931317e5801293bbec10",
+    "restored_focused_exit": 0
+  },
+  "remaining": [
+    "authorized source acquisition",
+    "reversible verified sample delivery",
+    "independent review",
+    "final full regression",
+    "PROVIDER qualification",
+    "CONTENT_REVIEW qualification"
+  ],
+  "feature_off_after_service": "PASS; 12 protected source locks match",
+  "package_after_service": "PASS; 179 registered tests classified"
+}

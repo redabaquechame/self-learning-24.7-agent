@@ -1,0 +1,91 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-1B",
+  "recorded_at_utc": "2026-09-15T08:16:24Z",
+  "verdict": "LOCAL_VERIFIED_REVIEWED_PROVIDER_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_gateway_sha256": "7c30bb9e694d59d914d1c2b206ec8d42e046c54192efa9b2361411ed88cd90bc",
+    "loop_sha256": "e995d8dab05254031f3f3219127f67f7492eaed1789a96b353eef4b511cc8f90",
+    "context_sha256": "39784326722241eec6d4d2e048535481b04bbbc5df97caa7848667e99c51c984",
+    "modelgateway_sha256": "620b5bab5af3925e06fcfadd0769f3d5232d429d87f01918097466ea4a273424",
+    "gateway_test_sha256": "080dd165b04a7bb91b119e313edec8c135e698ecaec50d24dbe596f88e08011e",
+    "reviewed_baseline_lock_sha256": "9f5a14ae9b6fa4f58ec1e39bf65ec487c14b08c3ed6750c5c875d9c618137121"
+  },
+  "artifacts": [
+    "tutor_gateway.py",
+    "context.py",
+    "modelgateway.py",
+    "loop.py",
+    "tests/test_tutor_gateway.py",
+    "planning/screen-tutor/BASELINE_LOCK_SC_1B.json",
+    "planning/screen-tutor/SC-1B_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-007-qualified-image-route.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_gateway.py",
+      "exit_code": 0,
+      "result": "T017-T020 and X004A/X004B passed against the production HTTP adapter and a loopback provider: ordinary image refusal, no URL/path fetch, capability and budget no-dispatch, exact source binding, separate usage, one reservation, exactly-once reconciliation, retry and stale/cancel suppression"
+    },
+    {
+      "command": "python tests/test_context.py; python tests/test_live_provider.py; python tests/test_ledger_defects.py",
+      "exit_code": 0,
+      "result": "general text context, existing provider behavior, metering purpose, and prose invariants remained valid"
+    },
+    {
+      "command": "python tests/test_tutor_feature_off.py",
+      "exit_code": 0,
+      "result": "12 protected files matched the reviewed SC-1B lock and feature-off started no process, network, model or native import"
+    },
+    {
+      "command": "python tests/test_package.py; python tests/test_invariants.py; git diff --check",
+      "exit_code": 0,
+      "result": "484 archive members; 133 non-test Python files including nested modules; 129 top-level modules; 166 tests; zero execution or metering bypasses; no diff whitespace errors"
+    },
+    {
+      "command": "python mutate_check.py 'tutor gateway: settled reservation'",
+      "exit_code": 0,
+      "result": "the selective duplicate request/reservation mutation was caught: 1 caught, 0 missed, 0 skipped"
+    }
+  ],
+  "acceptance_tests": {
+    "T017": "the general request-budget contract continues to reject image parts",
+    "T018": "remote URLs, file URLs and local paths cannot enter the qualified image resolver",
+    "T019": "missing capability, accounting, price, oversized media and over-budget reservations cause zero provider requests",
+    "T020": "stale, cancelled, malformed and unmetered results cannot render a qualified answer",
+    "T021": "BLOCKED_NOT_RUN: no explicitly approved real-provider route and spend budget",
+    "X004A": "one actual production HTTP adapter route carried a bounded inline image to a loopback provider with no tools",
+    "X004B": "separate text/image quantities and exact cost reconciled once; duplicate settlement and duplicate request ID added no charge and no dispatch"
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-1B_REVIEW.md",
+    "verdict": "APPROVED_FOR_LOCAL_AND_LOOPBACK_SCOPE_PROVIDER_QUALIFICATION_BLOCKED",
+    "resolved_findings": 8,
+    "unresolved_critical_findings_in_local_scope": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 166,
+    "passed": 163,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no isolated sandbox selected for its acquisition rung"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "The complete campaign ran after the SC-1B code, tests, registry entries, documentation and reviewed lock were final. This evidence/state metadata was added after the source-exact run."
+  },
+  "blocker": {
+    "gate": "PROVIDER_QUALIFIED",
+    "reason": "No explicitly approved provider route and spend budget exist for T021",
+    "unblocks_when": "The owner selects the provider/model and authorizes a bounded live-test budget"
+  },
+  "scope": "LOCAL and LOOPBACK evidence only. No real-provider, billing, deployment, release, privacy, efficacy, usability, accessibility or market-superiority claim is made."
+}

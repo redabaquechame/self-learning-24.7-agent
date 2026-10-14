@@ -1,0 +1,5 @@
+[host-answer] actual validated instruction returned defensively; wrong identity/missing observation/unready/feature-off dispatch nothing
+[host-release] grant/consent/identity/revision/epoch/deadline/Stop changes and forged instructions release no answer
+[sealed-host] real learning.v1 binding, exact native epoch/session and finite source authorization; forged/cross-surface/cross-tenant/stopped requests refuse
+[host-stop] stalled selection does not delay Stop and its late authorization is refused
+PASS test_tutor_host (service release only; native host/transport/provider journey remains unqualified)

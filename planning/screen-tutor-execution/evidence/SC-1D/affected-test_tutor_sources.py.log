@@ -1,0 +1,5 @@
+[T022] identical tenant keywords retrieved only the exact tenant/project excerpt with source, revision, range-license and ACL labels
+[rights] unknown rights and excerpts outside permitted ranges refused before registry mutation
+[T025] relevant hidden assessment keywords produced ACCESS_DENIED and zero content; only a digest-checking verifier can inspect the sealed item
+[version] out-of-range application material returned a named scope limit instead of an invented route
+PASS test_tutor_sources

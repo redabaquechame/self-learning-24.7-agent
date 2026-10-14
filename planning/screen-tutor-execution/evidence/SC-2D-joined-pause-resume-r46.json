@@ -1,0 +1,99 @@
+{
+  "schema": "native-joined-pause-resume-progress/1",
+  "recorded_at_utc": "2026-10-13T22:20:21.717172+00:00",
+  "accepted": false,
+  "status": "TASK4_5_PARTIAL_JOINED_PAUSE_FRESH_RESUME_STOP_REVOCATION_VERIFIED",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "companion/windows/ScreenTutor/App.xaml.cs": "2a1005ebbd06e2d959433ce3cfb1d1cdd17c33980baf128370b54382128da938",
+    "companion/windows/ScreenTutor/BridgeCodec.cs": "3f5ceaf84653c765d0829828cb47407f62babb33d3122fc2b4693a0fce69a46a",
+    "companion/windows/ScreenTutor/BridgePayloads.cs": "97536dba1ecb9b0f03399d80aa4d4acf25d1c8d6790d9cb91deefe7e68cb58cb",
+    "companion/windows/ScreenTutor/BridgePeer.cs": "aff43f72a406ceed2786129c28ec852051c680d75a3d861224619ff0a887f2aa",
+    "companion/windows/ScreenTutor/CaptureSession.cs": "4c4b158ce65c530a00d2f77ff637ef613b0aa296ef1c9c2daa93836f3462fdf4",
+    "companion/windows/ScreenTutor/NativeHostClient.cs": "37bfcd447b3b4929bc31d64423189ad4230da7a33eb1dfddf307eb32c1979376",
+    "companion/windows/ScreenTutor/SessionWindow.xaml": "52e53ed078d74f2a71b670bab41c0b41344435846fab5a179cf8a953918ea3dd",
+    "companion/windows/ScreenTutor/SessionWindow.xaml.cs": "599192a753eaba6b9fe47ee1c5ff44595c7d1acf0a2c48680daa2736ad35001f",
+    "execution.py": "ef1a3c669b7ad8a4badd8898b10cca59da377f954b6fbd2898b8aa969e71ca9e",
+    "planning/screen-tutor/BASELINE_LOCK_SC_2D_CANDIDATE.json": "baa03d8884c1bc2ec11ab15b9301867579eda230cac5ed324dcf8af7fb0952df",
+    "tests/fixtures/tutor_bridge_nested_v1.json": "5e465bdcd7b208b2dc05bcf669415da2a0ca38d5594efaf0206ea388b4acee92",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "67477a6f9f550885dbe9d1a8c37eb85e810162588fe212ee907fdca3a62b1496",
+    "tests/test_tutor_connection.py": "943b9840dec46139d02001808572877354e44b4a332d76f90aa2e9d3af665160",
+    "tests/test_tutor_contracts.py": "5865a58d59467cd6d90e233037fd5e695fa844587ee7cd8188b55c9255ecc802",
+    "tests/test_tutor_feature_off.py": "0c4c9d8ed3c2d8ff884a8b8dd197c76872b481ef2d65a45708a324810b653718",
+    "tests/test_tutor_frames.py": "331ab2e32af48087b4374853de8cff38b50af140377981fcf778dad6ed0f1e89",
+    "tests/test_tutor_host.py": "bb2fc30bb3acacf5ac9170d12ed92381583d370182ac2b27d962ced775e7226e",
+    "tests/test_tutor_transport.py": "d6442ad1ced33bfd3565f0c5237730a4bd091d32cab72ebdd93a9e51857d7f2a",
+    "tutor_connection.py": "85be7cd6f491474b4be40fa6a3b93b08c5157685979e280707177bb7afa7bfbf",
+    "tutor_contracts.py": "f012b177c89e1bd682f2875a7ad5de183c32b0f4d47d6034affcbca7e94f5c3e",
+    "tutor_frames.py": "f4e24c0a038843611e1fae9fb578fb7a31a610593555766a8f63a2b81d0c9071",
+    "tutor_gateway.py": "9814cfab0e2769a36948791c10a91ca5a7e8474407d81a6e65f98ef3fd3fb35e",
+    "tutor_host.py": "cc660290b6bfcac741c3c69e3d8d0224ac98f043160e0153a30a20f3d7f27a6d",
+    "tutor_transport.py": "b9e807bfab89897cd9ea1a19aa1c9f87a5ded5685366825946a2d189ccd2c9b6"
+  },
+  "raw_logs": {
+    "pause-final-actual-r1.log": "0091a7674f3b83b3db214f67e2efd8b377f50aa0b42847513b00af3bcd4d2dfd",
+    "pause-final-actual-r2.log": "118701cad1e047e8092c9cef7bb041eec97bf286340e0a4a69bf3547a95a140d",
+    "pause-final-native-r2.log": "b755524a3f1da6365c5cf6881029cc3eb32b1500590c25985ccc62f8de3ae43f",
+    "pause-focus-feature_off.log": "c06333e7a8b588dc9c3e12b80f7c47cf903252172308d3134bed2a27e476ec38",
+    "pause-focus-gateway.log": "e4de2c4e36a8623cf665481b7e863917fe2543bc6e4e660c03956dd1011c3434",
+    "pause-focus-host.log": "0b6a0f4394ad30d45b9cc80fb952d0dc981385dd3e0fd9ec13cc8f3baad191ff",
+    "pause-focus-native_session.log": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e",
+    "pause-focus-transport.log": "d46f7ef8f306200f3f6cccf97342db5bd347b26f2d14b7f3fcc6b90abea97188",
+    "pause-matrix-build.log": "5b5e6b6a99906b6df75ee0d83c597bcad0c89b201e9779d04f68db16152e8628",
+    "pause-matrix-r1.log": "73967cd832c9812eeff3ccb9861e456c33efc0e7ea1e4a6bb69b9ece8daeeeeb",
+    "pause-resume-green-build.log": "f45c8618a0a43f3d11717efd0edb074c6af6fd02df707bd8e75c34e89301c251",
+    "pause-resume-green.log": "374b88aeebf6f81c2287da378d1f494c8b76f6c962a8622918704aff6ac86605",
+    "pause-resume-red-build-r2.log": "e1747b8b171ed312e0a84d9dc4861ee8f0dbad949baaf6c0a47a7a7bc0ed0c64",
+    "pause-resume-red-build.log": "2d3e851809e392b44d05f9bb8960298251f9e640a99bc7d55b9d166afe4c310b",
+    "pause-resume-red-r2.log": "977ecccf60991a947fcb0beaf0d0161500b05787216731e69af49dff02584206",
+    "pause-resume-red.log": "6fc91d075423ce373b3817e072da6a40648a6aec0df1ac61040ce7f03a1510a5",
+    "resume-controls-green-build.log": "90e536a9b5de99fe0d2e88a08feda9e84bc0b6464f6231fc7be7ce0944c3c4ae",
+    "resume-controls-green.log": "73967cd832c9812eeff3ccb9861e456c33efc0e7ea1e4a6bb69b9ece8daeeeeb",
+    "resume-controls-red-build.log": "ad5892d65c972972027970c69cf7fc2132ffa7d5943f76ac7cfdb68d9a64b39a",
+    "resume-controls-red.log": "ae9b995cc180e91c906ed40de9299b66d8368006cf391a9bd9ae1d8ad5516ec0",
+    "resume-denied-status-red.log": "57c1227d79255775d86519fc0771718e7d8e3f2ed85db4522189bdb82ba6e5ee",
+    "scheduled-stop-current-isolated.log": "bd337e466fbe979cb4dcbc9f6adc05b9a65f45a0a91fc7b2aade1cfad9d26108",
+    "stop-stage-barrier-build.log": "6848ad6e5c8e82f3d00ae2f21c7907626cc613b70e5d108a099f0dc4b3093f96",
+    "stop-stage-barrier-green.log": "bd337e466fbe979cb4dcbc9f6adc05b9a65f45a0a91fc7b2aade1cfad9d26108"
+  },
+  "implemented": [
+    "Pause immediately stops native pixels, detaches publisher/authorization and sends real one-way PAUSE; host retires source/session and zeroes held cached PNG bytes",
+    "Resume retains only chosen Windows item; fresh source id/epoch has zero pixels until current host grants exact fresh receipt; real subsequent Ask passes through continuous receiver",
+    "Owner-revoked Resume produces zero pixels/guidance/provider calls; Stop during delayed Resume stays prompt and suppresses late authorization",
+    "Failed Resume no longer remains Checking; reselect resets Pause/Resume label"
+  ],
+  "verification": {
+    "joined_pause_resume": "PASSED",
+    "pending_resume_stop": "PASSED",
+    "resume_owner_revocation": "PASSED",
+    "actual_connection": "PASSED exit0; all cases, r2",
+    "native_full": "PASSED exit0; sequential after actual, r2",
+    "focused_scripts": [
+      "host",
+      "transport",
+      "feature_off",
+      "native_session",
+      "gateway"
+    ],
+    "normal_full_current": "NOT_RERUN after Pause candidate; prior receiver r2 PASSED183/177/6skip/0fail,963 unchanged files"
+  },
+  "excluded": [
+    "Initial Pause RED ended with fixture missing tracked Resume; corrected actual wire barrier explicitly reproduced missing production PAUSE before fixture marker",
+    "Native complete actual r1 FAILED scheduled Stop precondition: policy_entered not observed within2s; cause not independently established. Isolated unchanged case passed. Test-only metadata marker now synchronizes Stop to actual delayed policy stage; real UI/control/pipe remains production path. Failed r1 stays preserved; native full was not reached in that failed combined command."
+  ],
+  "remaining": [
+    "Pending Ask Pause/source replacement/frame change/timeout/malformed/close/summon matrices",
+    "Native raw frame held while queued for request gate needs interruption qualification",
+    "2-second observation freshness and slow qualified provider latency need useful-answer qualification",
+    "Production owner/grant/provider/account/reservation/Fleet discovery; genuine overlay/content/human/device/install/release",
+    "Task6 final independent review/canonical ownership/source commit and current frozen normal full after final repairs",
+    "Fleet shortcuts/dialog keyboard focus/procedure-read errors/truthful labels/setup and remaining original requirements"
+  ],
+  "scope": "Test-owned real Windows source and injected fixture answer only; no production/default mock, paid provider, private source, learner success, install or handover acceptance.",
+  "native_artifact_hashes": {
+    "tests/native/ScreenTutor.ContractTests/bin/Release/net10.0-windows10.0.26100.0/win-x64/ScreenTutor.ContractTests.exe": "8dd3728958b0baf093bcd0a43ad1c4c8481016efd91cfdec61982f354765a504",
+    "tests/native/ScreenTutor.ContractTests/bin/Release/net10.0-windows10.0.26100.0/win-x64/ScreenTutor.ContractTests.dll": "ef38ed875bb1f319ec39c98b45671f57db8444bc332058c5296c23d73e804278",
+    "companion/windows/ScreenTutor/bin/Release/net10.0-windows10.0.26100.0/win-x64/ScreenTutor.exe": "174c8c772d17e7f63f5197fdae9764a1d63baeae17b3cea55a2508af3c6f3a52",
+    "companion/windows/ScreenTutor/bin/Release/net10.0-windows10.0.26100.0/win-x64/ScreenTutor.dll": "f45d88e0554b385ee285f93071c77a6a2f4ecbfe666e8aebb765b39f1b63359c"
+  }
+}

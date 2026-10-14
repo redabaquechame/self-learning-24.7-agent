@@ -1,0 +1,2 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+PASS test_tutor_transport

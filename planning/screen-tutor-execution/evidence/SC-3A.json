@@ -1,0 +1,132 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-3A",
+  "recorded_at_utc": "2026-09-15T12:32:56Z",
+  "verdict": "LOCAL_AND_NATIVE_OFFLINE_LOCALE_RESILIENCE_PARTIAL_REVIEWED_DEPENDENCY_PROVIDER_CONTENT_HUMAN_DEVICE_AND_ACCESSIBILITY_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_locale_sha256": "707ce9fdfeb843dd3e8f4a0ff6c13f530bf9ce645d3c677c2a6f3e99257d512d",
+    "locale_test_sha256": "137b552cc1ea3dc28c09c08d815955b9fd326601c2cc2f914898b3f5a99297f6",
+    "native_locale_sha256": "67c5a5df85bb245b6187e16ecb8ab5d4baf1040736183cb3bdca715030fe9508",
+    "native_test_sha256": "5e11b9efc23e2106b4239f9eff369dfeaf4fc2cac3e45fc18cd44e1fe60d5722",
+    "candidate_locale_sha256": "9bf2f27d34856ab71a24b177ac59d294436952fc872b5b14508a424b96726f7a",
+    "locale_matrix_sha256": "7b1d63bcbf2a1ac3b57debdd50c0a976b7d667fc53501257bea09d158545dd0e",
+    "runner_sha256": "dcc55cb3cd38992e0348733fba71648e005fae21cf7ae9fc90398a38820a5f84",
+    "evidence_registry_sha256": "bc4f557b39ca43a58de6f7a9ef1ae8e354ea3da979919c59c089130ddcc4f75f",
+    "doctor_sha256": "6b05c02d4a1155afea7a3e07c01afc0bef3f4fdfab834396784fb9d774f92187",
+    "mutation_registry_sha256": "d6cea2d88c3fa703d82f9818c3204f5c559ee2be0aa653e6f0d4ee99158d7bb2",
+    "adr_sha256": "a6f1ffbd5c1638eb143396f8b244a771c9bc5432a81fbbf020acfe71865a22f7",
+    "review_sha256": "944d7e66ef83f6cba17a8cfb725d900dc9009c38f83e1d911c4d6a7bdb9cfcbb",
+    "full_suite_log_sha256": "7830ec2917fb6b6090c0061ac9284108c3c3bc9befb63f79a360bec1d7dd93c5"
+  },
+  "environment": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "rid": "win-x64",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_runtime": "10.0.12",
+    "windows_app_sdk": "2.4.0",
+    "interactive_session": true
+  },
+  "artifacts": [
+    "tutor_locale.py",
+    "tests/test_tutor_locale.py",
+    "companion/windows/ScreenTutor/LocaleAccessibility.cs",
+    "tests/native/ScreenTutor.ContractTests/Program.cs",
+    "teaching_packs/locales/en-ca-candidate.json",
+    "evaluation/tutor/audio_locale_matrix.json",
+    "planning/screen-tutor/SC-3A_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-014-locale-caption-and-device-resilience.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_locale.py",
+      "exit_code": 0,
+      "result": "offline X024A/X024B mechanics passed for source language, code-switch spans, glossary uncertainty, immutable raw captions, append-only correction, rate bounds, keyboard equivalents, visible fallback, device reauthorization, non-authoritative approval speech and unknown matrix measurements"
+    },
+    {
+      "command": "dotnet build tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --configuration Release; dotnet run --project tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --no-build --configuration Release",
+      "exit_code": 0,
+      "result": "zero warnings and zero errors; native locale uncertainty, immutable raw captions, correction history, bounded speech rate, input alternatives, candidate fallback and device-change capture pause/reauthorization passed inside the compiled WPF assembly"
+    },
+    {
+      "command": "python mutate_check.py 'tutor locale'",
+      "exit_code": 0,
+      "result": "the changed-device-silently-continues-capture mutation was caught: 1 caught, 0 missed, 0 skipped"
+    },
+    {
+      "command": "python tests/test_tutor_environment_lock.py; python tests/test_tutor_feature_off.py; python tests/test_frontend.py; python tests/test_package.py; git diff --check",
+      "exit_code": 0,
+      "result": "environment, feature-off, frontend, package and whitespace checks pass; 138 top-level Python modules, 175 registered tests and 226 mutations reconcile; the archive contained 542 members before this evidence/state metadata was added"
+    }
+  ],
+  "acceptance_tests": {
+    "X024A": "PARTIAL_LOCAL_AND_NATIVE_OFFLINE_MECHANISM_ONLY: source/target language, terminology uncertainty, caption history, code-switch coverage, bounded speech rate, keyboard alternatives, visible fallback and device-change reauthorization passed; required provider, content and human/device qualification did not run",
+    "X024B": "PARTIAL_LOCAL_AND_NATIVE_OFFLINE_MECHANISM_ONLY: media and microphone recognition of approval remained non-authoritative and device change paused capture; required provider and content-review tiers did not run"
+  },
+  "candidate_content": {
+    "locale": "en-CA",
+    "status": "CANDIDATE",
+    "qualified_locales": [],
+    "matrix_status": "NOT_RUN",
+    "measurements": "all comprehension, word-error, caption-error and control measurements are null; null means unknown"
+  },
+  "native_witnesses": {
+    "locale": "CandidateLocale preserves source/target/fallback language and untranslated terms while always exposing unqualified fallback",
+    "caption": "CaptionRecord retains immutable raw recognition and ordered code-switch spans while corrections append revisions",
+    "accessibility": "speech rate is bounded and four audio operations have distinct keyboard equivalents",
+    "device": "AudioDeviceCaptureGuard pauses and clears authorization on identity change, rejects a stale generation and resumes only after current reauthorization",
+    "regression": "the same executable retained prior canvas, audio, session journey and real test-owned Windows capture witnesses"
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-3A_REVIEW.md",
+    "verdict": "APPROVED_FOR_LOCAL_AND_NATIVE_OFFLINE_CONTRACT_SCOPE_DEPENDENCY_PROVIDER_CONTENT_HUMAN_DEVICE_AND_ACCESSIBILITY_BLOCKED",
+    "unresolved_critical_findings_in_local_scope": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 175,
+    "passed": 172,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no selected isolated acquisition sandbox for this run"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal_records": 1,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "The complete campaign ran after all SC-3A product code, candidate content, tests, native witness, ADR, review, registries and documentation were final. Evidence/state metadata was added after the source-exact run."
+  },
+  "blockers": [
+    {
+      "gate": "UPSTREAM_PACKET_ACCEPTANCE",
+      "reason": "SC-3 and SC-2D remain unaccepted because their provider/content/human/native qualification tiers are open",
+      "unblocks_when": "both dependencies pass every required tier"
+    },
+    {
+      "gate": "PROVIDER_LOCALE_QUALIFICATION",
+      "reason": "no authorized speech provider/model, accent/code-switch corpus, pricing or spend budget was used",
+      "unblocks_when": "each exact locale/device/provider row passes frozen transcription, caption, interruption, authority, latency and cost thresholds"
+    },
+    {
+      "gate": "CONTENT_REVIEW",
+      "reason": "no independent qualified reviewer approved the exact glossary, translations or teaching terminology",
+      "unblocks_when": "review is bound to the immutable candidate content digest"
+    },
+    {
+      "gate": "HUMAN_COMPREHENSION_AND_ACCESSIBILITY",
+      "reason": "no consented comprehension or assistive-technology session ran",
+      "unblocks_when": "frozen locale/device journeys pass the declared human protocol for each claimed population and access path"
+    },
+    {
+      "gate": "LIVE_DEVICE_AND_ACOUSTIC_QUALIFICATION",
+      "reason": "no microphone, headset, speaker, background speech, echo, reconnect or disallowed-device switch was physically exercised",
+      "unblocks_when": "the supported device matrix passes with correlated native evidence and no silent capture after a switch"
+    }
+  ],
+  "scope": "LOCAL Python contracts plus NATIVE compiled deterministic offline state witnesses. No locale is qualified. No speech provider, microphone, speaker, acoustic condition, transcription/translation quality, human comprehension, assistive technology, installed journey, deployment, release or market-superiority claim is made."
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "native-host-request-release-preparation/1",
+  "checked_at_utc": "2026-10-13T06:41:39.748124+00:00",
+  "source_sha256": "35699c2e40074911f593f82bc217996461f39fef5506a11311c0ac077843666b",
+  "current_policy_method_present": false,
+  "valid_fixture_result_keys": [
+    "allowed",
+    "reason_code",
+    "record_id"
+  ],
+  "actual_instruction_returned": false,
+  "valid_fixture_allowed": true,
+  "owner_revoked_during_fixture_dispatch": true,
+  "static_snapshot_result_after_revocation": {
+    "allowed": true,
+    "reason_code": "OK",
+    "record_id": "request-1"
+  },
+  "scope": "read-only service boundary probe with existing synthetic records and controlled dispatch; no transport/native capture/provider/learning/release proof",
+  "required_next_behavior": "host-owned current policy reader before dispatch and release; return actual validated source-bound instruction only while current grants/identity/session/source/generation are still eligible"
+}

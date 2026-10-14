@@ -1,0 +1,316 @@
+{
+  "schema": "screen-tutor-native-continuity-progress/1",
+  "recorded_at_utc": "2026-10-13T05:44:25.179714+00:00",
+  "accepted": false,
+  "status": "NATIVE_LOCAL_REVIEW_FIXES_VERIFIED_FULL_REGRESSION_PENDING",
+  "review": {
+    "reviewer": "native_continuity_review",
+    "confirmed_important": 1,
+    "additional_coverage_concern_confirmed_important_by_native_witness": 1,
+    "fixed_with_red_green": 2,
+    "deferred_minor": 1,
+    "second_review": false
+  },
+  "verified": [
+    "actual Stop and explicit reselection",
+    "actual close/summon and shortcut fallback",
+    "cancelled Exit leaves pending picker retry usable",
+    "late native item/null completion cannot mutate newer capture attempt",
+    "after-Stop native completion cannot revive source",
+    "after-Exit callbacks do not block or reopen",
+    "bounded metadata publication and stale queue discard",
+    "real test-owned synthetic capture, zero pixels before host authorization"
+  ],
+  "affected_checks": {
+    "test_tutor_native_session.py": "PASS",
+    "test_tutor_feature_off.py": "PASS",
+    "test_tutor_environment_lock.py": "PASS",
+    "test_frontend.py": "PASS",
+    "test_package.py": "PASS"
+  },
+  "open": [
+    "final frozen whole-candidate regression",
+    "authenticated host/source/capture/Ask/answer/visible overlay integration",
+    "installed novice usability and accessibility",
+    "provider/content/human learning qualification",
+    "buyer release"
+  ],
+  "deferred_minor": "Unavailable publication may suppress the accompanying failure explanation; source is visibly unavailable and retryable.",
+  "artifacts": [
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/affected-test_tutor_feature_off.py.log",
+      "sha256": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d",
+      "bytes": 418
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/affected-test_tutor_native_session.py.log",
+      "sha256": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e",
+      "bytes": 529
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/after-exit-green-build.log",
+      "sha256": "334c662aefe46453773488fba061d46d90bf95728a5b994f2c08a28e1697d454",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/after-exit-green.log",
+      "sha256": "a2825e3397f4b206f450eb2cd483979d441268575a3b5ae37084958708e169ab",
+      "bytes": 1696
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/after-exit-red-build.log",
+      "sha256": "0370932d10a5da10835333cff00e62efee6e0c953a57370b703558d237c1d9d2",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/after-exit-red.log",
+      "sha256": "7b4e4eb3a1d8ee594d9fe0b2b37cee9d23c985dc3ba842a23c421da799a66c4f",
+      "bytes": 1277
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/callback-mutation.json",
+      "sha256": "dac65644e602425e5e3a4e9ed6948e76adfda9773954db5c7daee236117ec482",
+      "bytes": 276
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/cancelled-exit-green.log",
+      "sha256": "0b8c04e67912fbfd199a7aef02e739a503573f301dfce52ac08f83439e6d4e4f",
+      "bytes": 2208
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/cancelled-exit-red.log",
+      "sha256": "063338f247dfd8c7b3042309500866330b2c6ac336f18ee610252108f13f8b4a",
+      "bytes": 1903
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/final-affected-test_frontend.py.log",
+      "sha256": "2e764917342ea0d2f340adb6e5a2cc1abacc146f5c15bb5fd67469b08afad51b",
+      "bytes": 515
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/final-affected-test_package.py.log",
+      "sha256": "ef688b18f143b772e4a774413d752f3d8dce7b27d1dc48b362d57d6cf51f917c",
+      "bytes": 3631
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/final-affected-test_tutor_environment_lock.py.log",
+      "sha256": "773357a9dcc9c02b7815b98ca2f2e947357aea1a94b256ec1d0c5e7bf33247d8",
+      "bytes": 381
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/final-affected-test_tutor_feature_off.py.log",
+      "sha256": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d",
+      "bytes": 418
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/final-affected-test_tutor_native_session.py.log",
+      "sha256": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e",
+      "bytes": 529
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/final-test_frontend.py.log",
+      "sha256": "2e764917342ea0d2f340adb6e5a2cc1abacc146f5c15bb5fd67469b08afad51b",
+      "bytes": 515
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/final-test_package.py.log",
+      "sha256": "ef688b18f143b772e4a774413d752f3d8dce7b27d1dc48b362d57d6cf51f917c",
+      "bytes": 3631
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/final-test_tutor_environment_lock.py.log",
+      "sha256": "773357a9dcc9c02b7815b98ca2f2e947357aea1a94b256ec1d0c5e7bf33247d8",
+      "bytes": 381
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/final-test_tutor_feature_off.py.log",
+      "sha256": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d",
+      "bytes": 418
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/final-test_tutor_native_session.py.log",
+      "sha256": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e",
+      "bytes": 529
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/frame-queue-green-build.log",
+      "sha256": "afa6ad5b5a86dd6d5deb2f1c7f944660f73c91a3d09cce0b3b242d1c4bea1063",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/frame-queue-green.log",
+      "sha256": "a2825e3397f4b206f450eb2cd483979d441268575a3b5ae37084958708e169ab",
+      "bytes": 1696
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/frame-queue-red-build.log",
+      "sha256": "013be78d95c0523e0ac46d52a4a452d3ff783e0ad08c1ca1a281e8c4ce943590",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/frame-queue-red.log",
+      "sha256": "0734e1bee4f3c3ba3946887a0eb92a204d2ada520109669623b3d79da8071afa",
+      "bytes": 1389
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/INDEPENDENT_REVIEW.json",
+      "sha256": "4626c19ae978a8b327055a7dfc9d5b5a1ce4dc0a96e0db922d50a885454a47c7",
+      "bytes": 991
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-callback-mutation-build.log",
+      "sha256": "488946b85a893fb282cd88058219657cbf32a4e30c35dfe598c35b89745acc1f",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-callback-negative.log",
+      "sha256": "88b90176fbc1b855ae62f281b72e44229bbc9825a660a740bd2e557ea467a031",
+      "bytes": 1149
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-callback-restored-build.log",
+      "sha256": "885689be8129049bd59cf60d7731de89d79744b630e298a9a6f85582b452d7b5",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-callback-restored.log",
+      "sha256": "1ad8f327d8a0f0c35bfe9bba79270b1f5584958156b2e411b36025cbafaccc1c",
+      "bytes": 1451
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-close-green-build.log",
+      "sha256": "b2ac762235176c67070affd59910f9b9c6b7785a3dfe5e28c82ab3d59c4a9496",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-close-green.log",
+      "sha256": "facd995a59e98c870fe334b055d342227e06f4269a9a2a1d67dbeabeadf6e058",
+      "bytes": 1557
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-close-red-build.log",
+      "sha256": "e98f9d592380ac6cabe8898ca3fc02ea1650aef6d674f19f0915a9388bd7e17e",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-close-red.log",
+      "sha256": "2a7492279a5446f5cb88568f1485c303d6c9b46d2f2d0913823668eb97021d97",
+      "bytes": 1269
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-picker-attempt-green.log",
+      "sha256": "459f51e3c71b62fa77ea7c37ce6a7b14a764c794f61766ecb4a27b19c9292875",
+      "bytes": 2371
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-picker-attempt-red.log",
+      "sha256": "2464f1b4fb1da182583021684e6ac311b9dc63660522de2c12584c7e55e584c2",
+      "bytes": 2020
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-stop-build-corrected.log",
+      "sha256": "6998c9df9f006c7decd6900c739e31aab74419016a7f945514fd43d8842ab6da",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-stop-build.log",
+      "sha256": "cbca25a9a186d72682a14f4efe743aed58b1a400e2bab892342792b98a95cd39",
+      "bytes": 2519
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-stop-green-build.log",
+      "sha256": "50b5151140d5feb7f61de371ec2b2a9b8aa9e4280027fff37fe9d25760200653",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-stop-green.log",
+      "sha256": "1ad8f327d8a0f0c35bfe9bba79270b1f5584958156b2e411b36025cbafaccc1c",
+      "bytes": 1451
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/native-stop-red.log",
+      "sha256": "5c0eed34971ac80c6ac04a5b8a75418da595f5a6bdaddfe58f441f5b8a575134",
+      "bytes": 1142
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/picker-green-build.log",
+      "sha256": "79bdd71212dfc2eacac3e13d503f14c3df221e218ad8447f7b3cba373bb394b4",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/picker-green.log",
+      "sha256": "a2825e3397f4b206f450eb2cd483979d441268575a3b5ae37084958708e169ab",
+      "bytes": 1696
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/picker-red-build.log",
+      "sha256": "96250aa77f2d13a3bedaa685ca55e322809cf95eb3a24cbd79c708ebfa6e16d3",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/picker-red.log",
+      "sha256": "e5ccaf98786459752081afb5c82623b39926836c5ee0a69398830f7bfc5d2521",
+      "bytes": 1366
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/progress.md",
+      "sha256": "f642ba53fd37be7113342574cc1d150ae76641c55ca357abe9ea6698ca3847e6",
+      "bytes": 7631
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/receipt-binding-red-build.log",
+      "sha256": "2b0ae5ed7af7352db41d4d235b6f9fd1ccbc1fc0151bb8a490a3979df3a801df",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/receipt-binding-red.log",
+      "sha256": "2c7c6688aba499eb7c247885a6142351154001c9174c82b6e88f5dee385018b6",
+      "bytes": 1361
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/selection-generation-red-build.log",
+      "sha256": "91fb80ce6e203f5618a40140304250389a6ad8e7625ed4c03d4680f296bf42e2",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/selection-generation-red.log",
+      "sha256": "e0e465405c7a5197cb321f0e69c04bee71a4ab3125bd33eb0990cfea32263f5f",
+      "bytes": 1385
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/shortcut-mutation.json",
+      "sha256": "b493826e99c1dcf852a2a9a38634bfc196d8a67e07bbddf94424e99768f75238",
+      "bytes": 212
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/shortcut-negative-build.log",
+      "sha256": "9f33186cef3640f5021ff416db82d6d774a852ba5c3be3e0d0648e8cff0c1574",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/shortcut-negative.log",
+      "sha256": "8d9ab1be9e426959623fad1379b275f03377ff4a6b0356f1722deac7db878831",
+      "bytes": 1295
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/shortcut-restored-build.log",
+      "sha256": "4f973ed146a70b0d75e980355f1a6b92b823bd6aad3ca192f9872bcf5a6f9351",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/shortcut-restored.log",
+      "sha256": "a2825e3397f4b206f450eb2cd483979d441268575a3b5ae37084958708e169ab",
+      "bytes": 1696
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/unavailable-red-build.log",
+      "sha256": "f9a24290c1814a2c254c8679cb5b0882d8ec94e3ea619d9f850a7080b8e6df82",
+      "bytes": 512
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-continuity/unavailable-red.log",
+      "sha256": "03df928ebcc31453e4a465846aaaecd0d6beb8760bbf465c05a7b0a3b300df9f",
+      "bytes": 1384
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "tutor.source/1",
+  "source_id": "cedar-official",
+  "revision": "rev-1",
+  "tenant_id": "tenant-alpha",
+  "project_id": "project-reporting",
+  "title": "CedarLedger synthetic versioned documentation",
+  "source_type": "fixture",
+  "locator": "fixture://unknown-apps/cedar-ledger/1.2",
+  "app_id": "cedar-ledger",
+  "app_versions": {"min": "1.0.0", "max": "1.9.9"},
+  "rights": {"status": "permitted", "license_id": "fixture-license", "permitted_ranges": [{"start": 1, "end": 20}]},
+  "purpose": "teaching",
+  "excerpts": [{"excerpt_id": "grouping", "start": 2, "end": 4,
+    "text": "CedarLedger 1.2 groups report rows by region; each amount is included once.",
+    "source_revision": "rev-1", "tenant_id": "tenant-alpha", "project_id": "project-reporting", "license_id": "fixture-license", "purpose": "teaching"}]
+}

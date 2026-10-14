@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_frames.py", line 41, in <module>
+    check_exact_png()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_frames.py", line 13, in check_exact_png
+    assert importlib.util.find_spec('tutor_frames') is not None, 'actual native BGRA-to-host-image adapter is absent'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: actual native BGRA-to-host-image adapter is absent

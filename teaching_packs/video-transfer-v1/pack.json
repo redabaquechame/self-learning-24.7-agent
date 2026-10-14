@@ -1,0 +1,26 @@
+{
+  "schema": "tutor.teaching-pack/1",
+  "pack_id": "video-transfer-v1",
+  "version": "1.0.0",
+  "author": "screen-tutor-lab",
+  "tenant_id": "tenant-1",
+  "project_id": "project-1",
+  "title": "Candidate video-to-spreadsheet concept transfer",
+  "app": {
+    "app_id": "sheet-app",
+    "qualified_versions": {"min": "1.0.0", "max": "1.9.9"}
+  },
+  "objectives": [
+    {"objective_id": "understand-grouping", "type": "conceptual", "text": "Explain why each source row contributes to exactly one grouped total."},
+    {"objective_id": "perform-grouping", "type": "procedural", "text": "Locate the current application's grouping control and verify a safe grouped result."}
+  ],
+  "skills": [
+    {"skill_id": "grouping-concept", "type": "conceptual", "objective_ids": ["understand-grouping"], "prerequisites": []},
+    {"skill_id": "grouping-transfer", "type": "procedural", "objective_ids": ["perform-grouping"], "prerequisites": ["grouping-concept"]}
+  ],
+  "route_claims": [
+    "Select the current application's grouping control using current semantic evidence.",
+    "Choose the intended label field and aggregate every integer amount exactly once.",
+    "Verify the resulting groups against the source rows before recording an independent outcome."
+  ]
+}

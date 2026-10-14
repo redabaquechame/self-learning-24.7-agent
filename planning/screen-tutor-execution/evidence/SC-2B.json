@@ -1,0 +1,94 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-2B",
+  "recorded_at_utc": "2026-09-15T09:45:27Z",
+  "verdict": "LOCAL_VERIFIED_REVIEWED_CONTENT_AND_HUMAN_NATIVE_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_policy_sha256": "99829ef83a792584d47575d154dd1ea9499aef0a78ecf98c90375a937637ffe6",
+    "tutor_learner_sha256": "7cea8fe34361c5c066e4bb70c7fc3ad3a4baea4baab71bdddacf9c41772333e6",
+    "policy_test_sha256": "67d0b6faa6f4648eb24aee9586e169f0db7139b1262630cb4c15f6f957310b5a",
+    "learner_test_sha256": "f5300e0ef88f7aba029d555864d6f0114abb9f560614f5745eccb0e85a1b3f83",
+    "runner_sha256": "1eb9d72ba2f984bd39bcfd39a456104334e87486445b3498b9c4ace73b9bcc0e",
+    "evidence_registry_sha256": "aed30a1e500322c88b073422b4df100ae151111a91a434820830ade02a58cc95",
+    "doctor_sha256": "a44ce870d5183f7353d76dd81b5e97bcc3d9db61a3603af4a3bbca98ce1dd0e7",
+    "mutation_registry_sha256": "b6655ec85dfeb767917386fa570dba873da1686e391f2f43870e2549e8c268b6"
+  },
+  "artifacts": [
+    "tutor_policy.py",
+    "tutor_learner.py",
+    "tests/test_tutor_policy.py",
+    "tests/test_tutor_learner.py",
+    "planning/screen-tutor/SC-2B_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-009-transparent-instruction-and-learner-evidence.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_policy.py; python tests/test_tutor_learner.py",
+      "exit_code": 0,
+      "result": "T033-T039 and the offline T040 policy boundary passed: one direct/source-grounded move, durable help fading, actor/help/exposure attribution, corrections, no pause diagnosis, outcome scoring and accommodation distinction"
+    },
+    {
+      "command": "python tests/test_tutor_packs.py; python tests/test_tutor_contracts.py; python tests/test_package.py; python tests/test_invariants.py; python tests/test_ledger_defects.py; python tests/test_tutor_feature_off.py; python tests/test_learning_surface_parity.py; python tests/test_doctor.py",
+      "exit_code": 0,
+      "result": "pack-review authority, strict wire, packaging, execution/metering, prose, feature-off, learning-surface and import regressions passed"
+    },
+    {
+      "command": "python mutate_check.py 'tutor learner: assistance and exposure treated as independent'",
+      "exit_code": 0,
+      "result": "the assistance/exposure mutation was caught: 1 caught, 0 missed, 0 skipped"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no diff whitespace errors"
+    }
+  ],
+  "acceptance_tests": {
+    "T033": "UNDERSTAND returned a direct source-grounded explanation with no mandatory quiz",
+    "T034": "correct clicks after explicit arrows remained assisted and added no independent evidence",
+    "T035": "agent-completed correct work remained not assessable for learner evidence",
+    "T036": "prior answer exposure contaminated the equivalent retry",
+    "T037": "wrong-version advice produced a scope correction and the user correction invalidated the dependent judgment without deleting history",
+    "T038": "pause/silence remained undetermined with no intelligence, diagnosis, trait or emotion inference",
+    "T039": "a different valid method passed under the outcome rubric without route matching",
+    "T040": "POLICY_ONLY: non-answer accommodation remains independence-eligible; BLOCKED_NOT_RUN at HUMAN_AND_NATIVE"
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-2B_REVIEW.md",
+    "verdict": "APPROVED_FOR_OFFLINE_MECHANISM_SCOPE_CONTENT_AND_HUMAN_NATIVE_QUALIFICATION_BLOCKED",
+    "resolved_findings": 10,
+    "unresolved_critical_findings_in_local_scope": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 170,
+    "passed": 167,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no isolated sandbox selected for its acquisition rung"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "The complete campaign ran after SC-2B code, tests, review, ADR, registry and documentation updates were final. This evidence/state metadata was added after the source-exact run."
+  },
+  "blockers": [
+    {
+      "gate": "CONTENT_REVIEW",
+      "reason": "Only synthetic organization/content-review records exercised the rubric authority",
+      "unblocks_when": "A real qualified content reviewer evaluates the frozen instruction set with the declared rubric"
+    },
+    {
+      "gate": "HUMAN_AND_NATIVE",
+      "reason": "T040 has no real participant/native assistive-technology run",
+      "unblocks_when": "An authorized accessible native assessment records human evidence without answer-revealing help"
+    }
+  ],
+  "scope": "LOCAL offline evidence only. No real content review, human learning, retention, accessibility, deployment, release or market-superiority claim is made."
+}

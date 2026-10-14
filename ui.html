@@ -291,7 +291,7 @@ pre.out{background:var(--code);border:1px solid var(--line);border-radius:8px;
   <main id="main"><div class="empty">loading…</div></main>
 </div>
 
-<div id="ovl"><div id="dlg"><h3 id="dlgT"></h3><div class="db" id="dlgB"></div>
+<div id="ovl"><div id="dlg" role="dialog" aria-modal="true" aria-labelledby="dlgT" tabindex="-1"><h3 id="dlgT"></h3><div class="db" id="dlgB"></div>
   <div class="df" id="dlgF"></div></div></div>
 
 <div id="cmdk" onclick="if(event.target.id==='cmdk')closeCmd()">
@@ -382,14 +382,67 @@ document.addEventListener("DOMContentLoaded", ()=>setTheme(currentTheme()));
 function toast(m){ const t=document.getElementById("toast");
   t.textContent=m; t.style.display="block";
   clearTimeout(t._h); t._h=setTimeout(()=>t.style.display="none", 2600); }
+let dlgInvoker = null;
+const dlgBackground = new Map();
+function dialogControls(){
+  return [...document.getElementById("dlg").querySelectorAll(
+    'button,a[href],input,select,textarea,summary,[tabindex]:not([tabindex="-1"])')]
+    .filter(el=>{
+      const collapsed=el.closest('details:not([open])');
+      const visibleSummary=el.matches('summary') && el.parentElement===collapsed;
+      return !el.matches(':disabled') && el.tabIndex>=0 && el.getClientRects().length
+        && getComputedStyle(el).visibility==='visible' && (!collapsed || visibleSummary);
+    });
+}
 function showDlg(title, bodyHtml, buttons){
+  const overlay = document.getElementById("ovl");
+  if (!overlay.classList.contains("show")){
+    dlgInvoker = document.activeElement;
+    for (const id of ["app", "cmdk"]){
+      const el=document.getElementById(id);
+      if(el){ dlgBackground.set(el,el.inert); el.inert=true; }
+    }
+  }
   document.getElementById("dlgT").innerHTML = title;
   document.getElementById("dlgB").innerHTML = bodyHtml;
   document.getElementById("dlgF").innerHTML = (buttons||[["Close","closeDlg()","ghost"]])
     .map(b=>`<button class="btn ${b[2]||""}" onclick="${b[1]}">${b[0]}</button>`).join("");
-  document.getElementById("ovl").classList.add("show");
+  for(const label of document.querySelectorAll('#dlgB label.lb')){
+    const field=label.nextElementSibling;
+    if(!label.control && !label.htmlFor && field?.id && field.matches('input,select,textarea'))
+      label.htmlFor=field.id;
+  }
+  overlay.classList.add("show");
+  (dialogControls()[0] || document.getElementById("dlg")).focus();
+  if(!document.getElementById("dlg").contains(document.activeElement)) document.getElementById("dlg").focus();
 }
-function closeDlg(){ document.getElementById("ovl").classList.remove("show"); }
+function closeDlg(){
+  const overlay=document.getElementById("ovl");
+  if(!overlay.classList.contains("show")) return;
+  overlay.classList.remove("show");
+  for(const [el, prior] of dlgBackground) el.inert=prior;
+  dlgBackground.clear();
+  const prior=dlgInvoker; dlgInvoker=null;
+  restoreActionFocus(prior);
+}
+function restoreActionFocus(prior){
+  if(prior?.isConnected && !prior.matches(':disabled') && !prior.closest('[inert]')
+      && prior.getClientRects().length && getComputedStyle(prior).visibility==='visible') prior.focus();
+  if(document.activeElement!==prior || !document.activeElement.getClientRects().length)
+    document.querySelector('#side button:not(:disabled)')?.focus();
+}
+document.addEventListener("keydown", e=>{
+  if(!document.getElementById("ovl").classList.contains("show")) return;
+  if(e.key==="Escape") { e.preventDefault(); e.stopImmediatePropagation(); closeDlg(); return; }
+  if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==="k"){
+    e.preventDefault(); e.stopImmediatePropagation(); return;
+  }
+  if(e.key!=="Tab") return;
+  const controls=dialogControls(), at=controls.indexOf(document.activeElement);
+  if(!controls.length){ e.preventDefault(); document.getElementById("dlg").focus(); }
+  else if(e.shiftKey && at<=0){ e.preventDefault(); controls[controls.length-1].focus(); }
+  else if(!e.shiftKey && (at<0 || at===controls.length-1)){ e.preventDefault(); controls[0].focus(); }
+}, true);
 document.getElementById("ovl").addEventListener("click",
   e=>{ if(e.target.id==="ovl") closeDlg(); });
 document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeCmd(); closeDlg(); } });
@@ -436,10 +489,10 @@ const COMMANDS = [
   ["How should it choose a model?", "admin", "openModelPolicy()", "python modelrouter.py", "policy cheapest balanced quality model routing"],
   ["Plan what to study first", "resources", "S.resTab='knowledge';go('resources')", "python curriculum.py --root experts/<slug> --course <c> --plan", "curriculum study order lessons"],
   ["Open an agent's goal cockpit", "work", "openAgentAction('goals')", "python contract.py show experts/<slug> <goal-id>", "cockpit pursuit contract graders ledger steering budget"],
-  ["Steer a running pursuit", "work", "S.sub='goals';go('agents')", "python steer.py add experts/<slug> <goal-id> \"guidance\"", "steer guide advise course correct nudge"],
-  ["See the knowledge graph", "resources", "S.sub='graph';go('agents')", "python knowledge.py summary experts/<slug>", "graph entities edges atoms memory map visualize"],
-  ["Mastery — sealed exams and scores", "resources", "S.sub='mastery';go('agents')", "python mastery.py status <home> <expert> <pack>", "mastery capability pack exam competence transfer retention verdict"],
-  ["What may no longer be true?", "resources", "S.sub='teach';go('agents')", "python freshness.py scan experts/<slug>", "freshness expired superseded retracted stale decay"],
+  ["Steer a running pursuit", "work", "openAgentAction('goals')", "python steer.py add experts/<slug> <goal-id> \"guidance\"", "steer guide advise course correct nudge"],
+  ["See the knowledge graph", "resources", "openAgentAction('graph')", "python knowledge.py summary experts/<slug>", "graph entities edges atoms memory map visualize"],
+  ["Mastery — sealed exams and scores", "resources", "openAgentAction('mastery')", "python mastery.py status <home> <expert> <pack>", "mastery capability pack exam competence transfer retention verdict"],
+  ["What may no longer be true?", "resources", "openAgentAction('teach')", "python freshness.py scan experts/<slug>", "freshness expired superseded retracted stale decay"],
   ["Switch light / dark theme", "nav", "toggleTheme()", "", "theme light dark palette appearance mode color"],
   ["Adjust intelligence & cost lane", "admin", "openModelPolicy()", "python providers.py set-role <role> --provider openrouter --model <id>", "lane models cheap free dirt intelligence dial cost per step wiring adjust llm"],
 ];
@@ -511,13 +564,20 @@ async function loadSystemsMap(){
     <b>Ctrl/⌘ + K</b> anywhere to search every action — each one shows the command
     that does the same thing.</p>` : `<span class="muted">unavailable</span>`;
 }
+let cmdInvoker=null;
 function openCmd(){
   const el=document.getElementById("cmdk");
+  if(!el.classList.contains("show")) cmdInvoker=document.activeElement;
   el.classList.add("show");
   const i=document.getElementById("cmdq");
   i.value=""; renderCmd(""); i.focus();
 }
-function closeCmd(){ const e=document.getElementById("cmdk"); if(e) e.classList.remove("show"); }
+function closeCmd(){
+  const e=document.getElementById("cmdk");
+  if(!e?.classList.contains("show")) return;
+  e.classList.remove("show");
+  const prior=cmdInvoker; cmdInvoker=null; restoreActionFocus(prior);
+}
 function renderCmd(q){
   q=(q||"").toLowerCase().trim();
   const hits=COMMANDS.filter(c=>!q||(c[0]+" "+c[1]+" "+c[4]).toLowerCase().includes(q)).slice(0,12);
@@ -973,9 +1033,9 @@ async function renderHome(m){
     <span class="kchip"><b>${usd(d.spend_today_usd)}</b>spent today</span>
   </div>
   <div class="muted" style="font-size:12px;margin:2px 0 6px;letter-spacing:.02em">
-    every task here is <b>gated</b> (done = a command passing, never a claim) →
-    <b>examined</b> by a second model family → <b>cited</b> or refused →
-    <b>archived</b> forever · <a href="javascript:go(&#39;guide&#39;)">how it works</a></div>
+    A completion check must pass before work is marked <b>done</b>.
+    Independent reviews and citations appear with their evidence where configured.
+    See <b>Proof</b> for what was actually checked. · <a href="javascript:go(&#39;guide&#39;)">how it works</a></div>
   <div class="card"><h3>Fleet activity<span class="spacer"></span>
     <button class="btn ghost sm" onclick="render()">refresh</button></h3>
     <div class="body tablewrap"><table><thead><tr>
@@ -984,7 +1044,7 @@ async function renderHome(m){
       ${d.experts.map(e=>`<tr class="click" onclick="openAgent('${esc(e.name)}')">
         <td><span class="row" style="gap:8px;flex-wrap:nowrap">${avatar(e.name,26)}
           <b class="mono">${esc(e.name)}</b>
-          <span class="tag ${e.quick?"quick":"trained"}">${e.quick?"QUICK":"TRAINED"}</span></span><br>
+          <span class="tag ${e.quick?"quick":"trained"}">${e.quick?"QUICK":"COURSE EXPERT"}</span></span><br>
           <span class="muted" style="font-size:12px">${esc(e.identity||"")}</span></td>
         <td>${hb(e.heartbeat, e.running)}</td>
         <td class="num">${e.tasks.running?`<span class="pill running">${e.tasks.running} running</span> `:""}
@@ -1519,7 +1579,7 @@ async function renderAgents(m){
   ${d&&d.n_experts?`<div class="agrid">${d.experts.map(e=>`
     <div class="acard" onclick="openAgent('${esc(e.name)}')">
       <h4>${avatar(e.name)}<span class="mono">${esc(e.name)}</span>
-        <span class="tag ${e.quick?"quick":"trained"}">${e.quick?"QUICK":"TRAINED"}</span>
+        <span class="tag ${e.quick?"quick":"trained"}">${e.quick?"QUICK":"COURSE EXPERT"}</span>
         <span style="margin-left:auto">${hb(e.heartbeat,e.running)}</span></h4>
       <div class="id">${esc(e.identity||"no specialty written yet")}</div>
       <div class="stats">
@@ -1630,10 +1690,11 @@ function dlgWizard(){
     that, and the review step tells you exactly what was chosen and why.</p>
     <div style="display:grid;gap:8px">
       ${INTENT.map((x,i)=>`
-        <div class="acard" style="margin:0;cursor:pointer" onclick="wizPick(${i})">
-          <b style="font-size:13.5px">${esc(x.q)}</b>
-          <div class="muted" style="font-size:12px">${esc(x.hint)}</div>
-        </div>`).join("")}
+        <button type="button" class="acard" style="margin:0;cursor:pointer;text-align:left;font:inherit;color:inherit"
+          aria-labelledby="wzIntentName${i}" aria-describedby="wzIntentHint${i}" onclick="wizPick(${i})">
+          <b id="wzIntentName${i}" style="font-size:13.5px">${esc(x.q)}</b>
+          <span id="wzIntentHint${i}" class="muted" style="display:block;font-size:12px">${esc(x.hint)}</span>
+        </button>`).join("")}
     </div>
     <details style="margin-top:10px"><summary class="muted"
       style="cursor:pointer;font-size:12px">I already know which kind I want</summary>
@@ -2026,7 +2087,7 @@ async function renderWorkspace(m){
     <button class="btn ghost sm" onclick="go('agents')">← all agents</button>
     ${avatar(S.sel, 40)}
     <h1 class="mono">${esc(S.sel)}</h1>
-    <span class="tag ${row.quick?"quick":"trained"}">${row.quick?"QUICK":"TRAINED"}</span>
+    <span class="tag ${row.quick?"quick":"trained"}">${row.quick?"QUICK":"COURSE EXPERT"}</span>
     ${hb(row.heartbeat, d.running)}
     <span class="spacer"></span>
     <button class="btn sm ${d.running?"":"pri"}"
@@ -2171,6 +2232,8 @@ async function doRetire(){
 /* ---------- Overview ---------- */
 function renderOv(b, d){
   b.innerHTML = `
+  <div class="card"><h3>Screen Tutor</h3><div class="body" id="screenTutorBody" aria-live="polite">
+    <span class="muted">Checking the local companion…</span></div></div>
   <div class="grid2">
   <div class="card"><h3>Blocked questions — it's waiting on you</h3><div class="body">
     ${(d.blocked_items&&d.blocked_items.length)?d.blocked_items.map((q,i)=>`
@@ -2239,18 +2302,78 @@ function renderOv(b, d){
     <div class="body"><pre class="out" style="max-height:230px">${esc(d.log||"(empty)")}</pre>
     <div id="toolOut"></div></div></div>
   </div>`;
-  loadIntentions(); loadSkills(); loadApprovals();
+  loadIntentions(); loadSkills(); loadApprovals(); loadScreenTutor();
 }
+async function loadScreenTutor(){
+  const slug=S.sel, el=document.getElementById('screenTutorBody');
+  if(!slug||!el) return;
+  const status=await api('/api/experts/'+encodeURIComponent(slug)+'/tutor');
+  if(S.sel!==slug||document.getElementById('screenTutorBody')!==el) return;
+  const reasons={HOST_CONFIGURATION_UNAVAILABLE:'The local companion and its source/provider profile need to be configured by the Fleet owner.',
+    DEVICE_ACTOR_UNAVAILABLE:'This local device is assigned to another Fleet member.',
+    AUTHENTICATION_CHANGED:'Your access changed. Sign in again before starting.',
+    ACTOR_REFUSED:'Your Fleet role cannot start a learning session.',
+    PROJECT_UNAVAILABLE:'This expert is unavailable.', RUNTIME_CLOSED:'The companion runtime has stopped.'};
+  const ready=status.state==='AVAILABLE', running=status.running===true;
+  el.innerHTML=`<p>${esc(status.error||reasons[status.reason_code]||
+    (running?'The companion is open. Choose a source there, approve its exact sharing request in Fleet, then retry authorization in the companion.':
+    ready?'Ready to open the companion on this device. Source sharing requires your approval.':'The local companion is unavailable.'))}</p>
+    <div class="row"><button class="btn pri" ${ready?'':'disabled'} onclick="screenTutorAction('launch')">Open Screen Tutor</button>
+    <button class="btn" ${running?'':'disabled'} onclick="screenTutorAction('stop')">Stop companion</button>
+    <button class="btn ghost" onclick="loadScreenTutor();loadApprovals()">Refresh status and approvals</button></div>
+    <p class="muted">Your Fleet task stays here while you use the companion. Learning progress requires separately qualified practice and assessment.</p>`;
+}
+async function screenTutorAction(action){
+  const slug=S.sel, el=document.getElementById('screenTutorBody');
+  if(!slug||!el||!['launch','stop'].includes(action)) return;
+  el.querySelectorAll('button').forEach(button=>button.disabled=true);
+  const result=await api('/api/experts/'+encodeURIComponent(slug)+'/tutor/'+action,{method:'POST',body:{}});
+  if(S.sel!==slug||document.getElementById('screenTutorBody')!==el) return;
+  if(result.error){el.textContent=result.error;return;}
+  await loadScreenTutor(); loadApprovals();
+}
+let approvalsLoadGeneration=0;
 async function loadApprovals(){
   const card=document.getElementById("apCard"), el=document.getElementById("apBody");
   if(!card||!el) return;
-  const a=await api('/api/experts/'+S.sel+'/approvals');
+  const slug=S.sel, authToken=panelToken, generation=++approvalsLoadGeneration;
+  el.querySelectorAll('button').forEach(button=>button.disabled=true);
+  const a=await api('/api/experts/'+encodeURIComponent(slug)+'/approvals');
+  if(generation!==approvalsLoadGeneration||S.sel!==slug||panelToken!==authToken||document.getElementById('apCard')!==card||document.getElementById('apBody')!==el) return;
+  if(!a||a.error){
+    card.style.display='block';
+    el.innerHTML=`<div role="status"><p>Sharing and approval status could not be verified. Sharing may still be active; use Stop sharing in the companion if needed.</p><p>${esc(a?.error||'Status unavailable')}</p><button class="btn ghost" onclick="loadApprovals()">Refresh approvals</button></div>`;
+    return;
+  }
   const pend=(a&&a.pending)||[];
-  card.style.display = pend.length?"block":"none";
+  const sharing=((a&&a.history)||[]).filter(r=>r.server==='screen_tutor'&&r.tool==='share_source_for_explanation'&&r.source_approval_state==='CURRENT_APPROVED');
+  card.style.display = (pend.length||sharing.length)?"block":"none";
   // an approval CARD, not a dialog: what was already done, what this exact
   // step would do, and what happens next — then the two buttons
   el.innerHTML = pend.map(r=>{
     const b=r.brief||{};
+    const sourceApproval=r.server==='screen_tutor'&&r.tool==='share_source_for_explanation';
+    if(sourceApproval){
+      const scope=r.args?.scope||{}, source=scope.source||{}, context=scope.context||{};
+      if(r.source_approval_state!=='CURRENT_PENDING'){
+        return `<div class="msg"><div class="from">Earlier source approval</div>
+          <p>${esc(source.display_name||'Selected source')}: ${r.source_approval_state==='CURRENT_APPROVED'?'sharing is already approved; use the companion to retry authorization.':'this source was stopped, changed, expired, or is no longer available.'}</p>
+          <p class="muted">This earlier request cannot start sharing. Choose the source again in the companion for a current request.</p>
+          <details><summary>Earlier exact scope</summary><pre class="out">${esc(JSON.stringify(r.args||{},null,2))}</pre></details></div>`;
+      }
+      return `<div class="msg"><div class="from">Share selected source for explanations</div>
+        <p><b>${esc(source.display_name||'Selected source')}</b> (${esc(source.source_kind||'unknown')})<br>
+        Source ${esc(source.source_id||'')} · revision ${esc(source.source_revision||'')} · epoch ${esc(source.capture_epoch||'')}</p>
+        <p>Purpose: ${esc(context.purpose||'')}<br>Provider/model: ${esc(JSON.stringify(context.provider_models||{}))}<br>
+        Budget ceiling: ${esc(context.budget_ceiling_usd)} USD · policy ${esc(context.budget_policy_id||'')}<br>
+        Retention policy: ${esc(context.retention_policy_id||'')} · profile ${esc(context.profile_revision||'')}</p>
+        <p>The source is selected but unshared. Waiting counts against the original approval lifetime. Approval permits explanations of this source; it does not start an agent task or grant computer actions.</p>
+        <details><summary>Exact approval scope</summary><pre class="out">${esc(JSON.stringify(r.args||{},null,2))}</pre></details>
+        <div class="row"><button class="btn sm pri" ${r.source_can_decide?'':'disabled'} onclick="decideApproval('${esc(r.id)}','grant','')">Approve sharing this source</button>
+        <button class="btn sm warn" ${r.source_can_decide?'':'disabled'} onclick="decideApproval('${esc(r.id)}','deny','')">Deny sharing</button></div>
+        ${r.source_can_decide?'':'<p class="muted">A Fleet approver must decide this sharing request.</p>'}
+        <p class="muted">After approval, explicitly retry authorization in the companion. Stop cancels the source; a late approval cannot restart it.</p></div>`;
+    }
     return `<div class="msg">
       <div class="from">${esc(r.server)}.${esc(r.tool)}
         <span class="pill warn">${esc(r.reason||"guarded action")}</span></div>
@@ -2267,12 +2390,28 @@ async function loadApprovals(){
         <button class="btn sm warn" onclick="decideApproval('${esc(r.id)}','deny','${esc(r.task)}')">deny</button>
         ${r.task?`<button class="btn sm ghost" onclick="traceDlg('${esc(r.task)}')">see the whole trace</button>`:""}
       </div></div>`;}).join("")
-    + `<p class="muted" style="font-size:11.5px;margin:8px 0 0">Destructive tools pause here by policy
+    + sharing.map(r=>`<div class="msg"><div class="from">Current source sharing permission</div>
+        <p>${esc(r.args?.scope?.source?.display_name||'Selected source')} is approved for this current attempt. The companion may be sharing or waiting for explicit retry.</p>
+        <button class="btn sm warn" ${r.source_can_decide?'':'disabled'} onclick="decideApproval('${esc(r.id)}','deny','')">Withdraw sharing permission</button>
+        <p class="muted">Withdrawal retires this source in the companion. It does not erase the earlier decision history.</p></div>`).join('')
+    + (pend.some(r=>r.server!=='screen_tutor'||r.tool!=='share_source_for_explanation')?`<p class="muted" style="font-size:11.5px;margin:8px 0 0">Destructive tools pause here by policy
     (MCP annotations + your mcp.json). A grant runs the exact call once; a denial is recorded and the
-    agent is told to find another route.</p>`;
+    agent is told to find another route.</p>`:'');
 }
 async function decideApproval(id, op, task){
-  const r=await api('/api/experts/'+S.sel+'/approval',{method:"POST",body:{id,op,task}});
+  const slug=S.sel, authToken=panelToken;
+  ++approvalsLoadGeneration;
+  document.getElementById('apBody')?.querySelectorAll('button').forEach(button=>button.disabled=true);
+  const r=await api('/api/experts/'+encodeURIComponent(slug)+'/approval',{method:"POST",body:{id,op,task}});
+  if(S.sel!==slug||panelToken!==authToken) return;
+  if(r.next==='retry_source_authorization'){
+    toast(r.status==='granted'?'Sharing approved. Retry authorization for the same source in the companion.':'Sharing denied. No source capture has started.');
+    loadApprovals(); loadScreenTutor(); return;
+  }
+  if(['source_sharing_withdrawn','source_sharing_denied','source_retired'].includes(r.next)){
+    toast(r.next==='source_sharing_withdrawn'?'Sharing permission withdrawn. The companion will retire this source.':r.next==='source_sharing_denied'?'Sharing denied. This source remains unshared.':'Decision recorded, but this source is no longer current. Choose it again in the companion.');
+    loadApprovals(); loadScreenTutor(); return;
+  }
   toast(r.error|| (r.resumed && String(r.resumed).startsWith("no task")
       ? `${id} ${r.status} — recorded (no task was waiting on it)`
       : `${id} ${r.status} — the task resumes with your decision`));
@@ -3283,7 +3422,14 @@ async function loadSelf(){
    catch, so it is worth catching on its own panel. */
 async function loadProcedures(){
   const el = document.getElementById('procBody'); if (!el) return;
-  const d = await api('/api/runbooks?expert='+encodeURIComponent(S.sel));
+  const expert = S.sel;
+  const d = await api('/api/runbooks?expert='+encodeURIComponent(expert));
+  if(S.sel!==expert || el!==document.getElementById('procBody')) return;
+  if(!d || d.error || !Array.isArray(d.runbooks)){
+    el.innerHTML = `<div role="alert">Could not load procedures: ${esc(d?.error || 'The procedure response is unavailable.')}</div>
+      <button class="btn sm" onclick="loadProcedures()">Retry procedures</button>`;
+    return;
+  }
   const rows = (d && d.runbooks) || [];
   if (!rows.length){ el.innerHTML = `<span class="muted">nothing compiled yet —
     a procedure is induced from repeated verified work, then must pass sealed

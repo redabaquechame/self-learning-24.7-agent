@@ -1,0 +1,3 @@
+[environment-lock] .NET 10.0.401, Windows App SDK 2.4.0, four dependency hashes, core CI versions, synthetic fixtures, and four implementation ADRs are exact and machine-readable
+[lane-isolation] missing exact SDK and mismatched license each block the native lane while the dependency-free core remains READY; this process observed native=READY
+PASS test_tutor_environment_lock

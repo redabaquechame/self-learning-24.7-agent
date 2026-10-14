@@ -1,0 +1,36 @@
+{
+  "schema": "screen-tutor-sc1d-progress/1",
+  "revision": 20,
+  "accepted": false,
+  "recorded_at_utc": "2026-10-13T04:27:47.814640+00:00",
+  "source_digests": {
+    "tutor_investigation.py": "f425ca89d844f47aaebd4f9cb0be24691f3a47709bb63d2806e77a82d0a53843",
+    "tutor_service.py": "35699c2e40074911f593f82bc217996461f39fef5506a11311c0ac077843666b",
+    "tests/test_tutor_investigation.py": "43ce3197c1de6f7502aa992716b86175ff3c875427f184c8d41873ff34ca61b9",
+    "planning/screen-tutor/SC-1D_IMPLEMENTATION_NOTES.md": "e2a8af07707e317bced4e9cde47d98596160427637018bd6de1edc4c311dc504"
+  },
+  "tests": {
+    "investigation": "review-fixes-green.log",
+    "affected": [
+      "affected-test_tutor_sources.py.log",
+      "affected-test_tutor_practice.py.log",
+      "affected-test_tutor_feature_off.py.log",
+      "affected-test_tutor_native_session.py.log"
+    ]
+  },
+  "independent_review": "INDEPENDENT_REVIEW.json",
+  "full_suite": {
+    "campaign": "full-r2",
+    "status": "RUNNING",
+    "session_id": 97656,
+    "frozen_files": 557
+  },
+  "remaining": [
+    "full frozen candidate verdict",
+    "live provider and independent content review",
+    "authenticated visible native integration",
+    "qualified unsupported document/application adapters",
+    "real-app sample and broad outcome qualification"
+  ],
+  "no_live_or_human_or_release_claim": true
+}

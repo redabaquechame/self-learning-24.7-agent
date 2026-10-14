@@ -1,0 +1,10 @@
+[X021A LOCAL] unknown app produced an exact version-bound documentation explanation without a pack or fabricated target
+[X021B LOCAL] absent documentation yields useful access limits; fabricated citations and screen locations cannot pass verification
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 143, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 86, in main
+    refuses(api, 'INVALID_ANSWER', lambda: service.verify(overstated))
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 49, in refuses
+    raise AssertionError('accepted '+code+' negative witness')
+AssertionError: accepted INVALID_ANSWER negative witness

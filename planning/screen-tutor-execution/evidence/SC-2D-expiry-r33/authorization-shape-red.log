@@ -1,0 +1,12 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+[transport handshake] mutual challenge, reflected peer, replay, sequence gaps and bounded history checked
+[transport] closed nested request/instruction schemas checked without treating wire identity as authority
+[transport operations] sender role, exact pending reply, one reply and stale cancellation generation checked
+[transport] genuinely signed numeric overflow and deep lesson records refused
+[transport expiry] bounded128 pending requests recover at expiry; replies cannot extend request lifetime
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 255, in <module>
+    check_capture_authorization_shape()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 244, in check_capture_authorization_shape
+    raise AssertionError('malformed capture authorization admitted: ' + field)
+AssertionError: malformed capture authorization admitted: grant_created

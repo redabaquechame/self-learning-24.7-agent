@@ -1,0 +1,8 @@
+[T017 T018] ordinary models reject image parts; remote URLs and paths cannot enter the qualified image route
+[T019 X004B] missing capability, accounting, price, oversized media and over-budget reservations all stop before dispatch
+[X004A X004B] the actual HTTP adapter carried one bounded data image; provider usage replaced one reservation exactly once
+[T020] stale, cancelled, malformed and unmetered provider results produce no qualified answer; unknown usage settles conservatively
+2026-10-13 05:05:41,514 {"event": "provider_retry_after", "provider": "vision", "status": 429, "seconds": 1.0}
+2026-10-13 05:05:41,545 {"event": "provider_retry_after", "provider": "vision", "status": 429, "seconds": 1.0}
+[provider-weather] a loopback 429 retries through the production HTTP adapter under one reservation, and cancellation stops before a second paid attempt
+PASS test_tutor_gateway

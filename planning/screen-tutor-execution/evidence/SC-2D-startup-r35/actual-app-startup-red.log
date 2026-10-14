@@ -1,0 +1,10 @@
+[native connection] real owned native child and Python authenticated pipe traffic/Stop checked
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 52, in <module>
+    check_native_connection()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 43, in check_native_connection
+    actual = connection.launch(connection.VerifiedNativeExecutable.from_host(pathlib.Path(app)), enabled=True, timeout_ms=5000)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_connection.py", line 213, in launch
+    raise ConnectionUnavailable('native startup or authentication failed') from None
+tutor_connection.ConnectionUnavailable: native startup or authentication failed

@@ -1,0 +1,18 @@
+[verdict] a false guard is INAPPLICABLE with its code, a broken effect is FAILED, a missing token is inapplicable before any db access, the route classifies from the code (prose containing 'precondition' stays a failure; no status fails closed), and inapplicable replays record no loss
+[missing-db] a guarded transaction against a database that does not exist refuses and leaves nothing behind; observation creates nothing; creation is explicit and the transaction then commits
+[invariants] an ordered comparison is claimed only by ORDER BY; a re-inserted row flips the natural order (witnessed by sqlite3) yet a bare invariant commits on equal data, the ORDER BY and pinned forms commit, and a genuinely broken invariant rolls back
+[hash] a 3 MiB file hashes identically to hashlib over its bytes, and still does when the whole-file reader is replaced with one that raises — evidence is streamed, never loaded
+Traceback (most recent call last):
+[registration] the benchmark is declared in run_all, evidence and proof, and every reason code in the design is the code's closed set
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_correctness_patch.py", line 342, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_correctness_patch.py", line 337, in main
+    check_windows_atomic_paths()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_correctness_patch.py", line 312, in check_windows_atomic_paths
+    fileauth.write_text(root, text, "Default text encoding remains text", encoding=None)
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\fileauth.py", line 387, in write_text
+    return _atomic_write(p, text, encoding=encoding, durable=durable)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\fileauth.py", line 400, in _atomic_write
+    stream.write(value)
+TypeError: a bytes-like object is required, not 'str'

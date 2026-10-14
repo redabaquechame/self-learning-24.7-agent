@@ -1,0 +1,10 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+[transport handshake] mutual challenge, reflected peer, replay, sequence gaps and bounded history checked
+[transport] closed nested request/instruction schemas checked without treating wire identity as authority
+[transport operations] sender role, exact pending reply, one reply and stale cancellation generation checked
+[transport] genuinely signed numeric overflow and deep lesson records refused
+[transport expiry] bounded128 pending requests recover at expiry; replies cannot extend request lifetime
+[transport authorization] exact schema, finite15-minute lifetime and no minted grant checked
+[transport nested values] closed typed lessons, observation geometry and opaque exact-frame references checked
+[transport teardown] owned mutable key is wiped; closed peer cannot restart
+PASS test_tutor_transport

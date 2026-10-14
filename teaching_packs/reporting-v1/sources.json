@@ -1,0 +1,7 @@
+{
+  "schema": "tutor.pack-sources/1",
+  "references": [
+    {"source_id": "reporting-official", "revision": "rev-1", "excerpt_id": "grouping", "tenant_id": "tenant-alpha", "project_id": "project-reporting"},
+    {"source_id": "reporting-asset", "revision": "rev-1", "excerpt_id": "safe-data", "tenant_id": "tenant-alpha", "project_id": "project-reporting"}
+  ]
+}

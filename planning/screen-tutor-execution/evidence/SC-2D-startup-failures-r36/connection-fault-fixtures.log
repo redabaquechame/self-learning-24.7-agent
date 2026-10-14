@@ -1,0 +1,5 @@
+[native bootstrap] actual corrupt version, foreign host PID, wrong key and foreign session fail with owned child teardown
+[native connection] real owned native child and Python authenticated pipe traffic/Stop checked
+[native IO] timed-out pipe becomes unavailable; actual hung Python read is cancelled promptly by Stop
+[native failures] actual partial header, peer exit and replayed HELLO refuse and close owned connection
+PASS test_tutor_connection

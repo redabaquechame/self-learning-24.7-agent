@@ -1,0 +1,23 @@
+{
+  "schema": "tutor.human-submission-fixtures/1",
+  "qualification": "LOCAL_ONLY",
+  "purpose": "Owned engineering witnesses; no actual learner/final assessment bank or human content qualification",
+  "files": {
+    "incorrect.json": {
+      "sha256": "29a398fc870f85d873eafe831de49a85d670b9996dd384287f4fb53b9d44eab1",
+      "size_bytes": 12
+    },
+    "correct.json": {
+      "sha256": "bb1453c7fec8dfc7c9d2c40136205f7cef6a1d9bb63e1ee85c038f04e730baa8",
+      "size_bytes": 12
+    },
+    "partial.txt": {
+      "sha256": "cb274771ff85261ac78763262a78436d67a8596563e6e10a771661ed884a3d51",
+      "size_bytes": 9
+    },
+    "group_output.json": {
+      "sha256": "e067c499a0522abae92ba52c30fca78ad9058aab4f45c669a786d96c2978b924",
+      "size_bytes": 15
+    }
+  }
+}

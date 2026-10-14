@@ -1,0 +1,92 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-0D",
+  "recorded_at_utc": "2026-09-15T05:02:32Z",
+  "verdict": "LOCAL_VERIFIED_REVIEWED",
+  "accepted": true,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "learning_contracts_sha256": "3a58aa9306538d46fbe05490dae21aa18dcecbb30055284f4abb8ef84cb7fa25"
+  },
+  "artifacts": [
+    "planning/screen-tutor/LEARNING_SERVICE_ADR.md",
+    "planning/screen-tutor/SC-0D_REVIEW.md",
+    "learning_contracts.py",
+    "tests/test_learning_surface_parity.py"
+  ],
+  "focused_checks": [
+    {
+      "command": "python -X utf8 tests/test_learning_surface_parity.py",
+      "exit_code": 0,
+      "result": "four brands and four surface adapters produced equivalent authoritative course, assignment, session, attempt, evidence and unscored submission records; cross-tenant, forged identity, forged pass, privilege, executable branding, cursor tampering and version skew paths refused"
+    },
+    {
+      "command": "python -X utf8 mutate_check.py 'learning submission' followed by python -X utf8 tests/test_learning_surface_parity.py",
+      "exit_code": 0,
+      "result": "mutation forcing a submission to passing was caught; source restored byte-for-byte and the fresh-process parity test passed"
+    },
+    {
+      "command": "python -X utf8 tests/test_package.py",
+      "exit_code": 0,
+      "result": "453 archive members scanned; 129 non-test Python files and 163 tests shipped; native products excluded; no unexpected credential-shaped content"
+    },
+    {
+      "command": "python -X utf8 tests/test_invariants.py; python -X utf8 harness.py --check; python -X utf8 execution.py --audit",
+      "exit_code": 0,
+      "result": "125 modules, 163 registered tests, 0 contract problems, 0 health problems, 0 execution-authority violations"
+    },
+    {
+      "command": "python -X utf8 tests/test_tutor_feature_off.py",
+      "exit_code": 0,
+      "result": "feature-off path retained zero process, network, model and native calls"
+    }
+  ],
+  "review": {
+    "artifact": "planning/screen-tutor/SC-0D_REVIEW.md",
+    "verdict": "APPROVED_FOR_SC-0D_SCOPE",
+    "resolved_findings": 5,
+    "unresolved_critical_findings": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "negative_witnesses": [
+    "branding changes did not change authoritative records or events",
+    "a forged learner field and forged passing field were rejected",
+    "a same-tenant unrelated principal could not list another principal's record",
+    "a cross-tenant record reference and principal-bound cursor reuse were rejected",
+    "reserved assessment evaluation failed closed rather than creating success"
+  ],
+  "full_suite": {
+    "command": "$env:AGENT_TEST_TMP=Join-Path $env:TEMP 'screen-tutor-sc0d-final-v2'; python -X utf8 tests/run_all.py",
+    "executed": 163,
+    "passed": 160,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no isolated dependency-install arena selected for the core acquisition test"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess has no SIGTERM handler contract; container CI owns this proof"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal": "ALL EXECUTED TESTS PASSED"
+  },
+  "prior_attempts": [
+    {
+      "outcome": "FAILED",
+      "evidence": "first SC-0D full run: 159 passed, 3 skipped, 1 failed; README mutation badge remained at 216 after registering mutation 217",
+      "resolution": "updated the executable-prose badge and reran test_ledger_defects.py, invariants and the full suite"
+    },
+    {
+      "outcome": "INVALIDATED_EVIDENCE",
+      "evidence": "initial same-length None-to-True mutation left timestamp-valid mutated CPython bytecode after source restoration",
+      "resolution": "mutation harness now removes only the restored module's cached bytecode; fresh-process positive and negative tests pass"
+    }
+  ],
+  "doctor_observation": "all 102 declared core modules imported, but overall doctor readiness remained blocked by the pre-existing absence of a live provider key; this does not satisfy provider qualification",
+  "post_suite_byte_lock": {
+    "ui.html": "0cbe8171c0b5ea06b67e5a98459bf10b64a0c745df74dfbbe5331f7d5abf8d3e",
+    "tests/mock_effect_server.py": "d51ebcce25c3a81312aac12674ea0c73cd347e1090cbf34ec6b66475f11814dd",
+    "line_endings": "LF"
+  },
+  "scope": "SOURCE, LOCAL and structured REVIEW for the in-process learning contract only. No public authentication, durable production store, provider, native device, usability, deployment or release claim is made."
+}

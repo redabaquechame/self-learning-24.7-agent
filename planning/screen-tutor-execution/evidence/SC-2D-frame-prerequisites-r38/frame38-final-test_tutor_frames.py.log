@@ -1,0 +1,2 @@
+[native image] exact PNG dimensions/CRC/channel order/premultiplied alpha and cancellation checked
+PASS test_tutor_frames

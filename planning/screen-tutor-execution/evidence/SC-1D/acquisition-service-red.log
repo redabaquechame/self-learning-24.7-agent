@@ -1,0 +1,23 @@
+[acquisition] scoped real local/HTTP reads bind raw bytes, rights and version; private paths, secret files, changed bytes, revoked grants and unapproved redirects refuse
+[reversible example] real generated copy, independent artifact checker and reset preserve source; no qualified-pack, learner-success or app-action claim; forged/revoked/altered handles refuse
+[X021A LOCAL] unknown app produced an exact version-bound documentation explanation without a pack or fabricated target
+[X021B LOCAL] absent documentation yields useful access limits; fabricated citations and screen locations cannot pass verification
+[citation/ACL] wrong bytes, unsupported quote, foreign tenant and hidden answer material refuse through real registry boundaries
+[inert evidence] hostile text remains quoted documentation; reports and hypotheses stay unverified, with no process or network call
+[current evidence] observation generation/identity and current host permission remain load-bearing at explanation and verification
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 192, in check_service_integration
+    acquired = method(request, live_owner, [observation], selected, engine,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: TutorService.investigate() got an unexpected keyword argument 'source_keys'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 386, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 154, in main
+    check_service_integration(api)
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 195, in check_service_integration
+    raise AssertionError('guarded source acquisition is not wired into TutorService') from error
+AssertionError: guarded source acquisition is not wired into TutorService

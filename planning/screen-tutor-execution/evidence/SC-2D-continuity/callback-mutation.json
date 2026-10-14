@@ -1,0 +1,7 @@
+{
+  "source": "companion\\windows\\ScreenTutor\\SessionWindow.xaml.cs",
+  "baseline_sha256": "8866caeb6e7a79657576886859cab3b4dd3cfdcafa2567f9da819a78239dac76",
+  "mutation": "remove old capture callback identity check",
+  "restored": true,
+  "negative_caught": true
+}

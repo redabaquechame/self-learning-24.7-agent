@@ -54,6 +54,7 @@ way a rule like this survives contact with future features.
 import ast
 import io
 import json
+import math
 import os
 import re
 import time
@@ -65,7 +66,7 @@ LEDGER = os.path.join("logs", "model-calls.jsonl")
 # but naming them makes "which of these is eating the budget" answerable
 PURPOSES = ("step", "compaction", "replay", "benchmark", "probe",
             "candidate", "judge", "research", "transcription", "vision",
-            "subquery",
+            "subquery", "tutor",
             # the Super-Self and the owner-voice draft (docs/DESIGN-P10):
             # model calls made on the owner's behalf, metered like any other
             "twin", "unknown")
@@ -98,6 +99,66 @@ def record(root, purpose="unknown", role="", provider="", model="",
     except OSError:
         pass
     return rec
+
+
+def reserve_charge(root, reservation_id, reserved_usd, ceiling_usd):
+    """Place one idempotent provider reservation directly in today's spend.
+
+    Charging the reservation before dispatch makes concurrent in-flight tutor
+    calls visible to the existing daily breaker. Reconciliation later replaces
+    the reservation with actual cost under the same spend-file lock.
+    """
+    if not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", str(reservation_id or "")):
+        raise ValueError("invalid reservation identity")
+    reserved, ceiling = float(reserved_usd), float(ceiling_usd)
+    if not math.isfinite(reserved) or not math.isfinite(ceiling) \
+            or reserved < 0 or ceiling <= 0:
+        raise ValueError("reservation and ceiling must be finite non-negative costs")
+    import locks
+    p = spend_file(root)
+    os.makedirs(os.path.dirname(p), exist_ok=True)
+    with locks.holding(p, timeout=20.0):
+        state = _read_spend(p)
+        reservations = state.setdefault("reservations", {})
+        prior = reservations.get(reservation_id)
+        if prior is not None:
+            if abs(float(prior.get("reserved_usd", -1)) - reserved) > 0.000001:
+                raise ValueError("reservation identity was reused with different cost")
+            return {**prior, "created": False}
+        current = float(state.get("usd") or 0.0)
+        if current + reserved > ceiling + 0.0000005:
+            raise PermissionError(
+                f"reservation ${reserved:.6f} would exceed ${ceiling:.6f} ceiling "
+                f"with ${current:.6f} already reserved or spent")
+        rec = {"reserved_usd": round(reserved, 6), "status": "ACTIVE"}
+        reservations[reservation_id] = rec
+        state["usd"] = round(current + reserved, 6)
+        _write_spend(p, state)
+        return {**rec, "created": True}
+
+
+def reconcile_reserved_charge(root, reservation_id, actual_usd, outcome):
+    """Replace a reservation with actual cost exactly once."""
+    actual = float(actual_usd)
+    if not math.isfinite(actual) or actual < 0:
+        raise ValueError("actual cost must be finite and non-negative")
+    if not isinstance(outcome, str) or not outcome or len(outcome) > 80:
+        raise ValueError("invalid reservation outcome")
+    import locks
+    p = spend_file(root)
+    with locks.holding(p, timeout=20.0):
+        state = _read_spend(p)
+        rec = (state.get("reservations") or {}).get(reservation_id)
+        if rec is None:
+            raise KeyError("unknown reservation")
+        if rec.get("status") == "SETTLED":
+            return dict(rec)
+        reserved = float(rec["reserved_usd"])
+        state["usd"] = round(max(0.0, float(state.get("usd") or 0.0)
+                                       - reserved + actual), 6)
+        rec.update(status="SETTLED", actual_usd=round(actual, 6), outcome=outcome)
+        _write_spend(p, state)
+        return dict(rec)
 
 
 def calls(root, limit=20000, since=None, task=None):

@@ -1,0 +1,8 @@
+[native image] exact PNG dimensions/CRC/channel order/premultiplied alpha and cancellation checked
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_frames.py", line 66, in <module>
+    check_memory_reader()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_frames.py", line 44, in check_memory_reader
+    assert hasattr(frames, 'FrameMemoryReader'), 'host one-shot native memory reader is absent'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: host one-shot native memory reader is absent

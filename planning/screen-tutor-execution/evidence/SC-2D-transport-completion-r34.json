@@ -1,0 +1,61 @@
+{
+  "schema": "native-host-task2-local-completion/1",
+  "recorded_at_utc": "2026-10-13T09:07:40.448138+00:00",
+  "accepted": false,
+  "status": "TASK2_LOCAL_TRANSPORT_VERIFIED_BOOTSTRAP_PENDING",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_commit_deferred": "same prior authored dependency ownership ruling; helper Git range160fa4b..160fa4b has no new commit",
+  "source_hashes": {
+    "tutor_transport.py": "3d9f4e4ff67cf59250d03fcc8a9c241c94ad892305000a60a7a4e13dd3aec939",
+    "tests/test_tutor_transport.py": "2c014688641db3b3cd84d75667e47a687ed54f9a5d188b04d86d45dc97bc3f41",
+    "companion/windows/ScreenTutor/BridgeCodec.cs": "24a27d7936d6670eb125409d751193d385d951e581de02c9b0be31d6d0eca0ba",
+    "companion/windows/ScreenTutor/BridgePeer.cs": "8f065b3457ee38c5284ac80865282179bb3c4e244c93d8d9740db362978ef141",
+    "companion/windows/ScreenTutor/BridgePayloads.cs": "8c1898df201ade2fecf90c622e6d877f66548c97dac939376864602e5d068e8f",
+    "companion/windows/ScreenTutor/OwnerBridge.cs": "2b179af59d4f30f5f4898ea7113120f9f5c9550ff4e515917f6355cb6b570aeb",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "07d3690e0704c9dfcd3da37befe93ac52ba41641f157be0d9ae64f8ba1851254",
+    "tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj": "0aa9cc0b07f19a15dbab2b65d4c01c0f80f9f1036bca0f3fade203faed191a3e",
+    "tests/fixtures/tutor_bridge_python_v1.json": "472954d860956108cd7523e9b9d7c97d6fc9f44fb33b6937baa3c109c6703407",
+    "tests/fixtures/tutor_bridge_nonfinite_v1.json": "cb4cba4d615f4b0cc76f00d2b8fa30f4910ac2f5f97a18f101b1d6c0b0dcb490",
+    "tests/fixtures/tutor_bridge_lessons_v1.json": "d7dd497c40e4f44f2e420f852be4f40fca2db221de1cfabdd71491b8ea0c2462",
+    "tests/fixtures/tutor_bridge_nested_v1.json": "f2d907c9f518026f332df8940f6ec49e185f4e0bfc27ed89e60b3699ef40d1f1"
+  },
+  "raw_logs": {
+    "nested-values-red.log": "186927b82754ee13c68081117bf077f53c49928504109979c8de89287afbf05f",
+    "nested-values-green.log": "6e88e3b5dc2d1b009ab6527c415d42ef115de793c5e836bac84d5b4568fca860",
+    "native-nested-values-red.log": "bc3085c727da881b4fe287157dd7b3a33391e40c3372063eb558f6e8dcd67186",
+    "native-nested-values-green-build.log": "0c3fba15d3284b2b7566f22341609cefbe7ccaf8a8042b4a798ab37ea4eb8634",
+    "native-nested-values-green.log": "4a8203c34ecada8ce6803fb27604a6ddc4a81ebccc587ef8c7d880313dbdf7ec",
+    "native-unicode-boundary-red.log": "a356170c9bcd0dd7f422008725d340c5013de733f921721908a72100d3d9cf45",
+    "native-unicode-boundary-green-build.log": "14f67a4c7f87686d8ca285a35edcd73f59bdc2b043af03a21f2ff186dd483625",
+    "native-unicode-boundary-green.log": "4a8203c34ecada8ce6803fb27604a6ddc4a81ebccc587ef8c7d880313dbdf7ec",
+    "task2-final-native-build.log": "ec7214d3fbabb1d40694d8f44d80454b0ba8dd9df4e92245de654d7bf9760072",
+    "task2-final-native.log": "4a8203c34ecada8ce6803fb27604a6ddc4a81ebccc587ef8c7d880313dbdf7ec",
+    "task2-native-nested-output.json": "878f0c281e3a44a349a999d525a32b5a0ee14adbbc74dc36eb92c31ef32dfa06",
+    "task2-final-test_tutor_transport.py.log": "6e88e3b5dc2d1b009ab6527c415d42ef115de793c5e836bac84d5b4568fca860",
+    "task2-final-test_tutor_host.py.log": "b7c152356249f86a909d1d7d465e81c012f2485892864e71403f337ae509e86f",
+    "task2-final-test_tutor_native_session.py.log": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e",
+    "task2-final-test_tutor_contracts.py.log": "752fe5efc02120665622f2a38577254f35af729131bd47d3233efac35967197d",
+    "task2-final-test_tutor_gateway.py.log": "57e5402fa61f95a07ddb4e88a5842ab1a440fad88522d68fee7b59d724884b5d",
+    "task2-final-test_tutor_feature_off.py.log": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d"
+  },
+  "shared_cases": {
+    "valid": 4,
+    "invalid_typed": 14,
+    "signed_invalid_decode": 24
+  },
+  "completion_checks": [
+    "exact SDK native build zero warnings/errors and controlled native executable",
+    "reverse native-produced typed lesson/observation/frame/Unicode records accepted by Python",
+    "transport/host/native-session/contracts/gateway/feature-off Python scripts"
+  ],
+  "native_scope": "controlled .NET peers over actual named pipe; Python/native process launch remains Task3",
+  "frame_scope": "closed opaque reference structure and exact BGRA binding; no real shared-memory grant or pixels transported yet",
+  "remaining": [
+    "Task3 real optional Python/native launch/bootstrap/connection",
+    "Task4 actual authorization/shared-memory BGRA to PNG observation",
+    "Task5 actual visible Ask/provider-config/current answer presentation",
+    "Task6 one fresh final package review and frozen full regression",
+    "all original actual overlays/installed/accessibility/content/provider/human/buyer-release requirements"
+  ],
+  "full_current_candidate_retested": false
+}

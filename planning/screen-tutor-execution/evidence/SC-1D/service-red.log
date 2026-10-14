@@ -1,0 +1,14 @@
+[X021A LOCAL] unknown app produced an exact version-bound documentation explanation without a pack or fabricated target
+[X021B LOCAL] absent documentation yields useful access limits; fabricated citations and screen locations cannot pass verification
+[citation/ACL] wrong bytes, unsupported quote, foreign tenant and hidden answer material refuse through real registry boundaries
+[inert evidence] hostile text remains quoted documentation; reports and hypotheses stay unverified, with no process or network call
+[current evidence] observation generation/identity and current host permission remain load-bearing at explanation and verification
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 189, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 152, in main
+    check_service_integration(api)
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 173, in check_service_integration
+    assert callable(method), 'the existing TutorService has no guarded investigation route'
+           ^^^^^^^^^^^^^^^^
+AssertionError: the existing TutorService has no guarded investigation route

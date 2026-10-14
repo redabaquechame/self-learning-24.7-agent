@@ -1,0 +1,11 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+Traceback (most recent call last):
+[transport handshake] mutual challenge, reflected peer, replay, sequence gaps and bounded history checked
+[transport] closed nested request/instruction schemas checked without treating wire identity as authority
+[transport operations] sender role, exact pending reply, one reply and stale cancellation generation checked
+[transport] genuinely signed numeric overflow and deep lesson records refused
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 233, in <module>
+    check_pending_expiry()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 222, in check_pending_expiry
+    raise AssertionError('reply extended original request deadline')
+AssertionError: reply extended original request deadline

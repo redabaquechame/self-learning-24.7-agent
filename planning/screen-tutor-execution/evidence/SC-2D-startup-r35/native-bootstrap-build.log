@@ -1,0 +1,9 @@
+C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\companion\windows\ScreenTutor\OwnerBridge.cs(45,79): error CS0117: 'PipeAccessRights' ne contient pas de définition pour 'None' [C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\companion\windows\ScreenTutor\ScreenTutor_4ofvhnnn_wpftmp.csproj]
+
+ÉCHEC de la build.
+
+C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\companion\windows\ScreenTutor\OwnerBridge.cs(45,79): error CS0117: 'PipeAccessRights' ne contient pas de définition pour 'None' [C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\companion\windows\ScreenTutor\ScreenTutor_4ofvhnnn_wpftmp.csproj]
+    0 Avertissement(s)
+    1 Erreur(s)
+
+Temps écoulé 00:00:04.90

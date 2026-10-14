@@ -1,0 +1,45 @@
+{
+  "schema": "native-host-request-lifetime-progress/1",
+  "recorded_at_utc": "2026-10-13T08:54:57.958084+00:00",
+  "accepted": false,
+  "status": "TASK2_PARTIAL_PENDING_EXPIRY_AND_AUTHORIZATION_VERIFIED",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "tutor_transport.py": "30e7985682896895325a4f82d1e372c999482f8b8daa74be860ea41c4edc1037",
+    "tests/test_tutor_transport.py": "b38af5fca8c6dae09a302aa7bcce3b3e40fbcdc6f8d93cb0f8b4675122b4efbb",
+    "companion/windows/ScreenTutor/BridgePeer.cs": "8f065b3457ee38c5284ac80865282179bb3c4e244c93d8d9740db362978ef141",
+    "companion/windows/ScreenTutor/OwnerBridge.cs": "2b179af59d4f30f5f4898ea7113120f9f5c9550ff4e515917f6355cb6b570aeb",
+    "companion/windows/ScreenTutor/BridgeCodec.cs": "7ec71541ee864b6f94552d9c5f4a3aeeaea1423f73c77d592d0c33683d3368b7",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "eecdb0318948826e00db1aeb64ea4edb5a2aed683713a53638fbd17db3dd2013"
+  },
+  "raw_logs": {
+    "pending-expiry-red.log": "e4f17554319230b8a3002e276ef414e1738ae5a75a9b2ba548b5534479922209",
+    "reply-deadline-red.log": "f76c323affdd8f1a0fffa89baf3afbd12e0c45e246f0c5e4abf114e0a315b804",
+    "pending-expiry-green.log": "1840ce7103f2ff2b8d0fc076623dd7efaeeaeae646e5ee13f21ca61e87058abe",
+    "native-expiry-red.log": "e76137d9bd7dcf680238d212a6e4e9190faba21740ded77c29a6707d4376dbd3",
+    "native-reply-deadline-red.log": "04d32dc7ff992f56cd4084f616a2ca9443bc129b23f241c429f06b59771e62a7",
+    "native-expiry-green-build.log": "9ad4bb6404abccd3fc5f0380d39e8aefd45c04515824e0cdeeadaaa4f9fa9c4c",
+    "native-expiry-green.log": "c8f795507f62c469b176c515b3943dd2b018cf60c73bec3db7853ee467186d9b",
+    "authorization-shape-red.log": "ed555aa8ff9602cf08889d2354298620194893bc3a29d55f55e2d971f7ea9874",
+    "authorization-shape-green.log": "a43e8676dd63c99b377b455230dd4df0bcabcb2af8ed91c97e96bfc7699d4349",
+    "native-authorization-red.log": "7c0110e6ffc7f00471134db0283961a577463eba57c73f030930085755a93c6e",
+    "native-authorization-green-build.log": "503c4d472e15e3ebc692ccf1a06ced8566a8e4621d06497ef46bd84992ad7263",
+    "native-authorization-green.log": "ac4ef0027c9f63259847ee533de9c437e4931a80f35c21b60fea66938a016db6"
+  },
+  "verified": [
+    "128 pending request capacity recovers at expiry",
+    "response cannot extend request lifetime",
+    "strict finite capture authorization cannot claim minted grant",
+    "existing native pipe/handshake/Stop and local capture compatibility",
+    "final transport/host/session/feature-off focused scripts"
+  ],
+  "remaining": [
+    "complete nested observation/frame and request/instruction value schemas",
+    "cross-runtime typed fixtures and Task2 completion helper",
+    "actual Python/native per-launch bootstrap/frame/Ask/answer",
+    "one final package review/frozen full regression",
+    "all original installed/overlay/provider/content/human/buyer-release gates"
+  ],
+  "full_candidate_retested": false,
+  "provider_private_capture_release": false
+}

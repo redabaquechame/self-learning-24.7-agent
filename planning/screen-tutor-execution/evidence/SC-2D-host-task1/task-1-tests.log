@@ -1,0 +1,30 @@
+[host-answer] actual validated instruction returned defensively; wrong identity/missing observation/unready/feature-off dispatch nothing
+[host-release] grant/consent/identity/revision/epoch/deadline/Stop changes and forged instructions release no answer
+[sealed-host] real learning.v1 binding, exact native epoch/session and finite source authorization; forged/cross-surface/cross-tenant/stopped requests refuse
+[host-stop] stalled selection does not delay Stop and its late authorization is refused
+[host-selection] forged/malformed/expired/retired sources refuse, lifetime caps15min and native epochs stay exact
+[host-binding-read] identity change inside the policy reader refuses before model dispatch
+PASS test_tutor_host (service release only; native host/transport/provider journey remains unqualified)
+[T011 T016] foreground/private source substitution refuses and the three-frame buffer exposes no diagnostic content
+[T012 T014] pause, source loss, crash-style reconnect and idempotent Stop invalidate epochs and wipe transient frames
+[T013] peer identity is checked before payload decoding; sequence conflicts and prior bridge epochs refuse
+[request-path] disabled and stopped sessions dispatch nothing; a valid selected-source request reaches one injected gateway and validates before render
+PASS test_tutor_native_session
+[surface-parity] main Learn, native, standalone and embed adapters produced byte-equivalent authoritative course, assignment, session, attempt, evidence and submission records across four brands
+[host-authority] a forged binding and a cross-tenant course reference were refused before creating an assignment or event
+[no-frontend-success] forged learner and pass fields plus executable branding were refused; the incorrect submission remained unscored
+[retry-version] identical retry returned one record and one event; conflicting reuse, version skew and reserved evaluation all refused
+[cursor-cancel-local] scoped cursors reject tampering and another principal; cancellation is idempotent; portal transport cannot inherit native capture from the same sealed host context
+PASS test_learning_surface_parity
+[acquisition] scoped real local/HTTP reads bind raw bytes, rights and version; private paths, secret files, changed bytes, revoked grants and unapproved redirects refuse
+[reversible example] real generated copy, independent artifact checker and reset preserve source; no qualified-pack, learner-success or app-action claim; forged/revoked/altered handles refuse
+[X021A LOCAL] unknown app produced an exact version-bound documentation explanation without a pack or fabricated target
+[X021B LOCAL] absent documentation yields useful access limits; fabricated citations and screen locations cannot pass verification
+[citation/ACL] wrong bytes, unsupported quote, foreign tenant and hidden answer material refuse through real registry boundaries
+[inert evidence] hostile text remains quoted documentation; reports and hypotheses stay unverified, with no process or network call
+[current evidence] observation generation/identity and current host permission remain load-bearing at explanation and verification
+[integration] existing TutorService admits only the authorized current source; Stop during retrieval suppresses the entire answer
+PASS test_tutor_investigation
+[baseline-lock] 12 protected source files match the reviewed SC-1B lock; a byte change fails it, an active mutation command is detected, and an unavailable process query remains UNKNOWN
+[feature-off] existing context, mission, authority, computer-use, and mastery modules load and queue a criterion-bound action with zero process starts, network requests, model calls, or native imports
+PASS test_tutor_feature_off

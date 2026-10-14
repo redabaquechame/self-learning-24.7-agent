@@ -1,0 +1,120 @@
+{
+  "schema": "native-host-source-exchange-progress/1",
+  "recorded_at_utc": "2026-10-13T11:24:18.203015+00:00",
+  "accepted": false,
+  "status": "TASK4_PARTIAL_SOURCE_WIRE_AND_HOST_IMAGE_STORE_VERIFIED",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "tutor_host.py": "347021fdd97372226b8958973dd28ac8caa449851067eb0168db9f985d4343b6",
+    "tutor_frames.py": "1ffbc3850542c8ce0ffaf0688e3cf98ecd4d1676d346ff62d44ea5f3a174b65f",
+    "tutor_connection.py": "302bb26c6c650bb9d0b1f54734efc0da52cb325122d329ae9d8f22b3d19c9662",
+    "tutor_gateway.py": "9814cfab0e2769a36948791c10a91ca5a7e8474407d81a6e65f98ef3fd3fb35e",
+    "tests/test_tutor_host.py": "f638a3259ec8425be68dc9fc798343f698df233be5ae4b32f9d6e857cc08b569",
+    "tests/test_tutor_frames.py": "331ab2e32af48087b4374853de8cff38b50af140377981fcf778dad6ed0f1e89",
+    "tests/test_tutor_connection.py": "4cf111f6d86875333553768fd6d636965f2e8e0858d6851d2a17a106b3f16dde",
+    "companion/windows/ScreenTutor/NativeHostClient.cs": "8c58ccd7aeac1568113a9bb69c34b5fc0a1b81597319273e892c014931f3079f",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "6bd231fe9e02695d6829a3c346ab001caef1ca188b870b70b09902253ac915a9"
+  },
+  "raw_logs": {
+    "frame-policy-exception-red.log": "3dfe013b618c56c4219a17463e360c39fd62fe41b6565cea007818a1a5742f96",
+    "frame-policy-exception-green.log": "720be737f3c8f7cdf964080501ff2cd4ca287db717b98f7b185e2de2f848ff45",
+    "source-dispatch-red.log": "63bd673775503d2b04bcded5815dc334e224ad24809f05a1bdf194d79b61c41c",
+    "source-dispatch-green.log": "3260d16ede0483353921929a9520f682ecbe74b0b82e6ea196a3726d425a8839",
+    "source-api-red.log": "16fb842149a3696edd4a3ce2c85bc431b2160334771d9d4e0a07bf473c21974c",
+    "source-api-red-build.log": "c141143e1d6319fa68c6accade14c3301b64d942952ab7f8deb5213198bbf115",
+    "source-exchange-green-build.log": "becccd98c5a8217c8328ad780957a42bbd8e221def844b03a51f9bbc2b92b7e4",
+    "source-exchange-green.log": "06d39dbcf684a6cb5396bd2ccb6510933cf18d8b3816b631e7bd858050b0416d",
+    "source-exchange-full-native.log": "b755524a3f1da6365c5cf6881029cc3eb32b1500590c25985ccc62f8de3ae43f",
+    "frame-store-actual-python.log": "ba941b98b5b21a01c2e641df2adb76fcc275279b50778a4991626a1a0384a2bc",
+    "frame-store-native.log": "174abcb33b09a715c2073a059509523c504267d90ad17768270f63dc9349f7dc",
+    "frame-store-driver-r2.json": "f005146371c6204ab313a1ea97ca8d158d95f2ba4e539d3893d3ccbb2a0d76e2",
+    "frame-store-actual-python-r2.log": "2d81b6cc085db84483ca577dca31411e2364e41215d5274bbae76ff16790d254",
+    "frame-store-native-r2.log": "174abcb33b09a715c2073a059509523c504267d90ad17768270f63dc9349f7dc",
+    "source-release-revocation-red.log": "ecb21798fb6790fd4c07518bf37d54fa21b1b475ea86f5fb40130a8a834ee78c",
+    "source-release-revocation-green.log": "3260d16ede0483353921929a9520f682ecbe74b0b82e6ea196a3726d425a8839",
+    "source-release-final-connection.log": "06d39dbcf684a6cb5396bd2ccb6510933cf18d8b3816b631e7bd858050b0416d",
+    "task4-source-final-python.json": "50be6dddf422cc751e447db9f75ddc7be2032f0fcf367f4e9abfa839c66c7c41",
+    "task4-source-connection-processes.json": "383b502ce604b739dd0434b01fa693eb2f91475db29b32944faa3bcdf1e3da34",
+    "task4-source-final-test_tutor_frames.py.log": "720be737f3c8f7cdf964080501ff2cd4ca287db717b98f7b185e2de2f848ff45",
+    "task4-source-final-test_tutor_host.py.log": "3260d16ede0483353921929a9520f682ecbe74b0b82e6ea196a3726d425a8839",
+    "task4-source-final-test_tutor_transport.py.log": "d46f7ef8f306200f3f6cccf97342db5bd347b26f2d14b7f3fcc6b90abea97188",
+    "task4-source-final-test_tutor_gateway.py.log": "46cc3becbe55a4a188f2d5087404347f931f10377c41bd208a6a162a9a2e6251",
+    "task4-source-final-test_tutor_native_session.py.log": "e77ad0b75c7cbb5d617b7996eca83700e3c4e0ada61c3f5ecf331d2f73f6e51e",
+    "task4-source-final-test_tutor_feature_off.py.log": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d",
+    "task4-source-final-test_tutor_connection.py.log": "ffe600d4f267fe98a4b1749e88bce98cafc250218f22f8b7aafa2a460fb87600"
+  },
+  "completed_local_checks": [
+    {
+      "script": "test_tutor_frames.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_host.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_transport.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_gateway.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_native_session.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_feature_off.py",
+      "exit_code": 0
+    },
+    {
+      "script": "test_tutor_connection.py",
+      "exit_code": 0
+    }
+  ],
+  "actual_frame_store_driver": {
+    "status": "PASSED",
+    "native_exit": 0,
+    "python_exit": 0,
+    "owned_native_pid": 15716,
+    "owned_child_terminal": true
+  },
+  "actual_process_receipt": {
+    "fixture_pid": 20176,
+    "fixture_exit_code": 1,
+    "fixture_process_closed": true,
+    "provider_called": false,
+    "private_source_selected": false,
+    "app_pid": 47080,
+    "app_exit_code": 1,
+    "app_process_closed": true
+  },
+  "red_green": [
+    "host policy RuntimeError after memory read left decrypted bytes; cleanup now wipes raw and rolls back inserted image",
+    "authenticated source dispatcher absent; sealed current policy now produces correlated capture authorization or refusal",
+    "native source authorization API and per-launch publisher factory absent; actual native/Python source exchange and key wipe now pass",
+    "late source revocation at release escaped authorization; second live admission refuses reply"
+  ],
+  "scope": [
+    "real native test-owned window -> protected memory -> Python exact digest -> host one-shot PNG store",
+    "separate real native/Python selected-source receipt -> sealed host current finite authorization -> native exact matching authorization",
+    "per-launch secret-bound native publisher factory and Python reader ownership; native publisher and Python reader keys wiped on Stop",
+    "complete native controlled executable and seven focused Python scripts; latest host/connection source rerun after late-revocation repair"
+  ],
+  "failed_attempts": [
+    "previous image-store driver reached assertions but cp1252 diagnostic output failed; preserved original failed log, excluded from passing claims",
+    "new driver first used wrong executable target path and launched no child; corrected to existing locked net10.0-windows10.0.26100.0/win-x64 path",
+    "earlier native source exchange RED exited/closed IO because API was absent; direct native contract assertion subsequently proved exact absent API before repair"
+  ],
+  "remaining": [
+    "actual companion picker -> source authorization -> authorized capture -> per-launch frame publication connection",
+    "real frame wire admission and current observation without invented desktop origin, HWND or authority",
+    "foreign/expiry/source-loss/source-replacement/Stop negative matrix across full joined capture flow",
+    "visible Ask/current answer, one final package review and frozen complete normal suite",
+    "all original both-product learning/provider/content/human/overlay/installed/accessibility/device/support/buyer-release requirements"
+  ],
+  "full_current_candidate_retested": false,
+  "private_capture_provider_release": false,
+  "source_commit_deferred": "preserved authored dependency ownership; final package review and canonical candidate reconciliation remain"
+}

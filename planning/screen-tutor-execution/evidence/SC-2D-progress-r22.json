@@ -1,0 +1,38 @@
+{
+  "schema": "screen-tutor-native-continuity-progress/1",
+  "revision": 22,
+  "recorded_at_utc": "2026-10-13T05:08:06.324554+00:00",
+  "accepted": false,
+  "source_digests": {
+    "companion/windows/ScreenTutor/SessionWindow.xaml.cs": "428e95659abac1a6505a61f6165d8b4cd88df39ff8bc4afe0a90cad4969b3579",
+    "companion/windows/ScreenTutor/SessionWindow.xaml": "57630c7253e1c2a6b7061d599ff4e2859b5bc143f2a2b6433e09353ce6faf42e",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "d9ced92522cae00df35ad781b37edfc7f8824ce54078fb3b02df8e4e8bf1660a",
+    "docs/superpowers/plans/2026-10-13-native-companion-continuity.md": "0ab77081ed732086b694ed2df26c3f84417de41a3772210f35cb736aec0ebb5e"
+  },
+  "native_build": {
+    "sdk": "10.0.401",
+    "warnings": 0,
+    "errors": 0,
+    "log": ".superpowers/sdd/2026-10-13-native-companion-continuity/native-close-green-build.log"
+  },
+  "native_checks": [
+    "actual Stop clears source/observation and permits fresh unselected capture",
+    "old-source callback selective negative caught and restored",
+    "actual panel close/summon retains draft/goal/unrelated task",
+    "explicit Exit disposes capture idempotently",
+    "existing native contract/canvas/audio/media/context and test-owned real capture checks pass"
+  ],
+  "python_checks": [
+    "native-session",
+    "feature-off with 12 protected hashes"
+  ],
+  "remaining": [
+    "late picker completion and unavailable selection witnesses",
+    "shortcut-conflict/minimized recovery and teardown callback negatives",
+    "independent fresh review",
+    "final complete unchanged candidate regression",
+    "authenticated host capture/Ask/answer/overlay pipeline",
+    "human/installed/private-source/provider/content qualification"
+  ],
+  "claim_limit": "compiled synthetic control mechanisms only; no whole native journey, learner, provider or release acceptance"
+}

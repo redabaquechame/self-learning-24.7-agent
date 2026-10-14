@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 99, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 93, in main
+    check_current_answer_release()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 46, in check_current_answer_release
+    assert callable(method), "actual answer release has no live host-policy reader route"
+           ^^^^^^^^^^^^^^^^
+AssertionError: actual answer release has no live host-policy reader route

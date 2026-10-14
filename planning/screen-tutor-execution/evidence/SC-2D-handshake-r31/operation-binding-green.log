@@ -1,0 +1,5 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+[transport handshake] mutual challenge, reflected peer, replay, sequence gaps and bounded history checked
+[transport] closed nested request/instruction schemas checked without treating wire identity as authority
+[transport operations] sender role, exact pending reply, one reply and stale cancellation generation checked
+PASS test_tutor_transport

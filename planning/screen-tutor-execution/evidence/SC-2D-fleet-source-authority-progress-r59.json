@@ -1,0 +1,41 @@
+{
+  "schema": "fleet-source-authority-progress/1",
+  "revision": 59,
+  "updated_at_utc": "2026-10-14T09:19:42.476879+00:00",
+  "accepted": false,
+  "head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "scope": "Both Expert Fleet and Screen Tutor, all38 original packets and retained86/84 requirement families; no handover acceptance.",
+  "implemented": "Existing owner source approvals; pending/native retry/denial/Stop/Resume; configured model names; authenticated local shared-learning runtime/explicit profile/current settings+account/device proof; Fleet discovery/launch/Stop/source approval UI without pursuit; writer-boundary capture/frame/answer checks.",
+  "review": "planning/screen-tutor-execution/evidence/SC-2D-fleet-source-authority-review-r59.json",
+  "current_focused_checks": "PASS; actual Resume and on-disk policy withdrawal pass; complete post-root native and frozen187 suites still being finalized.",
+  "baseline": {
+    "reviewed_prior_baseline": "planning/screen-tutor/BASELINE_LOCK_SC_1B.json",
+    "unchanged_files": [
+      "loop.py",
+      "context.py",
+      "modelgateway.py",
+      "grants.py",
+      "mission.py",
+      "computersession.py",
+      "computeruse.py",
+      "mastery.py",
+      "goal.py"
+    ],
+    "initial_foundation_history": "Initial BASELINE_LOCK.json predates reviewed SC-1B loop.py/context.py/modelgateway.py changes. This package modifies none of those three.",
+    "exceptions_unaccepted": [
+      "execution.py",
+      "ui.html",
+      "ui.py"
+    ],
+    "candidate": "planning/screen-tutor/BASELINE_LOCK_SC_2D_FLEET_SOURCE_AUTHORITY_CANDIDATE.json"
+  },
+  "coverage": {
+    "accepted_foundations": 5,
+    "partial_unaccepted": 13,
+    "not_started": 20,
+    "modules": 152,
+    "registered_tests": 187
+  },
+  "normal_frozen_status": "PENDING",
+  "packet_and_product_acceptance": false
+}

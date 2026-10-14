@@ -1,0 +1,139 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-2C",
+  "recorded_at_utc": "2026-09-15T11:23:55Z",
+  "verdict": "LOCAL_AND_NATIVE_SYNTHETIC_PARTIAL_REVIEWED_DEPENDENCY_CONTENT_AND_HUMAN_NATIVE_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_canvas_sha256": "92d00db01e54c31168e92bbf3a364f6da0a367d6623a958a69466086f3cba4dc",
+    "tutor_practice_sha256": "232eb415764cf26d89c60758c87f9f2841377080eefa9be4840ac1f4bf3a45a9",
+    "canvas_test_sha256": "e1e4db0815aae3d2e2a422b3e69716fbdd99b8b49bcb4920fb672754004ec73c",
+    "practice_test_sha256": "f39160f3a8ffc585c9ffe76b42a6a980e95fe153a6992484f81d10d95469df66",
+    "native_canvas_sha256": "76e4be193b54fecd8e030d2433c50dd62b8fb91e78692e6815009066341a8d32",
+    "native_test_sha256": "0666100a234937f9b5e80a2071f7d40b212d0b565d3436169d5366fd440c548e",
+    "shared_fixture_sha256": "6f938229c1b6083d9220eabcfb574e68ec3b7ea8e65725b96d12200f32d03bea",
+    "runner_sha256": "5a63e882ec327ffdf64eaa1fd7c3bc9b795f95c113e124916078eb8236e6088d",
+    "evidence_registry_sha256": "e9fd2ef600253154ebb2716141657b5663fda5ab4c8ba71399a3ece1c57ec442",
+    "doctor_sha256": "cbfb301a532d4fac3cd9ec8699ddb7ed671b99835c6bd89d6c89b8ff8075ad24",
+    "mutation_registry_sha256": "a36a7f1ae99f9e359e43f62382c3c38e638abb4d65ff4e8b2137718891dfc2f7",
+    "adr_sha256": "933a6dfefea7425b5238edea0a7905d4a740505224f37abbc51e47c2d5744147",
+    "review_sha256": "97436a85a8979ab6d99d6d78269aeebd48fd0751611fb9ee50f608d16d4ec5c8"
+  },
+  "environment": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "rid": "win-x64",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_runtime": "10.0.12",
+    "windows_app_sdk": "2.4.0",
+    "interactive_session": true
+  },
+  "artifacts": [
+    "tutor_canvas.py",
+    "tutor_practice.py",
+    "tests/test_tutor_canvas.py",
+    "tests/test_tutor_practice.py",
+    "tests/fixtures/tutor_canvas_render_v1.json",
+    "companion/windows/ScreenTutor/TeachingCanvas.cs",
+    "tests/native/ScreenTutor.ContractTests/Program.cs",
+    "planning/screen-tutor/SC-2C_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-011-declarative-canvas-and-disposable-practice.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_canvas.py; python tests/test_tutor_practice.py; python tests/test_tutor_packs.py; python tests/test_tutor_policy.py; python tests/test_tutor_learner.py; python tests/test_tutor_feature_off.py",
+      "exit_code": 0,
+      "result": "T041-T045 local contracts, qualified-pack boundary, learner attribution and feature-off isolation passed"
+    },
+    {
+      "command": "dotnet build tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --configuration Release; dotnet run --project tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --no-build --configuration Release",
+      "exit_code": 0,
+      "result": "zero warnings and zero errors; the shared declarative fixture rendered 11819 non-white pixels; active content and contradictory graph samples refused; in-memory ink reset and Stop passed while the bound source digest stayed unchanged"
+    },
+    {
+      "command": "python tests/test_invariants.py; python tests/test_package.py",
+      "exit_code": 0,
+      "result": "136 top-level modules, 173 registered tests, 224 registered mutations and 522 package members reconciled; 140 non-test Python files and all 173 tests ship; native source and lock are included while bin/obj products are excluded"
+    },
+    {
+      "command": "python mutate_check.py 'tutor practice: unsafe production source accepted as a practice asset'",
+      "exit_code": 0,
+      "result": "the production-source safety mutation was caught: 1 caught, 0 missed, 0 skipped"
+    },
+    {
+      "command": "python tests/test_tutor_environment_lock.py; git diff --check",
+      "exit_code": 0,
+      "result": "the governed ADR/environment lock passed after aligning ADR-011 with the repository template; no diff whitespace errors"
+    }
+  ],
+  "acceptance_tests": {
+    "T041": "PASSED_LOCAL_AND_NATIVE_SYNTHETIC: closed declarative primitives render; arbitrary fields and executable expressions refuse",
+    "T042": "PASSED_LOCAL_MECHANISM_ONLY: production documents decline and a digest-bound synthetic source is copied only to an internally derived practice path",
+    "T043": "PASSED_LOCAL_AND_NATIVE_SYNTHETIC: graph samples are independently recomputed from the bounded equation and slider updates",
+    "T044": "PASSED_LOCAL_MECHANISM_ONLY: a filename-only or answer-exposed candidate cannot count as novel independent transfer",
+    "T045": "PASSED_OFFLINE_AND_NATIVE_SYNTHETIC_ONLY: watched source digests remain unchanged while an isolated artifact and in-memory ink change; no human real-application run was performed"
+  },
+  "native_witnesses": {
+    "render": "the WPF FrameworkElement parsed the canonical tutor.canvas-render/1 fixture and produced 11819 non-white pixels",
+    "boundary": "duplicate or unknown fields, active content, invalid expression arity, unbounded powers, relationship errors and contradictory graph values refuse before drawing",
+    "practice_isolation": "test-owned ink existed only in canvas memory; reset and Stop cleared it while the bound source digest string remained unchanged",
+    "regression": "the existing real test-owned 322x272 capture still produced 350336 exact bytes; the private picker and visible production teaching journey remain explicitly unqualified"
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-2C_REVIEW.md",
+    "verdict": "APPROVED_FOR_LOCAL_AND_PARTIAL_NATIVE_SYNTHETIC_MECHANISM_SCOPE_DEPENDENCY_CONTENT_AND_HUMAN_NATIVE_BLOCKED",
+    "unresolved_critical_findings_in_local_scope": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 173,
+    "passed": 170,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no isolated sandbox selected for its acquisition rung"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "The complete campaign ran after SC-2C code, tests, review, ADR, registry and documentation updates were final. This evidence/state metadata was added after the source-exact run."
+  },
+  "prior_attempts": [
+    {
+      "outcome": "DOCUMENTATION_CONTRACT_FAILURE",
+      "evidence": "the first 173-test campaign reached 169 passed, 3 skipped and 1 failed because ADR-011 used a packet-specific status line and non-template failure/reversal headings",
+      "resolution": "aligned ADR-011 with the governed ADR template; the focused lock and the complete 173-test rerun then passed"
+    }
+  ],
+  "blockers": [
+    {
+      "gate": "UPSTREAM_PACKET_ACCEPTANCE",
+      "reason": "SC-2A and SC-2B are implemented only to bounded local/native synthetic scopes and remain unaccepted",
+      "unblocks_when": "their visible grounding, content-review and human/native qualification gates pass"
+    },
+    {
+      "gate": "QUALIFIED_PACK_BINDING",
+      "reason": "the practice source receipt and expected-result digest are supplied by the current caller rather than derived from an assigned qualified teaching-pack record",
+      "unblocks_when": "practice creation accepts only an authority-checked assignment/version and derives source rights, lineage and answer key from that immutable pack"
+    },
+    {
+      "gate": "AUTHENTICATED_COMPANION_INTEGRATION",
+      "reason": "TeachingCanvas is a tested native control but is not wired into the authenticated companion request and presentation lifecycle",
+      "unblocks_when": "the current authorized tutor response drives a visible owned canvas through the native session protocol with stale suppression"
+    },
+    {
+      "gate": "HUMAN_AND_NATIVE_T045",
+      "reason": "no human used the canvas or practice flow against a real supported application while an independent process verified the original document bytes",
+      "unblocks_when": "the frozen native protocol passes with consented participants and independently captured before/after document digests"
+    },
+    {
+      "gate": "SUBJECTIVE_CONTENT_REVIEW",
+      "reason": "mechanical JSON comparison cannot qualify creative or subjective output criteria",
+      "unblocks_when": "the exact rubric, examples and disagreement process receive independent qualified review"
+    }
+  ],
+  "scope": "LOCAL contracts plus a NATIVE synthetic WPF rendering and in-memory ink-isolation witness. No assigned qualified-pack integration, authenticated visible companion journey, real supported-app no-change proof, human interaction, creative-rubric qualification, learning, retention, deployment, release or market-superiority claim is made."
+}

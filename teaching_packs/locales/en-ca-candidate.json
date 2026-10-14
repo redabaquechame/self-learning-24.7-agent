@@ -1,0 +1,34 @@
+{
+  "schema": "tutor.locale-pack/1",
+  "locale_id": "en-CA",
+  "status": "CANDIDATE",
+  "source_language": "en-CA",
+  "target_language": "en-CA",
+  "fallback_locale": "en-CA",
+  "qualification": {
+    "provider_ref": null,
+    "content_review_ref": null,
+    "human_comprehension_ref": null,
+    "device_matrix_ref": null
+  },
+  "glossary": [
+    {
+      "term_id": "save-as",
+      "source_term": "Save As",
+      "source_language": "en-CA",
+      "preferred_term": "Save As",
+      "target_language": "en-CA",
+      "uncertainty": "KNOWN",
+      "source_refs": ["fixture-ui-menu"]
+    },
+    {
+      "term_id": "technical-name",
+      "source_term": "MyteCODY",
+      "source_language": "en-CA",
+      "preferred_term": null,
+      "target_language": "en-CA",
+      "uncertainty": "UNTRANSLATED",
+      "source_refs": ["owner-product-name"]
+    }
+  ]
+}

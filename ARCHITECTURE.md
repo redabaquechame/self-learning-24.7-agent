@@ -2,7 +2,7 @@
 
 **What this is.** A file-backed, stdlib-only platform for building expert AI
 agents that work continuously, prove what they did, and remember what they
-learned. 124 Python modules, 160 registered acceptance tests, one HTML control panel, no
+learned. 141 top-level Python modules, 178 registered acceptance tests, one HTML control panel, no
 database, no framework, no build step. Python 3.11+ and your own API keys.
 
 **Who this document is for.** Somebody who has just been handed the
@@ -205,7 +205,7 @@ patches — it is **five gateways every caller must pass through**:
 **These are enforced, not documented.** `python execution.py --audit` scans
 every module in the tree for a raw `subprocess` call outside the authority
 and reports violations; `tests/test_invariants.py` fails the suite if there
-are any. Today: **0 violations across 124 modules**, with 19 modules declared
+are any. Today: **0 violations across 141 modules**, with 19 modules declared
 platform-internal, each carrying a written reason.
 
 ### 3.6 The Memory Institution — what outlives every model
@@ -660,7 +660,7 @@ last one is the only one produced on a computer this project does not own.
 
 ### 10.1 The suite passes — the weakest claim
 
-160 registered acceptance tests, configured for Windows and Linux under
+178 registered acceptance tests, configured for Windows and Linux under
 Python 3.11, 3.12 and 3.13. Actual passes and skips require a run receipt. Each test prints a sentence describing what it
 observed, and those sentences are the report — `EVIDENCE.md` quotes them
 verbatim rather than summarising.
@@ -681,7 +681,7 @@ walks the tree:
 
 | Check | Enumerates |
 |---|---|
-| execution paths | every subprocess call site in 124 modules |
+| execution paths | every subprocess call site in 141 modules |
 | execution catalogue | every declared operation against what it declares |
 | filesystem zones | every declared control file and directory |
 | traversal spellings | 12 escape forms |
@@ -691,7 +691,7 @@ walks the tree:
 | gate catalogue | every entry, and that a raw shell string never builds one |
 | expert birth | every module that mints an expert |
 | exam readers | every reader of `exam-results.md`, in every recorded format |
-| sandbox names | all 139, across 99 test files, parsed with `ast` |
+| sandbox names | all 141, across 101 test files, parsed with `ast` |
 | documented CLI | all 61 subcommands `MANUAL.md` promises |
 
 ### 10.3 Mutation testing — break it and confirm the test notices
@@ -959,7 +959,7 @@ python loop.py run --drain --root experts/<slug>    # work the queue
 
 ```bash
 python demo.py            # the whole platform, keyless, in one run
-python tests/run_all.py   # 160 registered acceptance tests
+python tests/run_all.py   # 178 registered acceptance tests
 python proof.py           # what is proven, and to what level
 python evidence.py        # why we believe it, and where belief runs out
 python metrics.py         # is it working — and the numbers we refuse to invent

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<stdin>", line 24, in <module>
+  File "<stdin>", line 19, in check_atomic_permissions
+AssertionError
+
+exit 1

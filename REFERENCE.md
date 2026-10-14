@@ -7,8 +7,8 @@ logic it runs, how you interact with it, and what it does **not** do.
 written by reading the code, not from memory; where a claim could rot, the
 test that keeps it honest is named.
 
-**Scale, so you know what you are reading about:** 124 Python modules,
-one HTML file for the whole UI, 160 registered acceptance tests, zero third-party
+**Scale, so you know what you are reading about:** 152 top-level Python modules,
+one HTML file for the whole UI, 187 registered acceptance tests, zero third-party
 dependencies. Python 3.11+ and your own API keys.
 
 ---
@@ -1687,7 +1687,7 @@ through an example; it walks the tree:
 
 | Check | What it enumerates |
 |---|---|
-| execution paths | every subprocess call site in 124 modules |
+| execution paths | every subprocess call site in 141 modules |
 | execution catalogue | every declared operation, against what it declares |
 | filesystem zones | every declared control file and directory |
 | traversal spellings | 12 escape forms (posix, windows, UNC, mixed, nested) |
@@ -1697,7 +1697,7 @@ through an example; it walks the tree:
 | gate catalogue | every entry, and that a raw shell string never builds one |
 | expert birth | every module that mints an expert |
 | exam readers | every reader of `exam-results.md`, in every recorded format |
-| sandbox names | all 139, across 93 test files, parsed with `ast` |
+| sandbox names | all 141, across 95 test files, parsed with `ast` |
 | documented CLI | all 58 subcommands `MANUAL.md` promises |
 
 The last four came from the third pass, and each was a real defect first.
@@ -1971,7 +1971,7 @@ Eleven are done; the twelfth is by definition what comes next.
 |---|---|---|
 | 1 | version control, known-good baseline | **done** — git, with the remediation split across commits |
 | 2 | no browser-origin/CSRF into mutating APIs; no free-form network-supplied shell gates | **done** — `_same_origin` on every mutating verb (`test_csrf.py`); `gates.py` is a closed catalogue and a raw string is refused |
-| 3 | one canonical Execution Authority; no alternate path may exist | **done** — `execution.py`, and `--audit` scans all 124 modules for a bypass (`test_invariants.py`) |
+| 3 | one canonical Execution Authority; no alternate path may exist | **done** — `execution.py`, and `--audit` scans all 141 modules for a bypass (`test_invariants.py`) |
 | 4 | agent workspace separated from control state; all filesystem ops through File Authority | **done** — `fileauth.py` with four zones, enforced per zone rather than per file |
 | 5 | `file://` and SSRF blocked; redirects/DNS/IP revalidated | **done** — scheme allowlist, blocked networks, and a redirect handler that re-checks (`test_url.py`) |
 | 6 | one Credential Authority; backup/package/health/runtime agree | **done** — `credentials.py`; `test_invariants` asks the same four sources of every subsystem |
@@ -2063,3 +2063,12 @@ runs it with a real key, the honest ceiling for every capability in this
 platform is **OFFLINE VERIFIED** — which is exactly what `proof.py` reports.
 
 ---
+
+
+## Optional native image-provider dispatch
+
+`tutor_dispatch.ImageProviderRoute(agent, *, provider, model, current_grant_view, current_budget_view)` is trusted host configuration. Install once with `NativeTutorHost.install_image_provider(route)` before a connection, source session or running work; untyped routes, existing dispatch and live/repeated replacement refuse. Installation does not enable a provider by default or create capture/provider/budget authority.
+
+The grant reader receives the current owner view and returns the existing closed SessionGrantView. The budget reader returns the current `budget_policy_id`, `budget_reservation_id`, `ceiling_usd` and `agent_root`. Session, identity, project, source, consent/generation, capabilities, approved provider destination, retention and budget references must agree; the exact installed provider/account configuration, privately hashed resolved credential and output cap stay pinned. A private per-dispatch Agent snapshot supplies the same approved credential and cap to reservation and every HTTP attempt, while live authority still rechecks the original configuration; ordinary Fleet core and text callers remain unchanged. The private host image store supplies one exact PNG whose digest must match the observation. Remaining original Windows grant/observation/request lifetime is translated through the existing gateway clock helper.
+
+The existing image gateway reserves and meters the real HTTP request, without tool schemas. Source or authority changes during HTTP and after acquiring the native writer lock and before final wire release suppress the answer while retaining its exact once accounting. Returned instructions preserve the gateway's textual uncertainty, contain no invented numeric confidence, annotation, action, quiz or learning outcome. Local tests use an owned Windows form and loopback provider; real provider usefulness/quality/economics, production Fleet owner approval/launcher/discovery and release remain unqualified.

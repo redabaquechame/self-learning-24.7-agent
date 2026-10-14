@@ -1,0 +1,14 @@
+[doctor] a failed import is reported as a PROBLEM and the all-clear line is withheld; every authority module is on the list; a clean tree still reports the all-clear
+[panel] the task dialog names a gate from the catalogue (exists, designcheck, citecheck, verify, memcheck) with one parameter; goal graders use the same catalogue, preserve owner-facing meaning, and raw, malformed, or excess graders are refused
+[goal-input] goal spend, time and cycle limits are finite and in range before any state is written; zero retains its documented no-extra-cap meaning
+[goal-contract] direct callers must provide unique string ids, stated criteria, command strings and valid optional groups before any goal state is written
+[goal-identity] contract ids, expert slugs and objectives are path-safe and non-empty; direct pursuits validate identity and limits before their first artifact
+[mission-work] queued mission work names its open criterion, expected evidence and catalogue gate; missing gates and unrelated criteria are refused before a task is queued
+[panel-truth] quality copy names evidence instead of invented rates; mission save and execution are separate; goal and mission context have shareable Back/Forward routes
+[invite] the invite dialog no longer asks for an actor the server ignores; the token identity is the actor
+[subquery] a sub-call is metered under its own purpose, not 'unknown'
+[cases] memory/cases.jsonl is CONTROL: the agent's write is refused, the harness's allowed, and the path is enumerated in the promotion-leakage suite
+[recipes] `python toolbox.py --recipes` prints every pinned acquisition recipe, and the comment names the flag that exists
+[manifest] the harness manifest's A2A entry states what federation states: a card is served, the task API is not implemented
+[prose] REFERENCE names 24 templates and all 7 intention kinds; MANUAL and REFERENCE say 20 capabilities; the README badges carry 180 tests and 229 mutations
+PASS test_ledger_defects

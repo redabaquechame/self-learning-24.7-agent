@@ -1,0 +1,390 @@
+{
+  "schema": "windows-atomic-write-repair/1",
+  "recorded_at_utc": "2026-10-13T06:34:42.505379+00:00",
+  "accepted": false,
+  "status": "LOCAL_REVIEWED_FULL_REGRESSION_VERIFIED",
+  "original_failed_campaign": "planning/screen-tutor-execution/evidence/SC-2D-continuity/FINAL_CAMPAIGN.json",
+  "root_cause": "Valid Windows destination rejected because its atomic scratch path appended the full filename plus PID/UUID; short exclusive same-directory staging removes that excess.",
+  "review": "one fresh atomic_write_review; all declined behaviors ruled on; POSIX compatibility regraded Important and repaired RED/GREEN; no second review",
+  "current_owned_source_hashes": {
+    "fileauth.py": "03f4f79a4cf799fbcc2a8231bc07b27c010708bf0b66e980be826c9913f8fd7c",
+    "tests\\test_correctness_patch.py": "52d3ef42e441f9c79813f1d651d13a0cc441037705d8595bde99cab1c1348403",
+    "docs\\superpowers\\plans\\2026-10-13-windows-atomic-write-repair.md": "8eb439b5270ee549d577cb0a3315812918a499840636856801a27c8d39ac85ac"
+  },
+  "focused_checks": "all8 affected scripts PASS on final helper bytes; native Windows valid-path/default/invalid encoding/durable/concurrent/collision/failure cleanup and separate isolated POSIX022/077 mode witnesses pass",
+  "qualification_limits": [
+    "native actual host/Ask/visible overlay/installed journey",
+    "power-loss and hostile concurrent directory/junction race not qualified",
+    "arbitrary Windows extended-length path support not qualified",
+    "real-provider/content/human-learning/release not qualified"
+  ],
+  "artifacts": [
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/atomic-mode-collision-green.log",
+      "sha256": "6f35e827cd4964d3eeda23252d61a994e93000ca6f84a7723d299dd515751ad4",
+      "bytes": 1403
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/final-test_correctness_patch.py.log",
+      "sha256": "6f35e827cd4964d3eeda23252d61a994e93000ca6f84a7723d299dd515751ad4",
+      "bytes": 1403
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/final-test_hardening.py.log",
+      "sha256": "34a0408ad584d7d4eaf5da0b57d17afaad7325b4e05a6a608a172552b49af980",
+      "bytes": 870
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/final-test_ledger_defects.py.log",
+      "sha256": "6694bb3355568aeaf598a638e477fd7bd100b87b03ad6c086986b518a80ff633",
+      "bytes": 1989
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/final-test_paths.py.log",
+      "sha256": "33b5c55a2c29e4ac82e7e98961ef579b4bb16f434da20183d41a5eb07f92ed13",
+      "bytes": 2472
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/final-test_transactional_contracts.py.log",
+      "sha256": "fd5b48a427f92e30cb784795f10c36adb1d1c6971e1ff7a3db6ee4b6484385a4",
+      "bytes": 11347
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/final-test_tutor_feature_off.py.log",
+      "sha256": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d",
+      "bytes": 418
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/final-test_tutor_investigation.py.log",
+      "sha256": "9f35ba01563af385f72a47a760948ef10f380a22f3e03fceafc22ee7e0b2064c",
+      "bytes": 1174
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/final-test_tutor_practice.py.log",
+      "sha256": "9d6654dfc75a9efe17e1efc6cde57d48aebd82f13a7568948d860bde1378803a",
+      "bytes": 328
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/INDEPENDENT_REVIEW.json",
+      "sha256": "e53c7be28895ab312a6ed32e51b74bcbec3569b2ab957ab79bfc5bbe76e7afe0",
+      "bytes": 1786
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/LINUX_PERMISSION_ENV.json",
+      "sha256": "6b059b056a946034d1dfcf2b67c03c82beb1c70ee94f5a5dd3a94ed56e5c2c6b",
+      "bytes": 315
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-affected-test_correctness_patch.py.log",
+      "sha256": "cde8f98af842ec1e91caf15bd7aa12bc99b4afe98019e5586798ff4046928ef4",
+      "bytes": 1222
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-affected-test_hardening.py.log",
+      "sha256": "34a0408ad584d7d4eaf5da0b57d17afaad7325b4e05a6a608a172552b49af980",
+      "bytes": 870
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-affected-test_ledger_defects.py.log",
+      "sha256": "6694bb3355568aeaf598a638e477fd7bd100b87b03ad6c086986b518a80ff633",
+      "bytes": 1989
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-affected-test_paths.py.log",
+      "sha256": "3442c0a80bb22b129b6fd62ef73859eb97dad76a235fed1fc7a3a6b4e6ae8943",
+      "bytes": 2454
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-affected-test_transactional_contracts.py.log",
+      "sha256": "2cd243215067da338c6f5ca53c9bfecf45cb0f7b4bb48896f4d5cf972d9db49e",
+      "bytes": 11347
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-affected-test_tutor_feature_off.py.log",
+      "sha256": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d",
+      "bytes": 418
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-affected-test_tutor_investigation.py.log",
+      "sha256": "9f35ba01563af385f72a47a760948ef10f380a22f3e03fceafc22ee7e0b2064c",
+      "bytes": 1174
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-affected-test_tutor_practice.py.log",
+      "sha256": "9d6654dfc75a9efe17e1efc6cde57d48aebd82f13a7568948d860bde1378803a",
+      "bytes": 328
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-descriptor-green.log",
+      "sha256": "cde8f98af842ec1e91caf15bd7aa12bc99b4afe98019e5586798ff4046928ef4",
+      "bytes": 1222
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-descriptor-red.log",
+      "sha256": "3142d8a4a0757c661771a506abd23468db5f5c3eebb4db77fb9c54396bf39fb9",
+      "bytes": 2589
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-path-green.log",
+      "sha256": "cde8f98af842ec1e91caf15bd7aa12bc99b4afe98019e5586798ff4046928ef4",
+      "bytes": 1222
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-path-red.log",
+      "sha256": "4d442880e31e71331dc90c7b567e3a022733c3692b2f8faabd47f32d3d4b3e50",
+      "bytes": 2170
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-atomic-text-mode-red.log",
+      "sha256": "1dcfb1e590457de8ec27898a7904aaf7ceaa4a44ee45ef47f62a80bcfc56a78f",
+      "bytes": 2127
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-practice-path-green.log",
+      "sha256": "9f35ba01563af385f72a47a760948ef10f380a22f3e03fceafc22ee7e0b2064c",
+      "bytes": 1174
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-practice-path-repro.log",
+      "sha256": "cc8e4a73a616bea6cb1e15a36462791d3e8525ebd398ad0b402c17c7880c08f9",
+      "bytes": 3043
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-practice-path-short-control.log",
+      "sha256": "9f35ba01563af385f72a47a760948ef10f380a22f3e03fceafc22ee7e0b2064c",
+      "bytes": 1174
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/native-PRACTICE_PATH_DIAGNOSIS.json",
+      "sha256": "db9451cdc1e64cb1443ec23fb06cc400c1cfe8eb4fadbd39455436a88b0bea27",
+      "bytes": 259
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/posix-mode-green.log",
+      "sha256": "0bf3e1056426a604e8d5cc2534c0dc1e3152f9263c3b39b843ee9dd9936c07af",
+      "bytes": 123
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/posix-mode-red.log",
+      "sha256": "9b1071adf348c79d630168f856a70ef8581656cc2cc11c2fb60066c32722a203",
+      "bytes": 158
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/POSIX_PERMISSION_RED.json",
+      "sha256": "7125aadfdfaf21883e0c59fcf57087a7c1fabc456d6653bcff7d384903001bf4",
+      "bytes": 123
+    },
+    {
+      "path": "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair/progress.md",
+      "sha256": "6e32f7c4fe58b0e69704b3cc09fb6f153415aaf799d8157557b37011ebebdfde",
+      "bytes": 5427
+    }
+  ],
+  "full_suite": {
+    "executed": 179,
+    "failed": [],
+    "passed": 176,
+    "schema": "run_all.terminal.v1",
+    "skipped": [
+      {
+        "name": "test_acquire.py",
+        "reason": "no isolated sandbox for this run (the settings do not select docker, or docker is unavailable), so the install rungs cannot be exercised without breaking the rule they protect. The refusals above were all checked."
+      },
+      {
+        "name": "test_shutdown.py",
+        "reason": "Popen.terminate() on Windows is TerminateProcess, which no handler can intercept \u2014 there is no SIGTERM here to catch, so this asserts nothing rather than asserting something false. The container CI runs it."
+      },
+      {
+        "name": "test_computeruse_live.py",
+        "reason": "set AGENT_COMPUTER_LIVE=1 for pinned network-none Chromium fixture"
+      }
+    ],
+    "tests": [
+      "test_resume.py",
+      "test_lock.py",
+      "test_json_toolcall.py",
+      "test_reflector.py",
+      "test_compaction.py",
+      "test_verify.py",
+      "test_inbox.py",
+      "test_skills.py",
+      "test_course.py",
+      "test_memcheck.py",
+      "test_e2e.py",
+      "test_retry.py",
+      "test_blocked.py",
+      "test_exam.py",
+      "test_paths.py",
+      "test_reliability.py",
+      "test_check.py",
+      "test_e2e_crash.py",
+      "test_local.py",
+      "test_live_provider.py",
+      "test_guardrails.py",
+      "test_url.py",
+      "test_hardening.py",
+      "test_csrf.py",
+      "test_invariants.py",
+      "test_controlplane.py",
+      "test_proof.py",
+      "test_mission.py",
+      "test_workers.py",
+      "test_acquire.py",
+      "test_org.py",
+      "test_rbac.py",
+      "test_training.py",
+      "test_metrics.py",
+      "test_fleet.py",
+      "test_ui.py",
+      "test_remote.py",
+      "test_material.py",
+      "test_frontend.py",
+      "test_ux.py",
+      "test_layers.py",
+      "test_team.py",
+      "test_audit.py",
+      "test_recall.py",
+      "test_consult.py",
+      "test_quick.py",
+      "test_toolbox.py",
+      "test_doctor.py",
+      "test_goal.py",
+      "test_universal.py",
+      "test_grants.py",
+      "test_experience.py",
+      "test_shutdown.py",
+      "test_evalsuite.py",
+      "test_knowledge.py",
+      "test_providers.py",
+      "test_federation.py",
+      "test_retention.py",
+      "test_memory.py",
+      "test_benchmark.py",
+      "test_skillgraph.py",
+      "test_prospective.py",
+      "test_associative.py",
+      "test_variants.py",
+      "test_chief.py",
+      "test_ecosystem.py",
+      "test_mcp.py",
+      "test_effects.py",
+      "test_replay.py",
+      "test_lanes.py",
+      "test_approvals.py",
+      "test_workflows.py",
+      "test_governance.py",
+      "test_harness.py",
+      "test_faults.py",
+      "test_stop.py",
+      "test_checkpoint.py",
+      "test_wake.py",
+      "test_context.py",
+      "test_memory_kinds.py",
+      "test_sandbox.py",
+      "test_docker_live.py",
+      "test_hosted_sandbox.py",
+      "test_skillmd.py",
+      "test_decisions.py",
+      "test_modelrouter.py",
+      "test_routines.py",
+      "test_trace.py",
+      "test_events.py",
+      "test_uicards.py",
+      "test_panel_v2.py",
+      "test_bootstrap.py",
+      "test_first_day.py",
+      "test_secrets.py",
+      "test_conflicts.py",
+      "test_awareness.py",
+      "test_design.py",
+      "test_backup.py",
+      "test_package.py",
+      "test_preflight.py",
+      "test_chaos.py",
+      "test_endurance.py",
+      "test_candidates.py",
+      "test_curriculum.py",
+      "test_research.py",
+      "test_cases.py",
+      "test_gotcha_retire.py",
+      "test_discover.py",
+      "test_contract.py",
+      "test_runbook.py",
+      "test_repair.py",
+      "test_swarm.py",
+      "test_sources.py",
+      "test_mastery.py",
+      "test_steer.py",
+      "test_freshness.py",
+      "test_contract_model.py",
+      "test_subquery.py",
+      "test_frontier.py",
+      "test_frontier_live.py",
+      "test_execution_containment.py",
+      "test_acquisition_arena.py",
+      "test_mcp_hardening.py",
+      "test_ui_auth_hardening.py",
+      "test_measurement_integrity.py",
+      "test_procedural_learning.py",
+      "test_scheduler_verifier.py",
+      "test_memory_hybrid.py",
+      "test_memory_benchmarks.py",
+      "test_memory_policy.py",
+      "test_skill_attribution.py",
+      "test_advanced_learning.py",
+      "test_research_discovery.py",
+      "test_release_checks.py",
+      "test_loop_learning_controls.py",
+      "test_capability_graph.py",
+      "test_use_cases.py",
+      "test_tabular.py",
+      "test_vision_preservation.py",
+      "test_operator_runtime.py",
+      "test_verifier_factory.py",
+      "test_procedure_v2.py",
+      "test_capability_signatures.py",
+      "test_git_operators.py",
+      "test_xlsx_operators.py",
+      "test_promotion_leakage.py",
+      "test_transactional_contracts.py",
+      "test_correctness_patch.py",
+      "test_ledger_defects.py",
+      "test_http_operators.py",
+      "test_reconciler.py",
+      "test_watchdog.py",
+      "test_sentinels.py",
+      "test_twin.py",
+      "test_twin_measurement.py",
+      "test_computeruse.py",
+      "test_computeruse_live.py",
+      "test_computer_session.py",
+      "test_computer_postconditions.py",
+      "test_computerbench.py",
+      "test_tutor_feature_off.py",
+      "test_tutor_environment_lock.py",
+      "test_learning_surface_parity.py",
+      "test_tutor_contracts.py",
+      "test_tutor_native_session.py",
+      "test_tutor_gateway.py",
+      "test_tutor_sources.py",
+      "test_tutor_packs.py",
+      "test_tutor_investigation.py",
+      "test_tutor_policy.py",
+      "test_tutor_learner.py",
+      "test_tutor_geometry.py",
+      "test_tutor_canvas.py",
+      "test_tutor_practice.py",
+      "test_tutor_audio.py",
+      "test_tutor_locale.py",
+      "test_tutor_media_index.py",
+      "test_tutor_media.py",
+      "test_tutor_context.py"
+    ]
+  },
+  "full_suite_exit_code": 0,
+  "full_source_files": 559,
+  "all_full_source_unchanged": true,
+  "terminal_records": 1,
+  "full_log_sha256": "e04f7b7cbba3bc15f77aa4148fda634edc1bef07dcd8c001b0dbd18bd5bc3591",
+  "qualified_package_only": true
+}

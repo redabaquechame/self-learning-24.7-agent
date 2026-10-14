@@ -1,0 +1,164 @@
+{
+  "schema": "fleet-ui-gap-progress/1",
+  "recorded_at_utc": "2026-10-13T22:46:35.450214+00:00",
+  "accepted": false,
+  "status": "LOCAL_BROWSER_SHORTCUT_DIALOG_ERROR_LABEL_REPAIRS_VERIFIED_USER_RELEASE_OPEN",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "docs/superpowers/plans/2026-10-13-fleet-ui-gap-repairs.md": "54d89c4f0014cee7bcac940ecc36da02b7c05132a2151b71dd1361715e622d83",
+    "tests/test_frontend.py": "0dcbaadb6d984953e1cb2eeeacfb9afa5341bba08bfcec987593e93c3d39f302",
+    "tests/test_panel_v2.py": "e44046d2b101fc34a42c49466252a46247b0f066001d097a485f4be3c153883a",
+    "tests/test_ui.py": "d183a9f2227ec809fec7c823b2ff991c8e326378f98fe9eefeb56279bf75c236",
+    "tests/test_uicards.py": "ba3902e31ed12a9b0bcfc8ebb4d1592417cd70ddbcd8e612c3fd04f7dede0654",
+    "tests/test_ux.py": "a51aa84cc0962301e5fb16c8ad0858b282ffb267c8b07b197caa4419018cb8eb",
+    "ui.html": "8c1abc088b5d7e0828205be579d112bc07c0c911dc9754586c68ce8226b843a1",
+    "ui.py": "a635f860966c2e86bcc0f23e2ee4057866aeebac784756b8b45ee067e97553ce"
+  },
+  "raw_artifacts": {
+    "fleet-ui-browser-red.json": "00e50f7db49f3f6db8308904d6b23edfee2ec1a2d1f59f5960f31d30c549f0a1",
+    "fleet-procedure-browser-red-r2.json": "07278a76b3ece4df75ede9adf7ec8fc111d5e0d03299ba2cd730829043f9e998",
+    "fleet-ui-browser-green.json": "ec50d96417346c0590ba489b487c104f434fc7767cc29f9b0da1557f42bda85b",
+    "fleet-ui-frontend-r1.log": "26553fdfca9042f4686171fbab100cb1b424882c5ec2a79d97417a7c3f5a92f9",
+    "fleet-ui-ux-r1.log": "b84bbff618676fe91c3d7657fe5f1c2e3704f5430ffc2887b8301553046d3644",
+    "fleet-ui-ui-r1.log": "b86f763d528881366b2ab7ed2ac16cbd0423759027e29020895835efc0c5bc04",
+    "fleet-ui-uicards-r1.log": "304fa135f8da9c36abc5b5cb2b47c2683f58548eb93160498838b50c577c1921",
+    "fleet-ui-panel_v2-r1.log": "93817c5e6391879124aa924363c517a6465ac4eda22c0d99a51f7549ffe325c6"
+  },
+  "browser": {
+    "status": "PASSED",
+    "accepted": false,
+    "ui_sha256": "8c1abc088b5d7e0828205be579d112bc07c0c911dc9754586c68ce8226b843a1",
+    "scope": "Test-owned local panel and real Chrome keyboard only; no tasks/provider/human/deployment acceptance",
+    "observations": {
+      "shortcuts": [
+        {
+          "query": "Steer a running pursuit",
+          "url": "http://127.0.0.1:54950/#agent/beta/goals",
+          "selectedExpert": "beta",
+          "sub": "goals",
+          "headings": [
+            "beta"
+          ]
+        },
+        {
+          "query": "See the knowledge graph",
+          "url": "http://127.0.0.1:54950/#agent/beta/graph",
+          "selectedExpert": "beta",
+          "sub": "graph",
+          "headings": [
+            "beta"
+          ]
+        },
+        {
+          "query": "Mastery \u2014 sealed exams and scores",
+          "url": "http://127.0.0.1:54950/#agent/beta/mastery",
+          "selectedExpert": "beta",
+          "sub": "mastery",
+          "headings": [
+            "beta"
+          ]
+        },
+        {
+          "query": "What may no longer be true?",
+          "url": "http://127.0.0.1:54950/#agent/beta/teach",
+          "selectedExpert": "beta",
+          "sub": "teach",
+          "headings": [
+            "beta"
+          ]
+        }
+      ],
+      "dialog": {
+        "open": true,
+        "role": "dialog",
+        "focusInside": true,
+        "activeTag": "BUTTON",
+        "activeText": "Do you need this specialist working immediately from files or instructions?\n          fastest \u2014 it starts from what you ",
+        "atFirst": true,
+        "controls": [
+          "Do you need this specialist working immediately from files or instructions?\n    ",
+          "Do you want it formally trained and tested on your material?\n          deepest \u2014",
+          "Do you want it to learn a subject on its own?\n          it gathers its own sourc",
+          "Start from a proven job template?\n          a crafted charter with its authority",
+          "Does the work need several specialists?\n          a lead splits the goal by who ",
+          "I already know which kind I want",
+          "Cancel"
+        ]
+      },
+      "wrap": {
+        "inside": true,
+        "atLast": true,
+        "active": "Cancel"
+      },
+      "keys": {
+        "inside": true,
+        "atFirst": true,
+        "paletteOpen": false,
+        "modal": "true"
+      },
+      "step": {
+        "title": "New specialist \u00b7 step 1 of 6 \u2014 Job",
+        "active": "wzName",
+        "inside": true,
+        "namedLabel": "What should this specialist be called?"
+      },
+      "close": {
+        "dialogOpen": false,
+        "backgroundInert": false,
+        "active": "\uff0b New specialist"
+      },
+      "procedureError": {
+        "connected": true,
+        "visible": true,
+        "displayed": "Could not load procedures: no expert 'missing-test-owned-expert'\nRetry procedures",
+        "alert": "Could not load procedures: no expert 'missing-test-owned-expert'",
+        "retry": true
+      },
+      "procedureRetry": {
+        "selectedExpert": "beta",
+        "procedures": "nothing compiled yet \u2014 a procedure is induced from repeated verified work, then must pass sealed fresh instances before it may run on its own",
+        "alert": false,
+        "retryExercised": true
+      }
+    },
+    "visual_qa": "Unannotated inline screenshot inspected; modal readable without clipped controls. No exported screenshot receipt.",
+    "excluded": [
+      "Earlier modal implementation selected a collapsed-details button; actual focus stayed at body. Corrected visibility filter and semantic wizard buttons now pass.",
+      "One huge body-text diagnostic was bounded in subsequent queries; it is not evidence of correct focus.",
+      "Partial fixture directory move was restored after graceful server shutdown; that failed/unexercised procedure setup is excluded. Controlled missing-expert frontend selection uses real GET and restores beta in finally.",
+      "Unsupported browser filePath and stale snapshot clicks are excluded."
+    ]
+  },
+  "implemented": [
+    "Four expert-specific palette shortcuts preserve selected expert; agent roster remains a roster",
+    "Named modal dialogs move focus inside, trap real Tab/Shift+Tab, prevent background command palette, restore opener on Escape and preserve named fields across wizard steps",
+    "Wizard intent cards are real labelled keyboard buttons; collapsed disclosure controls cannot receive initial dialog focus",
+    "Missing/malformed procedure responses show escaped alert and retry; changed selected expert/DOM response is suppressed",
+    "Fresh course-lane experts display COURSE EXPERT instead of unearned TRAINED; home evidence statement is conditional"
+  ],
+  "verification": {
+    "browser": "PASSED controlled real Chrome keyboard/GET/visible DOM; selected beta; zero tasks/provider calls",
+    "visual": "Unannotated inline modal screenshot inspected; no exported screenshot proof",
+    "focused_scripts": [
+      "frontend",
+      "ux",
+      "ui",
+      "uicards",
+      "panel_v2"
+    ],
+    "frontend_exact_restoration": "PASSED original UI bytes restored after live-edit test",
+    "normal_full_current": "NOT_RERUN after Pause/UI changes; prior receiver r2 was183executed/177passed/6skip/0fail,963unchanged"
+  },
+  "excluded": [
+    "Initial modal fix failed initial focus because it chose a collapsed disclosure button; repaired filter and semantic cards pass",
+    "Windows fixture folder move was partial; server stopped gracefully and files restored. That attempt is not an error-response RED; a separate missing-expert frontend state exercises real GET and restores beta in finally",
+    "Stale browser snapshot clicks and unsupported browser filePath are setup failures, not product findings"
+  ],
+  "remaining": [
+    "Real keyboard/screen-reader/device/browser/mobile/contrast matrix and five-user unaided acceptance are unqualified",
+    "Ordinary-user setup, broader false readiness/learning/proof labels and complete end-to-end execution need original family gates",
+    "All native remaining matrix/production owner/provider/discovery/overlay/content/human/install/buyer gates from receipt46 remain",
+    "One final independent review/current frozen full suite/canonical source ownership and commit remain"
+  ],
+  "scope": "Both-product local progress only; original family statuses and38-packet acceptance unchanged. Native receipt46 sources remain byte-exact. No approved live model/private source/user study/deployment/handover acceptance."
+}

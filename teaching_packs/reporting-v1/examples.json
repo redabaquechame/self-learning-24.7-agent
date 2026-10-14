@@ -1,0 +1,20 @@
+{
+  "schema": "tutor.examples/1",
+  "examples": [
+    {
+      "example_id": "worked-group-total",
+      "skill_ids": ["reporting-concept-total", "reporting-procedure-group"],
+      "source_refs": ["reporting-official:rev-1:grouping", "reporting-asset:rev-1:safe-data"],
+      "problem": "Produce totals for two regions from synthetic integer minor-unit amounts.",
+      "methods": [
+        {"method_id": "sorted-scan", "steps": ["Sort rows by region.", "Accumulate each region once.", "Compare the sorted totals."]},
+        {"method_id": "map-accumulator", "steps": ["Create an empty mapping.", "Add each row amount to its region key.", "Sort mapping keys for output."]}
+      ],
+      "misconceptions": [
+        "Formatting currency before summing can introduce rounding errors.",
+        "Dropping duplicate amounts is incorrect when distinct rows share the same value.",
+        "A visually plausible total is not verified until recomputed from the source rows."
+      ]
+    }
+  ]
+}

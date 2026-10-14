@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 135, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 52, in main
+    api = module()
+          ^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_investigation.py", line 25, in module
+    raise AssertionError('SC-1D unknown-app investigation behavior is not implemented') from None
+AssertionError: SC-1D unknown-app investigation behavior is not implemented

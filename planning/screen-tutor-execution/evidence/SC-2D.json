@@ -1,0 +1,103 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-2D",
+  "recorded_at_utc": "2026-09-15T12:03:18Z",
+  "verdict": "NATIVE_OFFLINE_SESSION_AND_XAML_PARTIAL_REVIEWED_DEPENDENCY_USABILITY_AND_INSTALLED_JOURNEY_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "session_view_model_sha256": "d54621c7433ca993fb009b7749eda8a20db7787345c24c563908f7dc831d6420",
+    "onboarding_xaml_sha256": "a5f1cae1c20e3eac2dd4b518ae813e194edd54dad86088c14033f4c3e86280ad",
+    "onboarding_code_sha256": "b9947019cdcdd32629cd49a49281c2124fa3dfb071d961c149ede867d63157ca",
+    "session_window_xaml_sha256": "692c97a403d004e8a90ede006328148d874aac49c9b09e2d76e206537f949efa",
+    "session_window_code_sha256": "511c024993bc61b30baa5b702de9d6acfe1e96b8fba149833b861ad8ef7690bf",
+    "native_test_sha256": "492841cd328be3e816ecce23380a5be2778022b27a15af2491bb5fdc76947297",
+    "adr_sha256": "d087a26eb9bab749e89e050b598a2b2e7435d0341b8e0647362c0be885b66129",
+    "review_sha256": "d431d696f6a7e52ed057dffb2310f5c3329e687e5c4dcc7e5b281e3c5f070b10"
+  },
+  "environment": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "rid": "win-x64",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_runtime": "10.0.12",
+    "windows_app_sdk": "2.4.0",
+    "interactive_session": true
+  },
+  "artifacts": [
+    "companion/windows/ScreenTutor/SessionViewModel.cs",
+    "companion/windows/ScreenTutor/Onboarding.xaml",
+    "companion/windows/ScreenTutor/Onboarding.xaml.cs",
+    "companion/windows/ScreenTutor/SessionWindow.xaml",
+    "companion/windows/ScreenTutor/SessionWindow.xaml.cs",
+    "tests/native/ScreenTutor.ContractTests/Program.cs",
+    "planning/screen-tutor/SC-2D_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-013-companion-session-continuity.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "dotnet build tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --configuration Release; dotnet run --project tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --no-build --configuration Release",
+      "exit_code": 0,
+      "result": "zero warnings/errors; real XAML instantiated on an STA thread; ordered five-step journey, no-mic/offline text fallback, source-safe continuity, distinct controls, modes, focus and accessibility preferences passed"
+    },
+    {
+      "command": "python tests/test_tutor_native_session.py; python tests/test_tutor_feature_off.py; python tests/test_tutor_environment_lock.py; python tests/test_frontend.py; python tests/test_package.py; git diff --check",
+      "exit_code": 0,
+      "result": "source/session request boundaries and feature-off isolation remain green; every ADR shape validates; frontend and 534-member package checks pass; no diff whitespace errors"
+    }
+  ],
+  "acceptance_tests": {
+    "X022A": "PASSED_NATIVE_OFFLINE_MECHANISM_ONLY: real compiled XAML and view-model state complete the ordered synthetic checklist and preserve draft/goal while invalidating stale source observations",
+    "X022B": "PASSED_NATIVE_OFFLINE_MECHANISM_ONLY: close, speech stop, sharing stop, task cancel and Stop All have distinct state effects; access keys, automation names, focus target, text scale and reduced motion are present"
+  },
+  "native_witnesses": {
+    "journey": "the real Onboarding UserControl instantiated, rejected out-of-order ASK, completed SUMMON/SELECT/ASK/SHOW/STOP, exposed names for all steps and reset deterministically",
+    "continuity": "panel close preserved draft, goal, source, speech and task; source replacement cleared observation identity and incremented its epoch; individual stops affected only their declared state",
+    "accessibility_mechanism": "compiled XAML includes access keys, automation names and cyclic tabs; view model bounds text scale and records reduced motion and question focus restoration",
+    "regression": "the same executable retained current audio, canvas, geometry and real test-owned capture witnesses"
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-2D_REVIEW.md",
+    "verdict": "APPROVED_FOR_NATIVE_OFFLINE_SESSION_AND_XAML_MECHANISM_DEPENDENCY_USABILITY_AND_INSTALLED_JOURNEY_BLOCKED",
+    "unresolved_critical_findings_in_local_scope": 0,
+    "dimensions": ["security", "correctness", "accessibility mechanism", "maintainability"]
+  },
+  "suite_context": {
+    "latest_complete_campaign": "SC-3 exact-source campaign before SC-2D source was added",
+    "executed": 174,
+    "passed": 171,
+    "skipped": 3,
+    "failed": 0,
+    "current_source_full_suite_rerun": false,
+    "reason": "SC-2D current-source evidence uses the native executable plus affected Python, environment, frontend and package checks; a new complete campaign is deferred until the next cross-packet checkpoint"
+  },
+  "blockers": [
+    {
+      "gate": "UPSTREAM_PACKET_ACCEPTANCE",
+      "reason": "SC-2A visible grounding and SC-2B content/human qualification remain open",
+      "unblocks_when": "both packet acceptance gates pass"
+    },
+    {
+      "gate": "INSTALLED_VISIBLE_JOURNEY",
+      "reason": "the XAML was instantiated in the native contract executable, but the installed companion journey was not exercised through private source selection, provider answer and visible production overlay",
+      "unblocks_when": "the exact signed/installed build completes summon through Stop with correlated session and render evidence"
+    },
+    {
+      "gate": "NOVICE_USABILITY",
+      "reason": "no consented novice participants or time-to-meaningful-success measurements exist",
+      "unblocks_when": "the frozen novice protocol passes with recorded friction, failures, recovery and task outcome"
+    },
+    {
+      "gate": "ACCESSIBILITY_QUALIFICATION",
+      "reason": "metadata and keyboard mechanics exist, but no real screen reader, keyboard-only observer, OS text scaling or reduced-motion setting was tested",
+      "unblocks_when": "the declared assistive-technology matrix passes on the exact build"
+    },
+    {
+      "gate": "INTERRUPTED_MULTI_MONITOR_JOURNEY",
+      "reason": "no two-monitor source transition or externally interrupted installed session ran",
+      "unblocks_when": "native journey tests prove focus, stale suppression and recovery across supported monitor/DPI transitions"
+    }
+  ],
+  "scope": "Compiled NATIVE WPF session/XAML mechanism with deterministic offline witnesses. No installed end-to-end novice journey, private source picker completion, live answer, visible production highlight, screen-reader certification, usability, deployment, release or market-superiority claim is made."
+}

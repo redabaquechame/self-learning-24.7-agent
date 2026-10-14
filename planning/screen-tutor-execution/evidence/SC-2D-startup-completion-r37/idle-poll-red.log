@@ -1,0 +1,12 @@
+[native bootstrap] actual corrupt version, foreign host PID, wrong key and foreign session fail with owned child teardown
+[native connection] real owned native child and Python authenticated pipe traffic/Stop checked
+[native IO] timed-out pipe becomes unavailable; actual hung Python read is cancelled promptly by Stop
+[native failures] actual partial header, peer exit and replayed HELLO refuse and close owned connection
+[native pending startup] cancellation interrupts actual missing-pipe wait and closes its owned child within0.5s
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 154, in <module>
+    check_native_connection()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 130, in check_native_connection
+    assert callable(getattr(idle, 'poll', None)), 'healthy idle connection has no non-destructive polling route'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: healthy idle connection has no non-destructive polling route

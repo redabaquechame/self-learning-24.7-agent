@@ -1419,23 +1419,31 @@ class Agent:
         return d
 
     def call_model(self, role, messages, use_tools=True, escalated=False,
-                   purpose="step", task_id=None, task=None):
+                   purpose="step", task_id=None, task=None,
+                   qualified_request=None):
         """Call the model with exponential backoff (5 tries) on the primary
         provider, then the fallback provider. Returns (message, usage, provider).
         When escalated, the role's escalate_provider/escalate_model is tried
         first — cheap by default, expensive on the hard steps."""
         rc = self.role_cfg(role)
+        qualified = None
+        if qualified_request is not None:
+            import tutor_gateway
+            qualified = tutor_gateway.inspect_dispatch_authority(
+                qualified_request, messages)
         attempts = []
         evaluation = self.cfg.get("evaluation", {}) or {}
         single_provider = bool(evaluation.get("single_provider_attempt"))
-        if escalated and rc.get("escalate_model") and not single_provider:
+        if qualified is not None:
+            attempts.append((qualified["provider"], qualified["model"]))
+        elif escalated and rc.get("escalate_model") and not single_provider:
             attempts.append((rc.get("escalate_provider", rc["provider"]),
                              rc["escalate_model"]))
         # CAPABILITY ROUTING: when the role is on route = "auto", the model
         # is chosen from this expert's own measured outcomes (cheapest that
         # clears the gate bar). The configured pair always stays as the
         # fallback below, so routing can never strand a role.
-        routed = self._route_for(role, task=task) if not single_provider else {
+        routed = self._route_for(role, task=task) if not single_provider and qualified is None else {
             "routed": False, "rule": "ablation",
             "why": "raw evaluation uses one configured provider attempt"}
         if routed.get("stop"):
@@ -1445,10 +1453,11 @@ class Agent:
             raise RuntimeError(
                 f"the cognitive scheduler authorised no strategy for this "
                 f"task: {routed.get('why', 'no reason recorded')}")
-        if routed.get("routed"):
+        if routed.get("routed") and qualified is None:
             attempts.append((routed["provider"], routed["model"]))
-        attempts.append((rc["provider"], rc["model"]))
-        if rc.get("fallback_provider") and not single_provider:
+        if qualified is None:
+            attempts.append((rc["provider"], rc["model"]))
+        if rc.get("fallback_provider") and not single_provider and qualified is None:
             attempts.append((rc["fallback_provider"], rc.get("fallback_model", rc["model"])))
         # A configured pair can also be the routed or escalation pair. Do not
         # silently multiply its retry allowance by listing it twice.
@@ -1468,7 +1477,7 @@ class Agent:
                             f"in agent.env (python bootstrap.py --key "
                             f"{prov.get('api_key_env', 'NAME')}=...)")
                 continue
-            allowed = self.allowed_tools(role) if use_tools else set()
+            allowed = self.allowed_tools(role) if use_tools and qualified is None else set()
             tool_defs = ([t for t in TOOL_DEFS
                           if t["function"]["name"] in allowed]
                          if use_tools and prov.get("native_tools", True) else [])
@@ -1476,10 +1485,16 @@ class Agent:
             # including mocks, fallbacks, compactors and judges. Over-limit
             # requests stop before network or scripted-provider execution.
             import context
-            context.assert_request_budget(
-                self.cfg, prov_name, model, messages,
-                self.max_output_tokens if self.max_output_tokens > 0 else None,
-                tool_defs)
+            if qualified is None:
+                context.assert_request_budget(
+                    self.cfg, prov_name, model, messages,
+                    self.max_output_tokens if self.max_output_tokens > 0 else None,
+                    tool_defs)
+            else:
+                context.assert_qualified_image_request_budget(
+                    self.cfg, prov_name, model, messages,
+                    self.max_output_tokens if self.max_output_tokens > 0 else None,
+                    qualified["media_accounting"])
             if prov.get("type") == "mock":
                 t0 = time.time()
                 msg = self._call_mock(prov, messages)
@@ -1487,7 +1502,8 @@ class Agent:
                 # by charging mock tokens, and a ledger that skipped them
                 # would make the daily brake untestable
                 cost = self._cost(prov_name, self._mock_usage, role)
-                self._record_spend(cost)
+                if qualified is None:
+                    self._record_spend(cost)
                 self._meter(purpose, role, prov_name, model,
                             self._mock_usage, cost, task_id, t0)
                 self.last_call = {"provider": prov_name, "model": model}
@@ -1495,6 +1511,8 @@ class Agent:
             for attempt in range(1 if single_provider else 5):
                 _t0 = time.time()
                 try:
+                    if qualified is not None:
+                        qualified["continue_check"]()
                     payload = {"model": model, "messages": messages}
                     if self.max_output_tokens > 0:
                         payload["max_tokens"] = self.max_output_tokens
@@ -1549,7 +1567,8 @@ class Agent:
                     # money the daily breaker never saw — and compaction fires
                     # on the longest tasks, so the ceiling under-counted worst
                     # exactly where it mattered most.
-                    self._record_spend(_cost)
+                    if qualified is None:
+                        self._record_spend(_cost)
                     # the pair that ACTUALLY served this call, for per-step
                     # attribution — task["provider"]/["model"] alone recorded
                     # only the LAST step's server, so a failover task's whole

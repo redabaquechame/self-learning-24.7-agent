@@ -1,0 +1,150 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-5A",
+  "recorded_at_utc": "2026-09-15T14:45:42Z",
+  "verdict": "LOCAL_AND_NATIVE_SYNTHETIC_SCOPED_CONTEXT_PARTIAL_REVIEWED_DEPENDENCY_VENDOR_AND_REAL_JOURNEY_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_context_sha256": "a25b564f425e74b9050fb6a2e203b08f34f2cac2e12a0ff9f78151ee0ee7904e",
+    "context_test_sha256": "2a4f0c1d9a2bc1c3e98bf04b94ce9eab6b7b947cc1da3c8d07ea91c19da5741d",
+    "native_context_sha256": "e6bcaff383b5780bd04bfa8d3c21585ac318d0aa23207718cdbf976ee9ed1506",
+    "native_test_sha256": "e5602711425e8af3487ebccd7829fdfe26f53a288748a010d1a4dbc53edeb37a",
+    "runner_sha256": "c55ee8243c1cdc39b65faf62421f74a1d3bfff806fa623cf1daf56f289eea5e3",
+    "evidence_registry_sha256": "b27105a11fdb5bcce139bf7ef742ee16ad7b945360ac3cc16dd0e8eb7863e095",
+    "doctor_sha256": "8c3ba3c2f450108d116b9433930297e68ec0d4328ea57db4e6b357c9c18dae22",
+    "mutation_registry_sha256": "975228ebc18a4ac0dde5e0f07446676f1ed289a62727892ff6ad5c29129c72db",
+    "highlight_decision_sha256": "b3906f6504a14123721b694cfcf09a23974e0ef37d7b3ec5883c2390243c3816",
+    "adr_sha256": "6551fa12245d871a2c47a082c8755df58684e1271b9419f78ca99fb37a460922",
+    "review_sha256": "02c621303929ab6c1ad508dfb7c610500f2d724edb1dd6415f54a2d641378e05",
+    "full_suite_log_sha256": "60e90d5039aa94adff0719b5498b6b3658ce8d606e6ff6d6a67cc7cbd96234a7",
+    "native_log_sha256": "b29ffcf8e2d84a108b3bf9e435699ecb5a95e7821e9ba36c83bf474bf74d9ed6",
+    "mutation_log_sha256": "3baa9c45d1d0f1f6d7b970620882e539d47df1e9b50d7d94850915381e98e6eb"
+  },
+  "environment": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "rid": "win-x64",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_runtime": "10.0.12",
+    "windows_app_sdk": "2.4.0",
+    "interactive_session": true
+  },
+  "artifacts": [
+    "tutor_context.py",
+    "tests/test_tutor_context.py",
+    "companion/windows/ScreenTutor/ContextBoundary.cs",
+    "tests/native/ScreenTutor.ContractTests/Program.cs",
+    "planning/screen-tutor/HIGHLIGHT_DECISION.md",
+    "planning/screen-tutor/SC-5A_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-017-scoped-context-provenance-and-optional-connectors.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_context.py",
+      "exit_code": 0,
+      "result": "offline T058-T061/X011A/X011B passed for exact user/account/tenant/project scope, explicit selection, inert imported instructions, summary provenance and trust ceiling, contradiction visibility, independent capture/transmit/retain scopes, tamper/removal/revocation/account-switch invalidation, continuity and connector absence"
+    },
+    {
+      "command": "dotnet build tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --configuration Release; dotnet run --project tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --no-build --configuration Release",
+      "exit_code": 0,
+      "result": "zero warnings and zero errors; compiled native context scope, inert-content, transmit-filter, removal, account-switch and connector-absence witnesses passed while earlier native capture/canvas/audio/locale/media/journey witnesses remained green"
+    },
+    {
+      "command": "python mutate_check.py 'tutor context:'",
+      "exit_code": 0,
+      "result": "the project-boundary-removal mutation was caught: 1 caught, 0 missed, 0 skipped; restored tutor_context.py compiled successfully"
+    },
+    {
+      "command": "python tests/test_tutor_feature_off.py; python tests/test_frontend.py; python tests/test_doctor.py; python tests/test_package.py; python tests/test_invariants.py; python tests/test_tutor_environment_lock.py; python tests/test_tutor_native_session.py",
+      "exit_code": 0,
+      "result": "affected feature-off, frontend, doctor, package, invariant, environment-lock and native-session checks pass; 141 top-level modules, 178 registered tests and 229 mutations reconcile; the archive contained 564 members before this evidence/state metadata was added"
+    }
+  ],
+  "acceptance_tests": {
+    "T058": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: another project/account/tenant/user cannot attach; no real private connector source was used",
+    "T059": "PARTIAL_LOCAL_SYNTHETIC: source removal invalidates the exact old view and derived summary while preserving explicit draft/goal continuity",
+    "T060": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: core tutoring remains ready with connector null and global capture false",
+    "T061": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: revocation and account switch wipe source bytes, invalidate handles and prohibit silent reattachment",
+    "X011A": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: optional connector absence does not disable the core route or expand capture",
+    "X011B": "PARTIAL_LOCAL_AND_NATIVE_SYNTHETIC: imported instructions remain untrusted data and capture/transmit/retain scopes remain distinct"
+  },
+  "context_contract": {
+    "source_kinds": ["FILE", "MESSAGE", "MEETING", "SCREEN"],
+    "purposes": ["capture", "transmit", "retain"],
+    "identity": ["user_id", "account_id", "tenant_id", "project_id", "source_revision", "content_sha256"],
+    "provenance": ["origin_ref", "observed_at_utc", "access", "deletion_eligible"],
+    "imported_instruction_authority": false,
+    "connector_required": false,
+    "global_capture_enabled": false,
+    "provider_calls": 0,
+    "private_sources_used": 0
+  },
+  "highlight_research": {
+    "evidence_date": "2026-09-15",
+    "sources": [
+      "https://highlightai.com/privacy",
+      "https://highlightai.com/connections",
+      "https://docs.highlightai.com/welcome",
+      "https://highlightai.com/terms"
+    ],
+    "decision": "ADAPTER_ABSENT_PLATFORM_OWNED_CONTEXT_SHIPS_INDEPENDENTLY",
+    "supported_private_context_embedding_contract_found": false,
+    "adapter_implemented": false,
+    "note": "Public product, privacy and terms pages were inspected. No maintained authentication, endpoint, scope, export/deletion, rate, versioning and commercial private-context embedding contract was established. Absence of a public contract does not prove that no private agreement can exist."
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-5A_REVIEW.md",
+    "verdict": "APPROVED_FOR_LOCAL_AND_NATIVE_SYNTHETIC_SCOPED_CONTEXT_SCOPE_DEPENDENCY_VENDOR_AND_REAL_JOURNEY_BLOCKED",
+    "unresolved_critical_findings_in_local_native_synthetic_scope": 0,
+    "dimensions": ["privacy", "security", "correctness", "performance", "maintainability"]
+  },
+  "regression_history": [
+    {
+      "log": "C:/Users/redab/AppData/Local/Temp/screen-tutor-sc5a-runall-final-v1.log",
+      "exit_code": 1,
+      "result": "174 passed, 3 skipped, 1 failed",
+      "failure": "test_tutor_environment_lock.py rejected ADR-017 because the required Failure criteria heading was absent",
+      "resolution": "added explicit Failure criteria and Reversal sections; focused lock test passed; ran a complete fresh campaign"
+    }
+  ],
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 178,
+    "passed": 175,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no selected isolated acquisition sandbox for this run"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal_records": 1,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "The clean campaign ran after all SC-5A Python/native product code, tests, ADR, review, Highlight decision, registries and public count documentation were final. Evidence/state metadata was added after the source-exact run."
+  },
+  "blockers": [
+    {
+      "gate": "UPSTREAM_CONTENT_QUALIFICATION",
+      "reason": "SC-1C remains unaccepted because no independent subject-matter reviewer approved the exact candidate teaching pack",
+      "unblocks_when": "the dependency passes its required content-review tier"
+    },
+    {
+      "gate": "REAL_CONNECTOR_REVOCATION_AND_DELETION",
+      "reason": "no real authorized file/message/meeting connector account, retention backend or deletion export was exercised",
+      "unblocks_when": "supported connectors pass correlated access, revocation, deletion, account-switch and derivative-cache tests"
+    },
+    {
+      "gate": "OPTIONAL_HIGHLIGHT_ADAPTER",
+      "reason": "current public primary sources did not establish a supported commercial private-context embedding contract",
+      "unblocks_when": "a maintained public contract or authorized commercial agreement covers authentication, scopes, privacy, deletion, data destinations, pricing, limits, support and versioning"
+    },
+    {
+      "gate": "REAL_NATIVE_CONTEXT_JOURNEY",
+      "reason": "the compiled native witness used synthetic records and no visible private-source picker, assistive technology or installed account-switch journey ran",
+      "unblocks_when": "a consented installed native journey passes on supported devices with correlated privacy and accessibility evidence"
+    }
+  ],
+  "scope": "LOCAL Python plus NATIVE compiled deterministic synthetic context contracts. No real connector, private content, background desktop observation, external provider, independent content review, human journey, deployment, release or market-superiority claim is made."
+}

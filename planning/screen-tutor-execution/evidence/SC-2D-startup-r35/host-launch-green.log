@@ -1,0 +1,8 @@
+[host launch] current sealed owner launch and Stop/late-start suppression checked without process/model calls
+[host-answer] actual validated instruction returned defensively; wrong identity/missing observation/unready/feature-off dispatch nothing
+[host-release] grant/consent/identity/revision/epoch/deadline/Stop changes and forged instructions release no answer
+[sealed-host] real learning.v1 binding, exact native epoch/session and finite source authorization; forged/cross-surface/cross-tenant/stopped requests refuse
+[host-stop] stalled selection does not delay Stop and its late authorization is refused
+[host-selection] forged/malformed/expired/retired sources refuse, lifetime caps15min and native epochs stay exact
+[host-binding-read] identity change inside the policy reader refuses before model dispatch
+PASS test_tutor_host (service release only; native host/transport/provider journey remains unqualified)

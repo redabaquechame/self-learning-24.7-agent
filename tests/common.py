@@ -8,6 +8,7 @@ and whatever mock scripts it declares. Production state.json is never touched.
 import json
 import os
 import shutil
+import stat
 import subprocess
 import sys
 import time
@@ -37,6 +38,18 @@ inbox_settle_seconds = 0
 
 {roles}
 """
+
+
+def _remove_readonly(func, path, _exc_info):
+    """Let rmtree remove Git object files on Windows.
+
+    Git deliberately marks loose objects read-only.  These paths are inside a
+    test-owned sandbox, so clearing that bit is cleanup, not a source-tree
+    mutation.  Any other deletion failure still propagates to the bounded
+    retry below.
+    """
+    os.chmod(path, stat.S_IWRITE)
+    func(path)
 
 
 def agent_setting(root, line):
@@ -90,11 +103,12 @@ def make_sandbox(name, providers, roles, scripts, reflect_after="", extra="",
     # OneDrive/antivirus can hold a just-deleted directory for a moment, so
     # rmtree "succeeds" while the path still exists — retry instead of dying
     for attempt in range(10):
-        shutil.rmtree(sb, ignore_errors=True)
         try:
+            if os.path.lexists(sb):
+                shutil.rmtree(sb, onerror=_remove_readonly)
             os.makedirs(sb)
             break
-        except FileExistsError:
+        except OSError:
             if attempt == 9:
                 raise
             time.sleep(0.3)

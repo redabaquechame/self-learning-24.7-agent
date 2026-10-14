@@ -1,0 +1,86 @@
+{
+  "schema": "sc1d-frozen-local-case-coverage/1",
+  "created_at_utc": "2026-10-13T04:35:35.730652+00:00",
+  "fixture": "evaluation/tutor/unknown_apps/cedar-ledger-1.2.json",
+  "fixture_sha256": "b2867da359af2ee70bc31c37a702de75b7356e5d4b2434df14d67c13571f48e6",
+  "source_sha256": "f425ca89d844f47aaebd4f9cb0be24691f3a47709bb63d2806e77a82d0a53843",
+  "attempts": 72,
+  "case_families": 6,
+  "cases": [
+    {
+      "case": "exact-quote",
+      "attempts": 12,
+      "expected_outcome_matches": 12,
+      "unexpected_failures": [],
+      "latency_ms": {
+        "min": 1.076,
+        "median": 1.117,
+        "max": 8.953
+      },
+      "latency_scope": "source-bound explain+verify only; excludes fixture setup, provider, UI and human comprehension"
+    },
+    {
+      "case": "missing-doc",
+      "attempts": 12,
+      "expected_outcome_matches": 12,
+      "unexpected_failures": [],
+      "latency_ms": {
+        "min": 0.091,
+        "median": 0.093,
+        "max": 0.106
+      },
+      "latency_scope": "source-bound explain+verify only; excludes fixture setup, provider, UI and human comprehension"
+    },
+    {
+      "case": "outside-version",
+      "attempts": 12,
+      "expected_outcome_matches": 12,
+      "unexpected_failures": [],
+      "latency_ms": {
+        "min": 0.555,
+        "median": 0.569,
+        "max": 0.631
+      },
+      "latency_scope": "source-bound explain+verify only; excludes fixture setup, provider, UI and human comprehension"
+    },
+    {
+      "case": "tampered-digest",
+      "attempts": 12,
+      "expected_outcome_matches": 12,
+      "unexpected_failures": [],
+      "latency_ms": {
+        "min": 0.462,
+        "median": 0.47,
+        "max": 0.503
+      },
+      "latency_scope": "source-bound explain+verify only; excludes fixture setup, provider, UI and human comprehension"
+    },
+    {
+      "case": "foreign-tenant",
+      "attempts": 12,
+      "expected_outcome_matches": 12,
+      "unexpected_failures": [],
+      "latency_ms": {
+        "min": 0.019,
+        "median": 0.019,
+        "max": 0.025
+      },
+      "latency_scope": "source-bound explain+verify only; excludes fixture setup, provider, UI and human comprehension"
+    },
+    {
+      "case": "permission-revoked",
+      "attempts": 12,
+      "expected_outcome_matches": 12,
+      "unexpected_failures": [],
+      "latency_ms": {
+        "min": 0.015,
+        "median": 0.015,
+        "max": 0.017
+      },
+      "latency_scope": "source-bound explain+verify only; excludes fixture setup, provider, UI and human comprehension"
+    }
+  ],
+  "unexpected_failures": 0,
+  "content_or_provider_or_human_qualified": false,
+  "scope_limit": "One synthetic unknown-app fixture; mechanical citation/access/version correctness only. No vendor, provider semantics, real-app action, installed UI or learner participated."
+}

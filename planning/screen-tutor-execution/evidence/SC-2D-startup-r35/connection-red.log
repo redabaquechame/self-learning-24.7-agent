@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 44, in <module>
+    check_native_connection()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 14, in check_native_connection
+    assert spec is not None, 'actual native startup/bootstrap connection is absent'
+           ^^^^^^^^^^^^^^^^
+AssertionError: actual native startup/bootstrap connection is absent

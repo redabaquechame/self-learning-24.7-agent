@@ -1,0 +1,22 @@
+{
+  "schema": "tutor.audio-locale-matrix/1",
+  "status": "NOT_RUN",
+  "generated_for": "SC-3A",
+  "rows": [
+    {
+      "locale_id": "en-CA",
+      "device_class": "UNSELECTED",
+      "provider_model": "UNSELECTED",
+      "content_pack_sha256": null,
+      "comprehension_rate": null,
+      "word_error_rate": null,
+      "caption_error_rate": null,
+      "barge_in_passed": null,
+      "authority_isolation_passed": null,
+      "device_change_pause_passed": null,
+      "evidence_tiers": [],
+      "status": "NOT_RUN"
+    }
+  ],
+  "qualification_rule": "A locale/device row remains NOT_RUN until native, provider and content-review evidence is attached; null measurements are unknown, never zero."
+}

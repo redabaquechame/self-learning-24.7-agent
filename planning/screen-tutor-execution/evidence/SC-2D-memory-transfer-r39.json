@@ -1,0 +1,44 @@
+{
+  "schema": "native-host-memory-transfer-progress/1",
+  "recorded_at_utc": "2026-10-13T10:53:07.351753+00:00",
+  "accepted": false,
+  "status": "TASK4_PARTIAL_ACTUAL_CAPTURE_MEMORY_PNG_VERIFIED",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "tutor_frames.py": "bc07c19da2c15cd12c944db95eba6a0b9dd9609fbc4324981a9c8297fb95927f",
+    "tests/test_tutor_frames.py": "27cdfae79fb4bb4ad7b8722777bf2fa4ed92845cb8d83076bb67ab9b2ac1a7fe",
+    "companion/windows/ScreenTutor/FrameTransfer.cs": "69168bcee2aab4e44e5cf8171425e29d06cac3f30ba0f5d3dbfb99d61b2b7920",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "1667953460275eb9922c441d65c5e66d6a1f54990a57026afd4a8c14379cce3c"
+  },
+  "raw_logs": {
+    "frame-memory-red.log": "87508915637516e0ac8be29190435c808a80f8ff19fc9e85f68268f5123fa163",
+    "frame-memory-green-build.log": "b4e757d10d95fc0fc868d96347ff1e783793cc701c74510f4cf8d63f28001bcb",
+    "frame-memory-green.log": "b755524a3f1da6365c5cf6881029cc3eb32b1500590c25985ccc62f8de3ae43f",
+    "frame-reader-red.log": "71bc7255da6ad192f950bd35c432d42a0fb7e126fa1735058f1ae3d38dad0fe2",
+    "frame-reader-green-local.log": "1df05ed7901fe21acb6799ca180214fe962c458931619777a9cf1b9056949c6c",
+    "frame-cross-process-build.log": "e8b21b826b9351b1601c02f51e148d91258b3252956c99fbc6b7adb92145a8b1",
+    "frame-cross-process-native.log": "16f243d270bee413ba39800849f292fd7f5af543f23502504051131ef1d87ea6",
+    "frame-cross-process-python.log": "f130aeb3e23ab58a01982706add8f8aa74ef8b69b70d4ab1c749f384926854f1",
+    "frame-cross-process-native-r2.log": "16f243d270bee413ba39800849f292fd7f5af543f23502504051131ef1d87ea6",
+    "frame-cross-process-python-r2.log": "f130aeb3e23ab58a01982706add8f8aa74ef8b69b70d4ab1c749f384926854f1",
+    "actual-frame-reference-r2.json": "93a16aebd90949009cec4cc03bd21a9cba4695dbd002a86897df4b84e0ff7d84",
+    "memory39-test_tutor_frames.py.log": "1df05ed7901fe21acb6799ca180214fe962c458931619777a9cf1b9056949c6c",
+    "memory39-test_tutor_host.py.log": "bb5403ea75a38f25529e0c73e6f9e85536088049d4fb87a33442de593939b532",
+    "memory39-test_tutor_transport.py.log": "d46f7ef8f306200f3f6cccf97342db5bd347b26f2d14b7f3fcc6b90abea97188",
+    "memory39-test_tutor_gateway.py.log": "a3a271ed0c765c28bd54e3f365f7e0cc812912dcbd439e275d16f9b9afdf65e0",
+    "memory39-test_tutor_feature_off.py.log": "c1faf130bc519b2722323bacf065aad3f3cc85684698bfffb1ed9fe461c94a4d"
+  },
+  "actual_scope": "real test-owned Windows form capture/native protected memory/Python exact size+digest/one-shot/PNG. Known public fixture key only; no private source/model/installed user journey.",
+  "r1_driver": "memory checks passed;2s child-close wait expired; child force-terminated; excluded from green driver result",
+  "r2_driver": "same source repeated with16s existing source-close allowance; memory checks passed and child exited0",
+  "remaining": [
+    "current per-launch source authorization/publisher/reader connection wiring",
+    "EphemeralImageStore/current observation admission",
+    "negative foreign/oversized/reused/changed/revoked/expired/Stop cases and current full native executable",
+    "Task5 visible Ask/current answer",
+    "Task6 final package review/frozen full suite",
+    "all original actual overlay/installed/provider/content/human/buyer-release gates"
+  ],
+  "full_current_candidate_retested": false,
+  "private_capture_provider_release": false
+}

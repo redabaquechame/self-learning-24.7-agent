@@ -68,7 +68,16 @@ TESTS = ["test_resume.py", "test_lock.py", "test_json_toolcall.py",
          "test_transactional_contracts.py", "test_correctness_patch.py",
          "test_ledger_defects.py", "test_http_operators.py",
          "test_reconciler.py", "test_watchdog.py", "test_sentinels.py",
-         "test_twin.py", "test_twin_measurement.py", "test_computeruse.py", "test_computeruse_live.py", "test_computer_session.py", "test_computer_postconditions.py", "test_computerbench.py"]
+         "test_twin.py", "test_twin_measurement.py", "test_computeruse.py", "test_computeruse_live.py", "test_computer_session.py", "test_computer_postconditions.py", "test_computerbench.py",
+         "test_tutor_feature_off.py", "test_tutor_environment_lock.py",
+         "test_learning_surface_parity.py", "test_tutor_contracts.py",
+         "test_tutor_native_session.py", "test_tutor_gateway.py",
+         "test_tutor_sources.py", "test_tutor_packs.py", "test_tutor_investigation.py", "test_tutor_host.py", "test_tutor_transport.py", "test_tutor_connection.py", "test_tutor_frames.py",
+         "test_tutor_policy.py", "test_tutor_learner.py",
+         "test_tutor_geometry.py", "test_tutor_canvas.py",
+         "test_tutor_practice.py", "test_tutor_audio.py", "test_tutor_locale.py",
+         "test_tutor_media_index.py", "test_tutor_media.py",
+         "test_tutor_context.py", "test_tutor_human_assessment.py", "test_tutor_human_practice.py", "test_tutor_presentation.py", "test_tutor_authority.py", "test_tutor_runtime.py"]
 
 
 def decode_child_output(raw):

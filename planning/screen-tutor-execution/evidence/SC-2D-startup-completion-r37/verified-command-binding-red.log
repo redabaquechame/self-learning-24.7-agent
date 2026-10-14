@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 185, in <module>
+    check_native_connection()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 52, in check_native_connection
+    check_verified_candidate_boundaries()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_connection.py", line 36, in check_verified_candidate_boundaries
+    assert not spawned.called, 'copied verification proof allows a different launch command'
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: copied verification proof allows a different launch command

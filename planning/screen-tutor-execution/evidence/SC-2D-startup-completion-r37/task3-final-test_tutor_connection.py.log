@@ -1,0 +1,9 @@
+[native candidate] feature-off starts nothing; changed/added/missing dependency and runtime-unavailable cases refuse
+[native bootstrap] actual corrupt version, foreign host PID, wrong key and foreign session fail with owned child teardown
+[native connection] real owned native child and Python authenticated pipe traffic/Stop checked
+[native IO] timed-out pipe becomes unavailable; actual hung Python read is cancelled promptly by Stop
+[native failures] actual partial header, peer exit and replayed HELLO refuse and close owned connection
+[native pending startup] cancellation interrupts actual missing-pipe wait and closes its owned child within0.5s
+[native idle] repeated empty polls preserve readiness and subsequent authenticated traffic
+[native app startup] actual companion inherited-bootstrap handshake/owned teardown checked; no source selected
+PASS test_tutor_connection

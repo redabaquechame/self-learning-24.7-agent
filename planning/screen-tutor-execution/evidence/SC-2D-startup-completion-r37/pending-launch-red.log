@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 322, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 311, in main
+    check_host_launch_lifecycle()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 59, in check_host_launch_lifecycle
+    assert done.wait(0.5), 'host Stop cannot cancel startup before a connection is published'
+           ^^^^^^^^^^^^^^
+AssertionError: host Stop cannot cancel startup before a connection is published

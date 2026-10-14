@@ -1,0 +1,22 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+[transport handshake] mutual challenge, reflected peer, replay, sequence gaps and bounded history checked
+[transport] closed nested request/instruction schemas checked without treating wire identity as authority
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_transport.py", line 170, in decode_message
+    raise TransportRefusal('stale or foreign bridge message')
+tutor_transport.TransportRefusal: stale or foreign bridge message
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 174, in <module>
+    check_operation_binding()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 166, in check_operation_binding
+    assert native.receive(host.send('PAUSE', {'reason_code': 'USER_PAUSE'}, 5000), 1000)['message_type'] == 'PAUSE', 'stale answer stranded current connection sequence'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_transport.py", line 291, in receive
+    message = decode_message(self._key, raw,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_transport.py", line 175, in decode_message
+    raise TransportRefusal('bridge message refused') from error
+tutor_transport.TransportRefusal: bridge message refused

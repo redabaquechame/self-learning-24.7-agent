@@ -1,0 +1,37 @@
+{
+  "reviewer": "atomic_write_review",
+  "recorded_at_utc": "2026-10-13T06:32:18.884528+00:00",
+  "initial_findings": {
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  },
+  "reviewed_hashes": {
+    "fileauth.py": "AB12AE1B151A972BEF341BCB7A5FCD3605C82CD808F318BA5DE1BE0D92EC2C82",
+    "tests/test_correctness_patch.py": "015081F6BAE270B50F7E450A426AC6DB441334D86A3DD81192277AE4ABE2FFDC"
+  },
+  "declined": [
+    "whole platform/installed host/Ask/overlay/provider/release",
+    "complete final candidate not run",
+    "power-loss durability and hostile concurrent directory/junction replacement not reproduced",
+    "POSIX permissions/downstream shared-user consumers not exercised",
+    "Windows extended-length paths beyond ordinary contract not exercised"
+  ],
+  "reviewer_observed": [
+    "native Windows243-character text/binary output and default/invalid encoding",
+    "8 distinct scratch names and whole1000000-byte publication",
+    "fsync before replace and Windows newline behavior",
+    "9 replacement attempts/8 sleeps under transient permission failures",
+    "protected control/runtime/traversal refused before staging",
+    "249-character ordinary Windows destination",
+    "source hashes unchanged during review"
+  ],
+  "coordinator_regrade": {
+    "important": "POSIX ordinary creation permissions changed0644 baseline to0600 initial candidate, reproduced in cached network-none Linux Python",
+    "red": "posix-mode-red.log",
+    "green": "posix-mode-green.log",
+    "fixed_in_single_pass": "short cryptographic exclusive os.open(...,0666), OS umask filtering unchanged; no process-global umask change",
+    "second_review": false
+  },
+  "current_candidate_full_suite": "pending; prior native full-final remains failed"
+}

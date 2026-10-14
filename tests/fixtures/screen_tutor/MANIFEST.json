@@ -1,0 +1,5 @@
+{
+  "schema": "screen-tutor-fixture-manifest/1",
+  "root_policy": "synthetic-only",
+  "fixtures": []
+}

@@ -1,0 +1,123 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-3",
+  "recorded_at_utc": "2026-09-15T11:55:03Z",
+  "verdict": "LOCAL_AND_NATIVE_OFFLINE_CONTROL_PARTIAL_REVIEWED_PROVIDER_CONTENT_HUMAN_AND_LIVE_DEVICE_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_audio_sha256": "b575207adee2a5b9d421a761a6d7f94e94707944692621196dbcc5a39a03ec33",
+    "audio_test_sha256": "10f2deb9a7801034d8edaeb6930b6de195f8e0738a518f8c7e907427a8d0227d",
+    "native_audio_sha256": "bf52962670c047e62e325af72f97d8ead553b1a26b425e33f1448c8b5f6bfd60",
+    "native_test_sha256": "691376cfaa5281bb52b385f277137a4f2aa962e8b931cff2e01048312122a781",
+    "runner_sha256": "3ef9387bf668f9dc09751f996fd310b426b86d753f6593581b0c7a28689db674",
+    "evidence_registry_sha256": "877a094d264271e716c389706b4a9fd1301c86974a9a08e7b4bcf4dee87a6a3a",
+    "doctor_sha256": "83e13f41fdb6b8eff011cbe45c1299b3bdbdd29e85f3039d6119c16988c9a4f4",
+    "mutation_registry_sha256": "95ea332c5a2b3eec7440b7f710e8bc013f26b226ecbfc62ab0f285f0585bc81e",
+    "adr_sha256": "242242fcfbc74461943e32aadc08c6349708ca28cfc0cfcfa5520a2ae08165dd",
+    "review_sha256": "48e14a66232cc1d1a1419711ab10e2d587f677a6a47aaf933e51ad096e49133d",
+    "full_suite_log_sha256": "3d2fa864debcb5ac57bfcba8c54da8d92a653694c5fa0dd1d0b667d4dd6f4b47"
+  },
+  "environment": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "rid": "win-x64",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_runtime": "10.0.12",
+    "windows_app_sdk": "2.4.0",
+    "interactive_session": true
+  },
+  "artifacts": [
+    "tutor_audio.py",
+    "tests/test_tutor_audio.py",
+    "companion/windows/ScreenTutor/AudioSession.cs",
+    "tests/native/ScreenTutor.ContractTests/Program.cs",
+    "planning/screen-tutor/SC-3_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-012-source-separated-bounded-audio-control.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_audio.py",
+      "exit_code": 0,
+      "result": "T046 and T051 plus offline T048-T050 passed: source separation, non-authoritative speech, PTT, reservation, stable effect identity, bounded retries/queue, barge-in, stale suppression, device loss, captions/text fallback and Stop"
+    },
+    {
+      "command": "dotnet build tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --configuration Release; dotnet run --project tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj --no-restore --no-build --configuration Release",
+      "exit_code": 0,
+      "result": "zero warnings and zero errors; native T046-T050 source separation, self-audio rejection, PTT, reservation/retry, response playback, barge-in, stale response, device loss and Stop passed without opening an audio device"
+    },
+    {
+      "command": "python tests/test_tutor_environment_lock.py; python tests/test_package.py; python tests/test_frontend.py; git diff --check",
+      "exit_code": 0,
+      "result": "four governed implementation ADRs recognized; 137 top-level Python modules, 174 registered tests and 225 mutations reconcile; package and frontend checks pass; no diff whitespace errors"
+    },
+    {
+      "command": "python mutate_check.py 'tutor audio'",
+      "exit_code": 0,
+      "result": "the assistant self-audio mutation was caught: 1 caught, 0 missed, 0 skipped"
+    }
+  ],
+  "acceptance_tests": {
+    "T046": "PASSED_LOCAL_AND_NATIVE_OFFLINE: media/assistant approval words never grant consent or create a user request; voice alone is non-authoritative",
+    "T047": "PASSED_NATIVE_OFFLINE_MECHANISM_ONLY: assistant-origin playback is ignored and the self-audio mutation is caught; no acoustic echo path was tested",
+    "T048": "PASSED_LOCAL_AND_NATIVE_OFFLINE_MECHANISM_ONLY: barge-in stops playback, cancels work and suppresses a stale response; no live provider stream was interrupted",
+    "T049": "PASSED_LOCAL_AND_NATIVE_OFFLINE_MECHANISM_ONLY: synthetic device loss releases capture and leaves text fallback; no physical headset was disconnected",
+    "T050": "PASSED_LOCAL_AND_NATIVE_OFFLINE_MECHANISM_ONLY: idle PTT state owns zero requests and both control classes own no stream/device object",
+    "T051": "PASSED_LOCAL_OFFLINE_MECHANISM_ONLY: dispatch requires reservation, retries stop at two, effect identity is stable and queue/history records are bounded"
+  },
+  "native_witnesses": {
+    "parser": "strict tutor.audio-event/1 parsing rejects duplicate, unknown, missing, wrongly typed, oversized and invalid-origin fields",
+    "control": "a deterministic TutorAudioSession exercised source scopes, PTT, reservation, retries, assistant playback, barge-in, device loss and terminal Stop without an audio-device or provider handle",
+    "regression": "the same executable retained the prior 11,819-pixel teaching canvas witness and real test-owned 322x272 capture of 350,336 exact bytes"
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-3_REVIEW.md",
+    "verdict": "APPROVED_FOR_LOCAL_AND_NATIVE_OFFLINE_CONTROL_SCOPE_PROVIDER_CONTENT_HUMAN_AND_LIVE_DEVICE_BLOCKED",
+    "unresolved_critical_findings_in_local_scope": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 174,
+    "passed": 171,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no isolated sandbox selected for its acquisition rung"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal_records": 1,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "The complete campaign ran after SC-3 code, native state tests, ADR, review, registries and documentation were final. The terminal record accounts for all 174 registered tests. This evidence/state metadata was added after the source-exact run."
+  },
+  "blockers": [
+    {
+      "gate": "UPSTREAM_PACKET_ACCEPTANCE",
+      "reason": "SC-1B has no qualified provider route and SC-2B has no qualified content/human evidence",
+      "unblocks_when": "those packet acceptance gates pass"
+    },
+    {
+      "gate": "REALTIME_PROVIDER_QUALIFICATION",
+      "reason": "no realtime STT/TTS provider, exact model, pricing, latency budget or spend ceiling was authorized",
+      "unblocks_when": "an explicitly authorized route passes warm/cold/stop latency, reservation, retry, cancellation and durable accounting tests"
+    },
+    {
+      "gate": "LIVE_AUDIO_DEVICE_QUALIFICATION",
+      "reason": "the packet opened no microphone, media stream, speaker or physical headset",
+      "unblocks_when": "consented supported-device tests pass for PTT, disconnect/reconnect, silent input, device changes, echo and background-speaker isolation"
+    },
+    {
+      "gate": "AUTHENTICATED_COMPANION_INTEGRATION",
+      "reason": "the native class is a state contract and is not connected to the visible authenticated companion or provider gateway",
+      "unblocks_when": "the owned companion adapter obeys exact session/source epochs, scopes, reservations and local cancellation end to end"
+    },
+    {
+      "gate": "CONTENT_HUMAN_ACCESSIBILITY_QUALIFICATION",
+      "reason": "no qualified lesson content, human learning run, speech accessibility assessment or caption quality review occurred",
+      "unblocks_when": "the frozen content and human/native protocols pass with consented participants and the exact build"
+    }
+  ],
+  "scope": "LOCAL Python contracts plus a NATIVE deterministic offline state witness. No microphone, speaker, media capture, acoustic echo path, realtime provider, speech-recognition quality, latency/cost benchmark, human study, accessibility, deployment, release or market-superiority claim is made."
+}

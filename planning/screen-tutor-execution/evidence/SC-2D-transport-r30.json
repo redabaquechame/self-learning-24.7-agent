@@ -1,0 +1,54 @@
+{
+  "schema": "native-host-transport-progress/1",
+  "recorded_at_utc": "2026-10-13T08:23:05.789236+00:00",
+  "status": "TASK2_PARTIAL_LOCAL_CODEC_PIPE_VERIFIED",
+  "accepted": false,
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "tutor_transport.py": "b469fbaba71440d24e9e8bc51b1442bfe56d0cfeb3e26640cd6629b1884db92e",
+    "tests/test_tutor_transport.py": "8b96ce65dae6403a082d2cc1fddce1b483be32227c4a2001e2aa0471d286ae66",
+    "tests/fixtures/tutor_bridge_python_v1.json": "472954d860956108cd7523e9b9d7c97d6fc9f44fb33b6937baa3c109c6703407",
+    "companion/windows/ScreenTutor/BridgeCodec.cs": "21f661c3c0640be2d465c4267fa1ff4210beee4543a13dacc170ecea7f07bdbb",
+    "companion/windows/ScreenTutor/OwnerBridge.cs": "2a7b7ca2f49f983af97fc3d6ef53d27bcd9a441747e06abed09822355849f63a",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "294524a3f37b3afccda3410df434f8e67f3122f33f4a608fae14d32f2170ad0b",
+    "tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj": "ffe7507b51c8800d718c4b2fa00abbe5e8cd807a35f851a790ac02519ae2b3b9",
+    "tests/run_all.py": "7473dd93757b05920984c84b9bd9a9e38bc0f9908397dc7b0f48b7a78e48deff",
+    "evidence.py": "03a56000f1087d45b0970d75da066c7acd7ed630cf72b4814be61148a3decd93"
+  },
+  "logs": {
+    "transport-codec-red.log": "bedc503e7caccbe4277492b9295d09c03704021fa88e475645f35bd1115964fd",
+    "transport-codec-green.log": "597647a0a00eac0e88235c5bcf9dc07ba7d62d907d796b68a6f0fa16f2874514",
+    "transport-handshake-red.log": "76ae4a1dc7a207e5db665c6cab96224a201c8ff837a94b1c2b0af88a415638dd",
+    "transport-handshake-green.log": "60e768409774a3d981e0594d15c81722350801faa6a32fd280f094a0cbd2050c",
+    "transport-native-red.log": "4e66f85cd57ec04695aebb4e768520383665a8bd7030eedda3a568b7eaad63a3",
+    "transport-native-green-build.log": "09bfd1971b12e01b67a23b1ad13b9376b14e3783fbe2c58076719112b925ab1b",
+    "transport-native-green.log": "792d77b2d38fb57bd711525d88e8dee04ebe11b2388fc8dec26bd90a98da48c3",
+    "native-nested-red.log": "1f2da139d02567779759646a8951d23491eee2e8f00bc8c2a8b635159998c999",
+    "native-nested-green-build.log": "0e4fc0930de2b8ca2ae1cfe128384273401219a5eef5b8b5cff3145b315215ee",
+    "native-nested-green.log": "8ed993865f81949028cf18a590c1267237b474f4e371d246323c60923585986b",
+    "pipe-outbound-red.log": "2b09ca1d55a56474751a70a02b88d63fc26b7b242c5d8548bb4de38a24d32490",
+    "pipe-outbound-green-build.log": "46fd5b6bcfb1ba294c89cbbc737eea47d5a83360d3745a10910bf277552d98b2",
+    "pipe-outbound-green.log": "8ed993865f81949028cf18a590c1267237b474f4e371d246323c60923585986b",
+    "transport-nested-red.log": "71c6ac0ab51b5ee33273f2110dea82b864aa9e6318c776755923b7eef318da1f",
+    "transport-nested-green.log": "c69c6e70d60e6240c795a13db4aa1300031c501808b77964f69e91082b619a73",
+    "native-codec-output.json": "31c11a22a2daf50e63416427f0258b123370df596f1cd8601d653a1e122bbb87"
+  },
+  "passed": [
+    "Python signed-field/strict-envelope/Unicode/clock conversion",
+    "Python mutual challenge/replay/gap/bounded history",
+    "native Python fixture decoding and native outbound codec",
+    "reverse native-to-Python signed Unicode",
+    "actual .NET typed named-pipe inbound/outbound, replay, signed duplicate refusal and Stop",
+    "native build zero warnings/errors and controlled native contracts",
+    "focused host/native-session/feature-off compatibility"
+  ],
+  "remaining": [
+    "native mutual-handshake and operational correlation/direction/cancellation state",
+    "complete nested observation/frame/authorization shapes and cross-runtime numeric/depth negatives",
+    "real Python/native launch/bootstrap/frame/Ask/presentation",
+    "final package review and frozen full regression",
+    "original visible overlay/installed/accessibility/provider/content/human/buyer-release acceptance"
+  ],
+  "full_candidate_retested": false,
+  "live_provider_or_private_capture_or_release": false
+}

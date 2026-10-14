@@ -1,0 +1,33 @@
+{
+  "schema": "native-human-practice-progress/1",
+  "revision": 63,
+  "updated_at_utc": "2026-10-14T12:39:23.060337+00:00",
+  "accepted": false,
+  "review_status": "UNREVIEWED_DRAFT_PACKAGE",
+  "source_hashes": {
+    "tutor_assessment.py": "b54722e7788e8f49426b84fe0f14b915ad650b3b4c8b7ed06350520166113b09",
+    "learning_contracts.py": "bf0440ac84a1f6794912e77d2873b5c2439fa37d5711c2674046e6189c7ee993",
+    "tests/test_tutor_human_assessment.py": "71d389d3879d5603a2ffb013d2bf7f06b1c3bbde5390cffd5c8ba54c7227f49b"
+  },
+  "base_source": {
+    "tutor_assessment.py": "9321f75a9c76adfe8263c418c0f09ad4b95c982ec05b2a585734d9e9d73a4c81",
+    "learning_contracts.py": "a141bd549e956e6f599b5c5749ef8494d855f9eff8b1f7b244fa027714913e73",
+    "tests/test_tutor_human_assessment.py": "e36ad7e62774a45b5387f3d8ae01e51b669fee2f814456d0b4e3235d4d992ff2"
+  },
+  "log_hashes": {
+    ".superpowers/sdd/2026-10-14-native-human-practice/directory-green-r1.log": "612aa7c8eab9f447128a2d517cb9fc2ff0dc6ea3db427ffa9a54829a1d109296",
+    ".superpowers/sdd/2026-10-14-native-human-practice/directory-red.log": "c367d4f83d902e6b03e9e7699646ffe4bdfc0f1d35f0f7bbc757e47c7cf5fcce",
+    ".superpowers/sdd/2026-10-14-native-human-practice/human-core-directory-green-r1.log": "dcda7c0acd4ab7d10c4fadabc7cb0592d054b2526bd5067b6ed5cbc1745cae51",
+    ".superpowers/sdd/2026-10-14-native-human-practice/human-core-directory-green-r2.log": "28f5db9f092e335903932a22627165edfb392a7f61325a09bb3829867ed16261",
+    ".superpowers/sdd/2026-10-14-native-human-practice/shared-parity-directory-r1.log": "b22b9fd543849421f50b5610a02e51a4aed4aa3ecf32094ec374b77998b39f1e"
+  },
+  "implemented": "Host-only immutable project/assignment/attempt/submission directory for one shared LearningService. Bound project is read from actual submission authority.",
+  "verified": "Watched missing-directory RED then real two-project byte/outcome/foreign-learner GREEN; existing human core and four-surface parity pass.",
+  "remaining": [
+    "Native closed/versioned practice/upload protocol, client/UI and authenticated host setup still missing.",
+    "Shared assistance publication hook and actual owned native upload still missing.",
+    "Directory failure/concurrency/foreign-course/route collision tests, fresh review and frozen regression pending.",
+    "Runtime ordinary Ask timeout and withdrawal fixture end handshake/clean teardown remain open.",
+    "Actual content/human/provider/installed/buyer/release qualification remains open."
+  ]
+}

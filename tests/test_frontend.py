@@ -37,7 +37,9 @@ def main():
         html = f.read()
 
     # ---- UI spec §2: navigation follows JOBS, not architecture ------------
-    tabs = re.findall(r"\['(\w+)','[^']+'\]", html)
+    nav = re.search(r"const NAV = \[(.*?)\];", html, re.S)
+    assert nav, "primary navigation declaration is missing"
+    tabs = re.findall(r"\['(\w+)','[^']+'\]", nav.group(1))
     assert tabs == ["home", "work", "agents", "resources", "proof", "admin"],         f"the primary nav is not the six jobs the spec names: {tabs}"
     # every nav item states its PURPOSE — a label alone teaches nothing
     for k in tabs:
@@ -174,16 +176,20 @@ def main():
         print("[fresh] a newly created expert answers on all six read endpoints, no 500s")
 
         # editing ui.html is picked up without restarting the server
-        with open(page, "r", encoding="utf-8") as f:
+        with open(page, "rb") as f:
             original = f.read()
+        edited = original.replace(b"<title>Expert Fleet</title>",
+                                  b"<title>Edited Live</title>")
+        assert edited != original, "the live-edit anchor disappeared"
         try:
-            with open(page, "w", encoding="utf-8") as f:
-                f.write(original.replace("<title>Expert Fleet</title>",
-                                         "<title>Edited Live</title>"))
+            with open(page, "wb") as f:
+                f.write(edited)
             assert "Edited Live" in get("/")[1], "page edits must not need a restart"
         finally:
-            with open(page, "w", encoding="utf-8") as f:
+            with open(page, "wb") as f:
                 f.write(original)
+        with open(page, "rb") as f:
+            assert f.read() == original, "live-edit cleanup did not restore exact bytes"
         assert "Expert Fleet" in get("/")[1]
         print("[live] frontend edits appear on reload with no server restart")
         print("PASS test_frontend")

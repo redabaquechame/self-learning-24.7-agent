@@ -1,0 +1,93 @@
+{
+  "schema": "screen-tutor-packet-evidence/1",
+  "packet": "SC-1C",
+  "recorded_at_utc": "2026-09-15T09:11:25Z",
+  "verdict": "LOCAL_VERIFIED_REVIEWED_FIXTURE_SUBJECT_REVIEW_BLOCKED",
+  "accepted": false,
+  "source": {
+    "branch": "codex/screen-tutor-build",
+    "baseline_commit": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+    "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+    "tutor_sources_sha256": "6a82e93c325a3ee0f892db11e3095ef20dc11fb56c3cf41e0a4b8b70fca854c9",
+    "tutor_packs_sha256": "2fdb09331ae5bb2b26615df95466e2e1d2d8f5c29865ac41a67f159b3ade3bbc",
+    "source_test_sha256": "c44c44acdaf9af8098286a4c4c79afcdce391fa2c6e1a7542dcec320358b9900",
+    "pack_test_sha256": "aac37478ebbd406ac581054c9edf2a17e265721363f3c08e8aa6429d0a20a73d",
+    "environment_lock_test_sha256": "758fac41bd5e429d02a31b68c9d43f6b044aefb4ce42278bdfadb5799b5eab2d"
+  },
+  "pack_artifact_hashes": {
+    "pack.json": "15f3c40ee4a3503fa25a58154200b952dec9f3be6c566dd7e41c643821d508ec",
+    "sources.json": "6bf4d22701ec7e7038fe1e4ec9442e42761168040f83598fe7c82eb6c76e370a",
+    "examples.json": "f2480fab6236b3f31af9aac11e6ad0f45622c501cc82bae3b6a1d4afcaa2fa52",
+    "practice.json": "4b55dc9ed1abaadeb8dd87140264cda2536d754c99b1ac9e026ca4f3baffb15f",
+    "assessment_manifest.json": "56b3034056ebae2d6e0060c48ba3919a0efffb2c9ebd3db0da174f79c149b40b"
+  },
+  "artifacts": [
+    "tutor_sources.py",
+    "tutor_packs.py",
+    "teaching_packs/reporting-v1/pack.json",
+    "teaching_packs/reporting-v1/sources.json",
+    "teaching_packs/reporting-v1/examples.json",
+    "teaching_packs/reporting-v1/practice.json",
+    "teaching_packs/reporting-v1/assessment_manifest.json",
+    "tests/test_tutor_sources.py",
+    "tests/test_tutor_packs.py",
+    "planning/screen-tutor/SC-1C_REVIEW.md",
+    "planning/screen-tutor/adr/ADR-008-source-pack-trust-lifecycle.md"
+  ],
+  "focused_checks": [
+    {
+      "command": "python tests/test_tutor_sources.py; python tests/test_tutor_packs.py",
+      "exit_code": 0,
+      "result": "T022-T026, rights, version conflicts, candidate/review/qualification lifecycle and source-labelled retrieval passed"
+    },
+    {
+      "command": "python tests/test_tutor_environment_lock.py; python tests/test_doctor.py; python tests/test_package.py; python tests/test_invariants.py; python tests/test_tutor_feature_off.py; python tests/test_ledger_defects.py",
+      "exit_code": 0,
+      "result": "environment, registry, packaging, invariant, feature-off and ledger checks passed"
+    },
+    {
+      "command": "python mutate_check.py 'tutor sources: final assessment enters ordinary retrieval'",
+      "exit_code": 0,
+      "result": "the assessment-separation mutation was caught: 1 caught, 0 missed, 0 skipped"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "no diff whitespace errors"
+    }
+  ],
+  "acceptance_tests": {
+    "T022": "same-keyword records returned only the exact tenant/project source with provenance labels",
+    "T023": "a prerequisite cycle was named and could not be reviewed or assigned",
+    "T024": "an unsupported app version returned a qualified-range scope limit and no exact route claims",
+    "T025": "hidden assessment matches returned ACCESS_DENIED and zero content; direct reads were refused",
+    "T026": "an incorrect expected result failed independent recomputation and remained unassignable"
+  },
+  "review": {
+    "artifact": "planning/screen-tutor/SC-1C_REVIEW.md",
+    "verdict": "APPROVED_FOR_LOCAL_MECHANISM_AND_FIXTURE_SCOPE_REAL_SUBJECT_REVIEW_BLOCKED",
+    "resolved_findings": 8,
+    "unresolved_critical_findings_in_local_scope": 0,
+    "dimensions": ["security", "correctness", "performance", "maintainability"]
+  },
+  "full_suite": {
+    "command": "python tests/run_all.py",
+    "executed": 170,
+    "passed": 167,
+    "skipped": [
+      {"test": "test_acquire.py", "reason": "no isolated sandbox selected for its acquisition rung"},
+      {"test": "test_shutdown.py", "reason": "Windows TerminateProcess does not expose the SIGTERM handler contract owned by container CI"},
+      {"test": "test_computeruse_live.py", "reason": "AGENT_COMPUTER_LIVE=1 and the pinned network-none Chromium fixture were not enabled"}
+    ],
+    "failed": [],
+    "exit_code": 0,
+    "terminal": "ALL EXECUTED TESTS PASSED",
+    "source_note": "The latest complete campaign ran after the SC-1C code, tests, pack files, organization-review hardening, ADRs and reviews were final. This refreshed evidence/state metadata was added after the source-exact run."
+  },
+  "blocker": {
+    "gate": "CONTENT_REVIEW",
+    "reason": "No real independent subject-matter reviewer has approved the reporting pack",
+    "unblocks_when": "An authorized reviewer approves the exact immutable pack digest and records qualification evidence"
+  },
+  "scope": "LOCAL fixture evidence only. No real content review, human learning, deployment, release, accessibility or market-superiority claim is made."
+}

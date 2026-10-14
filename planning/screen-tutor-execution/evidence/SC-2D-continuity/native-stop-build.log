@@ -1,0 +1,12 @@
+  ScreenTutor -> C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\companion\windows\ScreenTutor\bin\Release\net10.0-windows10.0.26100.0\win-x64\ScreenTutor.dll
+C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\native\ScreenTutor.ContractTests\Program.cs(507,21): error CS1061: 'SessionViewModel' ne contient pas de définition pour 'Goal' et aucune méthode d'extension accessible 'Goal' acceptant un premier argument de type 'SessionViewModel' n'a été trouvée (une directive using ou une référence d'assembly est-elle manquante ?) [C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\native\ScreenTutor.ContractTests\ScreenTutor.ContractTests.csproj]
+C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\native\ScreenTutor.ContractTests\Program.cs(515,75): error CS1061: 'SessionViewModel' ne contient pas de définition pour 'Goal' et aucune méthode d'extension accessible 'Goal' acceptant un premier argument de type 'SessionViewModel' n'a été trouvée (une directive using ou une référence d'assembly est-elle manquante ?) [C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\native\ScreenTutor.ContractTests\ScreenTutor.ContractTests.csproj]
+
+ÉCHEC de la build.
+
+C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\native\ScreenTutor.ContractTests\Program.cs(507,21): error CS1061: 'SessionViewModel' ne contient pas de définition pour 'Goal' et aucune méthode d'extension accessible 'Goal' acceptant un premier argument de type 'SessionViewModel' n'a été trouvée (une directive using ou une référence d'assembly est-elle manquante ?) [C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\native\ScreenTutor.ContractTests\ScreenTutor.ContractTests.csproj]
+C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\native\ScreenTutor.ContractTests\Program.cs(515,75): error CS1061: 'SessionViewModel' ne contient pas de définition pour 'Goal' et aucune méthode d'extension accessible 'Goal' acceptant un premier argument de type 'SessionViewModel' n'a été trouvée (une directive using ou une référence d'assembly est-elle manquante ?) [C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\native\ScreenTutor.ContractTests\ScreenTutor.ContractTests.csproj]
+    0 Avertissement(s)
+    2 Erreur(s)
+
+Temps écoulé 00:00:09.56

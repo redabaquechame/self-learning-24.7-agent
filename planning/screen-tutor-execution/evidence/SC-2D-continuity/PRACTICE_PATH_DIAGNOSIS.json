@@ -1,0 +1,10 @@
+{
+  "parent_exists": true,
+  "target_length": 243,
+  "legacy_scratch_length": 286,
+  "direct_target_write": "PASS",
+  "legacy_scratch_write": "FileNotFoundError",
+  "legacy_errno": 2,
+  "short_scratch_length": 243,
+  "short_scratch_write": "PASS"
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 102, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 96, in main
+    check_current_answer_release()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 57, in check_current_answer_release
+    refused(lambda: method(request, lambda: copy.deepcopy(owner), [foreign_observation], session))
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_host.py", line 38, in refused
+    assert result["allowed"] is False and "instruction" not in result, result
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'allowed': True, 'reason_code': 'OK', 'record_id': 'request-1', 'instruction': {'schema': 'fleet.tutor.instruction.v1', 'request_id': 'request-1', 'move': 'POINT_AND_ASK', 'answer': 'changed after service release', 'claims': [{'kind': 'GROUNDING', 'text': 'The total cell is visible.', 'evidence_refs': ['obs-1'], 'uncertainty': 0.05}], 'annotations': [{'primitive': 'RECT', 'observation_id': 'obs-1', 'target_id': 'cell-a1', 'label': 'Total', 'geometry_revision': 'geometry-r2'}], 'requested_response': 'Tell me the displayed value.', 'reveal_level': 'HINT', 'expected_progress': {'kind': 'OBSERVE', 'scope': 'cell-a1'}, 'execution_request': None}}

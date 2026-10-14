@@ -1,0 +1,38 @@
+<UserControl x:Class="ScreenTutor.Onboarding"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             AutomationProperties.Name="Screen Tutor demonstration checklist"
+             Focusable="False">
+  <Border Padding="12" Margin="0,12,0,0" CornerRadius="8"
+          Background="#FFF4F8FB" BorderBrush="#FFB7C8D6" BorderThickness="1">
+    <StackPanel>
+      <TextBlock Text="Try Screen Tutor" FontWeight="SemiBold" />
+      <TextBlock Margin="0,4,0,8" TextWrapping="Wrap"
+                 Text="Choose one source, ask a question, and stop sharing when you finish. Voice is optional." />
+      <ProgressBar x:Name="JourneyProgress" Height="6" Minimum="0" Maximum="5"
+                   Value="0" AutomationProperties.Name="Demonstration progress" />
+      <WrapPanel Margin="0,8,0,0">
+        <Button x:Name="SummonStep" Margin="0,0,6,6" Padding="8,4" Click="Step_Click"
+                Tag="SUMMON" Content="1. _Summon" AutomationProperties.Name="Step 1, summon companion" />
+        <Button x:Name="SelectStep" Margin="0,0,6,6" Padding="8,4" Click="Step_Click"
+                Tag="SELECT" Content="2. Select _source" IsEnabled="False"
+                AutomationProperties.Name="Step 2, choose and authorize one source" />
+        <Button x:Name="AskStep" Margin="0,0,6,6" Padding="8,4" Click="Step_Click"
+                Tag="ASK" Content="3. _Ask" IsEnabled="False"
+                AutomationProperties.Name="Step 3, ask a question" />
+        <Button x:Name="ShowStep" Margin="0,0,6,6" Padding="8,4" Click="Step_Click"
+                Tag="SHOW" Content="4. Show and _circle" IsEnabled="False"
+                ToolTip="Visual guidance and practice are not available in this build."
+                ToolTipService.ShowOnDisabled="True" AutomationProperties.HelpText="Visual guidance and practice are not available in this build."
+                AutomationProperties.Name="Step 4, show a highlight and circle an object" />
+        <Button x:Name="StopStep" Margin="0,0,6,6" Padding="8,4" Click="Step_Click"
+                Tag="STOP" Content="5. S_top" IsEnabled="False"
+                AutomationProperties.Name="Step 5, stop sharing" />
+      </WrapPanel>
+      <TextBlock Margin="0,0,0,6" TextWrapping="Wrap"
+                 Text="Visual guidance and practice are not available in this build." />
+      <TextBlock x:Name="JourneyStatus" Text="Ready: summon the companion."
+                 AutomationProperties.LiveSetting="Polite" TextWrapping="Wrap" />
+    </StackPanel>
+  </Border>
+</UserControl>

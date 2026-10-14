@@ -51,6 +51,13 @@ tests/tmp/
 .DS_Store
 .firecrawl/
 
+# Optional Windows companion build products; dependency versions remain in
+# packages.lock.json while binaries and MSBuild intermediates stay disposable.
+companion/windows/**/bin/
+companion/windows/**/obj/
+tests/native/**/bin/
+tests/native/**/obj/
+
 # Worker deps (deploy/worker) — restored with `npm install`
 node_modules/
 .wrangler/

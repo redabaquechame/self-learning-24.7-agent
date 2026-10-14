@@ -1,0 +1,7 @@
+{
+  "schema": "tutor.pack-sources/1",
+  "references": [
+    {"source_id": "video-transfer-official", "revision": "rev-1", "excerpt_id": "grouping-concept", "tenant_id": "tenant-1", "project_id": "project-1"},
+    {"source_id": "video-transfer-asset", "revision": "rev-1", "excerpt_id": "safe-rows", "tenant_id": "tenant-1", "project_id": "project-1"}
+  ]
+}

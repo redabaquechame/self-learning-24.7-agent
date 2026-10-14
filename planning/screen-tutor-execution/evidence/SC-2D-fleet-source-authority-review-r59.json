@@ -1,0 +1,127 @@
+{
+  "reviewer": "/root/fleet_source_authority_package_review",
+  "critical": 0,
+  "important": 4,
+  "minor": 1,
+  "verdict": "WITH_FIXES",
+  "second_review": false,
+  "integrity": "Reviewer confirmed26 candidate/exact-base files, HEAD, index and existing log hashes unchanged; only new root logs appeared.",
+  "important_repairs": [
+    {
+      "finding": "host/authority lock-order deadlock on source completion and Stop",
+      "red": "review-lock-order-red.log",
+      "green": "review-lock-order-green-r1.log",
+      "test": "check_completion_stop_lock_order"
+    },
+    {
+      "finding": "on-disk settings withdrawal ignored by cached Agent.cfg",
+      "red": "review-settings-file-red.log",
+      "green": "review-settings-file-green-r1.log",
+      "actual": "review-actual-policy-withdrawal-green-r1.log",
+      "test": "check_profile_factory/check_actual_panel_native(policy_change=True)"
+    },
+    {
+      "finding": "Resume pending source discarded instead of retained/retry",
+      "red": "review-resume-red.log",
+      "green": "review-resume-green-r1.log",
+      "test": "actual approved owned source/Pause/fresh pending epoch/owner decision/explicit retry/Pause controls/metered Ask"
+    },
+    {
+      "finding": "frontend navigation regex sees launch allowlist as seventh nav item",
+      "red": "compat-test_frontend.py.log",
+      "green": "review-frontend-green-r1.log",
+      "test": "test_frontend actual NAV declaration and served read routes"
+    }
+  ],
+  "deferred_minors": [
+    {
+      "finding": "New immutable candidate lock retains inherited capture/review provenance",
+      "disposition": "Deferred as reviewer Minor; preserve immutable historical lock. This receipt supplies current package date/scope/review truth. Candidate remains unaccepted; fix provenance before acceptance.",
+      "cost_if_wrong": "A reader may confuse inherited review metadata with current candidate approval."
+    }
+  ],
+  "declined_to_judge_rulings": [
+    {
+      "behavior": "Real funded-provider behavior, economics and private-source capture",
+      "ruling": "Remain blocked until explicitly scoped provider/budget/private-source qualification; owned loopback does not qualify them.",
+      "cost_if_wrong": "Unsupported production/account/private-source claims."
+    },
+    {
+      "behavior": "Installed distribution, signing, update, uninstall and production recovery",
+      "ruling": "Remain original release gates; local candidate does not satisfy them.",
+      "cost_if_wrong": "Unsafe or unproven buyer installation/recovery."
+    },
+    {
+      "behavior": "Hard Windows process termination cleanup",
+      "ruling": "Keep explicit Windows shutdown skip and forced-kill/recovery gate; graceful Stop does not prove TerminateProcess cleanup.",
+      "cost_if_wrong": "Owned child may outlive forced host termination."
+    },
+    {
+      "behavior": "Full combined browser-launch/native selection/browser approval/native answer",
+      "ruling": "Current constituent journeys only; keep combined journey unqualified until one actual owned joined run is observed.",
+      "cost_if_wrong": "Constituent proof misreported as end-to-end qualification."
+    },
+    {
+      "behavior": "Human learning outcomes/curriculum/shared exposure/uploads/durable recovery",
+      "ruling": "Shared learning.v1 wiring only; original assessment/content/recovery gates stay open.",
+      "cost_if_wrong": "Explanation or ephemeral records mistaken for independent learning."
+    },
+    {
+      "behavior": "Exact placement/overlay/audio/accessibility/devices/computer actions",
+      "ruling": "Continue original packets; this package grants observe/explain only.",
+      "cost_if_wrong": "Unsupported precision, accessibility or action authority."
+    },
+    {
+      "behavior": "Unrelated authored dirty changes and earlier platform-wide findings",
+      "ruling": "Package review covers exact26 selected files; original requirements ledger remains whole-program scope.",
+      "cost_if_wrong": "Unreviewed unrelated work treated as accepted."
+    },
+    {
+      "behavior": "Final frozen regression and root repairs",
+      "ruling": "One root Important repair pass, watched RED/GREEN; final clean frozen187 suite is still pending at this progress revision.",
+      "cost_if_wrong": "Untested current source mistaken for frozen qualification."
+    },
+    {
+      "behavior": "OS foreground restoration on return",
+      "ruling": "Return closes companion and preserves Fleet page/context; no OS foreground-focus promise.",
+      "cost_if_wrong": "Misleading desktop navigation expectation."
+    }
+  ],
+  "root_changed_reviewed_files": [
+    "companion/windows/ScreenTutor/SessionWindow.xaml.cs",
+    "tests/native/ScreenTutor.ContractTests/Program.cs",
+    "tests/test_tutor_connection.py",
+    "tutor_authority.py",
+    "tutor_runtime.py",
+    "tests/test_tutor_authority.py",
+    "tests/test_tutor_runtime.py"
+  ],
+  "post_root_source_hashes": {
+    "tutor_host.py": "0b9006c244dfffb5acfb1d984bf32d707b425744b16cab4aa13e734006079205",
+    "tutor_gateway.py": "9b159bd4ab39a34410a3e8d3dd3a5583719b01272b33c1603b228402a0e82912",
+    "tutor_dispatch.py": "9d0364a0b1534792a6705fa00a705304cff278adf20d95791a52a911d4ca2349",
+    "ui.py": "a7d0b55c7265e884a26bf5eb70a7ecfc4d9467c97a4a428c1019d1c119f4ff9b",
+    "ui.html": "0210b9a2ddf1542ecdf4873d7eb076a6c3f5aa7698a3837ac302f312e383b37b",
+    "companion/windows/ScreenTutor/NativeHostClient.cs": "cf1471840ceab65457986d9f720e8a088daf422b5e2adec338954c9c16c73a29",
+    "companion/windows/ScreenTutor/SessionWindow.xaml": "8495e43b8dd486b1f8ca411759ed5d066b1b867283644ea345e64b07e4069c89",
+    "companion/windows/ScreenTutor/SessionWindow.xaml.cs": "a127411ae6a5d69f24a36d8d288669f8ff00b89418f8b1cdbc2767b7325366d4",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "d438edc79a576eb9be3ab623ff923f28bd777ea3131951e178daf57577e54b8a",
+    "tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj": "664d4c39d5a2a271aa57068b3386074c7f83664906cb567c9632b6e71b4ea484",
+    "tests/test_tutor_connection.py": "092bab4fb479df92c28cbeb3e3c1f13be1ef54666c6e25bbb886047d0b6c3ce1",
+    "tests/test_tutor_gateway.py": "9949a3b26bd3eeedb9f90be0cebddb4782df9619530bf4848b12eb573f5fd74a",
+    "tests/run_all.py": "6c41f2b8042acb94d0b718030f4ab0bfe1ae9ee25d8ba921759be8a340c8d4cf",
+    "evidence.py": "22765bcdf4cd0a0e375da7a0467f322a08498f0773e7e325902796a660601e6b",
+    "README.md": "c60b4ab8470416a2bbb259aa801845163c015f1bc5d4b9c52674bdb271565e19",
+    "REFERENCE.md": "0ac2c3b2a03fdcec11dbead0846a88c259107e85a4faee0f179c60df04949870",
+    "tests/test_tutor_host.py": "5288141e77bc1f7a0bcb62aea2756ff697c756d3ca6b52e25da3301a77ab0f75",
+    "tests/test_tutor_feature_off.py": "caa4a6fde96da38f5fa3368e5b9c698da6b9bbd5641d69d864daa50f63455792",
+    "tutor_authority.py": "7a5192565bc393d00b3b574d607b2b5b1baacfa5e8ebda0953d79dda2e975f2d",
+    "tutor_runtime.py": "d86c7e253665566723a7fd5dbd5449789284ee212106dcf871a07cdaf12a36a9",
+    "tests/test_tutor_authority.py": "14df0ab5e3de941c3bbfa69943b081a86708de2a462fffbb36a95dc2fb03c962",
+    "tests/test_tutor_runtime.py": "116d22eb8d26ffd2da2005fd58a5ac699a6cae46619e95a789f6f4313e981209",
+    "tests/native/ScreenTutor.ContractTests/SourceApprovalJourneyTests.cs": "083296cfae08a8e3337604c49e95ca273e0d30ceb97f114750517653761d89fb",
+    "docs/SCREEN_TUTOR_FLEET_HOST.md": "f621d166092385854ecfe2bc849a3bd46db55a2cd17daa2959340057383c2dcd",
+    "docs/superpowers/plans/2026-10-14-fleet-source-authority.md": "1fbb45c435df0a63d648b13f98af09dbf72fa2321bb0ae9050e5b18f4e353f64",
+    "planning/screen-tutor/BASELINE_LOCK_SC_2D_FLEET_SOURCE_AUTHORITY_CANDIDATE.json": "0bac1f58975e6e1c34167f31db9ef0abf0516fd544c449a0bdfbe886853a862d"
+  }
+}

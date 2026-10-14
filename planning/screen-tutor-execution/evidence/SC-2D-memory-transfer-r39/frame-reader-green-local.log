@@ -1,0 +1,3 @@
+[native image] exact PNG dimensions/CRC/channel order/premultiplied alpha and cancellation checked
+[frame memory] no owned native mapping fixture selected; actual cross-process witness not run
+PASS test_tutor_frames

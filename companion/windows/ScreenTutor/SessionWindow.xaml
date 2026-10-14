@@ -1,0 +1,103 @@
+<Window x:Class="ScreenTutor.SessionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ScreenTutor"
+        Title="Screen Tutor" Height="520" Width="440" MinHeight="440" MinWidth="380"
+        WindowStartupLocation="CenterScreen">
+  <Grid Margin="16" KeyboardNavigation.TabNavigation="Cycle">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Border Grid.Row="0" Margin="0,0,0,12" Padding="14" CornerRadius="8"
+            BorderBrush="#FFB7C8D6" BorderThickness="1">
+      <StackPanel>
+        <TextBlock x:Name="SharingIndicator" Text="Not sharing" FontWeight="SemiBold" />
+        <TextBlock x:Name="SourceName" Margin="0,5,0,0" Text="No source selected" TextWrapping="Wrap"
+                   MaxHeight="48" TextTrimming="CharacterEllipsis" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" />
+        <WrapPanel Margin="0,12,0,0">
+          <Button x:Name="SelectButton" Padding="14,7" Click="SelectSource_Click">Choose source</Button>
+          <Button x:Name="PauseButton" Margin="8,0,0,0" Padding="14,7" Click="Pause_Click" IsEnabled="False">Pause</Button>
+          <Button x:Name="StopButton" Margin="8,0,0,0" Padding="14,7" Click="Stop_Click" IsEnabled="False">Stop sharing</Button>
+          <Button x:Name="ReturnToFleetButton" Margin="8,0,0,0" Padding="14,7" Click="Exit_Click"
+                  ToolTip="Stops this companion. Continue in the Fleet page you launched it from.">Close and return to Fleet</Button>
+        </WrapPanel>
+        <Button x:Name="AlternateShortcutButton" Margin="0,10,0,0" Padding="10,5"
+                HorizontalAlignment="Left" Visibility="Collapsed"
+                Click="AlternateShortcut_Click">Use Ctrl+Shift+F12 instead</Button>
+        <Button x:Name="RetryAuthorizationButton" Margin="0,8,0,0" Padding="10,5" HorizontalAlignment="Left"
+                Visibility="Collapsed" IsEnabled="False" Click="RetryAuthorization_Click"
+                Content="Retry authorization" AutomationProperties.Name="Retry authorization for the same selected source" />
+      </StackPanel>
+    </Border>
+    <ScrollViewer Grid.Row="1" x:Name="SessionContent" VerticalScrollBarVisibility="Auto"
+                  HorizontalScrollBarVisibility="Disabled" Focusable="False">
+    <StackPanel>
+      <TextBlock Text="Screen Tutor" FontSize="28" FontWeight="SemiBold" />
+      <TextBlock Margin="0,8,0,12" TextWrapping="Wrap"
+                 Text="Choose one window or display. Sharing never follows the foreground automatically." />
+      <Expander Header="First-time demonstration" IsExpanded="False" Margin="0,0,0,12">
+        <local:Onboarding x:Name="OnboardingJourney" />
+      </Expander>
+      <TextBlock Text="What do you want help with?" FontWeight="SemiBold" />
+      <WrapPanel Margin="0,8,0,0">
+        <Button Margin="0,0,6,6" Padding="8,4" Tag="Explain" Click="Intent_Click"
+                Content="_Explain" AutomationProperties.Name="Explain selected source" />
+        <Button Margin="0,0,6,6" Padding="8,4" Tag="Show" Click="Intent_Click"
+                Content="_Show me" AutomationProperties.Name="Show a visual guide" />
+        <Button Margin="0,0,6,6" Padding="8,4" Tag="Teach" Click="Intent_Click"
+                Content="_Teach me" AutomationProperties.Name="Teach with safe practice" />
+        <Button Margin="0,0,6,6" Padding="8,4" Tag="Assess" Click="Intent_Click"
+                Content="_Check me" AutomationProperties.Name="Check my understanding" />
+        <Button Margin="0,0,6,6" Padding="8,4" Tag="Collaborate" Click="Intent_Click"
+                Content="_Do this with me" AutomationProperties.Name="Collaborate through a bounded task" />
+      </WrapPanel>
+      <TextBox x:Name="Question" Margin="0,8,0,0" MinHeight="100" MaxLength="8192"
+               AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"
+               AutomationProperties.Name="Question or learning request" />
+      <Button Margin="0,12,0,0" HorizontalAlignment="Left" Padding="18,8"
+              IsEnabled="False" x:Name="AskButton" Click="Ask_Click" AutomationProperties.Name="Ask about the selected source">_Ask</Button>
+      <ScrollViewer MaxHeight="180" Margin="0,8,0,0" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+          <TextBlock x:Name="AnswerText" TextWrapping="Wrap" AutomationProperties.Name="Source explanation" />
+          <TextBlock x:Name="AnswerEvidence" Margin="0,6,0,0" TextWrapping="Wrap" Foreground="#FF52606D" AutomationProperties.Name="Explanation evidence and uncertainty" />
+        </StackPanel>
+      </ScrollViewer>
+      <StackPanel x:Name="TeachingSceneBlock" Visibility="Collapsed" Margin="0,12,0,0">
+        <TextBlock x:Name="TeachingSceneQualification" TextWrapping="Wrap" FontWeight="SemiBold"
+                   AutomationProperties.Name="Teaching content qualification" />
+        <ContentControl x:Name="TeachingSceneHost" Margin="0,8,0,0" Height="240"
+                        HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+        <TextBlock x:Name="TeachingSceneAlternative" Margin="0,8,0,0" TextWrapping="Wrap"
+                   AutomationProperties.Name="Teaching diagram text alternative" />
+        <Button x:Name="ResetPracticeButton" Margin="0,8,0,0" Padding="10,5" HorizontalAlignment="Left"
+                Click="ResetPractice_Click" Content="Clear scratch notes"
+                AutomationProperties.Name="Clear scratch notes in the teaching panel" />
+        <TextBlock Margin="0,6,0,0" TextWrapping="Wrap" Text="Scratch notes stay in this panel." />
+      </StackPanel>
+      <TextBlock x:Name="Status" Margin="0,12,0,0" TextWrapping="Wrap"
+                 Text="The provider bridge is unavailable until the host authorizes this session." />
+      <WrapPanel Margin="0,8,0,0">
+        <Button x:Name="StopSpeechButton" Padding="8,4" Click="StopSpeech_Click" IsEnabled="False"
+                ToolTip="Assistant speech is not connected in this build."
+                ToolTipService.ShowOnDisabled="True" AutomationProperties.HelpText="Assistant speech is not connected in this build."
+                Content="Stop speech" AutomationProperties.Name="Stop assistant speech" />
+        <Button x:Name="CancelTaskButton" Margin="6,0,0,0" Padding="8,4" Click="CancelTask_Click" IsEnabled="False"
+                ToolTip="Use the task controls in Fleet to cancel a task."
+                ToolTipService.ShowOnDisabled="True" AutomationProperties.HelpText="Task cancellation is unavailable here. Use the task controls in Fleet."
+                Content="Cancel task" AutomationProperties.Name="Cancel the current Fleet task" />
+      </WrapPanel>
+      <TextBlock Margin="0,6,0,0" TextWrapping="Wrap"
+                 Text="Speech and task controls are not connected here. Use Fleet to manage tasks." />
+    </StackPanel>
+    </ScrollViewer>
+    <Grid Grid.Row="2" Margin="0,12,0,0">
+      <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+    <TextBlock Foreground="#FF52606D" TextWrapping="Wrap" Margin="0,0,12,0" VerticalAlignment="Center"
+               Text="Local Stop always closes sharing and clears transient frame buffers." />
+    <Button x:Name="ExitButton" Grid.Column="1" Padding="8,4" Click="Exit_Click" VerticalAlignment="Center"
+            Content="E_xit" AutomationProperties.Name="Exit Screen Tutor and stop local sharing" />
+    </Grid>
+  </Grid>
+</Window>

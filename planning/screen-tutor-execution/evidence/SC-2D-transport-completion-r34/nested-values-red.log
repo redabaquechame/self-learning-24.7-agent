@@ -1,0 +1,13 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+[transport handshake] mutual challenge, reflected peer, replay, sequence gaps and bounded history checked
+[transport] closed nested request/instruction schemas checked without treating wire identity as authority
+[transport operations] sender role, exact pending reply, one reply and stale cancellation generation checked
+[transport] genuinely signed numeric overflow and deep lesson records refused
+[transport expiry] bounded128 pending requests recover at expiry; replies cannot extend request lifetime
+[transport authorization] exact schema, finite15-minute lifetime and no minted grant checked
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 306, in <module>
+    check_nested_values()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 294, in check_nested_values
+    raise AssertionError('nested request/instruction/observation/frame value admitted: ' + str(index))
+AssertionError: nested request/instruction/observation/frame value admitted: 0

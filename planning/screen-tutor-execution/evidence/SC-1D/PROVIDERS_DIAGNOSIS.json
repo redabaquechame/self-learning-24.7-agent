@@ -1,0 +1,18 @@
+{
+  "schema": "sc1d-provider-failure-diagnosis/1",
+  "full_run": {
+    "executed": 179,
+    "passed": 175,
+    "skipped": 3,
+    "failed": [
+      "test_providers.py"
+    ],
+    "log_sha256": "5333dbbfc1ecf109277986e02a281930baca0da9781b14118627bc128ac1db70"
+  },
+  "root_cause": "Fixture literal directory comparison differs for equivalent mixed/native Windows path spelling.",
+  "native_root_log_sha256": "caf3e1fad628fdf508278eab6f0d89c31a888e1f3fc5c69d7eb6fcfca42adf01",
+  "production_fix_applied": false,
+  "full_suite_green_claimed": false,
+  "mixed_root_reproduction_exit": 1,
+  "native_root_focused_exit": 0
+}

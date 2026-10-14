@@ -1,0 +1,89 @@
+{
+  "schema": "screen-tutor-baseline-lock/1",
+  "captured_at_utc": "2026-10-14T12:09:26.286747+00:00",
+  "repository": "https://github.com/reda-baqechame/self-learning-24.7-agent.git",
+  "branch": "codex/screen-tutor-build",
+  "base": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+  "head": "WORKTREE_CURRENT_SOURCE_APPROVAL_UNACCEPTED_CANDIDATE",
+  "supersedes": "planning/screen-tutor/BASELINE_LOCK_SC_2D_CURRENT_SOURCE_APPROVAL_CANDIDATE.json",
+  "protected_files": [
+    {
+      "path": "loop.py",
+      "bytes": 247905,
+      "sha256": "e995d8dab05254031f3f3219127f67f7492eaed1789a96b353eef4b511cc8f90"
+    },
+    {
+      "path": "context.py",
+      "bytes": 44699,
+      "sha256": "39784326722241eec6d4d2e048535481b04bbbc5df97caa7848667e99c51c984"
+    },
+    {
+      "path": "modelgateway.py",
+      "bytes": 16745,
+      "sha256": "620b5bab5af3925e06fcfadd0769f3d5232d429d87f01918097466ea4a273424"
+    },
+    {
+      "path": "grants.py",
+      "bytes": 17902,
+      "sha256": "06c69c54e96a93dd26826ffddd721fd70a0ecb7e849a27731aae2903edec3177"
+    },
+    {
+      "path": "execution.py",
+      "bytes": 20006,
+      "sha256": "ef1a3c669b7ad8a4badd8898b10cca59da377f954b6fbd2898b8aa969e71ca9e"
+    },
+    {
+      "path": "mission.py",
+      "bytes": 24611,
+      "sha256": "b2bab7dee4191ebc775d3e6869c5e7b353fcc912859d81f2b7e7dc00b55ad07d"
+    },
+    {
+      "path": "computersession.py",
+      "bytes": 48800,
+      "sha256": "d1dc20b49d3f5281564bc379fc83d3bdafdc813b2846232878bf646aa7de052e"
+    },
+    {
+      "path": "computeruse.py",
+      "bytes": 26430,
+      "sha256": "b1a1feee618fb71508c546e01f0f67e04c366a9bebcc1e7b7497ea322125bc7e"
+    },
+    {
+      "path": "mastery.py",
+      "bytes": 20845,
+      "sha256": "220b790d958a9f3bf167442cfa9debf908e0be4f7fadf11fa2c5819d55786893"
+    },
+    {
+      "path": "goal.py",
+      "bytes": 33990,
+      "sha256": "2cebe678b6d329859ff2a9bb742c6aa9c7c1fac9201f720076604b5bb9763e21"
+    },
+    {
+      "path": "ui.py",
+      "bytes": 144056,
+      "sha256": "54dc563aefd0db0c17f5782fdeaa1ddcdb67f781ce6500a7697468699bb50044"
+    },
+    {
+      "path": "ui.html",
+      "bytes": 365121,
+      "sha256": "18891b5fe6370c337060336f95e4b4911be0949a8b71b98196ab4578625e51c0"
+    }
+  ],
+  "limits": [
+    "Unaccepted source pin; no release, human or provider qualification.",
+    "Nine protected files match the reviewed SC-1B baseline; three unaccepted deltas remain: execution.py, ui.py, ui.html.",
+    "One fresh review found four Important issues. Root watched RED/GREEN for stale commit, bounded lists, stale UI response and failed refresh; final combined frozen verification remains required."
+  ],
+  "change_packet": "Current exact source approval projection and scoped withdrawal",
+  "accepted": false,
+  "review_status": "ONE_REVIEW_COMPLETED_ROOT_REPAIRS_FROZEN_VERIFICATION_PENDING",
+  "changes": [
+    "Inherit previously recorded execution allowlist and Fleet UI changes.",
+    "ui.py/ui.html: exact current pending/approved/retired sharing projection, stale refusal, existing approver withdrawal, source metadata access filtering."
+  ],
+  "scope": "Inherited execution.py/ui.html exceptions plus explicit ui.py authenticated local runtime/source approval integration. No acceptance.",
+  "exceptions_unaccepted": [
+    "execution.py",
+    "ui.html",
+    "ui.py"
+  ]
+}

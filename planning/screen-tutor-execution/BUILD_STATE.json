@@ -1,0 +1,449 @@
+{
+  "schema": "screen-tutor-live-build-state/1",
+  "revision": 66,
+  "updated_at_utc": "2026-10-14T13:35:56.784866+00:00",
+  "status": "PAUSED",
+  "activation": "Owner explicitly instructed: Start building now",
+  "plan_manifest_sha256": "542865669529667d58b50ff98b75db5d7db93a925e4771ff4ebadffe144d6974",
+  "planning_baseline": "53bbb2793eb277faafb4637ae986aca24f2a7b75",
+  "actual_build_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "branch": "codex/screen-tutor-build",
+  "worktree": "C:/Users/redab/OneDrive/Bureau/self learning 24.7 agent/screen-tutor-build",
+  "runner": null,
+  "coordinator": "current Codex task 01a1329d-f4eb-71c1-9044-e1468a2df84f; no durable background runner",
+  "active_packet": "SC-2F",
+  "last_completed_step": "Owner-requested safe stop. Source/log hashes pinned; no owned Python/native process running. Reviewed runtime roundtrip preserved; human practice client/protocol/host integration remains unreviewed and UI unfinished.",
+  "next_action": "Resume only on owner instruction: complete native human practice controls/provisioning/actual upload and help witness, one package review and frozen regression; continue original Fleet/Tutor program.",
+  "packets": {
+    "SC-0A": {
+      "status": "LOCAL_VERIFIED",
+      "accepted": true,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-0A.json"
+      ],
+      "blockers": []
+    },
+    "SC-0B": {
+      "status": "LOCAL_VERIFIED_REVIEWED",
+      "accepted": true,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-0B.json"
+      ],
+      "blockers": []
+    },
+    "SC-0C": {
+      "status": "LOCAL_VERIFIED",
+      "accepted": true,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-0C.json"
+      ],
+      "blockers": []
+    },
+    "SC-0D": {
+      "status": "LOCAL_VERIFIED_REVIEWED",
+      "accepted": true,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-0D.json"
+      ],
+      "blockers": []
+    },
+    "SC-1A": {
+      "status": "LOCAL_AND_NATIVE_SYNTHETIC_VERIFIED_REVIEWED",
+      "accepted": true,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-1A.json"
+      ],
+      "blockers": []
+    },
+    "SC-1B": {
+      "status": "LOCAL_NATIVE_FLEET_SOURCE_APPROVAL_PARTIAL_REVIEWED_REAL_PROVIDER_AND_RELEASE_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-1B.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-native-image-dispatch-progress-r57.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-native-image-dispatch-reviewed-regression-r58.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-fleet-source-authority-progress-r59.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-fleet-source-authority-reviewed-regression-r60.json"
+      ],
+      "blockers": [
+        "T021 PROVIDER qualification requires an explicitly approved provider route and spend budget"
+      ]
+    },
+    "SC-1C": {
+      "status": "LOCAL_VERIFIED_REVIEWED_FIXTURE_SUBJECT_REVIEW_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-1C.json"
+      ],
+      "blockers": [
+        "CONTENT_REVIEW requires a real independent subject-matter reviewer for the exact reporting-pack digest"
+      ]
+    },
+    "SC-1D": {
+      "status": "LOCAL_VERIFIED_REVIEWED_PROVIDER_AND_CONTENT_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-1D-progress-r20.json",
+        "planning/screen-tutor-execution/evidence/SC-1D.json"
+      ],
+      "blockers": [
+        "PROVIDER qualification requires explicitly approved route/account and finite spend budget",
+        "CONTENT_REVIEW requires independent review of immutable real app/source material",
+        "Visible native and real-app/unsupported-format qualification remain unproven"
+      ]
+    },
+    "SC-2A": {
+      "status": "LOCAL_AND_NATIVE_SYNTHETIC_PARTIAL_REVIEWED_GROUNDING_QUALIFICATION_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-2A.json"
+      ],
+      "blockers": [
+        "PRODUCTION_OVERLAY requires a visible owned native presentation lifecycle",
+        "NATIVE_GROUNDING_ACCURACY requires real application-family, mixed-DPI, monitor-transition and small-target measurements",
+        "VISUAL_GROUNDING requires a separately qualified adapter and frozen benchmark"
+      ]
+    },
+    "SC-2B": {
+      "status": "LOCAL_VERIFIED_REVIEWED_CONTENT_AND_HUMAN_NATIVE_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-2B.json"
+      ],
+      "blockers": [
+        "CONTENT_REVIEW requires a real qualified reviewer over the frozen instruction set",
+        "T040 HUMAN_AND_NATIVE qualification requires accessible native assessment with human participants"
+      ]
+    },
+    "SC-2C": {
+      "status": "LOCAL_NATIVE_VISIBLE_TEACHING_REVIEWED_CONTENT_HUMAN_INSTALLED_AND_RELEASE_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-2C.json",
+        "planning/screen-tutor-execution/evidence/SC-2C-visible-teaching-scene-progress-r55.json",
+        "planning/screen-tutor-execution/evidence/SC-2C-visible-teaching-reviewed-regression-r56.json"
+      ],
+      "blockers": [
+        "SC-2A and SC-2B qualification gates remain open",
+        "QUALIFIED_PACK_BINDING must derive practice lineage and answer keys from an authority-checked assignment",
+        "AUTHENTICATED_COMPANION_INTEGRATION must wire the canvas into the visible current-session request path",
+        "HUMAN_AND_NATIVE_T045 requires a consented real-app run and independent original-byte verification",
+        "SUBJECTIVE_CONTENT_REVIEW is required for creative criteria"
+      ]
+    },
+    "SC-2D": {
+      "status": "LOCAL_NATIVE_AUTHENTICATED_FLEET_LAUNCH_PENDING_RETRY_RESUME_PARTIAL_REVIEWED_HUMAN_AND_RELEASE_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-2D.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-progress-r22.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-progress-r23.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-progress-r25.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-atomic-repair.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-host-task1-r28.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-host-task1-r29.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-transport-completion-r34.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-startup-completion-r37.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-memory-transfer-r39.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-source-exchange-r40.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-authorized-window-capture-r41.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-review-repair-r42.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-current-frame-wire-r43.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-visible-ask-control-r44.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-continuous-receiver-r45.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-joined-pause-resume-r46.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-bounded-snapshot-expiry-r48.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-queued-frame-timestamp-r49.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-pending-interruption-matrix-r50.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-final-review-repairs-r51.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-onboarding-and-deadline-r52.json",
+        "planning/screen-tutor-execution/evidence/SC-2C-visible-teaching-reviewed-regression-r56.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-native-image-dispatch-progress-r57.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-native-image-dispatch-reviewed-regression-r58.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-fleet-source-authority-progress-r59.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-fleet-source-authority-reviewed-regression-r60.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-current-source-review-r61.md",
+        "planning/screen-tutor-execution/evidence/SC-2D-current-source-reviewed-regression-r62.json",
+        "planning/screen-tutor-execution/evidence/SC-2D-runtime-roundtrip-reviewed-r64.json"
+      ],
+      "blockers": [
+        "SC-2A and SC-2B acceptance gates remain open",
+        "INSTALLED_VISIBLE_JOURNEY requires correlated private picker, live answer and production highlight evidence",
+        "NOVICE_USABILITY requires consented participants and time-to-meaningful-success evidence",
+        "ACCESSIBILITY_QUALIFICATION requires real assistive-technology and OS-setting tests",
+        "INTERRUPTED_MULTI_MONITOR_JOURNEY remains open"
+      ]
+    },
+    "SC-2E": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-2F": {
+      "status": "LOCAL_SUBMISSION_VERIFICATION_CORE_REVIEWED_NATIVE_CONTENT_HUMAN_LIFECYCLE_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-2F-human-core-progress-r53.json",
+        "planning/screen-tutor-execution/evidence/SC-2F-human-core-review-and-regression-r54.json",
+        "planning/screen-tutor-execution/evidence/SC-2C-visible-teaching-reviewed-regression-r56.json",
+        "planning/screen-tutor-execution/evidence/SC-2F-project-directory-progress-r63.json",
+        "planning/screen-tutor-execution/evidence/SC-2F-native-practice-progress-r65.json",
+        "planning/screen-tutor-execution/evidence/SAFE_STOP_r66.json"
+      ],
+      "blockers": [
+        "Host restart/key/head recovery and durable verdict projection",
+        "Native upload/submission/assessment UX and actual spreadsheet/code/subjective verifier families",
+        "Real content/learner/accessible/device qualification and dependency SC-2B/2C/7A acceptance",
+        "Appeals/correction/export/deletion and consent/institution/retention/rights lifecycle"
+      ]
+    },
+    "SC-2G": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-3": {
+      "status": "LOCAL_AND_NATIVE_OFFLINE_CONTROL_PARTIAL_REVIEWED_PROVIDER_CONTENT_HUMAN_AND_LIVE_DEVICE_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-3.json"
+      ],
+      "blockers": [
+        "SC-1B and SC-2B acceptance gates remain open",
+        "REALTIME_PROVIDER_QUALIFICATION requires an explicitly authorized provider/model, pricing and spend budget",
+        "LIVE_AUDIO_DEVICE_QUALIFICATION requires consented physical microphone/headset/speaker and echo/background-speech tests",
+        "AUTHENTICATED_COMPANION_INTEGRATION must connect the state contract to the owned visible companion and existing provider gateway",
+        "CONTENT_HUMAN_ACCESSIBILITY_QUALIFICATION remains open"
+      ]
+    },
+    "SC-3A": {
+      "status": "LOCAL_AND_NATIVE_OFFLINE_LOCALE_RESILIENCE_PARTIAL_REVIEWED_DEPENDENCY_PROVIDER_CONTENT_HUMAN_DEVICE_AND_ACCESSIBILITY_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-3A.json"
+      ],
+      "blockers": [
+        "SC-3 and SC-2D acceptance gates remain open",
+        "PROVIDER_LOCALE_QUALIFICATION requires an authorized speech provider/model, frozen accent/code-switch corpus, pricing and spend budget",
+        "CONTENT_REVIEW requires an independent reviewer bound to the exact glossary and translation digest",
+        "HUMAN_COMPREHENSION_AND_ACCESSIBILITY requires consented participants and assistive-technology journeys per claimed locale",
+        "LIVE_DEVICE_AND_ACOUSTIC_QUALIFICATION requires physical microphone/headset/speaker, background speech, echo, reconnect and disallowed-switch evidence"
+      ]
+    },
+    "SC-4": {
+      "status": "LOCAL_AND_NATIVE_SYNTHETIC_TEMPORAL_TRANSFER_PARTIAL_REVIEWED_DEPENDENCY_PROVIDER_CONTENT_AND_REAL_JOURNEY_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-4.json"
+      ],
+      "blockers": [
+        "SC-2A, SC-2B, SC-3 and SC-4A acceptance gates remain open",
+        "PROVIDER_MEDIA_QUALIFICATION requires an explicitly authorized provider/model, pricing, spend budget and frozen held-out media set",
+        "CONTENT_REVIEW requires independent review and qualification of the exact candidate pack and explanations",
+        "REAL_NATIVE_APP_TRANSFER_JOURNEY requires a consented visible private-source-to-current-app-to-safe-practice run",
+        "HUMAN_LEARNING_EVALUATION remains separately open"
+      ]
+    },
+    "SC-4A": {
+      "status": "LOCAL_SYNTHETIC_MEDIA_INDEX_PARTIAL_REVIEWED_DEPENDENCY_PROVIDER_AND_LIVE_MEDIA_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-4A.json"
+      ],
+      "blockers": [
+        "SC-1B and SC-1C acceptance gates remain open",
+        "PROVIDER_AUDIOVISUAL_QUALIFICATION requires an explicitly authorized provider/model, pricing and spend budget",
+        "LIVE_MEDIA_SOURCE_QUALIFICATION requires real external URL/upload/current-screen sources with exact rights and retrieved-byte evidence",
+        "CONTENT_REVIEW requires independent review of frozen real-media explanations and modality labels"
+      ]
+    },
+    "SC-5A": {
+      "status": "LOCAL_AND_NATIVE_SYNTHETIC_SCOPED_CONTEXT_PARTIAL_REVIEWED_DEPENDENCY_VENDOR_AND_REAL_JOURNEY_BLOCKED",
+      "accepted": false,
+      "evidence": [
+        "planning/screen-tutor-execution/evidence/SC-5A.json"
+      ],
+      "blockers": [
+        "SC-1C independent content qualification remains open",
+        "REAL_CONNECTOR_REVOCATION_AND_DELETION requires authorized connector accounts and correlated derivative-cache evidence",
+        "OPTIONAL_HIGHLIGHT_ADAPTER remains absent because current public sources did not establish a supported commercial private-context embedding contract",
+        "REAL_NATIVE_CONTEXT_JOURNEY requires a consented visible private-source picker, account-switch and accessibility run"
+      ]
+    },
+    "SC-5B": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-5C": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-5D": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-5E": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-5F": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-5G": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-6": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-6A": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-7A": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-7B": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-7C": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-7D": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-8A": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-8B": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-8C": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-8D": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-9A": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    },
+    "SC-9B": {
+      "status": "NOT_STARTED",
+      "accepted": false,
+      "evidence": [],
+      "blockers": []
+    }
+  },
+  "retained_program": {
+    "status": "REVALIDATE_CURRENT_ACCEPTANCE",
+    "accepted": false
+  },
+  "blockers": [
+    {
+      "gate": "PROVIDER_QUALIFIED",
+      "detail": "No provider key configured on this host",
+      "action": "Obtain explicit provider route and budget before live provider tests"
+    },
+    {
+      "gate": "NATIVE_RELEASE_QUALIFIED",
+      "detail": "SC-1A has a real test-owned Windows-source witness, but the private picker journey, OS permission UI, signed installer and supported driver/device matrix are not yet qualified",
+      "action": "Complete the owning native qualification and release packets before any deployment claim"
+    },
+    {
+      "gate": "CONTENT_REVIEW",
+      "detail": "SC-1C's reporting pack passed synthetic fixture validation but has no real independent subject-matter review",
+      "action": "Review and qualify the exact immutable pack digest before assignment"
+    },
+    {
+      "gate": "HUMAN_AND_NATIVE",
+      "detail": "SC-2B T040 requires a real accessible native assessment with human participants",
+      "action": "Run the authorized accessible assessment protocol before claiming qualified independence with assistive technology"
+    },
+    {
+      "gate": "GROUNDING_QUALIFICATION",
+      "detail": "SC-2A has local and partial native synthetic transform, parser and stale-suppression evidence; it has no visible production overlay, real application-family accuracy matrix or qualified visual adapter",
+      "action": "Complete native presentation and frozen grounding qualification before accepting SC-2A or claiming precise real-app guidance"
+    },
+    {
+      "gate": "SAFE_PRACTICE_QUALIFICATION",
+      "detail": "SC-2C has local and native synthetic canvas/practice evidence but is not bound to a qualified assignment, authenticated visible companion flow or human real-app T045 run",
+      "action": "Complete qualified-pack binding, companion integration, subjective review where applicable and the consented native no-change protocol before accepting SC-2C"
+    },
+    {
+      "gate": "AUDIO_QUALIFICATION",
+      "detail": "SC-3 depends on the unaccepted SC-1B provider route and SC-2B content/human qualification; no microphone or realtime provider route is authorized",
+      "action": "Continue bounded offline audio-control work; require explicit device, provider and budget authorization before live audio tests"
+    },
+    {
+      "gate": "LOCALE_ACCESSIBILITY_QUALIFICATION",
+      "detail": "SC-3A has local/native offline locale, caption, fallback and device-generation mechanics, but no locale is qualified and every matrix measurement is NOT_RUN",
+      "action": "Run separately authorized provider, content-review, human-comprehension, physical-device and assistive-technology protocols for each claimed locale/device"
+    },
+    {
+      "gate": "MEDIA_INDEX_QUALIFICATION",
+      "detail": "SC-4A has reviewed local synthetic index mechanics but depends on unaccepted SC-1B provider and SC-1C content qualification; no external media fetch, decoder or audiovisual provider route is authorized",
+      "action": "Require exact source rights, retrieved-byte, provider budget, timeline correlation and independent content review before live media qualification"
+    },
+    {
+      "gate": "MEDIA_TUTORING_QUALIFICATION",
+      "detail": "SC-4 has reviewed local/native synthetic timestamp, modality, semantic-transfer and playback-intent mechanics but depends on unaccepted SC-2A, SC-2B, SC-3 and SC-4A; no real native app-transfer journey, provider route or reviewed held-out media set is qualified",
+      "action": "Require correlated real native, provider, content-review and human-learning evidence before acceptance"
+    },
+    {
+      "gate": "SCOPED_CONTEXT_QUALIFICATION",
+      "detail": "SC-5A has reviewed local/native synthetic mechanics and an evidence-dated Highlight decision, but SC-1C content review, real connector revocation/deletion and a visible installed private-source journey remain open",
+      "action": "Require correlated content, connector and native evidence before accepting SC-5A; reconsider Highlight only under a supported commercial integration contract"
+    }
+  ],
+  "cross_product_progress": [
+    "planning/screen-tutor-execution/evidence/FLEET-UI-gap-progress-r47.json",
+    "planning/screen-tutor-execution/evidence/FLEET-UI-review-focus-r51.json"
+  ]
+}

@@ -1,0 +1,12 @@
+# Fleet interface gap repairs
+
+Execute inline under the existing owner mandate to finish both products. Preserve authored frontend tests; source `ui.html` is clean before this batch. No implementer delegation. Do not infer provider, user-study or release acceptance from this local package.
+
+1. Keep the selected expert for the four per-expert palette shortcuts, using the existing `openAgentAction` boundary. Preserve the agent roster action and explicit choose-agent behavior when no expert is selected.
+2. Make existing dialogs named modal dialogs: move focus inside on opening/step replacement, prevent background keyboard interaction, trap Tab/Shift+Tab, close with Escape and restore invoking focus. Preserve cancellation and form submissions; never submit a dialog as a test.
+3. Surface procedure-read failures with a retry control and suppress responses for a replaced expert/element. Show the course-based creation lane without claiming a fresh zero-course expert is trained. Describe completion/independent review/evidence as conditional rather than universal observed facts.
+4. Reproduce the browser RED cases on test-owned loopback experts, then verify real keyboard shortcuts, dialog traversal/escape/reopening, missing-expert GET error/retry and zero-course labels. Run affected existing frontend/UX/UI/layer tests and source parsing. Preserve source/log/browser hashes and earlier failed or unexercised setup attempts. Combined package review and a final current frozen whole suite remain pending after all repairs.
+
+RED observed: graph shortcut from beta navigates to roster and clears selected expert; dialog has no role/modal name and focus stays behind it through real Tab; fresh zero-course experts render TRAINED; real missing-expert GET error becomes visible 'nothing compiled yet'. Missing-expert selection is a controlled frontend fixture input, restored in finally, not a real expert deletion. A Windows partial folder-move fixture failed; its files were restored and server stopped, and that attempt is excluded. Two stale snapshot clicks and an unsupported browser filePath are excluded.
+
+Owned paths: ui.html; additive regression assertions in tests/test_frontend.py; this plan and coordinator evidence. No execution/policy/provider/permission changes. Existing 183-script normal campaign is the earlier receiver candidate (177 passed, 6 explicit skips, 0 failed; 963 frozen files unchanged), not proof of this new UI source. Native joined Pause/Resume receipt46 remains separate.

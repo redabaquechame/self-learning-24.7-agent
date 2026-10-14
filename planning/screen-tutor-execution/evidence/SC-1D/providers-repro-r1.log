@@ -1,0 +1,10 @@
+[transaction] concurrent public add + set_role preserve both edits and all original settings
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_providers.py", line 499, in <module>
+    main()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_providers.py", line 320, in main
+    interrupted_saves(sb)
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_providers.py", line 283, in interrupted_saves
+    assert os.path.dirname(src) == sb and dst == path, "temp must share destination directory"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: temp must share destination directory

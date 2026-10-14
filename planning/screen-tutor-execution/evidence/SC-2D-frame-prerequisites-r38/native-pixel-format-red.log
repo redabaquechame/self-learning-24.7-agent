@@ -1,0 +1,27 @@
+[transport] every signed field, strict JSON, Unicode, identity, generation, bounds and explicit clock conversion checked
+[transport handshake] mutual challenge, reflected peer, replay, sequence gaps and bounded history checked
+[transport] closed nested request/instruction schemas checked without treating wire identity as authority
+[transport operations] sender role, exact pending reply, one reply and stale cancellation generation checked
+[transport] genuinely signed numeric overflow and deep lesson records refused
+[transport expiry] bounded128 pending requests recover at expiry; replies cannot extend request lifetime
+[transport authorization] exact schema, finite15-minute lifetime and no minted grant checked
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_transport.py", line 261, in encode_message
+    _shape(envelope)
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_transport.py", line 249, in _shape
+    _frame_shape(body['frame_reference'], body['observation'])
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_transport.py", line 183, in _frame_shape
+    raise TransportRefusal('invalid exact BGRA frame length')
+tutor_transport.TransportRefusal: invalid exact BGRA frame length
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 355, in <module>
+    check_nested_values()
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tests\test_tutor_transport.py", line 295, in check_nested_values
+    for message in valid: wire.encode_message(key, message)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\redab\OneDrive\Bureau\self learning 24.7 agent\screen-tutor-build\tutor_transport.py", line 269, in encode_message
+    raise TransportRefusal('invalid bridge message') from error
+tutor_transport.TransportRefusal: invalid bridge message

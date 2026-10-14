@@ -1,0 +1,3 @@
+[baseline-lock] 12 protected source files match the reviewed SC-1B lock; a byte change fails it, an active mutation command is detected, and an unavailable process query remains UNKNOWN
+[feature-off] existing context, mission, authority, computer-use, and mastery modules load and queue a criterion-bound action with zero process starts, network requests, model calls, or native imports
+PASS test_tutor_feature_off

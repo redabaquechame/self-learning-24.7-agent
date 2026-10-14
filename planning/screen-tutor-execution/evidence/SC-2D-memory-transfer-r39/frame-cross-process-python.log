@@ -1,0 +1,3 @@
+[native image] exact PNG dimensions/CRC/channel order/premultiplied alpha and cancellation checked
+[frame memory] actual native mapping decrypted once with exact digest and converted to PNG
+PASS test_tutor_frames

@@ -1,0 +1,40 @@
+{
+  "schema": "native-host-handshake-progress/1",
+  "recorded_at_utc": "2026-10-13T08:36:40.523292+00:00",
+  "accepted": false,
+  "status": "TASK2_PARTIAL_LOCAL_PEER_STATE_VERIFIED",
+  "source_head": "160fa4bcb09f63680189a305664bb7cd37c8158a",
+  "source_hashes": {
+    "tutor_transport.py": "4f60f7a0bf32b71669906aceca7978fe5ae3e61bb261aad5fa4515f2db4327ca",
+    "tests/test_tutor_transport.py": "d7bf2451b5a0561d83d736f887380d95b1efa8cff539875c0aab790d6439cff7",
+    "companion/windows/ScreenTutor/BridgePeer.cs": "6e702d33aae26838cdc27b5cdf56167d656d91a0a2372db1e04b86108eb09fd4",
+    "tests/native/ScreenTutor.ContractTests/Program.cs": "f38fae06bcc1dd137cfb251fef1e70c1a17607c3649b06191c35bc399231d5a2",
+    "tests/native/ScreenTutor.ContractTests/ScreenTutor.ContractTests.csproj": "105b4a896d4a951da3e016ceb22230b8eb640edf791e99de70344ca43f365e61",
+    "tests/fixtures/tutor_bridge_lessons_v1.json": "d7dd497c40e4f44f2e420f852be4f40fca2db221de1cfabdd71491b8ea0c2462"
+  },
+  "logs": {
+    "native-handshake-red.log": "e514acd9951c9da89f917ada1975beab2f4bb8db63ce0b115e6e196ab103e2d1",
+    "native-handshake-green-build.log": "b73e4e4692e1b12102c79e937c1db2bf4686389c6b06ffd08f328d9895d46a6c",
+    "native-handshake-green.log": "70fc44fc38d41e3744ef889a0d66b9f754b635768f99d7d6f6e91be1b609073f",
+    "operation-binding-red.log": "c4ea968ad12a2d6f35d2037ea8d89fc952d8614c1dc86a9bd9015c85c3f36ddb",
+    "operation-binding-green.log": "4b6a0e5a73776432ced566d8346953b78d4143814832443925012f99189090c8",
+    "native-operations-red.log": "aa1806f43e5c117b82fc4d54b04cd6deb1d242e5270e0da3938cc514ec854da2",
+    "native-operations-green-build.log": "4dbb39aaf0542438b4710f3c31bc0cfb1591afd3eeabe652cfed5e9f100c401e",
+    "native-operations-green.log": "70fc44fc38d41e3744ef889a0d66b9f754b635768f99d7d6f6e91be1b609073f",
+    "cancel-continuation-red.log": "38e5a6aa23275b9f378b1df8db27dab2f4e2b64cace11f1c00e62a51ec9915e4",
+    "cancel-continuation-green.log": "4b6a0e5a73776432ced566d8346953b78d4143814832443925012f99189090c8",
+    "native-cancel-continuation-red.log": "2a8ff800ae830a8ef41d314946208a23f127ebc3d1ea83feca72929ed64264d7",
+    "native-cancel-continuation-green-build.log": "973a3aa13b95ee8755a15649b73178ed4208a9ea78cd67ca4bf26e4ca13ceb3e",
+    "native-cancel-continuation-green.log": "70fc44fc38d41e3744ef889a0d66b9f754b635768f99d7d6f6e91be1b609073f"
+  },
+  "remaining": [
+    "bind actual OwnerBridge operational flow to mutual BridgePeer state",
+    "pending reply expiry/capacity and remaining complete nested schemas",
+    "cross-runtime numeric/deep/oversized/current deadlines during blocked IO",
+    "actual Python/native launch and handshake/frame/Ask/presentation",
+    "one final package review/frozen full campaign",
+    "all original native/provider/content/human/full buyer-release gates"
+  ],
+  "live_provider_private_capture_release": false,
+  "full_candidate_retested": false
+}
